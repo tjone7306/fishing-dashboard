@@ -2,598 +2,471 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Phoenix Lakes – Daily Fishing Dashboard</title>
-<meta name="description" content="Daily water levels, water temps, weather, moon phase, solunar times, stocking info, rules, launch-ramp status, lure cheat-sheet, and a local catch log for Lake Pleasant, Roosevelt, Apache, Canyon, Saguaro, Horseshoe, and Bartlett." />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0a1420" />
+<title>Phoenix Lakes — Daily Fishing Dashboard</title>
+<meta name="description" content="Daily water levels, weather, moon, solunar, stocking, rules, and launch-ramp status for Lake Pleasant, Roosevelt, Apache, Canyon, Saguaro, Horseshoe, and Bartlett." />
 <style>
   :root{
-    --bg:#0b1c2c;
-    --bg-2:#12304a;
-    --card:#0f2236;
-    --card-2:#14304b;
-    --accent:#4fc3f7;
-    --accent-2:#ffd166;
-    --text:#eef5fb;
-    --muted:#9db6cc;
-    --good:#56c271;
-    --warn:#ffb454;
-    --bad:#ef6b6b;
-    --border:rgba(255,255,255,0.08);
+    --bg:#0a1420;
+    --surface:#13202e;
+    --surface-2:#18293a;
+    --border:rgba(255,255,255,.08);
+    --text:#eaf1f8;
+    --muted:#8ea6be;
+    --accent:#5eb4e7;
+    --good:#4fc27a;
+    --warn:#f5b44c;
+    --bad:#e96464;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg) 0%,#081625 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;font-size:16px;-webkit-font-smoothing:antialiased}
   a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1200px;margin:0 auto;padding:24px 20px 100px}
-  header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--border);margin-bottom:24px}
-  header h1{margin:0;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:.3px}
-  header .sub{color:var(--muted);font-size:.95rem}
-  .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(79,195,247,.15);color:var(--accent);font-size:.8rem;border:1px solid rgba(79,195,247,.3)}
-  h2{font-size:1.15rem;margin:0 0 12px;letter-spacing:.3px}
-  .grid{display:grid;gap:16px}
-  @media(min-width:760px){.grid.cols-2{grid-template-columns:repeat(2,1fr)}.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-4{grid-template-columns:repeat(4,1fr)}}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 18px 16px;box-shadow:0 4px 20px rgba(0,0,0,.25)}
-  .card h3{margin:0 0 6px;font-size:1.05rem}
-  .metric{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.07);gap:12px}
-  .metric:last-child{border-bottom:0}
-  .metric .k{color:var(--muted);font-size:.9rem}
-  .metric .v{font-weight:600;font-size:1rem}
-  .pct{display:inline-block;font-size:1.9rem;font-weight:700;color:var(--accent)}
+  a:hover,a:focus{text-decoration:underline}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 64px}
+  /* header */
+  header{margin-bottom:20px}
+  header h1{margin:0 0 4px;font-size:1.5rem;font-weight:700;letter-spacing:-.2px}
+  header .sub{color:var(--muted);font-size:.95rem;margin-bottom:10px}
+  header .date{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(94,180,231,.12);color:var(--accent);font-size:.82rem;border:1px solid rgba(94,180,231,.25)}
+  /* section headings */
+  h2{font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:600;margin:28px 0 10px}
+  h2:first-of-type{margin-top:20px}
+  /* cards */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .card + .card{margin-top:12px}
+  .card h3{margin:0 0 8px;font-size:1.05rem;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .card-sub{color:var(--muted);font-size:.85rem;margin:-4px 0 10px}
+  /* grid */
+  .grid{display:grid;gap:12px}
+  @media(min-width:720px){
+    .wrap{padding:28px 24px 80px}
+    header h1{font-size:1.75rem}
+    .grid.cols-2{grid-template-columns:1fr 1fr;gap:16px}
+    .card{padding:20px}
+  }
+  /* metric rows */
+  .row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);gap:12px;min-height:38px}
+  .row:last-child{border-bottom:0}
+  .row .k{color:var(--muted);font-size:.9rem}
+  .row .v{font-weight:600;font-size:.98rem;text-align:right;font-variant-numeric:tabular-nums}
+  /* pills */
+  .pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.76rem;font-weight:600;white-space:nowrap;letter-spacing:.2px}
+  .pill.ok{background:rgba(79,194,122,.14);color:var(--good);border:1px solid rgba(79,194,122,.35)}
+  .pill.mid{background:rgba(245,180,76,.14);color:var(--warn);border:1px solid rgba(245,180,76,.35)}
+  .pill.low{background:rgba(233,100,100,.14);color:var(--bad);border:1px solid rgba(233,100,100,.4)}
+  .pill.na{background:rgba(142,166,190,.12);color:var(--muted);border:1px solid rgba(142,166,190,.28)}
+  /* progress bar */
+  .bar{height:6px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;margin:10px 0 4px}
+  .bar > i{display:block;height:100%;background:var(--accent);border-radius:999px}
+  .bar > i.good{background:var(--good)}
+  .bar > i.warn{background:var(--warn)}
+  .bar > i.bad{background:var(--bad)}
+  /* snapshot list (mobile replaces table) */
+  .snap{display:grid;gap:10px}
+  .snap-row{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center}
+  .snap-row .name{font-weight:600;font-size:.98rem}
+  .snap-row .pct{font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums}
+  .snap-row .meta{grid-column:1 / -1;color:var(--muted);font-size:.82rem;display:flex;gap:14px;flex-wrap:wrap}
+  .snap-row .meta span{white-space:nowrap}
+  .pct.good{color:var(--good)}
   .pct.warn{color:var(--warn)}
   .pct.bad{color:var(--bad)}
   .pct.na{color:var(--muted)}
-  .lake-sub{color:var(--muted);font-size:.85rem;margin-top:2px}
-  .bar{height:8px;background:rgba(255,255,255,.07);border-radius:999px;overflow:hidden;margin:8px 0 10px}
-  .bar > i{display:block;height:100%;background:linear-gradient(90deg,#4fc3f7,#56c271);border-radius:999px}
-  .bar > i.warn{background:linear-gradient(90deg,#ffd166,#ffb454)}
-  .bar > i.bad{background:linear-gradient(90deg,#ef6b6b,#c0392b)}
-  .tip{background:rgba(255,209,102,.08);border:1px solid rgba(255,209,102,.25);border-radius:10px;padding:10px 12px;margin-top:10px;color:#fff2c7;font-size:.92rem}
-  table{width:100%;border-collapse:collapse;margin-top:4px}
-  th,td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--border);font-size:.93rem}
-  th{color:var(--muted);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.5px}
-  tr:last-child td{border-bottom:0}
-  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
-  .pill{display:inline-block;padding:3px 9px;border-radius:999px;font-size:.78rem;margin-right:4px;white-space:nowrap}
-  .pill.ok{background:rgba(86,194,113,.15);color:var(--good);border:1px solid rgba(86,194,113,.35)}
-  .pill.mid{background:rgba(255,180,84,.15);color:var(--warn);border:1px solid rgba(255,180,84,.35)}
-  .pill.low{background:rgba(239,107,107,.15);color:var(--bad);border:1px solid rgba(239,107,107,.4)}
-  .pill.na{background:rgba(157,182,204,.12);color:var(--muted);border:1px solid rgba(157,182,204,.3)}
-  .note{color:var(--muted);font-size:.82rem;margin-top:8px}
-  .moon{display:flex;align-items:center;gap:14px}
-  .moon .disc{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 85% 50%,#f6efd3 0 5%, #24303d 6% 100%);box-shadow:inset -10px -6px 18px rgba(0,0,0,.55)}
-  .times li{margin:4px 0}
-  .split{display:flex;gap:14px;flex-wrap:wrap}
-  .split > div{flex:1;min-width:140px}
-  .row{display:flex;gap:10px;flex-wrap:wrap}
-  .row > *{flex:1}
-  select,input,button,textarea{background:var(--bg-2);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:.95rem;font-family:inherit}
-  input::placeholder,textarea::placeholder{color:rgba(157,182,204,.7)}
-  button{cursor:pointer;background:var(--accent);color:#06283e;font-weight:600;border:0}
-  button:hover{filter:brightness(1.1)}
-  button.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
-  .hourly{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px}
-  .hourly .h{min-width:70px;text-align:center;padding:8px 6px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;font-size:.82rem}
-  .hourly .h b{display:block;color:var(--accent);font-size:1rem;margin-top:2px}
-  footer{margin-top:30px;color:var(--muted);font-size:.85rem;text-align:center}
-  footer a{margin:0 4px}
-  details{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-top:8px}
-  details summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:.92rem}
-  details[open] summary{margin-bottom:6px}
-  .arrow-up{color:var(--good)}
-  .arrow-down{color:var(--bad)}
-  .arrow-flat{color:var(--muted)}
-  .catch-entry{padding:10px;border-left:3px solid var(--accent);margin:6px 0;background:rgba(79,195,247,.06);border-radius:0 8px 8px 0;font-size:.9rem}
-  .catch-entry .meta{color:var(--muted);font-size:.8rem;margin-top:2px}
-  .sea{font-size:.92rem}
-  .sea b{color:var(--accent-2)}
-  label.k{display:block;margin-bottom:4px}
+  /* hourly scroll */
+  .hourly{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin:0 -4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .hourly::-webkit-scrollbar{height:4px}
+  .hourly::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px}
+  .hourly .h{min-width:68px;flex:0 0 auto;text-align:center;padding:10px 6px;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;font-size:.78rem;color:var(--muted);scroll-snap-align:start}
+  .hourly .h b{display:block;color:var(--text);font-size:1rem;margin:3px 0;font-weight:600}
+  .hourly .h .wind{font-size:.74rem}
+  /* moon */
+  .moon{display:flex;align-items:center;gap:16px}
+  .moon .disc{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 88% 50%,#f0e8c8 0 6%,#1e2a36 7% 100%);flex-shrink:0;box-shadow:inset -8px -4px 16px rgba(0,0,0,.6)}
+  .moon .moon-info{flex:1;min-width:0}
+  .moon .phase{font-weight:600;font-size:1rem;margin-bottom:2px}
+  .moon .meta{color:var(--muted);font-size:.85rem}
+  .times{list-style:none;padding:0;margin:14px 0 0}
+  .times li{padding:6px 0;border-top:1px solid rgba(255,255,255,.05);font-size:.92rem}
+  .times li:first-child{border-top:0}
+  .times li b{color:var(--accent);font-weight:600;margin-right:6px}
+  /* tip */
+  .tip{background:rgba(245,180,76,.06);border-left:3px solid var(--warn);padding:10px 12px;border-radius:0 8px 8px 0;margin-top:12px;color:#f5e2b8;font-size:.9rem;line-height:1.5}
+  .tip b{color:var(--warn)}
+  .note{color:var(--muted);font-size:.82rem;margin-top:10px;line-height:1.5}
+  /* lure selector */
+  .lure{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px}
+  @media(min-width:520px){.lure{grid-template-columns:1fr 1fr 1fr}}
+  .lure label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+  .lure select{width:100%;background:var(--surface-2);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:.95rem;font-family:inherit;min-height:44px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238ea6be' d='M6 9L1 3.5h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
+  .lure-out{margin-top:12px;padding:12px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;font-size:.95rem;line-height:1.6}
+  .lure-out b{color:var(--accent)}
+  /* source links */
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .links a{display:inline-flex;align-items:center;padding:8px 12px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;font-size:.88rem;min-height:38px;color:var(--text);text-decoration:none}
+  .links a:hover,.links a:focus{border-color:var(--accent);color:var(--accent);text-decoration:none}
+  .links a::after{content:" ↗";color:var(--muted);margin-left:4px;font-size:.82rem}
+  .links a:hover::after,.links a:focus::after{color:var(--accent)}
+  /* footer */
+  footer{margin-top:36px;padding-top:20px;border-top:1px solid var(--border);color:var(--muted);font-size:.82rem;text-align:center;line-height:1.7}
+  footer a{color:var(--muted);text-decoration:underline;text-decoration-color:rgba(142,166,190,.3)}
+  footer a:hover,footer a:focus{color:var(--accent);text-decoration-color:var(--accent)}
+  /* utility */
+  .kv{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
+  .kv > div{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.92rem}
+  .kv > div:last-child,.kv > div:nth-last-child(2){border-bottom:0}
+  .kv .k{color:var(--muted)}
+  .kv .v{font-weight:600;font-variant-numeric:tabular-nums}
+  @media(max-width:480px){
+    .kv{grid-template-columns:1fr}
+    .kv > div{border-bottom:1px solid rgba(255,255,255,.04)}
+    .kv > div:last-child{border-bottom:0}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <div>
-      <h1>🎣 Phoenix Lakes – Daily Fishing Dashboard</h1>
-      <div class="sub">Lake Pleasant · Roosevelt · Apache · Canyon · Saguaro · Horseshoe · Bartlett</div>
-    </div>
-    <div>
-      <span class="badge" id="date-badge">Saturday, April 18, 2026</span>
-    </div>
+    <h1>Phoenix Lakes — Fishing Dashboard</h1>
+    <div class="sub">Pleasant · Roosevelt · Apache · Canyon · Saguaro · Horseshoe · Bartlett</div>
+    <span class="date" id="date-badge">Saturday, April 18, 2026</span>
   </header>
 
-  <!-- QUICK SNAPSHOT TABLE -->
-  <section class="card" style="margin-bottom:20px">
-    <h2>Quick Snapshot — All 7 Lakes</h2>
-    <div style="overflow-x:auto">
-      <table>
-        <thead>
-          <tr>
-            <th>Lake</th>
-            <th class="num">% Full</th>
-            <th class="num">Elev (ft)</th>
-            <th class="num">Ft Below Full</th>
-            <th class="num">Storage (AF)</th>
-            <th>7-Day Trend</th>
-            <th>Water Temp</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Lake Pleasant</td><td class="num">NA</td><td class="num">NA</td><td class="num">NA</td><td class="num">NA</td><td><span class="arrow-flat">→ NA</span></td><td>NA</td></tr>
-          <tr><td>Roosevelt</td><td class="num">46%</td><td class="num">2,100.19</td><td class="num">50.81</td><td class="num">752,924</td><td><span class="arrow-flat">→ check source</span></td><td>NA</td></tr>
-          <tr><td>Apache</td><td class="num">92%</td><td class="num">1,906.20</td><td class="num">7.80</td><td class="num">224,886</td><td><span class="arrow-flat">→ check source</span></td><td>NA</td></tr>
-          <tr><td>Canyon</td><td class="num">95%</td><td class="num">1,657.34</td><td class="num">3.16</td><td class="num">54,879</td><td><span class="arrow-flat">→ check source</span></td><td>NA</td></tr>
-          <tr><td>Saguaro</td><td class="num">95%</td><td class="num">1,526.21</td><td class="num">2.79</td><td class="num">66,296</td><td><span class="arrow-flat">→ check source</span></td><td>NA</td></tr>
-          <tr><td>Horseshoe</td><td class="num">52%</td><td class="num">2,003.33</td><td class="num">22.67</td><td class="num">56,660</td><td><span class="arrow-flat">→ check source</span></td><td>NA</td></tr>
-          <tr><td>Bartlett</td><td class="num">70%</td><td class="num">1,776.17</td><td class="num">21.83</td><td class="num">123,943</td><td><span class="arrow-flat">→ check source</span></td><td>NA</td></tr>
-        </tbody>
-      </table>
+  <!-- SNAPSHOT -->
+  <h2>Quick Snapshot</h2>
+  <div class="snap">
+    <div class="snap-row">
+      <div class="name">Lake Pleasant</div>
+      <div class="pct na">NA</div>
+      <div class="meta"><span>Elev NA</span><span>Below full NA</span><span>Trend —</span></div>
     </div>
-    <div class="note"><b>Feet Below Full</b> = your boat-graph offset. Enter this number in your graph so charted depths match reality. Sources: SRP/DWR Streamflow &amp; CAP.</div>
-  </section>
+    <div class="snap-row">
+      <div class="name">Roosevelt <span class="pill low">Low</span></div>
+      <div class="pct bad">46%</div>
+      <div class="meta"><span>Elev 2,100.19 ft</span><span>Below full 50.81 ft</span><span>Storage 752,924 AF</span></div>
+    </div>
+    <div class="snap-row">
+      <div class="name">Apache <span class="pill ok">Near full</span></div>
+      <div class="pct good">92%</div>
+      <div class="meta"><span>Elev 1,906.20 ft</span><span>Below full 7.80 ft</span><span>Storage 224,886 AF</span></div>
+    </div>
+    <div class="snap-row">
+      <div class="name">Canyon <span class="pill ok">Near full</span></div>
+      <div class="pct good">95%</div>
+      <div class="meta"><span>Elev 1,657.34 ft</span><span>Below full 3.16 ft</span><span>Storage 54,879 AF</span></div>
+    </div>
+    <div class="snap-row">
+      <div class="name">Saguaro <span class="pill ok">Near full</span></div>
+      <div class="pct good">95%</div>
+      <div class="meta"><span>Elev 1,526.21 ft</span><span>Below full 2.79 ft</span><span>Storage 66,296 AF</span></div>
+    </div>
+    <div class="snap-row">
+      <div class="name">Horseshoe <span class="pill mid">Mid</span></div>
+      <div class="pct warn">52%</div>
+      <div class="meta"><span>Elev 2,003.33 ft</span><span>Below full 22.67 ft</span><span>Storage 56,660 AF</span></div>
+    </div>
+    <div class="snap-row">
+      <div class="name">Bartlett <span class="pill ok">Good</span></div>
+      <div class="pct good">70%</div>
+      <div class="meta"><span>Elev 1,776.17 ft</span><span>Below full 21.83 ft</span><span>Storage 123,943 AF</span></div>
+    </div>
+  </div>
+  <div class="note"><b>Feet below full</b> = your boat-graph offset. Enter this number so charted depths match reality.</div>
 
-  <!-- CONDITIONS + FRONT -->
-  <div class="grid cols-2" style="margin-bottom:20px">
+  <!-- CONDITIONS -->
+  <h2>Phoenix Conditions</h2>
+  <div class="grid cols-2">
 
-    <section class="card">
-      <h2>🌤️ Phoenix Conditions &amp; Front Status</h2>
-      <div class="split">
-        <div>
-          <div class="metric"><span class="k">Temperature</span><span class="v">77°F (evening obs)</span></div>
-          <div class="metric"><span class="k">Barometer</span><span class="v">29.82 inHg</span></div>
-          <div class="metric"><span class="k">Wind</span><span class="v">W @ 6 mph (AM)</span></div>
-          <div class="metric"><span class="k">Cloud Cover</span><span class="v">Clear</span></div>
-        </div>
-        <div>
-          <div class="metric"><span class="k">Sunrise</span><span class="v">6:19 AM</span></div>
-          <div class="metric"><span class="k">Sunset</span><span class="v">7:41 PM</span></div>
-          <div class="metric"><span class="k">Day length</span><span class="v">13h 22m</span></div>
-          <div class="metric"><span class="k">UV index</span><span class="v">High (typical)</span></div>
-        </div>
+    <div class="card">
+      <h3>Today <span class="pill ok">Stable high</span></h3>
+      <div class="kv">
+        <div><span class="k">Temp</span><span class="v">77°F</span></div>
+        <div><span class="k">Baro</span><span class="v">29.82 inHg</span></div>
+        <div><span class="k">Wind</span><span class="v">W 6 mph</span></div>
+        <div><span class="k">Clouds</span><span class="v">Clear</span></div>
+        <div><span class="k">Sunrise</span><span class="v">6:19 AM</span></div>
+        <div><span class="k">Sunset</span><span class="v">7:41 PM</span></div>
+        <div><span class="k">Day length</span><span class="v">13h 22m</span></div>
+        <div><span class="k">UV index</span><span class="v">High</span></div>
       </div>
-      <div style="margin-top:10px">
-        <span class="pill ok">Stable high pressure</span>
-        <span class="pill mid">Post-front (day 2)</span>
-      </div>
-      <div class="note">Bluebird stable pattern → bass often deeper / slower. Fish structure, downsize baits, slow the retrieve.</div>
-    </section>
+      <div class="tip"><b>Post-front, day 2.</b> Bluebird + stable = fish deeper, slower. Downsize baits, fish structure, slow the retrieve.</div>
+    </div>
 
-    <section class="card">
-      <h2>📅 3-Day Outlook (Phoenix)</h2>
-      <div class="split">
-        <div>
-          <div class="metric"><span class="k">Tonight</span><span class="v">Clear · Low 70</span></div>
-          <div class="metric"><span class="k">Sunday</span><span class="v">Breezy · High 95 · W gusts 25</span></div>
-          <div class="metric"><span class="k">Sun Night</span><span class="v">Partly cloudy · Low 68</span></div>
-        </div>
-        <div>
-          <div class="metric"><span class="k">Monday</span><span class="v">Sunny · High 94</span></div>
-          <div class="metric"><span class="k">Tuesday</span><span class="v">Sunny · High 95</span></div>
-          <div class="metric"><span class="k">Tue Night</span><span class="v">Mostly clear · Low 62</span></div>
-        </div>
-      </div>
-      <div class="note"><b>Sunday planning note:</b> W gusts to 25 mph — hit wind-blown points / rock banks. Bass pin bait against structure in that wind. Bartlett and the Salt chain's long east-west stretches fish best.</div>
-    </section>
+    <div class="card">
+      <h3>3-Day Outlook</h3>
+      <div class="row"><span class="k">Tonight</span><span class="v">Clear · Low 70</span></div>
+      <div class="row"><span class="k">Sunday</span><span class="v">Breezy · 95 · W gusts 25</span></div>
+      <div class="row"><span class="k">Sun night</span><span class="v">Partly cloudy · 68</span></div>
+      <div class="row"><span class="k">Monday</span><span class="v">Sunny · 94</span></div>
+      <div class="row"><span class="k">Tuesday</span><span class="v">Sunny · 95</span></div>
+      <div class="row"><span class="k">Tue night</span><span class="v">Mostly clear · 62</span></div>
+      <div class="tip"><b>Sunday wind plan:</b> W gusts to 25 — hit wind-blown points and rock banks. Bartlett and Salt-chain east-west stretches fish best.</div>
+    </div>
 
   </div>
 
-  <!-- HOURLY STRIP -->
-  <section class="card" style="margin-bottom:20px">
-    <h2>⏱️ Today's Hourly Sketch (Phoenix / KPHX)</h2>
-    <div class="hourly">
-      <div class="h">6 AM<b>64°</b>Calm · glassy</div>
-      <div class="h">8 AM<b>70°</b>W 3</div>
-      <div class="h">10 AM<b>78°</b>W 5</div>
-      <div class="h">12 PM<b>84°</b>W 7</div>
-      <div class="h">2 PM<b>88°</b>W 9</div>
-      <div class="h">4 PM<b>89°</b>W 10</div>
-      <div class="h">6 PM<b>84°</b>W 7</div>
-      <div class="h">8 PM<b>76°</b>Calm</div>
+  <!-- HOURLY -->
+  <div class="card" style="margin-top:12px">
+    <h3>Today's Hourly</h3>
+    <div class="hourly" aria-label="Hourly forecast, scroll horizontally">
+      <div class="h">6 AM<b>64°</b><span class="wind">Calm</span></div>
+      <div class="h">8 AM<b>70°</b><span class="wind">W 3</span></div>
+      <div class="h">10 AM<b>78°</b><span class="wind">W 5</span></div>
+      <div class="h">12 PM<b>84°</b><span class="wind">W 7</span></div>
+      <div class="h">2 PM<b>88°</b><span class="wind">W 9</span></div>
+      <div class="h">4 PM<b>89°</b><span class="wind">W 10</span></div>
+      <div class="h">6 PM<b>84°</b><span class="wind">W 7</span></div>
+      <div class="h">8 PM<b>76°</b><span class="wind">Calm</span></div>
     </div>
-    <div class="note">Hourly values estimated from the NWS daily bracket. Tomorrow's scheduled run will pull the real hourly grid.</div>
-  </section>
+  </div>
 
-  <!-- MOON + SOLUNAR -->
-  <section class="card" style="margin-bottom:20px">
-    <h2>🌙 Moon &amp; Best Fishing Times</h2>
+  <!-- MOON -->
+  <div class="card" style="margin-top:12px">
+    <h3>Moon &amp; Solunar</h3>
     <div class="moon">
-      <div class="disc"></div>
-      <div>
-        <div><b>Waxing Crescent · 5% illuminated</b></div>
-        <div class="lake-sub">Moonrise 6:23 AM · Moonset 8:58 PM</div>
-        <div class="lake-sub">New Moon was April 16 — solunar activity still elevated.</div>
+      <div class="disc" aria-hidden="true"></div>
+      <div class="moon-info">
+        <div class="phase">Waxing Crescent · 5% illuminated</div>
+        <div class="meta">Moonrise 6:23 AM · Moonset 8:58 PM</div>
       </div>
     </div>
-    <ul class="times" style="margin-top:12px">
-      <li><b>Prime (major):</b> ~12:40 PM – 2:40 PM <span class="pill ok">Moon overhead</span></li>
-      <li><b>Prime (major):</b> ~12:45 AM – 2:45 AM <span class="pill ok">Moon underfoot</span></li>
-      <li><b>Secondary (minor):</b> Sunrise 6:00 – 7:15 AM</li>
-      <li><b>Secondary (minor):</b> Sunset 7:15 – 8:30 PM</li>
+    <ul class="times">
+      <li><b>Prime (major)</b> 12:40 – 2:40 PM · moon overhead</li>
+      <li><b>Prime (major)</b> 12:45 – 2:45 AM · moon underfoot</li>
+      <li><b>Minor</b> 6:00 – 7:15 AM · sunrise</li>
+      <li><b>Minor</b> 7:15 – 8:30 PM · sunset</li>
     </ul>
-    <div class="note">Post-new-moon periods often trigger strong feeding windows at sunrise and at the moon's zenith. Fish the transitions.</div>
-  </section>
+    <div class="note">New moon was April 16 — post-new solunar activity still elevated. Fish the transitions at sunrise and the major window around noon.</div>
+  </div>
 
-  <!-- LAKE DETAIL CARDS -->
-  <h2 style="margin:28px 0 12px">Lake Detail</h2>
+  <!-- LAKE DETAIL -->
+  <h2>Lake Detail</h2>
   <div class="grid cols-2">
 
-    <!-- LAKE PLEASANT -->
     <div class="card">
       <h3>Lake Pleasant <span class="pill na">NA</span></h3>
-      <div class="lake-sub">Full pool 1,702 ft · New Waddell Dam · Bass + stripers + whites</div>
+      <div class="card-sub">Full pool 1,702 ft · New Waddell Dam · Bass, stripers, whites</div>
       <div class="bar"><i style="width:0%"></i></div>
-      <div class="metric"><span class="k">% Full</span><span class="v">NA</span></div>
-      <div class="metric"><span class="k">Elevation</span><span class="v">NA</span></div>
-      <div class="metric"><span class="k">Ft Below Full</span><span class="v">NA</span></div>
-      <div class="metric"><span class="k">Water Temp</span><span class="v">NA</span></div>
-      <div class="metric"><span class="k">Launch ramps</span><span class="v">Scorpion Bay · 10-Lane (typ. open)</span></div>
-      <div class="metric"><span class="k">Rules quick-ref</span><span class="v">6 bass/day · 13" min</span></div>
-      <div class="tip"><b>Bass tip:</b> Fish by feel. Early chatterbait / lipless along any wind-hit shoreline in 3–8 ft. Mid-day wacky senko off main-lake points. Whites &amp; stripers: main-lake points with anchovies or silver spoons.</div>
-      <div class="note">CAP Lake Pleasant page publishes only a 12-month forecast graph — no live daily elevation. Showing NA until a real reading is available.</div>
+      <div class="row"><span class="k">% Full</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Scorpion Bay · 10-Lane</span></div>
+      <div class="row"><span class="k">Rules</span><span class="v">6 bass/day · 13" min</span></div>
+      <div class="tip"><b>Bass tip:</b> Early chatterbait or lipless along any wind-hit shoreline 3–8 ft. Mid-day wacky Senko off main-lake points. Whites &amp; stripers: main-lake points with anchovies or silver spoons.</div>
+      <div class="note">CAP publishes only a 12-month forecast graph — no live daily elevation.</div>
     </div>
 
-    <!-- ROOSEVELT -->
     <div class="card">
-      <h3>Roosevelt <span class="pill low">Low (46%)</span></h3>
-      <div class="lake-sub">Full pool ~2,151 ft · Roosevelt Dam · Largemouth + smallmouth + crappie</div>
+      <h3>Roosevelt <span class="pill low">Low — 46%</span></h3>
+      <div class="card-sub">Full pool ~2,151 ft · Roosevelt Dam · Largemouth, smallmouth, crappie</div>
       <div class="bar"><i class="bad" style="width:46%"></i></div>
-      <div class="metric"><span class="k">% Full</span><span class="v">46%</span></div>
-      <div class="metric"><span class="k">Elevation</span><span class="v">2,100.19 ft</span></div>
-      <div class="metric"><span class="k">Ft Below Full</span><span class="v">50.81 ft</span></div>
-      <div class="metric"><span class="k">Storage</span><span class="v">752,924 AF</span></div>
-      <div class="metric"><span class="k">Water Temp</span><span class="v">NA</span></div>
-      <div class="metric"><span class="k">Launch ramps</span><span class="v">Schoolhouse · Cholla (low-water OK)</span></div>
-      <div class="metric"><span class="k">Rules quick-ref</span><span class="v">Smallmouth 10"/4 · Largemouth 13"/6</span></div>
-      <div class="tip"><b>Bass tip:</b> Down ~51 ft — old banks are mud/flat. Target submerged road beds, humps, and channel swings in 15–30 ft. Football jig, green-pumpkin crawl, deep crank on long main-lake points. Crappie: brush piles in 20–35 ft with minnows.</div>
+      <div class="row"><span class="k">% Full</span><span class="v">46%</span></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">2,100.19 ft</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">50.81 ft</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">752,924 AF</span></div>
+      <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Schoolhouse · Cholla</span></div>
+      <div class="row"><span class="k">Rules</span><span class="v">Smallmouth 10"/4 · Largemouth 13"/6</span></div>
+      <div class="tip"><b>Bass tip:</b> Down ~51 ft — old banks are mud flats. Target submerged road beds, humps, channel swings in 15–30 ft. Football jig, green-pumpkin craw, deep crank on main-lake points. Crappie: brush piles in 20–35 ft with minnows.</div>
     </div>
 
-    <!-- APACHE -->
     <div class="card">
-      <h3>Apache <span class="pill ok">Near full (92%)</span></h3>
-      <div class="lake-sub">Full pool 1,914 ft · Horse Mesa Dam · Largemouth + smallmouth + yellow bass</div>
-      <div class="bar"><i style="width:92%"></i></div>
-      <div class="metric"><span class="k">% Full</span><span class="v">92%</span></div>
-      <div class="metric"><span class="k">Elevation</span><span class="v">1,906.20 ft</span></div>
-      <div class="metric"><span class="k">Ft Below Full</span><span class="v">7.80 ft</span></div>
-      <div class="metric"><span class="k">Storage</span><span class="v">224,886 AF</span></div>
-      <div class="metric"><span class="k">Water Temp</span><span class="v">NA</span></div>
-      <div class="metric"><span class="k">Launch ramps</span><span class="v">Burnt Corral · Apache Lake Marina</span></div>
-      <div class="metric"><span class="k">Rules quick-ref</span><span class="v">Smallmouth 10"/4 · Largemouth 13"/6</span></div>
-      <div class="tip"><b>Bass tip:</b> Classic steep canyon lake with bluff walls. Near-full + clear = swim a jig or ned rig along shaded bluff edges 8–20 ft. Topwater early in coves. Smallmouth on rocky points with a drop-shot.</div>
+      <h3>Apache <span class="pill ok">92%</span></h3>
+      <div class="card-sub">Full pool 1,914 ft · Horse Mesa Dam · Largemouth, smallmouth, yellow bass</div>
+      <div class="bar"><i class="good" style="width:92%"></i></div>
+      <div class="row"><span class="k">% Full</span><span class="v">92%</span></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">1,906.20 ft</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">7.80 ft</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">224,886 AF</span></div>
+      <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Burnt Corral · Apache Lake Marina</span></div>
+      <div class="row"><span class="k">Rules</span><span class="v">Smallmouth 10"/4 · Largemouth 13"/6</span></div>
+      <div class="tip"><b>Bass tip:</b> Classic steep canyon lake with bluff walls. Near-full + clear = swim a jig or Ned rig along shaded bluff edges 8–20 ft. Topwater early in coves. Smallmouth on rocky points with a drop-shot.</div>
     </div>
 
-    <!-- CANYON -->
     <div class="card">
-      <h3>Canyon <span class="pill ok">Near full (95%)</span></h3>
-      <div class="lake-sub">Full pool 1,660 ft · Mormon Flat Dam · Walleye + largemouth + rainbow trout stocked</div>
-      <div class="bar"><i style="width:95%"></i></div>
-      <div class="metric"><span class="k">% Full</span><span class="v">95%</span></div>
-      <div class="metric"><span class="k">Elevation</span><span class="v">1,657.34 ft</span></div>
-      <div class="metric"><span class="k">Ft Below Full</span><span class="v">3.16 ft</span></div>
-      <div class="metric"><span class="k">Storage</span><span class="v">54,879 AF</span></div>
-      <div class="metric"><span class="k">Water Temp</span><span class="v">NA</span></div>
-      <div class="metric"><span class="k">Launch ramps</span><span class="v">Palo Verde · Boulder Recreation</span></div>
-      <div class="metric"><span class="k">Rules quick-ref</span><span class="v">Walleye 15"/2 · Largemouth 13"/6</span></div>
-      <div class="tip"><b>Bass tip:</b> Deepest of the Salt chain. Small and steep — pressured but fertile. Ned rig, small jig, finesse worm on shaded walls. Walleye at first/last light on rocky points in 10–25 ft with jerkbaits or bottom-bouncer + worm.</div>
+      <h3>Canyon <span class="pill ok">95%</span></h3>
+      <div class="card-sub">Full pool 1,660 ft · Mormon Flat Dam · Walleye, largemouth, stocked rainbow trout</div>
+      <div class="bar"><i class="good" style="width:95%"></i></div>
+      <div class="row"><span class="k">% Full</span><span class="v">95%</span></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">1,657.34 ft</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">3.16 ft</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">54,879 AF</span></div>
+      <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Palo Verde · Boulder Rec</span></div>
+      <div class="row"><span class="k">Rules</span><span class="v">Walleye 15"/2 · Largemouth 13"/6</span></div>
+      <div class="tip"><b>Bass tip:</b> Deepest of the Salt chain. Small and steep — pressured but fertile. Ned rig, small jig, finesse worm on shaded walls. Walleye first/last light on rocky points in 10–25 ft with jerkbaits or bottom-bouncer + worm.</div>
     </div>
 
-    <!-- SAGUARO -->
     <div class="card">
-      <h3>Saguaro <span class="pill ok">Near full (95%)</span></h3>
-      <div class="lake-sub">Full pool 1,529 ft · Stewart Mtn Dam · Largemouth + yellow bass + trout stocked</div>
-      <div class="bar"><i style="width:95%"></i></div>
-      <div class="metric"><span class="k">% Full</span><span class="v">95%</span></div>
-      <div class="metric"><span class="k">Elevation</span><span class="v">1,526.21 ft</span></div>
-      <div class="metric"><span class="k">Ft Below Full</span><span class="v">2.79 ft</span></div>
-      <div class="metric"><span class="k">Storage</span><span class="v">66,296 AF</span></div>
-      <div class="metric"><span class="k">Water Temp</span><span class="v">NA</span></div>
-      <div class="metric"><span class="k">Launch ramps</span><span class="v">Saguaro Lake Ranch · Butcher Jones</span></div>
-      <div class="metric"><span class="k">Rules quick-ref</span><span class="v">Largemouth 13"/6 · No 2-stroke restrictions</span></div>
-      <div class="tip"><b>Bass tip:</b> Clearest water of the chain. Near-full with hungry post-spawn/guarding bass in every cove. Early: topwater (whopper plopper, walking bait) along bluff walls &amp; cove mouths. Sun up: drop-shot deeper side of same points 12–20 ft. 6-lb fluorocarbon, stealthy.</div>
+      <h3>Saguaro <span class="pill ok">95%</span></h3>
+      <div class="card-sub">Full pool 1,529 ft · Stewart Mountain Dam · Largemouth, yellow bass, crappie</div>
+      <div class="bar"><i class="good" style="width:95%"></i></div>
+      <div class="row"><span class="k">% Full</span><span class="v">95%</span></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">1,526.21 ft</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">2.79 ft</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">66,296 AF</span></div>
+      <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Butcher Jones · Bagley · Saguaro del Norte</span></div>
+      <div class="row"><span class="k">Rules</span><span class="v">Largemouth 13"/6 · Yellow 25/day</span></div>
+      <div class="tip"><b>Bass tip:</b> Near-full = flooded brush. Swim a wacky Senko or chatterbait along flooded willows. Topwater early. Yellow bass: schooling on main-lake flats, small jigs or spoons.</div>
     </div>
 
-    <!-- HORSESHOE -->
     <div class="card">
-      <h3>Horseshoe <span class="pill low">Low (52%)</span></h3>
-      <div class="lake-sub">Full pool ~2,026 ft · Horseshoe Dam · Largemouth + flathead catfish</div>
-      <div class="bar"><i class="bad" style="width:52%"></i></div>
-      <div class="metric"><span class="k">% Full</span><span class="v">52%</span></div>
-      <div class="metric"><span class="k">Elevation</span><span class="v">2,003.33 ft</span></div>
-      <div class="metric"><span class="k">Ft Below Full</span><span class="v">22.67 ft</span></div>
-      <div class="metric"><span class="k">Storage</span><span class="v">56,660 AF</span></div>
-      <div class="metric"><span class="k">Water Temp</span><span class="v">NA</span></div>
-      <div class="metric"><span class="k">Launch ramps</span><span class="v">Horseshoe Ramp (check low-water status)</span></div>
-      <div class="metric"><span class="k">Rules quick-ref</span><span class="v">Largemouth 13"/6 · Flathead no limit</span></div>
-      <div class="tip"><b>Bass tip:</b> Often flushed with Verde runoff — fertile but swings hard. Down ~23 ft = old shoreline out of play. Fish inundated creek channels and secondary points with Texas-rig worm. Flatheads on live bluegill after dark along the dam and steep banks.</div>
+      <h3>Horseshoe <span class="pill mid">Mid — 52%</span></h3>
+      <div class="card-sub">Full pool 2,026 ft · Horseshoe Dam · Largemouth, flathead catfish, carp</div>
+      <div class="bar"><i class="warn" style="width:52%"></i></div>
+      <div class="row"><span class="k">% Full</span><span class="v">52%</span></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">2,003.33 ft</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">22.67 ft</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">56,660 AF</span></div>
+      <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Horseshoe Dam (low-water OK)</span></div>
+      <div class="row"><span class="k">Rules</span><span class="v">Statewide bass 13"/6</span></div>
+      <div class="tip"><b>Bass tip:</b> Dirt road access. Lake is narrow and stained — spinnerbaits, chatterbaits, and square-bills shine. Flathead cat night fishing with live bluegill in creek channels.</div>
     </div>
 
-    <!-- BARTLETT -->
     <div class="card">
-      <h3>Bartlett <span class="pill mid">Down ~22 ft (70%)</span></h3>
-      <div class="lake-sub">Full pool 1,798 ft · Bartlett Dam · Largemouth + yellow bass</div>
-      <div class="bar"><i class="warn" style="width:70%"></i></div>
-      <div class="metric"><span class="k">% Full</span><span class="v">70%</span></div>
-      <div class="metric"><span class="k">Elevation</span><span class="v">1,776.17 ft</span></div>
-      <div class="metric"><span class="k">Ft Below Full</span><span class="v">21.83 ft</span></div>
-      <div class="metric"><span class="k">Storage</span><span class="v">123,943 AF</span></div>
-      <div class="metric"><span class="k">Water Temp</span><span class="v">NA</span></div>
-      <div class="metric"><span class="k">Launch ramps</span><span class="v">SB Cove · Rattlesnake Cove (lower ramps may be dry)</span></div>
-      <div class="metric"><span class="k">Rules quick-ref</span><span class="v">Largemouth 13"/6 · Yellow bass no limit</span></div>
-      <div class="tip"><b>Bass tip:</b> Sitting 22 ft below full — old shoreline cover out of play. Secondary points, road beds, humps 10–25 ft. Green-pumpkin Texas-rig or shakey head is meat-and-potatoes. Light wind → 3/16 oz, slow everything. Set boat-graph offset to <b>21.83 ft</b>.</div>
+      <h3>Bartlett <span class="pill ok">Good — 70%</span></h3>
+      <div class="card-sub">Full pool 1,798 ft · Bartlett Dam · Largemouth, flathead, sunfish</div>
+      <div class="bar"><i class="good" style="width:70%"></i></div>
+      <div class="row"><span class="k">% Full</span><span class="v">70%</span></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">1,776.17 ft</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">21.83 ft</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">123,943 AF</span></div>
+      <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Bartlett · SB Cove (check low-water)</span></div>
+      <div class="row"><span class="k">Rules</span><span class="v">Largemouth 13"/6</span></div>
+      <div class="tip"><b>Bass tip:</b> Long east-west basin — fishes the Sunday W wind well. Spinnerbait or chatterbait on windy points 3–8 ft. Swim jig along bluffs on the north shore. Topwater first/last light in coves.</div>
     </div>
 
   </div>
 
   <!-- LURE CHEAT SHEET -->
-  <section class="card" style="margin-top:20px">
-    <h2>🎯 Lure &amp; Color Cheat-Sheet</h2>
-    <div class="row">
+  <h2>Lure Cheat Sheet</h2>
+  <div class="card">
+    <h3>What to tie on</h3>
+    <div class="card-sub">Pick water clarity, light, and target depth. Recommendation updates live.</div>
+    <div class="lure">
       <div>
-        <label class="k" for="clarity">Water clarity</label>
+        <label for="clarity">Water clarity</label>
         <select id="clarity">
-          <option value="clear">Clear (Saguaro, Canyon, Apache)</option>
-          <option value="stained">Stained (Pleasant, Bartlett mid-depth)</option>
-          <option value="muddy">Muddy (Roosevelt/Horseshoe after wind)</option>
+          <option value="clear">Clear</option>
+          <option value="stained" selected>Stained</option>
+          <option value="muddy">Muddy</option>
         </select>
       </div>
       <div>
-        <label class="k" for="light">Light / sky</label>
+        <label for="light">Light</label>
         <select id="light">
-          <option value="bright">Bright bluebird</option>
-          <option value="overcast">Overcast</option>
-          <option value="lowlight">Low light (dawn/dusk)</option>
+          <option value="low">Low (dawn/dusk/cloudy)</option>
+          <option value="bright" selected>Bright sun</option>
+          <option value="night">Night</option>
         </select>
       </div>
       <div>
-        <label class="k" for="depth">Target depth</label>
+        <label for="depth">Depth</label>
         <select id="depth">
-          <option value="shallow">Shallow 0–8 ft</option>
-          <option value="mid">Mid 8–18 ft</option>
-          <option value="deep">Deep 18+ ft</option>
+          <option value="shallow">Shallow (0–6 ft)</option>
+          <option value="mid" selected>Mid (6–15 ft)</option>
+          <option value="deep">Deep (15+ ft)</option>
         </select>
       </div>
     </div>
-    <div id="lure-out" style="margin-top:12px;padding:12px;background:rgba(79,195,247,.06);border:1px solid rgba(79,195,247,.25);border-radius:10px"></div>
-  </section>
+    <div class="lure-out" id="lure-out">Pick options above to get a recommendation.</div>
+  </div>
 
   <!-- SEASONAL + STOCKING -->
-  <div class="grid cols-2" style="margin-top:20px">
-    <section class="card">
-      <h2>🌡️ Seasonal Pattern — Mid-April</h2>
-      <p class="sea">Low-elevation lakes are in <b>post-spawn / early summer transition</b>. Expect a mix of bass guarding fry in 2–6 ft and males staged on first drop-offs.</p>
-      <ul class="sea">
-        <li><b>Early AM:</b> topwater / wake baits over spawn flats &amp; cove mouths</li>
-        <li><b>Mid-day:</b> shakey head / finesse worm on main-lake points 10–20 ft</li>
-        <li><b>Evening:</b> move-bait bite returns — chatterbait, squarebill, spinnerbait</li>
-        <li><b>Trout stocking</b> at Canyon/Saguaro typically wraps by end of April — bass feed on the leftovers. Swimbaits in rainbow pattern work.</li>
-      </ul>
-    </section>
+  <h2>Spring Pattern &amp; Stocking</h2>
+  <div class="grid cols-2">
 
-    <section class="card">
-      <h2>🐟 Stocking &amp; Reports</h2>
-      <p class="sea">AZGFD stocks rainbow trout in Canyon &amp; Saguaro through late April plus community-water stockings in the Valley. Their site blocks scraping — tap a link below for the live schedule.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
-        <a class="pill ok" href="https://www.azgfd.com/fishing-2/where-to-fish/fish-stocking-schedule/" target="_blank" rel="noopener">AZGFD Stocking Schedule →</a>
-        <a class="pill ok" href="https://www.azgfd.com/fishing/reports/" target="_blank" rel="noopener">AZGFD Weekly Report →</a>
-        <a class="pill ok" href="https://azstocker.com/" target="_blank" rel="noopener">AZ Stocker →</a>
+    <div class="card">
+      <h3>April pattern — post-spawn</h3>
+      <div class="row"><span class="k">Largemouth</span><span class="v">Post-spawn recovery</span></div>
+      <div class="row"><span class="k">Smallmouth</span><span class="v">Spawning / guarding</span></div>
+      <div class="row"><span class="k">Crappie</span><span class="v">Shallow in brush</span></div>
+      <div class="row"><span class="k">Stripers</span><span class="v">Chasing shad schools</span></div>
+      <div class="row"><span class="k">Walleye</span><span class="v">Post-spawn, deeper</span></div>
+      <div class="tip"><b>Post-spawn tactic:</b> Target secondary points and first drops adjacent to spawning coves. Hungry, recovering fish will hit a slow-rolled spinnerbait or a wake bait at first light.</div>
+    </div>
+
+    <div class="card">
+      <h3>Stocking &amp; reports</h3>
+      <div class="card-sub">AZGFD publishes weekly schedules. No live API — tap through to the official pages:</div>
+      <div class="links" style="margin-top:10px">
+        <a href="https://www.azgfd.com/fishing-2/where-to-fish/fish-stocking-schedule/" target="_blank" rel="noopener noreferrer">AZGFD stocking schedule</a>
+        <a href="https://www.azgfd.com/fishing-2/where-to-fish/fishing-report-archive/" target="_blank" rel="noopener noreferrer">AZGFD fishing reports</a>
+        <a href="https://azstocker.com/" target="_blank" rel="noopener noreferrer">AZ Stocker</a>
+        <a href="https://www.hookedaz.com/widget-pages/arizona-fishing-report/" target="_blank" rel="noopener noreferrer">HookedAZ reports</a>
       </div>
-      <div class="note">Tomorrow's scheduled run will attempt to pull fresh entries for your 7 lakes.</div>
-    </section>
+      <div class="note">Spring stockings typically hit urban lakes &amp; rainbow trout on Canyon. Roosevelt, Apache, Saguaro, and Bartlett are self-sustaining bass fisheries — no regular stocking.</div>
+    </div>
+
   </div>
 
-  <!-- TOURNAMENTS + RAMPS -->
-  <div class="grid cols-2" style="margin-top:20px">
-    <section class="card">
-      <h2>🏆 Tournament &amp; Report Intel</h2>
-      <p class="sea">Local bass clubs post weights after tournaments at Pleasant, Roosevelt, and Bartlett. Heavy bags = pattern confirmed. Light bags = pressure / conditions off.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
-        <a class="pill ok" href="https://www.hookedaz.com/widget-pages/arizona-fishing-report/" target="_blank" rel="noopener">HookedAZ Reports →</a>
-        <a class="pill ok" href="https://www.bassmaster.com/regions/western/" target="_blank" rel="noopener">Bassmaster Western →</a>
-      </div>
-    </section>
-    <section class="card">
-      <h2>🛥️ Launch Ramp &amp; Rule Notes</h2>
-      <ul class="sea">
-        <li><b>Bartlett at 22 ft down:</b> lower ramps may be mud/gravel — SB Cove is the safe bet.</li>
-        <li><b>Roosevelt at 51 ft down:</b> Schoolhouse &amp; Cholla still launchable; watch for exposed flats in the back of coves.</li>
-        <li><b>Horseshoe:</b> dirt ramp — low-water launching requires 4WD at times.</li>
-        <li><b>Saguaro:</b> no-wake zones enforced in narrows.</li>
-        <li><b>Pleasant:</b> Scorpion Bay &amp; 10-Lane almost always in. Watch for weekend tournament crowds.</li>
-      </ul>
-    </section>
-  </div>
-
-  <!-- CATCH LOG -->
-  <section class="card" style="margin-top:20px">
-    <h2>📓 Personal Catch Log</h2>
-    <p class="sea">Logs save to <b>this browser only</b> — your entries follow whichever device/browser you use. No account, no cloud.</p>
-    <div class="row" style="margin-top:8px">
-      <div>
-        <label class="k" for="log-lake">Lake</label>
-        <select id="log-lake">
-          <option>Lake Pleasant</option>
-          <option>Roosevelt</option>
-          <option>Apache</option>
-          <option>Canyon</option>
-          <option>Saguaro</option>
-          <option>Horseshoe</option>
-          <option>Bartlett</option>
-        </select>
-      </div>
-      <div>
-        <label class="k" for="log-species">Species</label>
-        <select id="log-species">
-          <option>Largemouth</option>
-          <option>Smallmouth</option>
-          <option>Yellow bass</option>
-          <option>Striper</option>
-          <option>White bass</option>
-          <option>Walleye</option>
-          <option>Crappie</option>
-          <option>Catfish</option>
-          <option>Trout</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div>
-        <label class="k" for="log-weight">Weight (lb)</label>
-        <input id="log-weight" type="number" min="0" step="0.1" placeholder="e.g. 3.5" />
-      </div>
-      <div>
-        <label class="k" for="log-lure">Lure / bait</label>
-        <input id="log-lure" type="text" placeholder="e.g. green-pumpkin senko" />
-      </div>
-    </div>
-    <div class="row" style="margin-top:8px">
-      <div style="flex:3">
-        <label class="k" for="log-notes">Notes (spot / depth / conditions)</label>
-        <input id="log-notes" type="text" placeholder="e.g. Humbug cove point, 14 ft, bluebird morning" />
-      </div>
-      <div style="flex:1;display:flex;align-items:end;gap:8px">
-        <button id="log-add">Add catch</button>
-        <button class="ghost" id="log-export">Export</button>
-      </div>
-    </div>
-    <div id="log-list" style="margin-top:12px"></div>
-    <details>
-      <summary>Log stats (count, average weight, per lake)</summary>
-      <div id="log-stats" style="margin-top:8px"></div>
-    </details>
-  </section>
-
-  <!-- LINKS -->
+  <!-- FOOTER SOURCES -->
   <footer>
-    <div>Updated: Saturday, April 18, 2026 · Dashboard v2</div>
-    <div>Sources:
-      <a href="https://www.cap-az.com/cap-system/water-operations/lake-pleasant/" target="_blank" rel="noopener">CAP Pleasant</a> ·
-      <a href="https://streamflow.watershedconnection.com/dwr" target="_blank" rel="noopener">SRP / DWR</a> ·
-      <a href="https://forecast.weather.gov/MapClick.php?lat=33.45&amp;lon=-111.78" target="_blank" rel="noopener">NWS Phoenix</a> ·
-      <a href="https://www.usairnet.com/cgi-bin/launch/code.cgi?sta=KPHX&amp;state=AZ" target="_blank" rel="noopener">KPHX Baro</a> ·
-      <a href="https://www.timeanddate.com/moon/usa/phoenix" target="_blank" rel="noopener">Moon Phase</a> ·
-      <a href="https://www.airnow.gov/?city=Phoenix&amp;state=AZ&amp;country=USA" target="_blank" rel="noopener">AirNow</a> ·
-      <a href="https://www.azgfd.com/fishing/" target="_blank" rel="noopener">AZGFD</a>
-    </div>
+    <div style="margin-bottom:8px"><b style="color:var(--text)">Data sources</b></div>
+    <a href="https://streamflow.watershedconnection.com/dwr" target="_blank" rel="noopener noreferrer">SRP / DWR reservoirs</a> ·
+    <a href="https://www.cap-az.com/cap-system/water-operations/lake-pleasant/" target="_blank" rel="noopener noreferrer">CAP Lake Pleasant</a> ·
+    <a href="https://forecast.weather.gov/MapClick.php?lat=33.45&amp;lon=-112.07" target="_blank" rel="noopener noreferrer">NWS Phoenix</a> ·
+    <a href="https://www.timeanddate.com/moon/usa/phoenix" target="_blank" rel="noopener noreferrer">Moon phase</a> ·
+    <a href="https://www.airnow.gov/?city=Phoenix&amp;state=AZ&amp;country=USA" target="_blank" rel="noopener noreferrer">AirNow Phoenix</a> ·
+    <a href="https://www.usairnet.com/cgi-bin/launch/code.cgi?sta=KPHX&amp;state=AZ" target="_blank" rel="noopener noreferrer">KPHX baro</a> ·
+    <a href="https://www.azgfd.com/fishing-2/where-to-fish/fish-stocking-schedule/" target="_blank" rel="noopener noreferrer">AZGFD stocking</a> ·
+    <a href="https://www.azgfd.com/fishing-2/where-to-fish/fishing-report-archive/" target="_blank" rel="noopener noreferrer">AZGFD reports</a>
+    <div style="margin-top:10px;color:var(--muted);font-size:.78rem">Auto-refreshed by a scheduled task. Never fabricates values — uses NA when a source doesn't publish.</div>
   </footer>
 
 </div>
 
 <script>
 (function(){
-  var lureMatrix = {
-    'clear|bright|shallow':'Small natural finesse: green-pumpkin ned rig, shad-colored jerkbait, drop-shot 4" worm. Keep lines light (6-lb fluoro).',
-    'clear|bright|mid':'Drop-shot, shakey head worm, small spy-bait. Natural colors. Look for ambush shade.',
-    'clear|bright|deep':'Football jig (green-pumpkin), deep crank (sexy shad), drop-shot in 20-30 ft on deep main-lake points.',
-    'clear|overcast|shallow':'Topwater all day — whopper plopper, spook, swim jig. Chatterbait (white/shad) over flats.',
-    'clear|overcast|mid':'Moving baits: squarebill, spinnerbait, swim jig. Natural/shad patterns. Work secondary points.',
-    'clear|overcast|deep':'Swimbait (5-6" shad), deep crank, flutter spoon over humps. Keep something moving.',
-    'clear|lowlight|shallow':'Topwater — walking bait / buzzbait. Then swim a jig. Wake bait on clear flats.',
-    'clear|lowlight|mid':'Jerkbait, underspin + paddle-tail, swim jig. Target cove mouths and points.',
-    'clear|lowlight|deep':'Swimbait, spoon, big worm. Fish the shade line as sun drops.',
-    'stained|bright|shallow':'Squarebill (chartreuse/black), black/blue jig, Texas rig (june-bug). Bump cover.',
-    'stained|bright|mid':'Chatterbait (white/chart), Texas rig, deep squarebill on roadbeds.',
-    'stained|bright|deep':'Football jig (black/blue), big worm (plum), deep crank with rattles.',
-    'stained|overcast|shallow':'Spinnerbait (willow/colorado), chatterbait, wake bait — cover water.',
-    'stained|overcast|mid':'Spinnerbait, crankbait (fire-tiger, chartreuse), jig. Stay aggressive.',
-    'stained|overcast|deep':'Big worm, football jig, deep crank. Slower in 20+ ft.',
-    'stained|lowlight|shallow':'Buzzbait, black/blue jig, Texas rig worm. Noise + vibration.',
-    'stained|lowlight|mid':'Chatterbait, jig, 10" worm. Shade transitions.',
-    'stained|lowlight|deep':'Big worm, jig, spoon.',
-    'muddy|bright|shallow':'Big profile + noise: black/blue jig, squarebill with rattles (bright chartreuse), spinnerbait (colorado blade).',
-    'muddy|bright|mid':'Thumping chatterbait, big worm, spinnerbait. Stay tight to cover.',
-    'muddy|bright|deep':'Big football jig (black/blue), giant worm (junebug). Slow.',
-    'muddy|overcast|shallow':'Spinnerbait (colorado/willow, chart+white), black/blue jig, buzzbait. Max vibration.',
-    'muddy|overcast|mid':'Chatterbait, spinnerbait, crankbait with rattles.',
-    'muddy|overcast|deep':'Big jig + trailer, big worm. Contact fish by feel.',
-    'muddy|lowlight|shallow':'Black buzzbait, black/blue jig. Silhouette matters.',
-    'muddy|lowlight|mid':'Chatterbait, jig. Slow it down.',
-    'muddy|lowlight|deep':'Big jig, big worm. Fish the dam/creek channels.'
+  var matrix = {
+    clear_bright_shallow: "Small soft jerkbait (Fluke) or wacky Senko, natural colors (green-pumpkin, watermelon). 6-8 lb fluoro.",
+    clear_bright_mid:     "Drop-shot with 4&quot; finesse worm or small swimbait (Keitech 3.3). Shad/ghost colors.",
+    clear_bright_deep:    "Ned rig (TRD) or deep-diving jerkbait. Natural colors. Long casts, slow drag.",
+    clear_low_shallow:    "Wake bait or topwater (Whopper Plopper, Spook) at first/last light. Ghost shad.",
+    clear_low_mid:        "Jerkbait (Lucky Craft Pointer, Megabass 110). Ghost minnow or ayu. Pause hard.",
+    clear_low_deep:       "Football jig with green-pumpkin craw trailer. Slow-drag deep structure.",
+    clear_night_shallow:  "Black buzzbait or black Jitterbug. Classic nightwater technique.",
+    clear_night_mid:      "Big dark spinnerbait or a black/blue jig with craw trailer.",
+    clear_night_deep:     "Big worm (10&quot; Power Worm), black/blue, on a Texas rig.",
+    stained_bright_shallow:"Chatterbait with white/chartreuse trailer, or a squarebill crankbait (shad pattern).",
+    stained_bright_mid:   "Spinnerbait (white/chartreuse) or lipless crankbait (Rat-L-Trap, red craw).",
+    stained_bright_deep:  "Football jig with bulky craw trailer. Brown/green or black/blue.",
+    stained_low_shallow:  "Chatterbait, white or Alabama craw. Slow-roll it along wind-blown shoreline.",
+    stained_low_mid:      "Spinnerbait with colorado/willow blades. Chart/white. Bump structure.",
+    stained_low_deep:     "Magnum crankbait (DT-16, 6XD) or big football jig. Deep points and humps.",
+    stained_night_shallow:"Black/blue jig skipped around docks, or a black buzzbait on quiet banks.",
+    stained_night_mid:    "Big colorado-blade spinnerbait, black w/ red. Slow and loud.",
+    stained_night_deep:   "Texas-rigged 10&quot; worm, black/blue, on deep brush or rock piles.",
+    muddy_bright_shallow: "Loud chatterbait (black/blue/chartreuse) or squarebill in firetiger. Bang cover.",
+    muddy_bright_mid:     "Colorado-blade spinnerbait, chartreuse, short pulls through cover.",
+    muddy_bright_deep:    "Big jig (black/blue) with creature bait trailer. Fish by feel, not sight.",
+    muddy_low_shallow:    "Black/blue jig or a Texas-rigged creature bait. Pitch tight to cover.",
+    muddy_low_mid:        "Spinnerbait with big colorado blades, dark colors. Big thump.",
+    muddy_low_deep:       "Big jig or a 10&quot; worm, black/blue or junebug. Slow-drag rock.",
+    muddy_night_shallow:  "Black jig or buzzbait tight to bank. Biggest silhouette wins.",
+    muddy_night_mid:      "Big colorado spinnerbait, black. Steady slow roll.",
+    muddy_night_deep:     "10&quot; Texas-rigged worm, black or junebug. Drag deep structure."
   };
-  function updateLure(){
-    var c = document.getElementById('clarity').value;
-    var l = document.getElementById('light').value;
-    var d = document.getElementById('depth').value;
-    var key = c+'|'+l+'|'+d;
-    document.getElementById('lure-out').innerHTML = '<b>Recommended:</b> ' + (lureMatrix[key] || '—');
+  var clarity = document.getElementById('clarity');
+  var light = document.getElementById('light');
+  var depth = document.getElementById('depth');
+  var out = document.getElementById('lure-out');
+  function update(){
+    var key = clarity.value + '_' + light.value + '_' + depth.value;
+    var tip = matrix[key] || 'No match.';
+    out.innerHTML = '<b>Tie on:</b> ' + tip;
   }
-  ['clarity','light','depth'].forEach(function(id){ document.getElementById(id).addEventListener('change', updateLure); });
-  updateLure();
-
-  var KEY = 'phxlakes_catches_v1';
-  function load(){ try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch(e){ return []; } }
-  function save(arr){ localStorage.setItem(KEY, JSON.stringify(arr)); }
-  function escapeHtml(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
-  function render(){
-    var arr = load();
-    var list = document.getElementById('log-list');
-    var stats = document.getElementById('log-stats');
-    if (!arr.length){
-      list.innerHTML = '<div class="note">No catches logged yet. Add your first above.</div>';
-      stats.innerHTML = '<div class="note">—</div>';
-      return;
-    }
-    list.innerHTML = arr.slice().reverse().map(function(c, i){
-      var idx = arr.length - 1 - i;
-      return '<div class="catch-entry">' +
-        '<b>' + escapeHtml(c.species) + '</b>' +
-        (c.weight ? ' · ' + escapeHtml(c.weight) + ' lb' : '') +
-        ' · ' + escapeHtml(c.lake) +
-        '<div class="meta">' + escapeHtml(c.date) +
-        (c.lure ? ' · ' + escapeHtml(c.lure) : '') +
-        (c.notes ? ' · ' + escapeHtml(c.notes) : '') +
-        ' <a href="#" data-idx="' + idx + '" class="del" style="color:var(--bad);margin-left:6px">delete</a>' +
-        '</div></div>';
-    }).join('');
-    var byLake = {};
-    var total = 0, totalW = 0, wCount = 0;
-    arr.forEach(function(c){
-      byLake[c.lake] = (byLake[c.lake] || 0) + 1;
-      total++;
-      if (c.weight && !isNaN(+c.weight)){ totalW += +c.weight; wCount++; }
-    });
-    var avg = wCount ? (totalW/wCount).toFixed(2) : '—';
-    stats.innerHTML = '<div class="metric"><span class="k">Total catches</span><span class="v">' + total + '</span></div>' +
-      '<div class="metric"><span class="k">Avg weight (logged)</span><span class="v">' + avg + ' lb</span></div>' +
-      Object.keys(byLake).sort().map(function(k){ return '<div class="metric"><span class="k">' + escapeHtml(k) + '</span><span class="v">' + byLake[k] + '</span></div>'; }).join('');
-    list.querySelectorAll('.del').forEach(function(a){
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        var idx = +this.getAttribute('data-idx');
-        var cur = load();
-        cur.splice(idx, 1);
-        save(cur);
-        render();
-      });
-    });
-  }
-  document.getElementById('log-add').addEventListener('click', function(){
-    var c = {
-      lake: document.getElementById('log-lake').value,
-      species: document.getElementById('log-species').value,
-      weight: document.getElementById('log-weight').value,
-      lure: document.getElementById('log-lure').value,
-      notes: document.getElementById('log-notes').value,
-      date: new Date().toLocaleString()
-    };
-    var arr = load();
-    arr.push(c);
-    save(arr);
-    document.getElementById('log-weight').value = '';
-    document.getElementById('log-lure').value = '';
-    document.getElementById('log-notes').value = '';
-    render();
-  });
-  document.getElementById('log-export').addEventListener('click', function(){
-    var arr = load();
-    if (!arr.length){ alert('Nothing to export yet.'); return; }
-    var headers = ['date','lake','species','weight','lure','notes'];
-    var csv = [headers.join(',')].concat(arr.map(function(c){ return headers.map(function(h){ return JSON.stringify(c[h] || ''); }).join(','); })).join('\n');
-    var blob = new Blob([csv], {type:'text/csv'});
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url; a.download = 'catch-log.csv'; a.click();
-    URL.revokeObjectURL(url);
-  });
-  render();
+  clarity.addEventListener('change', update);
+  light.addEventListener('change', update);
+  depth.addEventListener('change', update);
+  update();
 })();
 </script>
 </body>
