@@ -631,21 +631,21 @@
         <text class="reservoir-sub" y="68">124K AF · 1,776 ft</text>
       </g>
       <path class="flow-in" stroke-width="5" d="M 150 92 L 150 138"/>
-      <text class="flow-label-in" x="165" y="118">↓ 2,840 cfs</text>
+      <text class="flow-label-in" data-flow="roosevelt-in" x="165" y="118">↓ … cfs</text>
       <path class="flow-out" stroke-width="2.5" d="M 150 212 L 150 258"/>
-      <text class="flow-label-out" x="165" y="240">↓ 420 cfs</text>
+      <text class="flow-label-out" data-flow="roosevelt-out" x="165" y="240">↓ SRP</text>
       <path class="flow-out" stroke-width="2.8" d="M 150 318 L 150 358"/>
-      <text class="flow-label-out" x="165" y="342">↓ 540 cfs</text>
+      <text class="flow-label-out" data-flow="apache-out" x="165" y="342">↓ SRP</text>
       <path class="flow-out" stroke-width="3" d="M 150 410 L 150 450"/>
-      <text class="flow-label-out" x="165" y="434">↓ 605 cfs</text>
+      <text class="flow-label-out" data-flow="canyon-out" x="165" y="434">↓ SRP</text>
       <path class="flow-out" stroke-width="3" d="M 150 500 L 150 560"/>
-      <text class="flow-label-out" x="165" y="548">↓ 620 cfs</text>
+      <text class="flow-label-out" data-flow="saguaro-out" x="165" y="548">↓ … cfs</text>
       <path class="flow-in" stroke-width="3.5" d="M 450 92 L 450 138"/>
-      <text class="flow-label-in" x="465" y="118">↓ 1,980 cfs</text>
+      <text class="flow-label-in" data-flow="horseshoe-in" x="465" y="118">↓ … cfs</text>
       <path class="flow-out" stroke-width="2" d="M 450 190 L 450 278"/>
-      <text class="flow-label-out" x="465" y="240">↓ 310 cfs</text>
+      <text class="flow-label-out" data-flow="horseshoe-out" x="465" y="240">↓ SRP</text>
       <path class="flow-out" stroke-width="2.5" d="M 450 334 L 450 500"/>
-      <text class="flow-label-out" x="465" y="430">↓ 525 cfs</text>
+      <text class="flow-label-out" data-flow="bartlett-out" x="465" y="430">↓ … cfs</text>
       <path class="flow-out" stroke-width="3" d="M 450 500 Q 450 540 330 560 L 170 560"/>
       <g transform="translate(300,580)">
         <rect x="-80" y="-20" width="160" height="30" rx="14" fill="var(--surface-2)" stroke="var(--border)"/>
@@ -687,7 +687,7 @@
       <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#4fc27a" stroke-width="1.8" points="0,22 8,21 16,20 24,18 32,17 40,15 48,14 56,13 64,11 72,10 80,9 88,8 96,7 104,7 112,6 120,5"/></svg>
     </div>
   </div>
-  <div class="ws-foot">Live data pulled daily from SRP watershed connection (Roosevelt, Apache, Canyon, Saguaro, Horseshoe, Bartlett) and SNOTEL snowpack sensors for Salt &amp; Verde basins. Inflow/release values are daily averages in cfs.</div>
+  <div class="ws-foot">Live streamflow from USGS NWIS: Salt River near Roosevelt (Roosevelt inflow), Salt River below Stewart Mtn Dam (Saguaro outflow), Verde River above Horseshoe (Horseshoe inflow), Verde River below Bartlett Dam (Bartlett outflow). Middle reservoir releases (Roosevelt→Apache→Canyon→Saguaro, Horseshoe→Bartlett) are SRP-managed and not on public gauges.</div>
 
   <!-- BUY AZ FISHING LICENSE -->
   <a class="license-cta" href="https://license.azgfd.com/" target="_blank" rel="noopener noreferrer" aria-label="Buy Arizona fishing license (opens in new tab)">Buy AZ Fishing License</a>
@@ -991,6 +991,113 @@
 
   load();
   if(state){ render(); scheduleNext(); }
+})();
+
+// --- Live USGS streamflow for lake cards + watershed diagram ---
+(function(){
+  // Map of display-target -> USGS NWIS site number
+  // Only 4 gauges cover the Salt-Verde chain; middle reservoir releases are SRP-managed.
+  var GAUGES = {
+    'roosevelt-in':  '09498500', // Salt River near Roosevelt, AZ  (inflow to Roosevelt)
+    'saguaro-out':   '09502000', // Salt River below Stewart Mountain Dam (outflow from Saguaro)
+    'horseshoe-in':  '09508500', // Verde River above Horseshoe, below Tangle Creek
+    'bartlett-out':  '09510000'  // Verde River below Bartlett Dam
+  };
+
+  function fmt(n){
+    if(n === null || n === undefined || isNaN(n)) return null;
+    var v = Math.round(n);
+    return v.toLocaleString('en-US');
+  }
+
+  function fetchSite(site){
+    var url = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=' +
+              site + '&parameterCd=00060&period=P1D';
+    return fetch(url).then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(data){
+        try {
+          var ts = data.value.timeSeries[0];
+          var vals = ts.values[0].value;
+          for(var i = vals.length - 1; i >= 0; i--){
+            var v = parseFloat(vals[i].value);
+            if(!isNaN(v) && v >= 0) return v;
+          }
+        } catch(e){}
+        return null;
+      }).catch(function(){ return null; });
+  }
+
+  // Map flow-key -> {cardSelector (for card update), svgSelector}
+  // Card updates: Roosevelt inflow = Roosevelt In; Saguaro outflow = Saguaro Out; etc.
+  var CARD_MAP = {
+    'roosevelt-in':  { lake: 'roosevelt', dir: 'in'  },
+    'saguaro-out':   { lake: 'saguaro',   dir: 'out' },
+    'horseshoe-in':  { lake: 'horseshoe', dir: 'in'  }, // horseshoe card may not exist — harmless
+    'bartlett-out':  { lake: 'bartlett',  dir: 'out' }
+  };
+
+  function updateCard(lake, dir, cfs){
+    var row = document.querySelector('[data-flow-row="' + lake + '"]');
+    if(!row) return;
+    var el = row.querySelector('[data-snap-cfs-' + dir + ']');
+    if(!el) return;
+    if(cfs === null){
+      el.textContent = 'NA';
+      el.classList.add('sf-na');
+    } else {
+      el.textContent = fmt(cfs);
+      el.classList.remove('sf-na');
+    }
+  }
+
+  function updateSvg(key, cfs){
+    var el = document.querySelector('text[data-flow="' + key + '"]');
+    if(!el) return;
+    if(cfs === null){
+      el.textContent = '↓ NA';
+    } else {
+      el.textContent = '↓ ' + fmt(cfs) + ' cfs';
+    }
+  }
+
+  function updateLakePleasantCard(){
+    // Lake Pleasant is CAP-fed (Colorado River via canal) — no USGS gauge in Salt-Verde system.
+    var row = document.querySelector('[data-flow-row="pleasant"]');
+    if(!row) return;
+    var rowIn = row.querySelector('[data-snap-cfs-in]');
+    var rowOut = row.querySelector('[data-snap-cfs-out]');
+    if(rowIn){ rowIn.textContent = 'CAP'; }
+    if(rowOut){ rowOut.textContent = 'CAP'; }
+  }
+
+  function markSrpInternal(lake, dir){
+    var row = document.querySelector('[data-flow-row="' + lake + '"]');
+    if(!row) return;
+    var el = row.querySelector('[data-snap-cfs-' + dir + ']');
+    if(el){ el.textContent = 'SRP'; }
+  }
+
+  // Cards without live gauges — mark "SRP" (internal release) once.
+  // Roosevelt OUT, Apache IN/OUT, Canyon IN/OUT, Saguaro IN, Horseshoe OUT, Bartlett IN
+  markSrpInternal('roosevelt', 'out');
+  markSrpInternal('apache', 'in');
+  markSrpInternal('apache', 'out');
+  markSrpInternal('canyon', 'in');
+  markSrpInternal('canyon', 'out');
+  markSrpInternal('saguaro', 'in');
+  markSrpInternal('bartlett', 'in');
+  updateLakePleasantCard();
+
+  var keys = Object.keys(GAUGES);
+  Promise.all(keys.map(function(k){ return fetchSite(GAUGES[k]); }))
+    .then(function(results){
+      keys.forEach(function(k, i){
+        var cfs = results[i];
+        updateSvg(k, cfs);
+        var cm = CARD_MAP[k];
+        if(cm) updateCard(cm.lake, cm.dir, cfs);
+      });
+    });
 })();
 
 // --- Per-lake live wind (Open-Meteo, no key required) ---
