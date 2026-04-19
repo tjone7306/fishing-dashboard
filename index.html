@@ -372,6 +372,7 @@
       <div class="row"><span class="k">Elevation</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Below full</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Wind</span><span class="v" data-wind="pleasant">—</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Scorpion Bay · 10-Lane</span></div>
       <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=10+Lane+Boat+Ramp+Lake+Pleasant+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
       <div class="note">CAP publishes only a 12-month forecast graph — no live daily elevation.</div>
@@ -386,6 +387,7 @@
       <div class="row"><span class="k">Below full</span><span class="v">50.81 ft</span></div>
       <div class="row"><span class="k">Storage</span><span class="v">752,924 AF</span></div>
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Wind</span><span class="v" data-wind="roosevelt">—</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Schoolhouse · Cholla</span></div>
       <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Windy+Hill+Boat+Ramp+Roosevelt+Lake+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
     </div>
@@ -399,6 +401,7 @@
       <div class="row"><span class="k">Below full</span><span class="v">7.80 ft</span></div>
       <div class="row"><span class="k">Storage</span><span class="v">224,886 AF</span></div>
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Wind</span><span class="v" data-wind="apache">—</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Burnt Corral · Apache Lake Marina</span></div>
       <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Apache+Lake+Boat+Ramp+Roosevelt+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
     </div>
@@ -412,6 +415,7 @@
       <div class="row"><span class="k">Below full</span><span class="v">3.16 ft</span></div>
       <div class="row"><span class="k">Storage</span><span class="v">54,879 AF</span></div>
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Wind</span><span class="v" data-wind="canyon">—</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Palo Verde · Boulder Rec</span></div>
       <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Canyon+Lake+Boat+Ramp+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
     </div>
@@ -425,6 +429,7 @@
       <div class="row"><span class="k">Below full</span><span class="v">2.79 ft</span></div>
       <div class="row"><span class="k">Storage</span><span class="v">66,296 AF</span></div>
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Wind</span><span class="v" data-wind="saguaro">—</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Butcher Jones · Bagley · Saguaro del Norte</span></div>
       <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Saguaro+Lake+Boat+Ramp+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
     </div>
@@ -438,6 +443,7 @@
       <div class="row"><span class="k">Below full</span><span class="v">21.83 ft</span></div>
       <div class="row"><span class="k">Storage</span><span class="v">123,943 AF</span></div>
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Wind</span><span class="v" data-wind="bartlett">—</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Bartlett · SB Cove (check low-water)</span></div>
       <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rattlesnake+Cove+Boat+Ramp+Bartlett+Lake" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
     </div>
@@ -743,6 +749,41 @@
   // resume on load
   load();
   if(state){ render(); scheduleNext(); }
+})();
+
+// --- Per-lake live wind (Open-Meteo, no key required) ---
+(function(){
+  var lakes = [
+    {id:"pleasant",  lat:33.87, lon:-112.27},
+    {id:"roosevelt", lat:33.67, lon:-111.14},
+    {id:"apache",    lat:33.58, lon:-111.25},
+    {id:"canyon",    lat:33.54, lon:-111.43},
+    {id:"saguaro",   lat:33.57, lon:-111.53},
+    {id:"bartlett",  lat:33.83, lon:-111.63}
+  ];
+  var lats = lakes.map(function(l){return l.lat;}).join(",");
+  var lons = lakes.map(function(l){return l.lon;}).join(",");
+  var url = "https://api.open-meteo.com/v1/forecast?latitude=" + lats +
+            "&longitude=" + lons +
+            "&current=wind_speed_10m,wind_direction_10m,wind_gusts_10m" +
+            "&wind_speed_unit=mph&timezone=America%2FPhoenix";
+  var dirs = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+  fetch(url).then(function(r){ return r.ok ? r.json() : null; }).then(function(data){
+    if(!data) return;
+    var arr = Array.isArray(data) ? data : [data];
+    arr.forEach(function(d, i){
+      if(!lakes[i]) return;
+      var el = document.querySelector('[data-wind="' + lakes[i].id + '"]');
+      if(!el || !d || !d.current) return;
+      var spd = Math.round(d.current.wind_speed_10m);
+      var deg = d.current.wind_direction_10m;
+      var gust = Math.round(d.current.wind_gusts_10m || 0);
+      var dir = (spd < 2) ? "Calm" : dirs[Math.round(deg / 22.5) % 16];
+      var txt = (spd < 2) ? "Calm" : (dir + " " + spd + " mph");
+      if(spd >= 2 && gust >= spd + 5) txt += " · G" + gust;
+      el.textContent = txt;
+    });
+  }).catch(function(){ /* silent */ });
 })();
 </script>
 </body>
