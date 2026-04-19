@@ -122,13 +122,17 @@
   .pct.warn{color:var(--warn)}
   .pct.bad{color:var(--bad)}
   .pct.na{color:var(--muted)}
-  /* hourly scroll */
-  .hourly{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin:0 -4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  /* hourly scroll (rich) */
+  .hourly{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin:0 -4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
   .hourly::-webkit-scrollbar{height:4px}
   .hourly::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px}
-  .hourly .h{min-width:68px;flex:0 0 auto;text-align:center;padding:10px 6px;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;font-size:.78rem;color:var(--muted);scroll-snap-align:start}
-  .hourly .h b{display:block;color:var(--text);font-size:1rem;margin:3px 0;font-weight:600}
-  .hourly .h .wind{font-size:.74rem}
+  .hourly .h{min-width:74px;flex:0 0 auto;padding:10px 8px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;color:var(--muted);scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:1px}
+  .hourly .h .t{font-size:.74rem;font-weight:500;letter-spacing:.2px;color:var(--muted)}
+  .hourly .h .ic{font-size:1.35rem;line-height:1;margin:4px 0 2px}
+  .hourly .h b{color:var(--text);font-size:1.1rem;font-weight:700;line-height:1.05}
+  .hourly .h .fl{font-size:.7rem;color:var(--muted);margin-top:1px}
+  .hourly .h .pp{font-size:.72rem;color:#7dc6ed;margin-top:3px;font-variant-numeric:tabular-nums;letter-spacing:.2px}
+  .hourly .h .wind{font-size:.7rem;color:var(--muted);margin-top:1px}
   /* moon */
   .moon{display:flex;align-items:center;gap:16px}
   .moon .disc{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 88% 50%,#f0e8c8 0 6%,#1e2a36 7% 100%);flex-shrink:0;box-shadow:inset -8px -4px 16px rgba(0,0,0,.6)}
@@ -180,40 +184,7 @@
   .license-cta:hover,.license-cta:focus{text-decoration:none;background:linear-gradient(135deg,#5cd088 0%,#36a664 100%);transform:translateY(-1px);box-shadow:0 6px 18px rgba(79,194,122,.4);color:#fff}
   .license-cta::before{content:"🎣";font-size:1.3rem;line-height:1}
   .license-cta::after{content:"↗";opacity:.85;font-size:1rem;margin-left:2px}
-  /* interactive map */
-  .map-card{padding:0;overflow:hidden}
-  .map-card iframe{display:block;width:100%;border:0;border-radius:12px}
-  .map-card .map-foot{padding:10px 14px;color:var(--muted);font-size:.82rem;border-top:1px solid var(--border);background:var(--surface-2)}
-  /* water flow cards */
-  .flow-grid{display:grid;gap:12px}
-  @media(min-width:720px){
-    .flow-grid{grid-template-columns:repeat(2,1fr)}
-  }
-  @media(min-width:980px){
-    .flow-grid{grid-template-columns:repeat(3,1fr)}
-  }
-  .flow-card{background:linear-gradient(160deg,var(--surface) 0%,var(--surface-2) 100%);border:1px solid var(--border);border-radius:14px;padding:16px;position:relative;overflow:hidden}
-  .flow-card h4{margin:0 0 12px;font-size:1rem;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:8px}
-  .flow-card h4 .river{color:var(--muted);font-size:.72rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase}
-  .flow-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.05)}
-  .flow-row:first-of-type{border-top:0}
-  .arrow{width:28px;height:40px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-radius:6px;flex-shrink:0}
-  .arrow.inflow{background:linear-gradient(180deg,rgba(94,180,231,.08),rgba(94,180,231,.22))}
-  .arrow.outflow{background:linear-gradient(180deg,rgba(233,100,100,.22),rgba(233,100,100,.08))}
-  .arrow svg{width:18px;height:26px;display:block}
-  .arrow.inflow svg{animation:flowUp 1.6s ease-in-out infinite}
-  .arrow.outflow svg{animation:flowDown 1.6s ease-in-out infinite}
-  @keyframes flowUp{0%{transform:translateY(6px);opacity:.55}50%{transform:translateY(-2px);opacity:1}100%{transform:translateY(-10px);opacity:0}}
-  @keyframes flowDown{0%{transform:translateY(-6px);opacity:.55}50%{transform:translateY(2px);opacity:1}100%{transform:translateY(10px);opacity:0}}
-  .arrow::before{content:"";position:absolute;inset:0;pointer-events:none}
-  .flow-label{font-size:.82rem;color:var(--muted);line-height:1.3}
-  .flow-label b{display:block;color:var(--text);font-weight:600;font-size:.88rem;margin-bottom:1px}
-  .flow-cfs{font-weight:700;font-size:1.35rem;font-variant-numeric:tabular-nums;line-height:1;text-align:right;white-space:nowrap}
-  .flow-cfs .unit{font-size:.72rem;font-weight:500;color:var(--muted);margin-left:3px;letter-spacing:.3px}
-  .flow-cfs.in{color:#7dc6ed}
-  .flow-cfs.out{color:#f08b8b}
-  .flow-yest{color:var(--muted);font-size:.76rem;text-align:right;margin-top:3px;font-variant-numeric:tabular-nums}
-  .flow-disclaimer{color:var(--muted);font-size:.78rem;margin:12px 0 14px;padding:8px 12px;background:rgba(94,180,231,.06);border-left:3px solid rgba(94,180,231,.35);border-radius:0 6px 6px 0}
+  /* SRP streamflow link button */
   .flow-srp-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:var(--surface-2);color:var(--text);border:1px solid var(--border);border-radius:10px;font:inherit;font-size:.88rem;font-weight:600;text-decoration:none;margin-top:4px;transition:border-color .12s,color .12s,background .12s}
   .flow-srp-btn:hover,.flow-srp-btn:focus{border-color:var(--accent);color:var(--accent);background:rgba(94,180,231,.08);text-decoration:none}
   .flow-srp-btn::after{content:"↗";color:var(--muted);font-size:.82rem}
@@ -313,13 +284,6 @@
   </div>
   <div class="note"><b>Feet below full</b> = your boat-graph offset. Enter this number so charted depths match reality.</div>
 
-  <!-- INTERACTIVE MAP -->
-  <h2>Interactive Map</h2>
-  <div class="card map-card">
-    <iframe src="https://fishandboataz.azgfd.com/map/" width="100%" height="750px" style="border:none; border-radius:8px;" loading="lazy" title="AZGFD Fish &amp; Boat Arizona Map"></iframe>
-    <div class="map-foot">Live AZGFD Fish &amp; Boat map — pan/zoom to find ramps, regulations, stocking info, and nearby waters.</div>
-  </div>
-
   <!-- CONDITIONS -->
   <h2>Phoenix Conditions</h2>
   <div class="grid cols-2">
@@ -354,16 +318,26 @@
 
   <!-- HOURLY -->
   <div class="card" style="margin-top:12px">
-    <h3>Today's Hourly</h3>
+    <h3>Today's Hourly <span class="pill ok" style="font-weight:500;font-size:.72rem">Swipe →</span></h3>
     <div class="hourly" aria-label="Hourly forecast, scroll horizontally">
-      <div class="h">6 AM<b>64°</b><span class="wind">Calm</span></div>
-      <div class="h">8 AM<b>70°</b><span class="wind">W 3</span></div>
-      <div class="h">10 AM<b>78°</b><span class="wind">W 5</span></div>
-      <div class="h">12 PM<b>84°</b><span class="wind">W 7</span></div>
-      <div class="h">2 PM<b>88°</b><span class="wind">W 9</span></div>
-      <div class="h">4 PM<b>89°</b><span class="wind">W 10</span></div>
-      <div class="h">6 PM<b>84°</b><span class="wind">W 7</span></div>
-      <div class="h">8 PM<b>76°</b><span class="wind">Calm</span></div>
+      <div class="h"><span class="t">6 AM</span><span class="ic">🌅</span><b>64°</b><span class="fl">feels 62°</span><span class="pp">💧 0%</span><span class="wind">Calm</span></div>
+      <div class="h"><span class="t">7 AM</span><span class="ic">☀️</span><b>66°</b><span class="fl">feels 64°</span><span class="pp">💧 0%</span><span class="wind">Calm</span></div>
+      <div class="h"><span class="t">8 AM</span><span class="ic">☀️</span><b>70°</b><span class="fl">feels 69°</span><span class="pp">💧 0%</span><span class="wind">W 3</span></div>
+      <div class="h"><span class="t">9 AM</span><span class="ic">☀️</span><b>74°</b><span class="fl">feels 73°</span><span class="pp">💧 0%</span><span class="wind">W 4</span></div>
+      <div class="h"><span class="t">10 AM</span><span class="ic">☀️</span><b>78°</b><span class="fl">feels 77°</span><span class="pp">💧 0%</span><span class="wind">W 5</span></div>
+      <div class="h"><span class="t">11 AM</span><span class="ic">☀️</span><b>81°</b><span class="fl">feels 80°</span><span class="pp">💧 0%</span><span class="wind">W 6</span></div>
+      <div class="h"><span class="t">12 PM</span><span class="ic">☀️</span><b>84°</b><span class="fl">feels 83°</span><span class="pp">💧 0%</span><span class="wind">W 7</span></div>
+      <div class="h"><span class="t">1 PM</span><span class="ic">☀️</span><b>86°</b><span class="fl">feels 85°</span><span class="pp">💧 0%</span><span class="wind">W 8</span></div>
+      <div class="h"><span class="t">2 PM</span><span class="ic">☀️</span><b>88°</b><span class="fl">feels 87°</span><span class="pp">💧 0%</span><span class="wind">W 9</span></div>
+      <div class="h"><span class="t">3 PM</span><span class="ic">☀️</span><b>89°</b><span class="fl">feels 88°</span><span class="pp">💧 0%</span><span class="wind">W 10</span></div>
+      <div class="h"><span class="t">4 PM</span><span class="ic">☀️</span><b>89°</b><span class="fl">feels 88°</span><span class="pp">💧 0%</span><span class="wind">W 10</span></div>
+      <div class="h"><span class="t">5 PM</span><span class="ic">☀️</span><b>87°</b><span class="fl">feels 86°</span><span class="pp">💧 0%</span><span class="wind">W 8</span></div>
+      <div class="h"><span class="t">6 PM</span><span class="ic">🌇</span><b>84°</b><span class="fl">feels 83°</span><span class="pp">💧 0%</span><span class="wind">W 7</span></div>
+      <div class="h"><span class="t">7 PM</span><span class="ic">🌆</span><b>80°</b><span class="fl">feels 79°</span><span class="pp">💧 0%</span><span class="wind">W 5</span></div>
+      <div class="h"><span class="t">8 PM</span><span class="ic">🌙</span><b>76°</b><span class="fl">feels 75°</span><span class="pp">💧 0%</span><span class="wind">Calm</span></div>
+      <div class="h"><span class="t">9 PM</span><span class="ic">🌙</span><b>74°</b><span class="fl">feels 73°</span><span class="pp">💧 0%</span><span class="wind">Calm</span></div>
+      <div class="h"><span class="t">10 PM</span><span class="ic">🌙</span><b>72°</b><span class="fl">feels 71°</span><span class="pp">💧 0%</span><span class="wind">Calm</span></div>
+      <div class="h"><span class="t">11 PM</span><span class="ic">🌙</span><b>71°</b><span class="fl">feels 70°</span><span class="pp">💧 0%</span><span class="wind">Calm</span></div>
     </div>
   </div>
 
@@ -470,83 +444,8 @@
 
   </div>
 
-  <!-- WATER FLOW THIS WEEK -->
-  <h2>Water Flow This Week</h2>
-  <div class="flow-disclaimer">Inflow (↑ blue) and outflow (↓ red) in cubic feet per second. <b>Numbers update daily</b> from SRP — yesterday's average is shown for comparison since no 7-day forecast is published.</div>
-  <div class="flow-grid">
-
-    <div class="flow-card" data-flow="roosevelt">
-      <h4>Roosevelt <span class="river">Salt River</span></h4>
-      <div class="flow-row">
-        <div class="arrow inflow" aria-label="Inflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 24 V4 M9 4 L3 10 M9 4 L15 10" stroke="#7dc6ed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="flow-label"><b>Inflow</b>Today's reading</div>
-        <div><div class="flow-cfs in"><span data-cfs-in>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-in>NA</span> cfs</div></div>
-      </div>
-      <div class="flow-row">
-        <div class="arrow outflow" aria-label="Outflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 2 V22 M9 22 L3 16 M9 22 L15 16" stroke="#f08b8b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="flow-label"><b>Outflow</b>Released today</div>
-        <div><div class="flow-cfs out"><span data-cfs-out>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-out>NA</span> cfs</div></div>
-      </div>
-    </div>
-
-    <div class="flow-card" data-flow="apache">
-      <h4>Apache <span class="river">Salt River</span></h4>
-      <div class="flow-row">
-        <div class="arrow inflow" aria-label="Inflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 24 V4 M9 4 L3 10 M9 4 L15 10" stroke="#7dc6ed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="flow-label"><b>Inflow</b>Today's reading</div>
-        <div><div class="flow-cfs in"><span data-cfs-in>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-in>NA</span> cfs</div></div>
-      </div>
-      <div class="flow-row">
-        <div class="arrow outflow" aria-label="Outflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 2 V22 M9 22 L3 16 M9 22 L15 16" stroke="#f08b8b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="flow-label"><b>Outflow</b>Released today</div>
-        <div><div class="flow-cfs out"><span data-cfs-out>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-out>NA</span> cfs</div></div>
-      </div>
-    </div>
-
-    <div class="flow-card" data-flow="canyon">
-      <h4>Canyon <span class="river">Salt River</span></h4>
-      <div class="flow-row">
-        <div class="arrow inflow" aria-label="Inflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 24 V4 M9 4 L3 10 M9 4 L15 10" stroke="#7dc6ed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="flow-label"><b>Inflow</b>Today's reading</div>
-        <div><div class="flow-cfs in"><span data-cfs-in>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-in>NA</span> cfs</div></div>
-      </div>
-      <div class="flow-row">
-        <div class="arrow outflow" aria-label="Outflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 2 V22 M9 22 L3 16 M9 22 L15 16" stroke="#f08b8b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="flow-label"><b>Outflow</b>Released today</div>
-        <div><div class="flow-cfs out"><span data-cfs-out>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-out>NA</span> cfs</div></div>
-      </div>
-    </div>
-
-    <div class="flow-card" data-flow="saguaro">
-      <h4>Saguaro <span class="river">Salt River</span></h4>
-      <div class="flow-row">
-        <div class="arrow inflow" aria-label="Inflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 24 V4 M9 4 L3 10 M9 4 L15 10" stroke="#7dc6ed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="flow-label"><b>Inflow</b>Today's reading</div>
-        <div><div class="flow-cfs in"><span data-cfs-in>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-in>NA</span> cfs</div></div>
-      </div>
-      <div class="flow-row">
-        <div class="arrow outflow" aria-label="Outflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 2 V22 M9 22 L3 16 M9 22 L15 16" stroke="#f08b8b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="flow-label"><b>Outflow</b>Released today</div>
-        <div><div class="flow-cfs out"><span data-cfs-out>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-out>NA</span> cfs</div></div>
-      </div>
-    </div>
-
-    <div class="flow-card" data-flow="bartlett">
-      <h4>Bartlett <span class="river">Verde River</span></h4>
-      <div class="flow-row">
-        <div class="arrow inflow" aria-label="Inflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 24 V4 M9 4 L3 10 M9 4 L15 10" stroke="#7dc6ed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="flow-label"><b>Inflow</b>Today's reading</div>
-        <div><div class="flow-cfs in"><span data-cfs-in>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-in>NA</span> cfs</div></div>
-      </div>
-      <div class="flow-row">
-        <div class="arrow outflow" aria-label="Outflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 2 V22 M9 22 L3 16 M9 22 L15 16" stroke="#f08b8b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="flow-label"><b>Outflow</b>Released today</div>
-        <div><div class="flow-cfs out"><span data-cfs-out>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-out>NA</span> cfs</div></div>
-      </div>
-    </div>
-
-  </div>
-  <div style="margin-top:14px"><a class="flow-srp-btn" href="https://streamflow.watershedconnection.com/dwr" target="_blank" rel="noopener noreferrer">View full SRP streamflow report</a></div>
+  <!-- SRP STREAMFLOW LINK -->
+  <div style="margin-top:20px"><a class="flow-srp-btn" href="https://streamflow.watershedconnection.com/dwr" target="_blank" rel="noopener noreferrer">View full SRP streamflow report</a></div>
 
   <!-- BUY AZ FISHING LICENSE -->
   <a class="license-cta" href="https://license.azgfd.com/" target="_blank" rel="noopener noreferrer" aria-label="Buy Arizona fishing license (opens in new tab)">Buy AZ Fishing License</a>
