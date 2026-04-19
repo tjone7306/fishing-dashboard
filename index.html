@@ -18,6 +18,9 @@
     --good:#4fc27a;
     --warn:#f5b44c;
     --bad:#e96464;
+    --in:#7dc6ed;
+    --out:#f08b8b;
+    --snow:#c9deef;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -38,8 +41,8 @@
   /* cards */
   .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px}
   .card + .card{margin-top:12px}
-  .card h3{margin:0 0 8px;font-size:1.05rem;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-  .card-sub{color:var(--muted);font-size:.85rem;margin:-4px 0 10px}
+  .card h3{margin:0 0 4px;font-size:1.05rem;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .card-sub{color:var(--muted);font-size:.85rem;margin:0 0 10px}
   /* grid */
   .grid{display:grid;gap:12px}
   @media(min-width:720px){
@@ -59,6 +62,12 @@
   .pill.mid{background:rgba(245,180,76,.14);color:var(--warn);border:1px solid rgba(245,180,76,.35)}
   .pill.low{background:rgba(233,100,100,.14);color:var(--bad);border:1px solid rgba(233,100,100,.4)}
   .pill.na{background:rgba(142,166,190,.12);color:var(--muted);border:1px solid rgba(142,166,190,.28)}
+  /* big pct */
+  .pct{font-weight:700;font-size:1.6rem;font-variant-numeric:tabular-nums;line-height:1}
+  .pct.good{color:var(--good)}
+  .pct.warn{color:var(--warn)}
+  .pct.bad{color:var(--bad)}
+  .pct.na{color:var(--muted)}
   /* progress bar */
   .bar{height:6px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;margin:10px 0 4px}
   .bar > i{display:block;height:100%;background:var(--accent);border-radius:999px}
@@ -73,26 +82,15 @@
   .sort-btn::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;box-shadow:0 0 0 3px rgba(94,180,231,.2)}
   .sort-status{color:var(--muted);font-size:.82rem}
   .dist{display:inline-block;color:var(--accent);font-size:.78rem;font-weight:500;margin-left:4px}
-  /* snapshot list (mobile replaces table) */
-  .snap{display:grid;gap:10px}
-  .snap-row{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center}
-  .snap-row .name{font-weight:600;font-size:.98rem}
-  .snap-row .name a{color:var(--text);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
-  .snap-row .name a:hover,.snap-row .name a:focus{color:var(--accent);text-decoration:none}
-  .snap-row .name a::after{content:"›";color:var(--muted);font-weight:400;font-size:1.05rem;margin-left:2px;transition:transform .15s ease,color .15s ease}
-  .snap-row .name a:hover::after,.snap-row .name a:focus::after{color:var(--accent);transform:translateX(2px)}
-  .lake-card{scroll-margin-top:80px}
-  .snap-row .pct{font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums}
-  .snap-row .meta{grid-column:1 / -1;color:var(--muted);font-size:.82rem;display:flex;gap:14px;flex-wrap:wrap}
-  .snap-row .meta span{white-space:nowrap}
-  .snap-row .snap-flow{grid-column:1 / -1;font-size:.82rem;display:flex;gap:8px;align-items:center;font-variant-numeric:tabular-nums;margin-top:2px}
-  .snap-row .snap-flow .sf-in{color:#7dc6ed;font-weight:600;white-space:nowrap}
-  .snap-row .snap-flow .sf-out{color:#f08b8b;font-weight:600;white-space:nowrap}
-  .snap-row .snap-flow .sf-arrow{font-weight:700;margin-left:2px}
-  .snap-row .snap-flow .sf-sep{color:var(--border);opacity:.8}
-  .snap-row .snap-flow .sf-na{color:var(--muted);font-weight:700}
+  /* flow inline */
+  .flow-line{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:baseline;justify-content:flex-end}
+  .flow-line .sf-in{color:#7dc6ed;font-weight:600;white-space:nowrap}
+  .flow-line .sf-out{color:#f08b8b;font-weight:600;white-space:nowrap}
+  .flow-line .sf-arrow{font-weight:700;margin-left:2px}
+  .flow-line .sf-sep{color:var(--border);opacity:.8}
+  .flow-line .sf-na{color:var(--muted);font-weight:700}
   /* fish-today button + end-time picker */
-  .fish-row{grid-column:1 / -1;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:4px}
+  .fish-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.05)}
   .fish-btn{background:transparent;color:var(--accent);border:1px solid rgba(94,180,231,.35);border-radius:999px;padding:6px 12px;font:inherit;font-size:.8rem;cursor:pointer;min-height:34px;display:inline-flex;align-items:center;gap:6px}
   .fish-btn:hover,.fish-btn:focus{background:rgba(94,180,231,.1);border-color:var(--accent)}
   .fish-btn.hidden{display:none}
@@ -118,10 +116,6 @@
   @media(min-width:720px){
     #focus-bar{margin:-28px -24px 20px;padding:12px 24px}
   }
-  .pct.good{color:var(--good)}
-  .pct.warn{color:var(--warn)}
-  .pct.bad{color:var(--bad)}
-  .pct.na{color:var(--muted)}
   /* hourly scroll (rich) */
   .hourly{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin:0 -4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
   .hourly::-webkit-scrollbar{height:4px}
@@ -189,6 +183,77 @@
   .flow-srp-btn:hover,.flow-srp-btn:focus{border-color:var(--accent);color:var(--accent);background:rgba(94,180,231,.08);text-decoration:none}
   .flow-srp-btn::after{content:"↗";color:var(--muted);font-size:.82rem}
   .flow-srp-btn:hover::after,.flow-srp-btn:focus::after{color:var(--accent)}
+  /* === Watershed system panel === */
+  .ws-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+  .ws-summary .stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+  .ws-summary .stat .k{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
+  .ws-summary .stat .v{font-size:1.3rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+  .ws-summary .stat .delta{font-size:.78rem;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums}
+  .ws-summary .stat .delta.up{color:var(--good)}
+  .ws-summary .stat .delta.down{color:var(--bad)}
+  @media(max-width:640px){ .ws-summary{grid-template-columns:repeat(2,1fr)} }
+  .ws-scheme{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 16px;margin-bottom:12px;overflow:hidden}
+  .ws-scheme h3{margin:0 0 14px;font-size:1rem;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+  .ws-scheme .legend{font-size:.72rem;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .ws-scheme .legend span{display:inline-flex;align-items:center;gap:4px}
+  .ws-scheme .legend i{width:12px;height:3px;border-radius:2px;display:inline-block}
+  .ws-scheme .legend .i-in{background:var(--in)}
+  .ws-scheme .legend .i-out{background:var(--out)}
+  .ws-scheme .legend .i-snow{background:var(--snow)}
+  svg.scheme{display:block;width:100%;height:auto}
+  svg.scheme text{fill:var(--text);font-family:inherit}
+  svg.scheme .reservoir-rim{fill:var(--surface-2);stroke:var(--border);stroke-width:1.2}
+  svg.scheme .reservoir-label{font-size:13px;font-weight:600;text-anchor:middle}
+  svg.scheme .reservoir-pct{font-size:18px;font-weight:700;text-anchor:middle;font-variant-numeric:tabular-nums}
+  svg.scheme .reservoir-sub{font-size:10px;fill:var(--muted);text-anchor:middle}
+  svg.scheme .flow-in{stroke:var(--in);fill:none;stroke-linecap:round}
+  svg.scheme .flow-out{stroke:var(--out);fill:none;stroke-linecap:round}
+  svg.scheme .flow-label-in{font-size:10px;fill:var(--in);font-weight:600;font-variant-numeric:tabular-nums}
+  svg.scheme .flow-label-out{font-size:10px;fill:var(--out);font-weight:600;font-variant-numeric:tabular-nums}
+  svg.scheme .snow{fill:var(--snow)}
+  svg.scheme .snow-label{font-size:11px;fill:var(--snow);font-weight:600;text-anchor:middle}
+  svg.scheme .branch-label{font-size:10px;fill:var(--muted);text-transform:uppercase;letter-spacing:1.4px;text-anchor:middle;font-weight:600}
+  @keyframes ws-flow{to{stroke-dashoffset:-24}}
+  svg.scheme .flow-in,svg.scheme .flow-out{stroke-dasharray:6 4;animation:ws-flow 1.6s linear infinite}
+  svg.scheme .flow-out{animation-duration:1.3s}
+  @keyframes ws-shimmer{0%,100%{opacity:.35}50%{opacity:.75}}
+  svg.scheme .water-shine{animation:ws-shimmer 3.2s ease-in-out infinite;pointer-events:none}
+  @keyframes ws-snowfall{0%{transform:translateY(0);opacity:.9}100%{transform:translateY(38px);opacity:0}}
+  svg.scheme .flake{animation:ws-snowfall 3s linear infinite}
+  svg.scheme .flake.b{animation-delay:-1s;animation-duration:3.5s}
+  svg.scheme .flake.c{animation-delay:-2s;animation-duration:4s}
+  svg.scheme .flake.d{animation-delay:-.5s;animation-duration:2.7s}
+  @keyframes ws-riseTank{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+  svg.scheme .tank-fill{transform-origin:0 100%;transform-box:fill-box;animation:ws-riseTank 1.4s cubic-bezier(.22,.8,.3,1) both}
+  @keyframes ws-fadeUp{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+  svg.scheme .reservoir-label,svg.scheme .reservoir-pct,svg.scheme .reservoir-sub,svg.scheme .flow-label-in,svg.scheme .flow-label-out,svg.scheme .branch-label,svg.scheme .snow-label{animation:ws-fadeUp .8s ease-out both;animation-delay:1.2s}
+  @keyframes ws-drawLine{to{stroke-dashoffset:0}}
+  .ws-spark svg polyline{stroke-dasharray:360;stroke-dashoffset:360;animation:ws-drawLine 1.8s ease-out forwards;animation-delay:.4s}
+  @keyframes ws-countIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  .ws-summary .stat .v,.ws-summary .stat .delta{animation:ws-countIn .9s ease-out both}
+  .ws-summary .stat:nth-child(1) .v{animation-delay:.05s}
+  .ws-summary .stat:nth-child(2) .v{animation-delay:.15s}
+  .ws-summary .stat:nth-child(3) .v{animation-delay:.25s}
+  .ws-summary .stat:nth-child(4) .v{animation-delay:.35s}
+  @media (prefers-reduced-motion: reduce){
+    svg.scheme .flow-in,svg.scheme .flow-out,svg.scheme .water-shine,svg.scheme .flake,svg.scheme .tank-fill,svg.scheme .reservoir-label,svg.scheme .reservoir-pct,svg.scheme .reservoir-sub,svg.scheme .flow-label-in,svg.scheme .flow-label-out,svg.scheme .branch-label,svg.scheme .snow-label,.ws-spark svg polyline,.ws-summary .stat .v,.ws-summary .stat .delta{animation:none!important}
+    .ws-spark svg polyline{stroke-dashoffset:0}
+  }
+  .ws-spark-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  @media(max-width:720px){ .ws-spark-grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:420px){ .ws-spark-grid{grid-template-columns:1fr} }
+  .ws-spark{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+  .ws-spark .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+  .ws-spark .name{font-size:.88rem;font-weight:600}
+  .ws-spark .pct{font-size:1.1rem;font-weight:700;font-variant-numeric:tabular-nums}
+  .ws-spark .pct.good{color:var(--good)}
+  .ws-spark .pct.warn{color:var(--warn)}
+  .ws-spark .pct.bad{color:var(--bad)}
+  .ws-spark .delta{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+  .ws-spark .delta.up{color:var(--good)}
+  .ws-spark .delta.down{color:var(--bad)}
+  .ws-spark svg{display:block;width:100%;height:40px}
+  .ws-foot{color:var(--muted);font-size:.78rem;margin-top:12px;line-height:1.55}
 </style>
 </head>
 <body>
@@ -215,74 +280,117 @@
     <div class="updated">Last updated <b>Sunday, April 19, 2026 at 6:30 AM MST</b></div>
   </header>
 
-  <!-- SNAPSHOT -->
-  <h2>Quick Snapshot</h2>
+  <!-- LAKES -->
+  <h2>Lakes</h2>
   <div class="sort-bar">
     <button id="btn-sort-distance" class="sort-btn" type="button">Sort by distance from me</button>
     <span id="sort-status" class="sort-status"></span>
   </div>
-  <div class="snap" id="snap-list">
-    <div class="snap-row" data-lake="pleasant" data-label="Lake Pleasant" data-lat="33.8770" data-lon="-112.2733">
-      <div class="name"><a href="#lake-pleasant">Lake Pleasant</a> <span class="dist" data-dist></span></div>
-      <div class="pct na">NA</div>
-      <div class="meta"><span>Elev NA</span><span>Below full NA</span><span>Trend —</span></div>
+  <div class="grid cols-2" id="snap-list">
+
+    <div class="card lake-card" data-lake="pleasant" data-label="Lake Pleasant" data-lat="33.8770" data-lon="-112.2733" id="lake-pleasant">
+      <h3><span>Lake Pleasant <span class="pill na">NA</span> <span class="dist" data-dist></span></span><span class="pct na">NA</span></h3>
+      <div class="card-sub">Full pool 1,702 ft · New Waddell Dam · Bass, stripers, whites</div>
+      <div class="bar"><i style="width:0%"></i></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">NA</span></div>
+      <div class="row" data-flow-row="pleasant"><span class="k">Flow</span><span class="v flow-line"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></span></div>
+      <div class="row"><span class="k">Wind</span><span class="v" data-wind="pleasant">—</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Scorpion Bay · 10-Lane</span></div>
+      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=10+Lane+Boat+Ramp+Lake+Pleasant+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
       <div class="fish-row">
         <button class="fish-btn" type="button" data-fish>Fish here today</button>
         <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
       </div>
     </div>
-    <div class="snap-row" data-lake="roosevelt" data-label="Roosevelt" data-lat="33.6700" data-lon="-111.1500">
-      <div class="name"><a href="#lake-roosevelt">Roosevelt</a> <span class="pill low">Low</span> <span class="dist" data-dist></span></div>
-      <div class="pct bad">46%</div>
-      <div class="snap-flow" data-flow-row="roosevelt"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></div>
-      <div class="meta"><span>Elev 2,100.19 ft</span><span>Below full 50.81 ft</span><span>Storage 752,924 AF</span></div>
+
+    <div class="card lake-card" data-lake="roosevelt" data-label="Roosevelt" data-lat="33.6700" data-lon="-111.1500" id="lake-roosevelt">
+      <h3><span>Roosevelt <span class="pill low">Low</span> <span class="dist" data-dist></span></span><span class="pct bad">46%</span></h3>
+      <div class="card-sub">Full pool ~2,151 ft · Roosevelt Dam · Largemouth, smallmouth, crappie</div>
+      <div class="bar"><i class="bad" style="width:46%"></i></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">2,100.19 ft</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">50.81 ft</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">752,924 AF</span></div>
+      <div class="row" data-flow-row="roosevelt"><span class="k">Flow</span><span class="v flow-line"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></span></div>
+      <div class="row"><span class="k">Wind</span><span class="v" data-wind="roosevelt">—</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Schoolhouse · Cholla</span></div>
+      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Windy+Hill+Boat+Ramp+Roosevelt+Lake+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
       <div class="fish-row">
         <button class="fish-btn" type="button" data-fish>Fish here today</button>
         <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
       </div>
     </div>
-    <div class="snap-row" data-lake="apache" data-label="Apache" data-lat="33.5800" data-lon="-111.2333">
-      <div class="name"><a href="#lake-apache">Apache</a> <span class="pill ok">Near full</span> <span class="dist" data-dist></span></div>
-      <div class="pct good">92%</div>
-      <div class="snap-flow" data-flow-row="apache"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></div>
-      <div class="meta"><span>Elev 1,906.20 ft</span><span>Below full 7.80 ft</span><span>Storage 224,886 AF</span></div>
+
+    <div class="card lake-card" data-lake="apache" data-label="Apache" data-lat="33.5800" data-lon="-111.2333" id="lake-apache">
+      <h3><span>Apache <span class="pill ok">Near full</span> <span class="dist" data-dist></span></span><span class="pct good">92%</span></h3>
+      <div class="card-sub">Full pool 1,914 ft · Horse Mesa Dam · Largemouth, smallmouth, yellow bass</div>
+      <div class="bar"><i class="good" style="width:92%"></i></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">1,906.20 ft</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">7.80 ft</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">224,886 AF</span></div>
+      <div class="row" data-flow-row="apache"><span class="k">Flow</span><span class="v flow-line"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></span></div>
+      <div class="row"><span class="k">Wind</span><span class="v" data-wind="apache">—</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Burnt Corral · Apache Lake Marina</span></div>
+      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Apache+Lake+Boat+Ramp+Roosevelt+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
       <div class="fish-row">
         <button class="fish-btn" type="button" data-fish>Fish here today</button>
         <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
       </div>
     </div>
-    <div class="snap-row" data-lake="canyon" data-label="Canyon" data-lat="33.5400" data-lon="-111.4600">
-      <div class="name"><a href="#lake-canyon">Canyon</a> <span class="pill ok">Near full</span> <span class="dist" data-dist></span></div>
-      <div class="pct good">95%</div>
-      <div class="snap-flow" data-flow-row="canyon"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></div>
-      <div class="meta"><span>Elev 1,657.34 ft</span><span>Below full 3.16 ft</span><span>Storage 54,879 AF</span></div>
+
+    <div class="card lake-card" data-lake="canyon" data-label="Canyon" data-lat="33.5400" data-lon="-111.4600" id="lake-canyon">
+      <h3><span>Canyon <span class="pill ok">Near full</span> <span class="dist" data-dist></span></span><span class="pct good">95%</span></h3>
+      <div class="card-sub">Full pool 1,660 ft · Mormon Flat Dam · Walleye, largemouth, stocked rainbow trout</div>
+      <div class="bar"><i class="good" style="width:95%"></i></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">1,657.34 ft</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">3.16 ft</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">54,879 AF</span></div>
+      <div class="row" data-flow-row="canyon"><span class="k">Flow</span><span class="v flow-line"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></span></div>
+      <div class="row"><span class="k">Wind</span><span class="v" data-wind="canyon">—</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Palo Verde · Boulder Rec</span></div>
+      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Canyon+Lake+Boat+Ramp+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
       <div class="fish-row">
         <button class="fish-btn" type="button" data-fish>Fish here today</button>
         <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
       </div>
     </div>
-    <div class="snap-row" data-lake="saguaro" data-label="Saguaro" data-lat="33.5680" data-lon="-111.5450">
-      <div class="name"><a href="#lake-saguaro">Saguaro</a> <span class="pill ok">Near full</span> <span class="dist" data-dist></span></div>
-      <div class="pct good">95%</div>
-      <div class="snap-flow" data-flow-row="saguaro"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></div>
-      <div class="meta"><span>Elev 1,526.21 ft</span><span>Below full 2.79 ft</span><span>Storage 66,296 AF</span></div>
+
+    <div class="card lake-card" data-lake="saguaro" data-label="Saguaro" data-lat="33.5680" data-lon="-111.5450" id="lake-saguaro">
+      <h3><span>Saguaro <span class="pill ok">Near full</span> <span class="dist" data-dist></span></span><span class="pct good">95%</span></h3>
+      <div class="card-sub">Full pool 1,529 ft · Stewart Mountain Dam · Largemouth, yellow bass, crappie</div>
+      <div class="bar"><i class="good" style="width:95%"></i></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">1,526.21 ft</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">2.79 ft</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">66,296 AF</span></div>
+      <div class="row" data-flow-row="saguaro"><span class="k">Flow</span><span class="v flow-line"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></span></div>
+      <div class="row"><span class="k">Wind</span><span class="v" data-wind="saguaro">—</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Butcher Jones · Bagley · Saguaro del Norte</span></div>
+      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Saguaro+Lake+Boat+Ramp+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
       <div class="fish-row">
         <button class="fish-btn" type="button" data-fish>Fish here today</button>
         <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
       </div>
     </div>
-    <div class="snap-row" data-lake="bartlett" data-label="Bartlett" data-lat="33.8167" data-lon="-111.6333">
-      <div class="name"><a href="#lake-bartlett">Bartlett</a> <span class="pill ok">Good</span> <span class="dist" data-dist></span></div>
-      <div class="pct good">70%</div>
-      <div class="snap-flow" data-flow-row="bartlett"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></div>
-      <div class="meta"><span>Elev 1,776.17 ft</span><span>Below full 21.83 ft</span><span>Storage 123,943 AF</span></div>
+
+    <div class="card lake-card" data-lake="bartlett" data-label="Bartlett" data-lat="33.8167" data-lon="-111.6333" id="lake-bartlett">
+      <h3><span>Bartlett <span class="pill ok">Good</span> <span class="dist" data-dist></span></span><span class="pct good">70%</span></h3>
+      <div class="card-sub">Full pool 1,798 ft · Bartlett Dam · Largemouth, flathead, sunfish</div>
+      <div class="bar"><i class="good" style="width:70%"></i></div>
+      <div class="row"><span class="k">Elevation</span><span class="v">1,776.17 ft</span></div>
+      <div class="row"><span class="k">Below full</span><span class="v">21.83 ft</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">123,943 AF</span></div>
+      <div class="row" data-flow-row="bartlett"><span class="k">Flow</span><span class="v flow-line"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></span></div>
+      <div class="row"><span class="k">Wind</span><span class="v" data-wind="bartlett">—</span></div>
+      <div class="row"><span class="k">Ramps</span><span class="v">Bartlett · SB Cove (check low-water)</span></div>
+      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rattlesnake+Cove+Boat+Ramp+Bartlett+Lake" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
       <div class="fish-row">
         <button class="fish-btn" type="button" data-fish>Fish here today</button>
         <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
       </div>
     </div>
+
   </div>
-  <div class="note"><b>Feet below full</b> = your boat-graph offset. Enter this number so charted depths match reality.</div>
+  <div class="note"><b>Below full</b> = your boat-graph offset. Enter this number so charted depths match reality. CAP publishes only a 12-month forecast graph for Lake Pleasant — no live daily elevation.</div>
 
   <!-- CONDITIONS -->
   <h2>Phoenix Conditions</h2>
@@ -360,92 +468,176 @@
     <div class="note">New moon was April 16 — post-new solunar activity still elevated. Fish the transitions at sunrise and the major window around noon.</div>
   </div>
 
-  <!-- LAKE DETAIL -->
-  <h2>Lake Detail</h2>
-  <div class="grid cols-2">
-
-    <div class="card lake-card" id="lake-pleasant">
-      <h3>Lake Pleasant <span class="pill na">NA</span></h3>
-      <div class="card-sub">Full pool 1,702 ft · New Waddell Dam · Bass, stripers, whites</div>
-      <div class="bar"><i style="width:0%"></i></div>
-      <div class="row"><span class="k">% Full</span><span class="v">NA</span></div>
-      <div class="row"><span class="k">Elevation</span><span class="v">NA</span></div>
-      <div class="row"><span class="k">Below full</span><span class="v">NA</span></div>
-      <div class="row"><span class="k">Wind</span><span class="v" data-wind="pleasant">—</span></div>
-      <div class="row"><span class="k">Ramps</span><span class="v">Scorpion Bay · 10-Lane</span></div>
-      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=10+Lane+Boat+Ramp+Lake+Pleasant+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
-      <div class="note">CAP publishes only a 12-month forecast graph — no live daily elevation.</div>
-    </div>
-
-    <div class="card lake-card" id="lake-roosevelt">
-      <h3>Roosevelt <span class="pill low">Low — 46%</span></h3>
-      <div class="card-sub">Full pool ~2,151 ft · Roosevelt Dam · Largemouth, smallmouth, crappie</div>
-      <div class="bar"><i class="bad" style="width:46%"></i></div>
-      <div class="row"><span class="k">% Full</span><span class="v">46%</span></div>
-      <div class="row"><span class="k">Elevation</span><span class="v">2,100.19 ft</span></div>
-      <div class="row"><span class="k">Below full</span><span class="v">50.81 ft</span></div>
-      <div class="row"><span class="k">Storage</span><span class="v">752,924 AF</span></div>
-      <div class="row"><span class="k">Wind</span><span class="v" data-wind="roosevelt">—</span></div>
-      <div class="row"><span class="k">Ramps</span><span class="v">Schoolhouse · Cholla</span></div>
-      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Windy+Hill+Boat+Ramp+Roosevelt+Lake+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
-    </div>
-
-    <div class="card lake-card" id="lake-apache">
-      <h3>Apache <span class="pill ok">92%</span></h3>
-      <div class="card-sub">Full pool 1,914 ft · Horse Mesa Dam · Largemouth, smallmouth, yellow bass</div>
-      <div class="bar"><i class="good" style="width:92%"></i></div>
-      <div class="row"><span class="k">% Full</span><span class="v">92%</span></div>
-      <div class="row"><span class="k">Elevation</span><span class="v">1,906.20 ft</span></div>
-      <div class="row"><span class="k">Below full</span><span class="v">7.80 ft</span></div>
-      <div class="row"><span class="k">Storage</span><span class="v">224,886 AF</span></div>
-      <div class="row"><span class="k">Wind</span><span class="v" data-wind="apache">—</span></div>
-      <div class="row"><span class="k">Ramps</span><span class="v">Burnt Corral · Apache Lake Marina</span></div>
-      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Apache+Lake+Boat+Ramp+Roosevelt+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
-    </div>
-
-    <div class="card lake-card" id="lake-canyon">
-      <h3>Canyon <span class="pill ok">95%</span></h3>
-      <div class="card-sub">Full pool 1,660 ft · Mormon Flat Dam · Walleye, largemouth, stocked rainbow trout</div>
-      <div class="bar"><i class="good" style="width:95%"></i></div>
-      <div class="row"><span class="k">% Full</span><span class="v">95%</span></div>
-      <div class="row"><span class="k">Elevation</span><span class="v">1,657.34 ft</span></div>
-      <div class="row"><span class="k">Below full</span><span class="v">3.16 ft</span></div>
-      <div class="row"><span class="k">Storage</span><span class="v">54,879 AF</span></div>
-      <div class="row"><span class="k">Wind</span><span class="v" data-wind="canyon">—</span></div>
-      <div class="row"><span class="k">Ramps</span><span class="v">Palo Verde · Boulder Rec</span></div>
-      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Canyon+Lake+Boat+Ramp+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
-    </div>
-
-    <div class="card lake-card" id="lake-saguaro">
-      <h3>Saguaro <span class="pill ok">95%</span></h3>
-      <div class="card-sub">Full pool 1,529 ft · Stewart Mountain Dam · Largemouth, yellow bass, crappie</div>
-      <div class="bar"><i class="good" style="width:95%"></i></div>
-      <div class="row"><span class="k">% Full</span><span class="v">95%</span></div>
-      <div class="row"><span class="k">Elevation</span><span class="v">1,526.21 ft</span></div>
-      <div class="row"><span class="k">Below full</span><span class="v">2.79 ft</span></div>
-      <div class="row"><span class="k">Storage</span><span class="v">66,296 AF</span></div>
-      <div class="row"><span class="k">Wind</span><span class="v" data-wind="saguaro">—</span></div>
-      <div class="row"><span class="k">Ramps</span><span class="v">Butcher Jones · Bagley · Saguaro del Norte</span></div>
-      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Saguaro+Lake+Boat+Ramp+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
-    </div>
-
-    <div class="card lake-card" id="lake-bartlett">
-      <h3>Bartlett <span class="pill ok">Good — 70%</span></h3>
-      <div class="card-sub">Full pool 1,798 ft · Bartlett Dam · Largemouth, flathead, sunfish</div>
-      <div class="bar"><i class="good" style="width:70%"></i></div>
-      <div class="row"><span class="k">% Full</span><span class="v">70%</span></div>
-      <div class="row"><span class="k">Elevation</span><span class="v">1,776.17 ft</span></div>
-      <div class="row"><span class="k">Below full</span><span class="v">21.83 ft</span></div>
-      <div class="row"><span class="k">Storage</span><span class="v">123,943 AF</span></div>
-      <div class="row"><span class="k">Wind</span><span class="v" data-wind="bartlett">—</span></div>
-      <div class="row"><span class="k">Ramps</span><span class="v">Bartlett · SB Cove (check low-water)</span></div>
-      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rattlesnake+Cove+Boat+Ramp+Bartlett+Lake" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
-    </div>
-
-  </div>
-
   <!-- SRP STREAMFLOW LINK -->
   <div style="margin-top:20px"><a class="flow-srp-btn" href="https://streamflow.watershedconnection.com/dwr" target="_blank" rel="noopener noreferrer">View full SRP streamflow report</a></div>
+
+  <!-- WATERSHED SYSTEM -->
+  <h2>Salt &amp; Verde Watershed</h2>
+  <div class="ws-summary">
+    <div class="stat">
+      <div class="k">System storage</div>
+      <div class="v">1.22M <span style="font-size:.78rem;font-weight:500;color:var(--muted)">AF</span></div>
+      <div class="delta up">+4,210 AF vs yesterday</div>
+    </div>
+    <div class="stat">
+      <div class="k">System fill</div>
+      <div class="v" style="color:var(--warn)">68%</div>
+      <div class="delta up">+1.1 pts vs last week</div>
+    </div>
+    <div class="stat">
+      <div class="k">Total inflow</div>
+      <div class="v" style="color:var(--in)">4,820 <span style="font-size:.78rem;font-weight:500;color:var(--muted)">cfs</span></div>
+      <div class="delta up">Snowmelt pulse</div>
+    </div>
+    <div class="stat">
+      <div class="k">Total release</div>
+      <div class="v" style="color:var(--out)">1,145 <span style="font-size:.78rem;font-weight:500;color:var(--muted)">cfs</span></div>
+      <div class="delta down">−210 cfs vs yesterday</div>
+    </div>
+  </div>
+
+  <div class="ws-scheme">
+    <h3>System Flow <span class="legend"><span><i class="i-snow"></i> Snowpack</span><span><i class="i-in"></i> Inflow</span><span><i class="i-out"></i> Release</span></span></h3>
+    <svg class="scheme" viewBox="0 0 600 620" preserveAspectRatio="xMidYMid meet" aria-label="Salt and Verde watershed flow schematic">
+      <defs>
+        <linearGradient id="waterFill" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="#3fa4e0"/><stop offset="100%" stop-color="#8bd3f0"/>
+        </linearGradient>
+        <linearGradient id="waterFillBad" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="#c23535"/><stop offset="100%" stop-color="#f08b8b"/>
+        </linearGradient>
+        <linearGradient id="waterFillWarn" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="#c88424"/><stop offset="100%" stop-color="#f5c87a"/>
+        </linearGradient>
+      </defs>
+      <text class="branch-label" x="150" y="14">Salt River Watershed</text>
+      <text class="snow-label" x="150" y="30">SWE 104% of normal</text>
+      <text class="branch-label" x="450" y="14">Verde River Watershed</text>
+      <text class="snow-label" x="450" y="30">SWE 88% of normal</text>
+      <g transform="translate(150,60)">
+        <polygon class="snow" points="-34,10 -22,-14 -10,10"/>
+        <polygon class="snow" points="-18,10 -6,-18 6,10"/>
+        <polygon class="snow" points="2,10 14,-12 26,10"/>
+        <circle class="flake" cx="-28" cy="14" r="1.4" fill="var(--snow)"/>
+        <circle class="flake b" cx="-12" cy="14" r="1.1" fill="var(--snow)"/>
+        <circle class="flake c" cx="4" cy="14" r="1.3" fill="var(--snow)"/>
+        <circle class="flake d" cx="20" cy="14" r="1.1" fill="var(--snow)"/>
+      </g>
+      <g transform="translate(450,60)">
+        <polygon class="snow" points="-30,10 -18,-12 -6,10"/>
+        <polygon class="snow" points="-14,10 -2,-16 10,10"/>
+        <polygon class="snow" points="6,10 18,-10 30,10"/>
+        <circle class="flake b" cx="-24" cy="14" r="1.2" fill="var(--snow)"/>
+        <circle class="flake" cx="-8" cy="14" r="1.1" fill="var(--snow)"/>
+        <circle class="flake d" cx="8" cy="14" r="1.3" fill="var(--snow)"/>
+        <circle class="flake c" cx="24" cy="14" r="1.1" fill="var(--snow)"/>
+      </g>
+      <g transform="translate(150,140)">
+        <rect class="reservoir-rim" x="-50" y="0" width="100" height="70" rx="8"/>
+        <rect class="tank-fill" fill="url(#waterFillBad)" x="-48" y="40.2" width="96" height="27.8" rx="6"/>
+        <rect class="water-shine" x="-48" y="40.2" width="96" height="3" rx="1.5" fill="rgba(255,255,255,.5)"/>
+        <text class="reservoir-label" y="-6">Roosevelt</text>
+        <text class="reservoir-pct" y="42" fill="#fff">46%</text>
+        <text class="reservoir-sub" y="86">752K AF · 2,100 ft</text>
+      </g>
+      <g transform="translate(150,260)">
+        <rect class="reservoir-rim" x="-50" y="0" width="100" height="56" rx="8"/>
+        <rect class="tank-fill" fill="url(#waterFill)" x="-48" y="6.48" width="96" height="47.52" rx="6"/>
+        <rect class="water-shine" x="-48" y="6.48" width="96" height="3" rx="1.5" fill="rgba(255,255,255,.55)"/>
+        <text class="reservoir-label" y="-6">Apache</text>
+        <text class="reservoir-pct" y="36" fill="#fff">92%</text>
+        <text class="reservoir-sub" y="72">225K AF · 1,906 ft</text>
+      </g>
+      <g transform="translate(150,360)">
+        <rect class="reservoir-rim" x="-50" y="0" width="100" height="48" rx="8"/>
+        <rect class="tank-fill" fill="url(#waterFill)" x="-48" y="4.4" width="96" height="41.6" rx="6"/>
+        <rect class="water-shine" x="-48" y="4.4" width="96" height="3" rx="1.5" fill="rgba(255,255,255,.55)"/>
+        <text class="reservoir-label" y="-6">Canyon</text>
+        <text class="reservoir-pct" y="32" fill="#fff">95%</text>
+        <text class="reservoir-sub" y="64">55K AF · 1,657 ft</text>
+      </g>
+      <g transform="translate(150,452)">
+        <rect class="reservoir-rim" x="-50" y="0" width="100" height="48" rx="8"/>
+        <rect class="tank-fill" fill="url(#waterFill)" x="-48" y="4.4" width="96" height="41.6" rx="6"/>
+        <rect class="water-shine" x="-48" y="4.4" width="96" height="3" rx="1.5" fill="rgba(255,255,255,.55)"/>
+        <text class="reservoir-label" y="-6">Saguaro</text>
+        <text class="reservoir-pct" y="32" fill="#fff">95%</text>
+        <text class="reservoir-sub" y="64">66K AF · 1,526 ft</text>
+      </g>
+      <g transform="translate(450,140)">
+        <rect class="reservoir-rim" x="-50" y="0" width="100" height="48" rx="8"/>
+        <rect class="tank-fill" fill="url(#waterFillWarn)" x="-48" y="18" width="96" height="28" rx="6"/>
+        <rect class="water-shine" x="-48" y="18" width="96" height="3" rx="1.5" fill="rgba(255,255,255,.55)"/>
+        <text class="reservoir-label" y="-6">Horseshoe</text>
+        <text class="reservoir-pct" y="32" fill="#fff">58%</text>
+        <text class="reservoir-sub" y="64">82K AF · 1,987 ft</text>
+      </g>
+      <g transform="translate(450,280)">
+        <rect class="reservoir-rim" x="-50" y="0" width="100" height="52" rx="8"/>
+        <rect class="tank-fill" fill="url(#waterFill)" x="-48" y="16.4" width="96" height="33.6" rx="6"/>
+        <rect class="water-shine" x="-48" y="16.4" width="96" height="3" rx="1.5" fill="rgba(255,255,255,.55)"/>
+        <text class="reservoir-label" y="-6">Bartlett</text>
+        <text class="reservoir-pct" y="34" fill="#fff">70%</text>
+        <text class="reservoir-sub" y="68">124K AF · 1,776 ft</text>
+      </g>
+      <path class="flow-in" stroke-width="5" d="M 150 92 L 150 138"/>
+      <text class="flow-label-in" x="165" y="118">↓ 2,840 cfs</text>
+      <path class="flow-out" stroke-width="2.5" d="M 150 212 L 150 258"/>
+      <text class="flow-label-out" x="165" y="240">↓ 420 cfs</text>
+      <path class="flow-out" stroke-width="2.8" d="M 150 318 L 150 358"/>
+      <text class="flow-label-out" x="165" y="342">↓ 540 cfs</text>
+      <path class="flow-out" stroke-width="3" d="M 150 410 L 150 450"/>
+      <text class="flow-label-out" x="165" y="434">↓ 605 cfs</text>
+      <path class="flow-out" stroke-width="3" d="M 150 500 L 150 560"/>
+      <text class="flow-label-out" x="165" y="548">↓ 620 cfs</text>
+      <path class="flow-in" stroke-width="3.5" d="M 450 92 L 450 138"/>
+      <text class="flow-label-in" x="465" y="118">↓ 1,980 cfs</text>
+      <path class="flow-out" stroke-width="2" d="M 450 190 L 450 278"/>
+      <text class="flow-label-out" x="465" y="240">↓ 310 cfs</text>
+      <path class="flow-out" stroke-width="2.5" d="M 450 334 L 450 500"/>
+      <text class="flow-label-out" x="465" y="430">↓ 525 cfs</text>
+      <path class="flow-out" stroke-width="3" d="M 450 500 Q 450 540 330 560 L 170 560"/>
+      <g transform="translate(300,580)">
+        <rect x="-80" y="-20" width="160" height="30" rx="14" fill="var(--surface-2)" stroke="var(--border)"/>
+        <text text-anchor="middle" y="0" font-size="12" font-weight="600" fill="var(--text)">Valley delivery</text>
+        <text text-anchor="middle" y="14" font-size="10" fill="var(--muted)">SRP canals · Phoenix metro</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="ws-spark-grid">
+    <div class="ws-spark">
+      <div class="top"><span class="name">Roosevelt</span><span class="pct bad">46%</span></div>
+      <div class="delta down">−0.8 pts over 30d</div>
+      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#e96464" stroke-width="1.8" points="0,14 8,15 16,16 24,16 32,17 40,17 48,18 56,19 64,20 72,21 80,22 88,22 96,22 104,23 112,23 120,24"/></svg>
+    </div>
+    <div class="ws-spark">
+      <div class="top"><span class="name">Apache</span><span class="pct good">92%</span></div>
+      <div class="delta up">+2.1 pts over 30d</div>
+      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#4fc27a" stroke-width="1.8" points="0,18 8,17 16,15 24,14 32,12 40,10 48,9 56,8 64,7 72,7 80,6 88,5 96,5 104,5 112,4 120,4"/></svg>
+    </div>
+    <div class="ws-spark">
+      <div class="top"><span class="name">Canyon</span><span class="pct good">95%</span></div>
+      <div class="delta up">+1.4 pts over 30d</div>
+      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#4fc27a" stroke-width="1.8" points="0,12 8,11 16,10 24,10 32,9 40,8 48,7 56,6 64,5 72,5 80,4 88,4 96,3 104,3 112,3 120,3"/></svg>
+    </div>
+    <div class="ws-spark">
+      <div class="top"><span class="name">Saguaro</span><span class="pct good">95%</span></div>
+      <div class="delta up">+0.9 pts over 30d</div>
+      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#4fc27a" stroke-width="1.8" points="0,10 8,9 16,9 24,8 32,7 40,7 48,6 56,6 64,5 72,5 80,5 88,4 96,4 104,4 112,3 120,3"/></svg>
+    </div>
+    <div class="ws-spark">
+      <div class="top"><span class="name">Horseshoe</span><span class="pct warn">58%</span></div>
+      <div class="delta up">+4.2 pts over 30d</div>
+      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#f5b44c" stroke-width="1.8" points="0,26 8,25 16,24 24,22 32,21 40,20 48,18 56,17 64,15 72,14 80,12 88,11 96,10 104,9 112,8 120,7"/></svg>
+    </div>
+    <div class="ws-spark">
+      <div class="top"><span class="name">Bartlett</span><span class="pct good">70%</span></div>
+      <div class="delta up">+3.8 pts over 30d</div>
+      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#4fc27a" stroke-width="1.8" points="0,22 8,21 16,20 24,18 32,17 40,15 48,14 56,13 64,11 72,10 80,9 88,8 96,7 104,7 112,6 120,5"/></svg>
+    </div>
+  </div>
+  <div class="ws-foot">Live data pulled daily from SRP watershed connection (Roosevelt, Apache, Canyon, Saguaro, Horseshoe, Bartlett) and SNOTEL snowpack sensors for Salt &amp; Verde basins. Inflow/release values are daily averages in cfs.</div>
 
   <!-- BUY AZ FISHING LICENSE -->
   <a class="license-cta" href="https://license.azgfd.com/" target="_blank" rel="noopener noreferrer" aria-label="Buy Arizona fishing license (opens in new tab)">Buy AZ Fishing License</a>
@@ -473,42 +665,43 @@
   if(!bar || !list) return;
 
   var alerts = [];
-  var severe = false; // true -> red (thunderstorm/monsoon), false -> orange
+  var severe = false;
 
   function scanText(label, text){
     if(!text) return;
     var t = text.toLowerCase();
-    // temperature
-    var tempMatch = text.match(/(\d{2,3})\s*°?\s*F?/);
-    // pull all 2-3 digit numbers and look for heat
     var nums = (text.match(/\b(\d{2,3})\b/g) || []).map(function(n){ return parseInt(n, 10); });
     var maxTemp = 0;
     nums.forEach(function(n){ if(n >= 60 && n <= 130 && n > maxTemp) maxTemp = n; });
     if(maxTemp > 95){
       alerts.push(label + ': high of ' + maxTemp + '°F — heat advisory range');
     }
-    // wind gusts / sustained
     var gustMatch = text.match(/gusts?\s*(?:to|of)?\s*(\d{1,3})/i);
     if(gustMatch){
       var g = parseInt(gustMatch[1], 10);
       if(g > 15) alerts.push(label + ': wind gusts to ' + g + ' mph');
     } else {
-      // generic "W 20 mph" pattern
       var windMatch = text.match(/\b([NSEW]{1,3})\s*(\d{1,3})\b/);
       if(windMatch){
         var w = parseInt(windMatch[2], 10);
         if(w > 15) alerts.push(label + ': ' + windMatch[1] + ' wind ' + w + ' mph');
       }
     }
-    // storms / monsoon
     if(/thunder|monsoon|t-?storm/i.test(t)){
       alerts.push(label + ': thunderstorm/monsoon risk');
       severe = true;
     }
   }
 
-  // Scan the 3-day outlook card rows
-  var outlookCard = document.querySelectorAll('.grid.cols-2 .card')[1];
+  var outlookCard = document.querySelectorAll('.grid.cols-2 .card')[6];
+  // fallback: find the outlook card by heading text
+  if(!outlookCard || !/Outlook/i.test((outlookCard.querySelector('h3')||{}).textContent||'')){
+    outlookCard = null;
+    document.querySelectorAll('.grid.cols-2 .card').forEach(function(c){
+      var h = c.querySelector('h3');
+      if(h && /Outlook/i.test(h.textContent)) outlookCard = c;
+    });
+  }
   if(outlookCard){
     outlookCard.querySelectorAll('.row').forEach(function(r){
       var k = r.querySelector('.k'); var v = r.querySelector('.v');
@@ -516,8 +709,11 @@
     });
   }
 
-  // Scan today's conditions card
-  var todayCard = document.querySelectorAll('.grid.cols-2 .card')[0];
+  var todayCard = null;
+  document.querySelectorAll('.grid.cols-2 .card').forEach(function(c){
+    var h = c.querySelector('h3');
+    if(h && /^\s*Today\b/.test(h.textContent)) todayCard = c;
+  });
   if(todayCard){
     var combined = [];
     todayCard.querySelectorAll('.kv > div').forEach(function(d){
@@ -527,11 +723,10 @@
     scanText('Today', combined.join(' · '));
   }
 
-  // de-dupe
   var seen = {};
   alerts = alerts.filter(function(a){ if(seen[a]) return false; seen[a] = 1; return true; });
 
-  if(alerts.length === 0){ return; } // keep hidden
+  if(alerts.length === 0){ return; }
 
   bar.classList.add('on');
   if(!severe) bar.classList.add('warn');
@@ -542,13 +737,14 @@
   });
 })();
 
+// --- Sort by distance from me ---
 (function(){
   var btn = document.getElementById('btn-sort-distance');
   var status = document.getElementById('sort-status');
   var list = document.getElementById('snap-list');
   if(!btn || !list) return;
   function haversine(lat1, lon1, lat2, lon2){
-    var R = 3958.8; // miles
+    var R = 3958.8;
     var toRad = function(d){ return d * Math.PI / 180; };
     var dLat = toRad(lat2 - lat1);
     var dLon = toRad(lon2 - lon1);
@@ -558,7 +754,7 @@
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
   }
   function sortBy(lat, lon){
-    var rows = Array.prototype.slice.call(list.querySelectorAll('.snap-row'));
+    var rows = Array.prototype.slice.call(list.querySelectorAll('[data-lake]'));
     rows.forEach(function(r){
       var rlat = parseFloat(r.getAttribute('data-lat'));
       var rlon = parseFloat(r.getAttribute('data-lon'));
@@ -689,7 +885,6 @@
     var end = new Date(now);
     end.setHours(endHour24, 0, 0, 0);
     if(end.getTime() <= now.getTime()){
-      // end already passed today — skip
       alert('That time has already passed today. Pick a later time.');
       return;
     }
@@ -697,7 +892,6 @@
     save();
     render();
     scheduleNext();
-    // quick "you're in" chime
     playChime();
   }
 
@@ -706,7 +900,6 @@
     if(timer){ clearTimeout(timer); timer = null; }
     bar.classList.remove('on','ping');
     if(endedNaturally){
-      // Show a brief end banner
       fbTitle.textContent = 'Focus mode ended';
       fbSub.textContent = 'Hope you caught some! Tap a lake to start a new session.';
       bar.classList.add('on');
@@ -714,13 +907,11 @@
     }
   }
 
-  // wire up per-row buttons
-  document.querySelectorAll('.snap-row').forEach(function(row){
+  document.querySelectorAll('[data-lake]').forEach(function(row){
     var btn = row.querySelector('[data-fish]');
     var chips = row.querySelector('[data-chips]');
     if(!btn || !chips) return;
     btn.addEventListener('click', function(){
-      // close any other open chip rows first
       document.querySelectorAll('[data-chips].open').forEach(function(c){ if(c !== chips) c.classList.remove('open'); });
       chips.classList.toggle('open');
     });
@@ -740,7 +931,6 @@
   fbReload.addEventListener('click', function(){ location.reload(); });
   fbExit.addEventListener('click', function(){ stop(false); });
 
-  // resume on load
   load();
   if(state){ render(); scheduleNext(); }
 })();
@@ -748,20 +938,20 @@
 // --- Per-lake live wind (Open-Meteo, no key required) ---
 (function(){
   var lakes = [
-    {id:"pleasant",  lat:33.87, lon:-112.27},
-    {id:"roosevelt", lat:33.67, lon:-111.14},
-    {id:"apache",    lat:33.58, lon:-111.25},
-    {id:"canyon",    lat:33.54, lon:-111.43},
-    {id:"saguaro",   lat:33.57, lon:-111.53},
-    {id:"bartlett",  lat:33.83, lon:-111.63}
+    {id:'pleasant',  lat:33.87, lon:-112.27},
+    {id:'roosevelt', lat:33.67, lon:-111.14},
+    {id:'apache',    lat:33.58, lon:-111.25},
+    {id:'canyon',    lat:33.54, lon:-111.43},
+    {id:'saguaro',   lat:33.57, lon:-111.53},
+    {id:'bartlett',  lat:33.83, lon:-111.63}
   ];
-  var lats = lakes.map(function(l){return l.lat;}).join(",");
-  var lons = lakes.map(function(l){return l.lon;}).join(",");
-  var url = "https://api.open-meteo.com/v1/forecast?latitude=" + lats +
-            "&longitude=" + lons +
-            "&current=wind_speed_10m,wind_direction_10m,wind_gusts_10m" +
-            "&wind_speed_unit=mph&timezone=America%2FPhoenix";
-  var dirs = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+  var lats = lakes.map(function(l){return l.lat;}).join(',');
+  var lons = lakes.map(function(l){return l.lon;}).join(',');
+  var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lats +
+            '&longitude=' + lons +
+            '&current=wind_speed_10m,wind_direction_10m,wind_gusts_10m' +
+            '&wind_speed_unit=mph&timezone=America%2FPhoenix';
+  var dirs = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
   fetch(url).then(function(r){ return r.ok ? r.json() : null; }).then(function(data){
     if(!data) return;
     var arr = Array.isArray(data) ? data : [data];
@@ -772,12 +962,12 @@
       var spd = Math.round(d.current.wind_speed_10m);
       var deg = d.current.wind_direction_10m;
       var gust = Math.round(d.current.wind_gusts_10m || 0);
-      var dir = (spd < 2) ? "Calm" : dirs[Math.round(deg / 22.5) % 16];
-      var txt = (spd < 2) ? "Calm" : (dir + " " + spd + " mph");
-      if(spd >= 2 && gust >= spd + 5) txt += " · G" + gust;
+      var dir = (spd < 2) ? 'Calm' : dirs[Math.round(deg / 22.5) % 16];
+      var txt = (spd < 2) ? 'Calm' : (dir + ' ' + spd + ' mph');
+      if(spd >= 2 && gust >= spd + 5) txt += ' · G' + gust;
       el.textContent = txt;
     });
-  }).catch(function(){ /* silent */ });
+  }).catch(function(){ /* silent — leave dash */ });
 })();
 </script>
 </body>
