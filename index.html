@@ -85,6 +85,12 @@
   .snap-row .pct{font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums}
   .snap-row .meta{grid-column:1 / -1;color:var(--muted);font-size:.82rem;display:flex;gap:14px;flex-wrap:wrap}
   .snap-row .meta span{white-space:nowrap}
+  .snap-row .snap-flow{grid-column:1 / -1;font-size:.82rem;display:flex;gap:8px;align-items:center;font-variant-numeric:tabular-nums;margin-top:2px}
+  .snap-row .snap-flow .sf-in{color:#7dc6ed;font-weight:600;white-space:nowrap}
+  .snap-row .snap-flow .sf-out{color:#f08b8b;font-weight:600;white-space:nowrap}
+  .snap-row .snap-flow .sf-arrow{font-weight:700;margin-left:2px}
+  .snap-row .snap-flow .sf-sep{color:var(--border);opacity:.8}
+  .snap-row .snap-flow .sf-na{color:var(--muted);font-weight:700}
   /* fish-today button + end-time picker */
   .fish-row{grid-column:1 / -1;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:4px}
   .fish-btn{background:transparent;color:var(--accent);border:1px solid rgba(94,180,231,.35);border-radius:999px;padding:6px 12px;font:inherit;font-size:.8rem;cursor:pointer;min-height:34px;display:inline-flex;align-items:center;gap:6px}
@@ -238,9 +244,6 @@
     <div class="updated">Last updated <b>Sunday, April 19, 2026 at 6:30 AM MST</b></div>
   </header>
 
-  <!-- BUY AZ FISHING LICENSE -->
-  <a class="license-cta" href="https://license.azgfd.com/" target="_blank" rel="noopener noreferrer" aria-label="Buy Arizona fishing license (opens in new tab)">Buy AZ Fishing License</a>
-
   <!-- SNAPSHOT -->
   <h2>Quick Snapshot</h2>
   <div class="sort-bar">
@@ -260,6 +263,7 @@
     <div class="snap-row" data-lake="roosevelt" data-label="Roosevelt" data-lat="33.6700" data-lon="-111.1500">
       <div class="name"><a href="#lake-roosevelt">Roosevelt</a> <span class="pill low">Low</span> <span class="dist" data-dist></span></div>
       <div class="pct bad">46%</div>
+      <div class="snap-flow" data-flow-row="roosevelt"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></div>
       <div class="meta"><span>Elev 2,100.19 ft</span><span>Below full 50.81 ft</span><span>Storage 752,924 AF</span></div>
       <div class="fish-row">
         <button class="fish-btn" type="button" data-fish>Fish here today</button>
@@ -269,6 +273,7 @@
     <div class="snap-row" data-lake="apache" data-label="Apache" data-lat="33.5800" data-lon="-111.2333">
       <div class="name"><a href="#lake-apache">Apache</a> <span class="pill ok">Near full</span> <span class="dist" data-dist></span></div>
       <div class="pct good">92%</div>
+      <div class="snap-flow" data-flow-row="apache"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></div>
       <div class="meta"><span>Elev 1,906.20 ft</span><span>Below full 7.80 ft</span><span>Storage 224,886 AF</span></div>
       <div class="fish-row">
         <button class="fish-btn" type="button" data-fish>Fish here today</button>
@@ -278,6 +283,7 @@
     <div class="snap-row" data-lake="canyon" data-label="Canyon" data-lat="33.5400" data-lon="-111.4600">
       <div class="name"><a href="#lake-canyon">Canyon</a> <span class="pill ok">Near full</span> <span class="dist" data-dist></span></div>
       <div class="pct good">95%</div>
+      <div class="snap-flow" data-flow-row="canyon"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></div>
       <div class="meta"><span>Elev 1,657.34 ft</span><span>Below full 3.16 ft</span><span>Storage 54,879 AF</span></div>
       <div class="fish-row">
         <button class="fish-btn" type="button" data-fish>Fish here today</button>
@@ -287,6 +293,7 @@
     <div class="snap-row" data-lake="saguaro" data-label="Saguaro" data-lat="33.5680" data-lon="-111.5450">
       <div class="name"><a href="#lake-saguaro">Saguaro</a> <span class="pill ok">Near full</span> <span class="dist" data-dist></span></div>
       <div class="pct good">95%</div>
+      <div class="snap-flow" data-flow-row="saguaro"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></div>
       <div class="meta"><span>Elev 1,526.21 ft</span><span>Below full 2.79 ft</span><span>Storage 66,296 AF</span></div>
       <div class="fish-row">
         <button class="fish-btn" type="button" data-fish>Fish here today</button>
@@ -296,6 +303,7 @@
     <div class="snap-row" data-lake="bartlett" data-label="Bartlett" data-lat="33.8167" data-lon="-111.6333">
       <div class="name"><a href="#lake-bartlett">Bartlett</a> <span class="pill ok">Good</span> <span class="dist" data-dist></span></div>
       <div class="pct good">70%</div>
+      <div class="snap-flow" data-flow-row="bartlett"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></div>
       <div class="meta"><span>Elev 1,776.17 ft</span><span>Below full 21.83 ft</span><span>Storage 123,943 AF</span></div>
       <div class="fish-row">
         <button class="fish-btn" type="button" data-fish>Fish here today</button>
@@ -308,7 +316,7 @@
   <!-- INTERACTIVE MAP -->
   <h2>Interactive Map</h2>
   <div class="card map-card">
-    <iframe src="https://fishandboataz.azgfd.com/" width="100%" height="600px" style="border:none;" loading="lazy" title="AZGFD Fish &amp; Boat Arizona Map"></iframe>
+    <iframe src="https://fishandboataz.azgfd.com/map/" width="100%" height="750px" style="border:none; border-radius:8px;" loading="lazy" title="AZGFD Fish &amp; Boat Arizona Map"></iframe>
     <div class="map-foot">Live AZGFD Fish &amp; Boat map — pan/zoom to find ramps, regulations, stocking info, and nearby waters.</div>
   </div>
 
@@ -392,7 +400,6 @@
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Scorpion Bay · 10-Lane</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">6 bass/day · 13" min</span></div>
-      <div class="tip"><b>Bass tip:</b> Early chatterbait or lipless along any wind-hit shoreline 3–8 ft. Mid-day wacky Senko off main-lake points. Whites &amp; stripers: main-lake points with anchovies or silver spoons.</div>
       <div class="note">CAP publishes only a 12-month forecast graph — no live daily elevation.</div>
     </div>
 
@@ -407,7 +414,6 @@
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Schoolhouse · Cholla</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">Smallmouth 10"/4 · Largemouth 13"/6</span></div>
-      <div class="tip"><b>Bass tip:</b> Down ~51 ft — old banks are mud flats. Target submerged road beds, humps, channel swings in 15–30 ft. Football jig, green-pumpkin craw, deep crank on main-lake points. Crappie: brush piles in 20–35 ft with minnows.</div>
     </div>
 
     <div class="card lake-card" id="lake-apache">
@@ -421,7 +427,6 @@
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Burnt Corral · Apache Lake Marina</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">Smallmouth 10"/4 · Largemouth 13"/6</span></div>
-      <div class="tip"><b>Bass tip:</b> Classic steep canyon lake with bluff walls. Near-full + clear = swim a jig or Ned rig along shaded bluff edges 8–20 ft. Topwater early in coves. Smallmouth on rocky points with a drop-shot.</div>
     </div>
 
     <div class="card lake-card" id="lake-canyon">
@@ -435,7 +440,6 @@
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Palo Verde · Boulder Rec</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">Walleye 15"/2 · Largemouth 13"/6</span></div>
-      <div class="tip"><b>Bass tip:</b> Deepest of the Salt chain. Small and steep — pressured but fertile. Ned rig, small jig, finesse worm on shaded walls. Walleye first/last light on rocky points in 10–25 ft with jerkbaits or bottom-bouncer + worm.</div>
     </div>
 
     <div class="card lake-card" id="lake-saguaro">
@@ -449,7 +453,6 @@
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Butcher Jones · Bagley · Saguaro del Norte</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">Largemouth 13"/6 · Yellow 25/day</span></div>
-      <div class="tip"><b>Bass tip:</b> Near-full = flooded brush. Swim a wacky Senko or chatterbait along flooded willows. Topwater early. Yellow bass: schooling on main-lake flats, small jigs or spoons.</div>
     </div>
 
     <div class="card lake-card" id="lake-bartlett">
@@ -463,7 +466,6 @@
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Bartlett · SB Cove (check low-water)</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">Largemouth 13"/6</span></div>
-      <div class="tip"><b>Bass tip:</b> Long east-west basin — fishes the Sunday W wind well. Spinnerbait or chatterbait on windy points 3–8 ft. Swim jig along bluffs on the north shore. Topwater first/last light in coves.</div>
     </div>
 
   </div>
@@ -545,6 +547,9 @@
 
   </div>
   <div style="margin-top:14px"><a class="flow-srp-btn" href="https://streamflow.watershedconnection.com/dwr" target="_blank" rel="noopener noreferrer">View full SRP streamflow report</a></div>
+
+  <!-- BUY AZ FISHING LICENSE -->
+  <a class="license-cta" href="https://license.azgfd.com/" target="_blank" rel="noopener noreferrer" aria-label="Buy Arizona fishing license (opens in new tab)">Buy AZ Fishing License</a>
 
   <!-- FOOTER SOURCES -->
   <footer>
@@ -843,4 +848,3 @@
 </script>
 </body>
 </html>
-
