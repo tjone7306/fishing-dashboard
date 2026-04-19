@@ -53,7 +53,7 @@
   .row .v{font-weight:600;font-size:.98rem;text-align:right;font-variant-numeric:tabular-nums}
   /* pills */
   .pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.76rem;font-weight:600;white-space:nowrap;letter-spacing:.2px}
-  .pill.ok{background:rgba(79,194,122,.14);color:var(--good);border:1px solid rgba(79,194,122,.35)}
+  .pill.op{background:rgba(79,194,122,.14);color:var(--good);border:1px solid rgba(79,194,122,.35)}
   .pill.mid{background:rgba(245,180,76,.14);color:var(--warn);border:1px solid rgba(245,180,76,.35)}
   .pill.low{background:rgba(233,100,100,.14);color:var(--bad);border:1px solid rgba(233,100,100,.4)}
   .pill.na{background:rgba(142,166,190,.12);color:var(--muted);border:1px solid rgba(142,166,190,.28)}
@@ -131,7 +131,7 @@
   <header>
     <h1>Phoenix Lakes — Fishing Dashboard</h1>
     <div class="sub">Pleasant · Roosevelt · Apache · Canyon · Saguaro · Horseshoe · Bartlett</div>
-    <span class="date" id="date-badge">Saturday, April 18, 2026</span>
+    <span class="date" id="date-badge">Sunday, April 19, 2026</span>
   </header>
 
   <!-- SNAPSHOT -->
@@ -140,69 +140,69 @@
     <div class="snap-row">
       <div class="name">Lake Pleasant</div>
       <div class="pct na">NA</div>
-      <div class="meta"><span>Elev NA</span><span>Below full NA</span><span>Trend —</span></div>
+      <div class="meta"><span>Elev NA</span><span>Below full NA</span><span>Trend NA</span><span>Water NA</span></div>
     </div>
     <div class="snap-row">
       <div class="name">Roosevelt <span class="pill low">Low</span></div>
       <div class="pct bad">46%</div>
-      <div class="meta"><span>Elev 2,100.19 ft</span><span>Below full 50.81 ft</span><span>Storage 752,924 AF</span></div>
+      <div class="meta"><span>Elev 2,100.19 ft</span><span>Below full 50.81 ft</span><span>Storage 752,924 AF</span><span>Trend NA</span><span>Water NA</span></div>
     </div>
     <div class="snap-row">
       <div class="name">Apache <span class="pill ok">Near full</span></div>
       <div class="pct good">92%</div>
-      <div class="meta"><span>Elev 1,906.20 ft</span><span>Below full 7.80 ft</span><span>Storage 224,886 AF</span></div>
+      <div class="meta"><span>Elev 1,906.20 ft</span><span>Below full 7.80 ft</span><span>Storage 224,886 AF</span><span>Trend NA</span><span>Water NA</span></div>
     </div>
     <div class="snap-row">
       <div class="name">Canyon <span class="pill ok">Near full</span></div>
       <div class="pct good">95%</div>
-      <div class="meta"><span>Elev 1,657.34 ft</span><span>Below full 3.16 ft</span><span>Storage 54,879 AF</span></div>
+      <div class="meta"><span>Elev 1,657.34 ft</span><span>Below full 3.16 ft</span><span>Storage 54,879 AF</span><span>Trend NA</span><span>Water NA</span></div>
     </div>
     <div class="snap-row">
       <div class="name">Saguaro <span class="pill ok">Near full</span></div>
       <div class="pct good">95%</div>
-      <div class="meta"><span>Elev 1,526.21 ft</span><span>Below full 2.79 ft</span><span>Storage 66,296 AF</span></div>
+      <div class="meta"><span>Elev 1,526.21 ft</span><span>Below full 2.79 ft</span><span>Storage 66,296 AF</span><span>Trend NA</span><span>Water NA</span></div>
     </div>
     <div class="snap-row">
       <div class="name">Horseshoe <span class="pill mid">Mid</span></div>
       <div class="pct warn">52%</div>
-      <div class="meta"><span>Elev 2,003.33 ft</span><span>Below full 22.67 ft</span><span>Storage 56,660 AF</span></div>
+      <div class="meta"><span>Elev 2,003.33 ft</span><span>Below full 22.67 ft</span><span>Storage 56,660 AF</span><span>Trend NA</span><span>Water NA</span></div>
     </div>
     <div class="snap-row">
       <div class="name">Bartlett <span class="pill ok">Good</span></div>
       <div class="pct good">70%</div>
-      <div class="meta"><span>Elev 1,776.17 ft</span><span>Below full 21.83 ft</span><span>Storage 123,943 AF</span></div>
+      <div class="meta"><span>Elev 1,776.17 ft</span><span>Below full 21.83 ft</span><span>Storage 123,943 AF</span><span>Trend NA</span><span>Water NA</span></div>
     </div>
   </div>
-  <div class="note"><b>Feet below full</b> = your boat-graph offset. Enter this number so charted depths match reality.</div>
+  <div class="note"><b>Feet below full</b> = your boat-graph offset. Enter this number so charted depths match reality. <b>Trend NA</b> — DWR page only publishes today's snapshot; historical comparison not exposed. <b>Water NA</b> — AZGFD weekly report inaccessible (403) at refresh time; <a href="https://www.azgfd.com/fishing/reports/" target="_blank" rel="noopener noreferrer">check source</a>.</div>
 
   <!-- CONDITIONS -->
   <h2>Phoenix Conditions</h2>
   <div class="grid cols-2">
 
     <div class="card">
-      <h3>Today <span class="pill ok">Stable high</span></h3>
+      <h3>Today <span class="pill warn">Warming · breezy</span></h3>
       <div class="kv">
-        <div><span class="k">Temp</span><span class="v">77°F</span></div>
-        <div><span class="k">Baro</span><span class="v">29.82 inHg</span></div>
-        <div><span class="k">Wind</span><span class="v">W 6 mph</span></div>
+        <div><span class="k">Temp now</span><span class="v">70°F</span></div>
+        <div><span class="k">Baro</span><span class="v">29.85 inHg</span></div>
+        <div><span class="k">Wind</span><span class="v">ESE 3 mph</span></div>
         <div><span class="k">Clouds</span><span class="v">Clear</span></div>
-        <div><span class="k">Sunrise</span><span class="v">6:19 AM</span></div>
-        <div><span class="k">Sunset</span><span class="v">7:41 PM</span></div>
-        <div><span class="k">Day length</span><span class="v">13h 22m</span></div>
-        <div><span class="k">UV index</span><span class="v">High</span></div>
+        <div><span class="k">Sunrise</span><span class="v">5:52 AM</span></div>
+        <div><span class="k">Sunset</span><span class="v">7:02 PM</span></div>
+        <div><span class="k">Day length</span><span class="v">13h 09m</span></div>
+        <div><span class="k">UV index</span><span class="v">Very high</span></div>
       </div>
-      <div class="tip"><b>Post-front, day 2.</b> Bluebird + stable = fish deeper, slower. Downsize baits, fish structure, slow the retrieve.</div>
+      <div class="tip"><b>First real heat day.</b> Jump from yesterday's 77° to a 95° high — fish will pull off shallow flats by mid-morning. Hit the bite hard at first light, then move to shaded bluffs and 10–20 ft on points by 9 AM. ESE wind 10–15 with gusts to 25 — work east-facing wind-blown banks.</div>
     </div>
 
     <div class="card">
       <h3>3-Day Outlook</h3>
-      <div class="row"><span class="k">Tonight</span><span class="v">Clear · Low 70</span></div>
-      <div class="row"><span class="k">Sunday</span><span class="v">Breezy · 95 · W gusts 25</span></div>
-      <div class="row"><span class="k">Sun night</span><span class="v">Partly cloudy · 68</span></div>
-      <div class="row"><span class="k">Monday</span><span class="v">Sunny · 94</span></div>
-      <div class="row"><span class="k">Tuesday</span><span class="v">Sunny · 95</span></div>
-      <div class="row"><span class="k">Tue night</span><span class="v">Mostly clear · 62</span></div>
-      <div class="tip"><b>Sunday wind plan:</b> W gusts to 25 — hit wind-blown points and rock banks. Bartlett and Salt-chain east-west stretches fish best.</div>
+      <div class="row"><span class="k">Today</span><span class="v">Partly sunny · 95 · ESE 10–15, gusts 25</span></div>
+      <div class="row"><span class="k">Tonight</span><span class="v">Partly cloudy · 69 · E 5</span></div>
+      <div class="row"><span class="k">Monday</span><span class="v">Sunny · 95 · E 5 → WSW</span></div>
+      <div class="row"><span class="k">Mon night</span><span class="v">Partly cloudy · 69 · W 5</span></div>
+      <div class="row"><span class="k">Tuesday</span><span class="v">Sunny · 96 · light → SW 5–10</span></div>
+      <div class="row"><span class="k">Tue night</span><span class="v">Mostly clear · 63 · WSW 5–10</span></div>
+      <div class="tip"><b>Stable hot stretch:</b> 95–96° three days running, no precip. Pre-dawn and last-light topwater. Mid-day = football jig / Texas-rig deep, drop-shot offshore humps. Bartlett's east-west basin handles today's ESE wind best.</div>
     </div>
 
   </div>
@@ -211,14 +211,14 @@
   <div class="card" style="margin-top:12px">
     <h3>Today's Hourly</h3>
     <div class="hourly" aria-label="Hourly forecast, scroll horizontally">
-      <div class="h">6 AM<b>64°</b><span class="wind">Calm</span></div>
-      <div class="h">8 AM<b>70°</b><span class="wind">W 3</span></div>
-      <div class="h">10 AM<b>78°</b><span class="wind">W 5</span></div>
-      <div class="h">12 PM<b>84°</b><span class="wind">W 7</span></div>
-      <div class="h">2 PM<b>88°</b><span class="wind">W 9</span></div>
-      <div class="h">4 PM<b>89°</b><span class="wind">W 10</span></div>
-      <div class="h">6 PM<b>84°</b><span class="wind">W 7</span></div>
-      <div class="h">8 PM<b>76°</b><span class="wind">Calm</span></div>
+      <div class="h">6 AM<b>71°</b><span class="wind">E 10</span></div>
+      <div class="h">8 AM<b>78°</b><span class="wind">E 10</span></div>
+      <div class="h">10 AM<b>86°</b><span class="wind">E 15</span></div>
+      <div class="h">12 PM<b>92°</b><span class="wind">ESE 15</span></div>
+      <div class="h">2 PM<b>94°</b><span class="wind">ESE 10</span></div>
+      <div class="h">4 PM<b>95°</b><span class="wind">ESE 10</span></div>
+      <div class="h">6 PM<b>95°</b><span class="wind">SE 5</span></div>
+      <div class="h">8 PM<b>90°</b><span class="wind">SSE 5</span></div>
     </div>
   </div>
 
@@ -228,17 +228,17 @@
     <div class="moon">
       <div class="disc" aria-hidden="true"></div>
       <div class="moon-info">
-        <div class="phase">Waxing Crescent · 5% illuminated</div>
-        <div class="meta">Moonrise 6:23 AM · Moonset 8:58 PM</div>
+        <div class="phase">Waxing Crescent · 6% illuminated</div>
+        <div class="meta">Moonrise 7:08 AM · Moonset 10:13 PM · Full moon May 1</div>
       </div>
     </div>
     <ul class="times">
-      <li><b>Prime (major)</b> 12:40 – 2:40 PM · moon overhead</li>
-      <li><b>Prime (major)</b> 12:45 – 2:45 AM · moon underfoot</li>
-      <li><b>Minor</b> 6:00 – 7:15 AM · sunrise</li>
-      <li><b>Minor</b> 7:15 – 8:30 PM · sunset</li>
+      <li><b>Major</b> 1:40 – 3:40 PM · moon overhead (transit)</li>
+      <li><b>Major</b> 1:40 – 3:40 AM · moon underfoot</li>
+      <li><b>Minor</b> 5:15 – 6:30 AM · sunrise</li>
+      <li><b>Minor</b> 6:25 – 7:40 PM · sunset</li>
     </ul>
-    <div class="note">New moon was April 16 — post-new solunar activity still elevated. Fish the transitions at sunrise and the major window around noon.</div>
+    <div class="note">Thin crescent, post-new — solunar pull is moderate. Best windows today: <b>5:15–6:30 AM</b> (sunrise minor stacks with cool water) and <b>6:25–7:40 PM</b> (sunset minor on a falling thermometer). The mid-day major (1:40–3:40 PM) overlaps peak heat — fish deep or skip it.</div>
   </div>
 
   <!-- LAKE DETAIL -->
@@ -252,11 +252,12 @@
       <div class="row"><span class="k">% Full</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Elevation</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Below full</span><span class="v">NA</span></div>
+      <div class="row"><span class="k">Storage</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Scorpion Bay · 10-Lane</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">6 bass/day · 13" min</span></div>
-      <div class="tip"><b>Bass tip:</b> Early chatterbait or lipless along any wind-hit shoreline 3–8 ft. Mid-day wacky Senko off main-lake points. Whites &amp; stripers: main-lake points with anchovies or silver spoons.</div>
-      <div class="note">CAP publishes only a 12-month forecast graph — no live daily elevation.</div>
+      <div class="tip"><b>Bass &amp; stripers:</b> First-light chatterbait or lipless on any wind-hit shoreline 3–8 ft. Mid-day wacky Senko off main-lake points 12–20 ft. Whites &amp; stripers: main-lake points and humps with anchovies, slabs, or silver spoons; watch for bird boils.</div>
+      <div class="note">CAP forecast-only — page publishes a 12-month operational forecast graph (updated Jan 2026), no live daily elevation. <a href="https://www.cap-az.com/water/cap-system/operations/lake-pleasant/" target="_blank" rel="noopener noreferrer">check source</a>.</div>
     </div>
 
     <div class="card">
@@ -270,12 +271,12 @@
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Schoolhouse · Cholla</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">Smallmouth 10"/4 · Largemouth 13"/6</span></div>
-      <div class="tip"><b>Bass tip:</b> Down ~51 ft — old banks are mud flats. Target submerged road beds, humps, channel swings in 15–30 ft. Football jig, green-pumpkin craw, deep crank on main-lake points. Crappie: brush piles in 20–35 ft with minnows.</div>
+      <div class="tip"><b>Bass tip:</b> Down ~51 ft — historic banks are mud flats. Target submerged road beds, humps, channel swings in 15–30 ft. Football jig, green-pumpkin craw, deep crank on main-lake points. Crappie: brush piles in 20–35 ft with minnows. With 95° on tap, focus on shaded north-facing bluffs after 10 AM.</div>
     </div>
 
     <div class="card">
       <h3>Apache <span class="pill ok">92%</span></h3>
-      <div class="card-sub">Full pool 1,914 ft · Horse Mesa Dam · Largemouth, smallmouth, yellow bass</div>
+      <div class="card-sub">Full pool ~1,914 ft · Horse Mesa Dam · Largemouth, smallmouth, yellow bass</div>
       <div class="bar"><i class="good" style="width:92%"></i></div>
       <div class="row"><span class="k">% Full</span><span class="v">92%</span></div>
       <div class="row"><span class="k">Elevation</span><span class="v">1,906.20 ft</span></div>
@@ -284,12 +285,12 @@
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Burnt Corral · Apache Lake Marina</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">Smallmouth 10"/4 · Largemouth 13"/6</span></div>
-      <div class="tip"><b>Bass tip:</b> Classic steep canyon lake with bluff walls. Near-full + clear = swim a jig or Ned rig along shaded bluff edges 8–20 ft. Topwater early in coves. Smallmouth on rocky points with a drop-shot.</div>
+      <div class="tip"><b>Bass tip:</b> Classic steep canyon lake with bluff walls. Near-full + clear = swim a jig or Ned rig along shaded bluff edges 8–20 ft. Topwater first hour in coves. Smallmouth on rocky points with a drop-shot. Heat-day move: by noon, slide to shaded vertical walls on the north side.</div>
     </div>
 
     <div class="card">
       <h3>Canyon <span class="pill ok">95%</span></h3>
-      <div class="card-sub">Full pool 1,660 ft · Mormon Flat Dam · Walleye, largemouth, stocked rainbow trout</div>
+      <div class="card-sub">Full pool ~1,660 ft · Mormon Flat Dam · Walleye, largemouth, stocked rainbow trout</div>
       <div class="bar"><i class="good" style="width:95%"></i></div>
       <div class="row"><span class="k">% Full</span><span class="v">95%</span></div>
       <div class="row"><span class="k">Elevation</span><span class="v">1,657.34 ft</span></div>
@@ -298,12 +299,12 @@
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Palo Verde · Boulder Rec</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">Walleye 15"/2 · Largemouth 13"/6</span></div>
-      <div class="tip"><b>Bass tip:</b> Deepest of the Salt chain. Small and steep — pressured but fertile. Ned rig, small jig, finesse worm on shaded walls. Walleye first/last light on rocky points in 10–25 ft with jerkbaits or bottom-bouncer + worm.</div>
+      <div class="tip"><b>Bass &amp; walleye:</b> Deepest of the Salt chain. Small and steep — pressured but fertile. Ned rig, small jig, finesse worm on shaded walls. Walleye first/last light on rocky points in 10–25 ft with jerkbaits or bottom-bouncer + worm. Trout still in upper column near boulder rec.</div>
     </div>
 
     <div class="card">
       <h3>Saguaro <span class="pill ok">95%</span></h3>
-      <div class="card-sub">Full pool 1,529 ft · Stewart Mountain Dam · Largemouth, yellow bass, crappie</div>
+      <div class="card-sub">Full pool ~1,529 ft · Stewart Mountain Dam · Largemouth, yellow bass, crappie</div>
       <div class="bar"><i class="good" style="width:95%"></i></div>
       <div class="row"><span class="k">% Full</span><span class="v">95%</span></div>
       <div class="row"><span class="k">Elevation</span><span class="v">1,526.21 ft</span></div>
@@ -312,12 +313,12 @@
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Butcher Jones · Bagley · Saguaro del Norte</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">Largemouth 13"/6 · Yellow 25/day</span></div>
-      <div class="tip"><b>Bass tip:</b> Near-full = flooded brush. Swim a wacky Senko or chatterbait along flooded willows. Topwater early. Yellow bass: schooling on main-lake flats, small jigs or spoons.</div>
+      <div class="tip"><b>Bass tip:</b> Near-full = flooded brush. Swim a wacky Senko or chatterbait along flooded willows. Topwater early. Yellow bass: schooling on main-lake flats, small jigs or spoons. Heat trigger: shaded coves on the south wall hold fish past 10 AM.</div>
     </div>
 
     <div class="card">
       <h3>Horseshoe <span class="pill mid">Mid — 52%</span></h3>
-      <div class="card-sub">Full pool 2,026 ft · Horseshoe Dam · Largemouth, flathead catfish, carp</div>
+      <div class="card-sub">Full pool ~2,026 ft · Horseshoe Dam · Largemouth, flathead catfish, carp</div>
       <div class="bar"><i class="warn" style="width:52%"></i></div>
       <div class="row"><span class="k">% Full</span><span class="v">52%</span></div>
       <div class="row"><span class="k">Elevation</span><span class="v">2,003.33 ft</span></div>
@@ -326,12 +327,12 @@
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Horseshoe Dam (low-water OK)</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">Statewide bass 13"/6</span></div>
-      <div class="tip"><b>Bass tip:</b> Dirt road access. Lake is narrow and stained — spinnerbaits, chatterbaits, and square-bills shine. Flathead cat night fishing with live bluegill in creek channels.</div>
+      <div class="tip"><b>Bass &amp; cats:</b> Dirt road access. Lake is narrow and stained — spinnerbaits, chatterbaits, and square-bills shine. Flathead cat night fishing with live bluegill in creek channels. Tonight's 69° low + light wind = prime overnight cat session.</div>
     </div>
 
     <div class="card">
       <h3>Bartlett <span class="pill ok">Good — 70%</span></h3>
-      <div class="card-sub">Full pool 1,798 ft · Bartlett Dam · Largemouth, flathead, sunfish</div>
+      <div class="card-sub">Full pool ~1,798 ft · Bartlett Dam · Largemouth, flathead, sunfish</div>
       <div class="bar"><i class="good" style="width:70%"></i></div>
       <div class="row"><span class="k">% Full</span><span class="v">70%</span></div>
       <div class="row"><span class="k">Elevation</span><span class="v">1,776.17 ft</span></div>
@@ -340,7 +341,7 @@
       <div class="row"><span class="k">Water temp</span><span class="v">NA</span></div>
       <div class="row"><span class="k">Ramps</span><span class="v">Bartlett · SB Cove (check low-water)</span></div>
       <div class="row"><span class="k">Rules</span><span class="v">Largemouth 13"/6</span></div>
-      <div class="tip"><b>Bass tip:</b> Long east-west basin — fishes the Sunday W wind well. Spinnerbait or chatterbait on windy points 3–8 ft. Swim jig along bluffs on the north shore. Topwater first/last light in coves.</div>
+      <div class="tip"><b>Bass tip — best wind play today:</b> Long east-west basin handles ESE 10–15 well. Spinnerbait or chatterbait on east-facing wind-hit points 3–8 ft. Swim jig along bluffs on the north shore. Topwater first/last light in coves. Pick of the 7 lakes for today's wind direction.</div>
     </div>
 
   </div>
@@ -379,8 +380,8 @@
     <div class="lure-out" id="lure-out">Pick options above to get a recommendation.</div>
   </div>
 
-  <!-- SEASONAL + STOCKING -->
-  <h2>Spring Pattern &amp; Stocking</h2>
+  <!-- SEASONAL + STOCKING + TOURNAMENTS -->
+  <h2>Spring Pattern, Stocking &amp; Tournaments</h2>
   <div class="grid cols-2">
 
     <div class="card">
@@ -390,17 +391,40 @@
       <div class="row"><span class="k">Crappie</span><span class="v">Shallow in brush</span></div>
       <div class="row"><span class="k">Stripers</span><span class="v">Chasing shad schools</span></div>
       <div class="row"><span class="k">Walleye</span><span class="v">Post-spawn, deeper</span></div>
-      <div class="tip"><b>Post-spawn tactic:</b> Target secondary points and first drops adjacent to spawning coves. Hungry, recovering fish will hit a slow-rolled spinnerbait or a wake bait at first light.</div>
+      <div class="tip"><b>Post-spawn tactic:</b> Target secondary points and first drops adjacent to spawning coves. Hungry, recovering fish will hit a slow-rolled spinnerbait or wake bait at first light. With a 95° heat surge, the dawn / dusk windows tighten — be on the water before 6 AM.</div>
     </div>
 
     <div class="card">
-      <h3>Stocking &amp; reports</h3>
-      <div class="card-sub">AZGFD publishes weekly schedules. No live API — tap through to the official pages:</div>
+      <h3>Stocking — week of Apr 13</h3>
+      <div class="card-sub">AZ Fish Stocking Schedule (azfishstockingschedule.com), updated Apr 19:</div>
+      <div class="row"><span class="k">Pleasant</span><span class="v">None listed</span></div>
+      <div class="row"><span class="k">Roosevelt</span><span class="v">None listed</span></div>
+      <div class="row"><span class="k">Apache</span><span class="v">None listed</span></div>
+      <div class="row"><span class="k">Canyon</span><span class="v">None listed</span></div>
+      <div class="row"><span class="k">Saguaro</span><span class="v">None listed</span></div>
+      <div class="row"><span class="k">Horseshoe</span><span class="v">None listed</span></div>
+      <div class="row"><span class="k">Bartlett</span><span class="v">None listed</span></div>
+      <div class="note">25 trout stockings this week, all in northern/eastern AZ (Payson, Flagstaff, Prescott, Show Low, Tucson regions). The big-7 reservoirs are self-sustaining bass fisheries — no regular stocking. AZGFD official page returned 403 — <a href="https://www.azgfd.com/fishing/stocking/" target="_blank" rel="noopener noreferrer">check source</a> for confirmation.</div>
+    </div>
+
+    <div class="card">
+      <h3>Tournaments — next 14 days</h3>
+      <div class="card-sub">AZ B.A.S.S. Nation, Weekend Warrior, WON Bass — Apr 19 → May 3:</div>
+      <div class="row"><span class="k">This week</span><span class="v">None listed</span></div>
+      <div class="row"><span class="k">Next week</span><span class="v">None listed</span></div>
+      <div class="note"><b>Coming up after the window:</b> AZ B.A.S.S. Nation Qualifier #4 at Apache (May 30), Open at Roosevelt (May 31). WWBS season just wrapped its Roosevelt Championship (Apr 18–19); next event Sept 19 at Roosevelt. WON Bass schedule URL 404'd at refresh — <a href="https://wonbassevents.com/schedule" target="_blank" rel="noopener noreferrer">check source</a>.</div>
+    </div>
+
+    <div class="card">
+      <h3>Reports &amp; references</h3>
+      <div class="card-sub">Tap-through to authoritative pages:</div>
       <div class="links" style="margin-top:10px">
         <a href="https://www.azgfd.com/fishing-2/where-to-fish/fish-stocking-schedule/" target="_blank" rel="noopener noreferrer">AZGFD stocking schedule</a>
         <a href="https://www.azgfd.com/fishing-2/where-to-fish/fishing-report-archive/" target="_blank" rel="noopener noreferrer">AZGFD fishing reports</a>
         <a href="https://azstocker.com/" target="_blank" rel="noopener noreferrer">AZ Stocker</a>
         <a href="https://www.hookedaz.com/widget-pages/arizona-fishing-report/" target="_blank" rel="noopener noreferrer">HookedAZ reports</a>
+        <a href="https://azbassnation.com/2026-schedule-registration-results/" target="_blank" rel="noopener noreferrer">AZ B.A.S.S. Nation</a>
+        <a href="https://swctackle.com/ww-arizona-region" target="_blank" rel="noopener noreferrer">Weekend Warrior series</a>
       </div>
       <div class="note">Spring stockings typically hit urban lakes &amp; rainbow trout on Canyon. Roosevelt, Apache, Saguaro, and Bartlett are self-sustaining bass fisheries — no regular stocking.</div>
     </div>
@@ -411,14 +435,16 @@
   <footer>
     <div style="margin-bottom:8px"><b style="color:var(--text)">Data sources</b></div>
     <a href="https://streamflow.watershedconnection.com/dwr" target="_blank" rel="noopener noreferrer">SRP / DWR reservoirs</a> ·
-    <a href="https://www.cap-az.com/cap-system/water-operations/lake-pleasant/" target="_blank" rel="noopener noreferrer">CAP Lake Pleasant</a> ·
+    <a href="https://www.cap-az.com/water/cap-system/operations/lake-pleasant/" target="_blank" rel="noopener noreferrer">CAP Lake Pleasant</a> ·
     <a href="https://forecast.weather.gov/MapClick.php?lat=33.45&amp;lon=-112.07" target="_blank" rel="noopener noreferrer">NWS Phoenix</a> ·
+    <a href="https://api.weather.gov/gridpoints/PSR/159,58/forecast/hourly" target="_blank" rel="noopener noreferrer">NWS hourly API</a> ·
     <a href="https://www.timeanddate.com/moon/usa/phoenix" target="_blank" rel="noopener noreferrer">Moon phase</a> ·
+    <a href="https://www.timeanddate.com/sun/usa/phoenix" target="_blank" rel="noopener noreferrer">Sun times</a> ·
     <a href="https://www.airnow.gov/?city=Phoenix&amp;state=AZ&amp;country=USA" target="_blank" rel="noopener noreferrer">AirNow Phoenix</a> ·
     <a href="https://www.usairnet.com/cgi-bin/launch/code.cgi?sta=KPHX&amp;state=AZ" target="_blank" rel="noopener noreferrer">KPHX baro</a> ·
     <a href="https://www.azgfd.com/fishing-2/where-to-fish/fish-stocking-schedule/" target="_blank" rel="noopener noreferrer">AZGFD stocking</a> ·
     <a href="https://www.azgfd.com/fishing-2/where-to-fish/fishing-report-archive/" target="_blank" rel="noopener noreferrer">AZGFD reports</a>
-    <div style="margin-top:10px;color:var(--muted);font-size:.78rem">Auto-refreshed by a scheduled task. Never fabricates values — uses NA when a source doesn't publish.</div>
+    <div style="margin-top:10px;color:var(--muted);font-size:.78rem">Auto-refreshed by a scheduled task. Never fabricates values — uses NA when a source doesn't publish. Last refresh: Sun, Apr 19, 2026.</div>
   </footer>
 
 </div>
