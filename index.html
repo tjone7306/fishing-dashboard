@@ -77,9 +77,41 @@
   .snap{display:grid;gap:10px}
   .snap-row{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center}
   .snap-row .name{font-weight:600;font-size:.98rem}
+  .snap-row .name a{color:var(--text);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+  .snap-row .name a:hover,.snap-row .name a:focus{color:var(--accent);text-decoration:none}
+  .snap-row .name a::after{content:"›";color:var(--muted);font-weight:400;font-size:1.05rem;margin-left:2px;transition:transform .15s ease,color .15s ease}
+  .snap-row .name a:hover::after,.snap-row .name a:focus::after{color:var(--accent);transform:translateX(2px)}
+  .lake-card{scroll-margin-top:80px}
   .snap-row .pct{font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums}
   .snap-row .meta{grid-column:1 / -1;color:var(--muted);font-size:.82rem;display:flex;gap:14px;flex-wrap:wrap}
   .snap-row .meta span{white-space:nowrap}
+  /* fish-today button + end-time picker */
+  .fish-row{grid-column:1 / -1;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:4px}
+  .fish-btn{background:transparent;color:var(--accent);border:1px solid rgba(94,180,231,.35);border-radius:999px;padding:6px 12px;font:inherit;font-size:.8rem;cursor:pointer;min-height:34px;display:inline-flex;align-items:center;gap:6px}
+  .fish-btn:hover,.fish-btn:focus{background:rgba(94,180,231,.1);border-color:var(--accent)}
+  .fish-btn.hidden{display:none}
+  .time-chips{display:none;align-items:center;gap:6px;flex-wrap:wrap}
+  .time-chips.open{display:flex}
+  .time-chips .prompt{color:var(--muted);font-size:.8rem;margin-right:2px}
+  .chip{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:999px;padding:6px 11px;font:inherit;font-size:.8rem;cursor:pointer;min-height:34px}
+  .chip:hover,.chip:focus{border-color:var(--accent);color:var(--accent)}
+  .chip.cancel{color:var(--muted)}
+  /* focus-mode banner */
+  #focus-bar{position:sticky;top:0;z-index:40;background:linear-gradient(180deg,rgba(94,180,231,.18),rgba(94,180,231,.08));border-bottom:1px solid rgba(94,180,231,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 14px;margin:-20px -16px 16px;display:none}
+  #focus-bar.on{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  #focus-bar.ping{background:linear-gradient(180deg,rgba(79,194,122,.28),rgba(79,194,122,.12));border-bottom-color:rgba(79,194,122,.5);animation:pulse 1.2s ease-out 3}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(79,194,122,.55)}100%{box-shadow:0 0 0 14px rgba(79,194,122,0)}}
+  #focus-bar .fb-icon{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(94,180,231,.25);flex-shrink:0}
+  #focus-bar.ping .fb-icon{background:var(--good);box-shadow:0 0 0 4px rgba(79,194,122,.3)}
+  #focus-bar .fb-main{flex:1;min-width:0;font-size:.88rem;line-height:1.3}
+  #focus-bar .fb-main b{color:var(--text);font-weight:700}
+  #focus-bar .fb-sub{color:var(--muted);font-size:.78rem;display:block;margin-top:2px}
+  #focus-bar .fb-btn{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:999px;padding:6px 12px;font:inherit;font-size:.8rem;cursor:pointer;min-height:34px}
+  #focus-bar .fb-btn:hover,#focus-bar .fb-btn:focus{border-color:var(--accent);color:var(--accent)}
+  #focus-bar .fb-btn.exit{color:var(--muted)}
+  @media(min-width:720px){
+    #focus-bar{margin:-28px -24px 20px;padding:12px 24px}
+  }
   .pct.good{color:var(--good)}
   .pct.warn{color:var(--warn)}
   .pct.bad{color:var(--bad)}
@@ -126,10 +158,78 @@
     .kv > div{border-bottom:1px solid rgba(255,255,255,.04)}
     .kv > div:last-child{border-bottom:0}
   }
+  /* weather alerts banner */
+  #weather-alerts{display:none;margin:-20px -16px 16px;padding:14px 16px;background:linear-gradient(180deg,#c72c2c,#a21c1c);border-bottom:2px solid #ff6b6b;color:#fff;font-weight:700;box-shadow:0 2px 12px rgba(199,44,44,.35)}
+  #weather-alerts.warn{background:linear-gradient(180deg,#e89020,#c77510);border-bottom-color:#ffb84d}
+  #weather-alerts.on{display:block}
+  #weather-alerts .wa-title{font-size:1rem;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:6px}
+  #weather-alerts .wa-title::before{content:"⚠";font-size:1.35rem;line-height:1}
+  #weather-alerts ul{margin:0;padding-left:22px;font-size:.95rem;font-weight:600;line-height:1.55}
+  #weather-alerts ul li{margin:2px 0}
+  @media(min-width:720px){
+    #weather-alerts{margin:-28px -24px 20px;padding:16px 24px}
+  }
+  /* buy-license CTA */
+  .license-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin:14px 0 6px;padding:16px 20px;background:linear-gradient(135deg,#4fc27a 0%,#2f9659 100%);color:#fff;font-weight:700;font-size:1.05rem;letter-spacing:.3px;border-radius:12px;text-decoration:none;border:1px solid rgba(255,255,255,.18);box-shadow:0 4px 14px rgba(79,194,122,.3);transition:transform .12s ease,box-shadow .12s ease,background .12s ease}
+  .license-cta:hover,.license-cta:focus{text-decoration:none;background:linear-gradient(135deg,#5cd088 0%,#36a664 100%);transform:translateY(-1px);box-shadow:0 6px 18px rgba(79,194,122,.4);color:#fff}
+  .license-cta::before{content:"🎣";font-size:1.3rem;line-height:1}
+  .license-cta::after{content:"↗";opacity:.85;font-size:1rem;margin-left:2px}
+  /* interactive map */
+  .map-card{padding:0;overflow:hidden}
+  .map-card iframe{display:block;width:100%;border:0;border-radius:12px}
+  .map-card .map-foot{padding:10px 14px;color:var(--muted);font-size:.82rem;border-top:1px solid var(--border);background:var(--surface-2)}
+  /* water flow cards */
+  .flow-grid{display:grid;gap:12px}
+  @media(min-width:720px){
+    .flow-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(min-width:980px){
+    .flow-grid{grid-template-columns:repeat(3,1fr)}
+  }
+  .flow-card{background:linear-gradient(160deg,var(--surface) 0%,var(--surface-2) 100%);border:1px solid var(--border);border-radius:14px;padding:16px;position:relative;overflow:hidden}
+  .flow-card h4{margin:0 0 12px;font-size:1rem;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .flow-card h4 .river{color:var(--muted);font-size:.72rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase}
+  .flow-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.05)}
+  .flow-row:first-of-type{border-top:0}
+  .arrow{width:28px;height:40px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-radius:6px;flex-shrink:0}
+  .arrow.inflow{background:linear-gradient(180deg,rgba(94,180,231,.08),rgba(94,180,231,.22))}
+  .arrow.outflow{background:linear-gradient(180deg,rgba(233,100,100,.22),rgba(233,100,100,.08))}
+  .arrow svg{width:18px;height:26px;display:block}
+  .arrow.inflow svg{animation:flowUp 1.6s ease-in-out infinite}
+  .arrow.outflow svg{animation:flowDown 1.6s ease-in-out infinite}
+  @keyframes flowUp{0%{transform:translateY(6px);opacity:.55}50%{transform:translateY(-2px);opacity:1}100%{transform:translateY(-10px);opacity:0}}
+  @keyframes flowDown{0%{transform:translateY(-6px);opacity:.55}50%{transform:translateY(2px);opacity:1}100%{transform:translateY(10px);opacity:0}}
+  .arrow::before{content:"";position:absolute;inset:0;pointer-events:none}
+  .flow-label{font-size:.82rem;color:var(--muted);line-height:1.3}
+  .flow-label b{display:block;color:var(--text);font-weight:600;font-size:.88rem;margin-bottom:1px}
+  .flow-cfs{font-weight:700;font-size:1.35rem;font-variant-numeric:tabular-nums;line-height:1;text-align:right;white-space:nowrap}
+  .flow-cfs .unit{font-size:.72rem;font-weight:500;color:var(--muted);margin-left:3px;letter-spacing:.3px}
+  .flow-cfs.in{color:#7dc6ed}
+  .flow-cfs.out{color:#f08b8b}
+  .flow-yest{color:var(--muted);font-size:.76rem;text-align:right;margin-top:3px;font-variant-numeric:tabular-nums}
+  .flow-disclaimer{color:var(--muted);font-size:.78rem;margin:12px 0 14px;padding:8px 12px;background:rgba(94,180,231,.06);border-left:3px solid rgba(94,180,231,.35);border-radius:0 6px 6px 0}
+  .flow-srp-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:var(--surface-2);color:var(--text);border:1px solid var(--border);border-radius:10px;font:inherit;font-size:.88rem;font-weight:600;text-decoration:none;margin-top:4px;transition:border-color .12s,color .12s,background .12s}
+  .flow-srp-btn:hover,.flow-srp-btn:focus{border-color:var(--accent);color:var(--accent);background:rgba(94,180,231,.08);text-decoration:none}
+  .flow-srp-btn::after{content:"↗";color:var(--muted);font-size:.82rem}
+  .flow-srp-btn:hover::after,.flow-srp-btn:focus::after{color:var(--accent)}
 </style>
 </head>
 <body>
 <div class="wrap">
+
+  <!-- WEATHER ALERTS -->
+  <div id="weather-alerts" role="alert" aria-live="assertive">
+    <div class="wa-title">Weather Alert</div>
+    <ul id="wa-list"></ul>
+  </div>
+
+  <!-- FOCUS MODE BAR -->
+  <div id="focus-bar" role="status" aria-live="polite">
+    <div class="fb-icon"></div>
+    <div class="fb-main"><b id="fb-title">Focus mode</b><span class="fb-sub" id="fb-sub"></span></div>
+    <button class="fb-btn" id="fb-reload" type="button">Reload</button>
+    <button class="fb-btn exit" id="fb-exit" type="button">Exit</button>
+  </div>
 
   <header>
     <h1>Phoenix Lakes — Fishing Dashboard</h1>
@@ -138,6 +238,9 @@
     <div class="updated">Last updated <b>Sunday, April 19, 2026 at 6:30 AM MST</b></div>
   </header>
 
+  <!-- BUY AZ FISHING LICENSE -->
+  <a class="license-cta" href="https://license.azgfd.com/" target="_blank" rel="noopener noreferrer" aria-label="Buy Arizona fishing license (opens in new tab)">Buy AZ Fishing License</a>
+
   <!-- SNAPSHOT -->
   <h2>Quick Snapshot</h2>
   <div class="sort-bar">
@@ -145,38 +248,69 @@
     <span id="sort-status" class="sort-status"></span>
   </div>
   <div class="snap" id="snap-list">
-    <div class="snap-row" data-lake="pleasant" data-lat="33.8770" data-lon="-112.2733">
-      <div class="name">Lake Pleasant <span class="dist" data-dist></span></div>
+    <div class="snap-row" data-lake="pleasant" data-label="Lake Pleasant" data-lat="33.8770" data-lon="-112.2733">
+      <div class="name"><a href="#lake-pleasant">Lake Pleasant</a> <span class="dist" data-dist></span></div>
       <div class="pct na">NA</div>
       <div class="meta"><span>Elev NA</span><span>Below full NA</span><span>Trend —</span></div>
+      <div class="fish-row">
+        <button class="fish-btn" type="button" data-fish>Fish here today</button>
+        <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+      </div>
     </div>
-    <div class="snap-row" data-lake="roosevelt" data-lat="33.6700" data-lon="-111.1500">
-      <div class="name">Roosevelt <span class="pill low">Low</span> <span class="dist" data-dist></span></div>
+    <div class="snap-row" data-lake="roosevelt" data-label="Roosevelt" data-lat="33.6700" data-lon="-111.1500">
+      <div class="name"><a href="#lake-roosevelt">Roosevelt</a> <span class="pill low">Low</span> <span class="dist" data-dist></span></div>
       <div class="pct bad">46%</div>
       <div class="meta"><span>Elev 2,100.19 ft</span><span>Below full 50.81 ft</span><span>Storage 752,924 AF</span></div>
+      <div class="fish-row">
+        <button class="fish-btn" type="button" data-fish>Fish here today</button>
+        <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+      </div>
     </div>
-    <div class="snap-row" data-lake="apache" data-lat="33.5800" data-lon="-111.2333">
-      <div class="name">Apache <span class="pill ok">Near full</span> <span class="dist" data-dist></span></div>
+    <div class="snap-row" data-lake="apache" data-label="Apache" data-lat="33.5800" data-lon="-111.2333">
+      <div class="name"><a href="#lake-apache">Apache</a> <span class="pill ok">Near full</span> <span class="dist" data-dist></span></div>
       <div class="pct good">92%</div>
       <div class="meta"><span>Elev 1,906.20 ft</span><span>Below full 7.80 ft</span><span>Storage 224,886 AF</span></div>
+      <div class="fish-row">
+        <button class="fish-btn" type="button" data-fish>Fish here today</button>
+        <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+      </div>
     </div>
-    <div class="snap-row" data-lake="canyon" data-lat="33.5400" data-lon="-111.4600">
-      <div class="name">Canyon <span class="pill ok">Near full</span> <span class="dist" data-dist></span></div>
+    <div class="snap-row" data-lake="canyon" data-label="Canyon" data-lat="33.5400" data-lon="-111.4600">
+      <div class="name"><a href="#lake-canyon">Canyon</a> <span class="pill ok">Near full</span> <span class="dist" data-dist></span></div>
       <div class="pct good">95%</div>
       <div class="meta"><span>Elev 1,657.34 ft</span><span>Below full 3.16 ft</span><span>Storage 54,879 AF</span></div>
+      <div class="fish-row">
+        <button class="fish-btn" type="button" data-fish>Fish here today</button>
+        <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+      </div>
     </div>
-    <div class="snap-row" data-lake="saguaro" data-lat="33.5680" data-lon="-111.5450">
-      <div class="name">Saguaro <span class="pill ok">Near full</span> <span class="dist" data-dist></span></div>
+    <div class="snap-row" data-lake="saguaro" data-label="Saguaro" data-lat="33.5680" data-lon="-111.5450">
+      <div class="name"><a href="#lake-saguaro">Saguaro</a> <span class="pill ok">Near full</span> <span class="dist" data-dist></span></div>
       <div class="pct good">95%</div>
       <div class="meta"><span>Elev 1,526.21 ft</span><span>Below full 2.79 ft</span><span>Storage 66,296 AF</span></div>
+      <div class="fish-row">
+        <button class="fish-btn" type="button" data-fish>Fish here today</button>
+        <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+      </div>
     </div>
-    <div class="snap-row" data-lake="bartlett" data-lat="33.8167" data-lon="-111.6333">
-      <div class="name">Bartlett <span class="pill ok">Good</span> <span class="dist" data-dist></span></div>
+    <div class="snap-row" data-lake="bartlett" data-label="Bartlett" data-lat="33.8167" data-lon="-111.6333">
+      <div class="name"><a href="#lake-bartlett">Bartlett</a> <span class="pill ok">Good</span> <span class="dist" data-dist></span></div>
       <div class="pct good">70%</div>
       <div class="meta"><span>Elev 1,776.17 ft</span><span>Below full 21.83 ft</span><span>Storage 123,943 AF</span></div>
+      <div class="fish-row">
+        <button class="fish-btn" type="button" data-fish>Fish here today</button>
+        <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+      </div>
     </div>
   </div>
   <div class="note"><b>Feet below full</b> = your boat-graph offset. Enter this number so charted depths match reality.</div>
+
+  <!-- INTERACTIVE MAP -->
+  <h2>Interactive Map</h2>
+  <div class="card map-card">
+    <iframe src="https://fishandboataz.azgfd.com/" width="100%" height="600px" style="border:none;" loading="lazy" title="AZGFD Fish &amp; Boat Arizona Map"></iframe>
+    <div class="map-foot">Live AZGFD Fish &amp; Boat map — pan/zoom to find ramps, regulations, stocking info, and nearby waters.</div>
+  </div>
 
   <!-- CONDITIONS -->
   <h2>Phoenix Conditions</h2>
@@ -248,7 +382,7 @@
   <h2>Lake Detail</h2>
   <div class="grid cols-2">
 
-    <div class="card">
+    <div class="card lake-card" id="lake-pleasant">
       <h3>Lake Pleasant <span class="pill na">NA</span></h3>
       <div class="card-sub">Full pool 1,702 ft · New Waddell Dam · Bass, stripers, whites</div>
       <div class="bar"><i style="width:0%"></i></div>
@@ -262,7 +396,7 @@
       <div class="note">CAP publishes only a 12-month forecast graph — no live daily elevation.</div>
     </div>
 
-    <div class="card">
+    <div class="card lake-card" id="lake-roosevelt">
       <h3>Roosevelt <span class="pill low">Low — 46%</span></h3>
       <div class="card-sub">Full pool ~2,151 ft · Roosevelt Dam · Largemouth, smallmouth, crappie</div>
       <div class="bar"><i class="bad" style="width:46%"></i></div>
@@ -276,7 +410,7 @@
       <div class="tip"><b>Bass tip:</b> Down ~51 ft — old banks are mud flats. Target submerged road beds, humps, channel swings in 15–30 ft. Football jig, green-pumpkin craw, deep crank on main-lake points. Crappie: brush piles in 20–35 ft with minnows.</div>
     </div>
 
-    <div class="card">
+    <div class="card lake-card" id="lake-apache">
       <h3>Apache <span class="pill ok">92%</span></h3>
       <div class="card-sub">Full pool 1,914 ft · Horse Mesa Dam · Largemouth, smallmouth, yellow bass</div>
       <div class="bar"><i class="good" style="width:92%"></i></div>
@@ -290,7 +424,7 @@
       <div class="tip"><b>Bass tip:</b> Classic steep canyon lake with bluff walls. Near-full + clear = swim a jig or Ned rig along shaded bluff edges 8–20 ft. Topwater early in coves. Smallmouth on rocky points with a drop-shot.</div>
     </div>
 
-    <div class="card">
+    <div class="card lake-card" id="lake-canyon">
       <h3>Canyon <span class="pill ok">95%</span></h3>
       <div class="card-sub">Full pool 1,660 ft · Mormon Flat Dam · Walleye, largemouth, stocked rainbow trout</div>
       <div class="bar"><i class="good" style="width:95%"></i></div>
@@ -304,7 +438,7 @@
       <div class="tip"><b>Bass tip:</b> Deepest of the Salt chain. Small and steep — pressured but fertile. Ned rig, small jig, finesse worm on shaded walls. Walleye first/last light on rocky points in 10–25 ft with jerkbaits or bottom-bouncer + worm.</div>
     </div>
 
-    <div class="card">
+    <div class="card lake-card" id="lake-saguaro">
       <h3>Saguaro <span class="pill ok">95%</span></h3>
       <div class="card-sub">Full pool 1,529 ft · Stewart Mountain Dam · Largemouth, yellow bass, crappie</div>
       <div class="bar"><i class="good" style="width:95%"></i></div>
@@ -318,7 +452,7 @@
       <div class="tip"><b>Bass tip:</b> Near-full = flooded brush. Swim a wacky Senko or chatterbait along flooded willows. Topwater early. Yellow bass: schooling on main-lake flats, small jigs or spoons.</div>
     </div>
 
-    <div class="card">
+    <div class="card lake-card" id="lake-bartlett">
       <h3>Bartlett <span class="pill ok">Good — 70%</span></h3>
       <div class="card-sub">Full pool 1,798 ft · Bartlett Dam · Largemouth, flathead, sunfish</div>
       <div class="bar"><i class="good" style="width:70%"></i></div>
@@ -333,6 +467,84 @@
     </div>
 
   </div>
+
+  <!-- WATER FLOW THIS WEEK -->
+  <h2>Water Flow This Week</h2>
+  <div class="flow-disclaimer">Inflow (↑ blue) and outflow (↓ red) in cubic feet per second. <b>Numbers update daily</b> from SRP — yesterday's average is shown for comparison since no 7-day forecast is published.</div>
+  <div class="flow-grid">
+
+    <div class="flow-card" data-flow="roosevelt">
+      <h4>Roosevelt <span class="river">Salt River</span></h4>
+      <div class="flow-row">
+        <div class="arrow inflow" aria-label="Inflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 24 V4 M9 4 L3 10 M9 4 L15 10" stroke="#7dc6ed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flow-label"><b>Inflow</b>Today's reading</div>
+        <div><div class="flow-cfs in"><span data-cfs-in>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-in>NA</span> cfs</div></div>
+      </div>
+      <div class="flow-row">
+        <div class="arrow outflow" aria-label="Outflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 2 V22 M9 22 L3 16 M9 22 L15 16" stroke="#f08b8b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flow-label"><b>Outflow</b>Released today</div>
+        <div><div class="flow-cfs out"><span data-cfs-out>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-out>NA</span> cfs</div></div>
+      </div>
+    </div>
+
+    <div class="flow-card" data-flow="apache">
+      <h4>Apache <span class="river">Salt River</span></h4>
+      <div class="flow-row">
+        <div class="arrow inflow" aria-label="Inflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 24 V4 M9 4 L3 10 M9 4 L15 10" stroke="#7dc6ed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flow-label"><b>Inflow</b>Today's reading</div>
+        <div><div class="flow-cfs in"><span data-cfs-in>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-in>NA</span> cfs</div></div>
+      </div>
+      <div class="flow-row">
+        <div class="arrow outflow" aria-label="Outflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 2 V22 M9 22 L3 16 M9 22 L15 16" stroke="#f08b8b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flow-label"><b>Outflow</b>Released today</div>
+        <div><div class="flow-cfs out"><span data-cfs-out>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-out>NA</span> cfs</div></div>
+      </div>
+    </div>
+
+    <div class="flow-card" data-flow="canyon">
+      <h4>Canyon <span class="river">Salt River</span></h4>
+      <div class="flow-row">
+        <div class="arrow inflow" aria-label="Inflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 24 V4 M9 4 L3 10 M9 4 L15 10" stroke="#7dc6ed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flow-label"><b>Inflow</b>Today's reading</div>
+        <div><div class="flow-cfs in"><span data-cfs-in>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-in>NA</span> cfs</div></div>
+      </div>
+      <div class="flow-row">
+        <div class="arrow outflow" aria-label="Outflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 2 V22 M9 22 L3 16 M9 22 L15 16" stroke="#f08b8b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flow-label"><b>Outflow</b>Released today</div>
+        <div><div class="flow-cfs out"><span data-cfs-out>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-out>NA</span> cfs</div></div>
+      </div>
+    </div>
+
+    <div class="flow-card" data-flow="saguaro">
+      <h4>Saguaro <span class="river">Salt River</span></h4>
+      <div class="flow-row">
+        <div class="arrow inflow" aria-label="Inflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 24 V4 M9 4 L3 10 M9 4 L15 10" stroke="#7dc6ed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flow-label"><b>Inflow</b>Today's reading</div>
+        <div><div class="flow-cfs in"><span data-cfs-in>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-in>NA</span> cfs</div></div>
+      </div>
+      <div class="flow-row">
+        <div class="arrow outflow" aria-label="Outflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 2 V22 M9 22 L3 16 M9 22 L15 16" stroke="#f08b8b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flow-label"><b>Outflow</b>Released today</div>
+        <div><div class="flow-cfs out"><span data-cfs-out>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-out>NA</span> cfs</div></div>
+      </div>
+    </div>
+
+    <div class="flow-card" data-flow="bartlett">
+      <h4>Bartlett <span class="river">Verde River</span></h4>
+      <div class="flow-row">
+        <div class="arrow inflow" aria-label="Inflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 24 V4 M9 4 L3 10 M9 4 L15 10" stroke="#7dc6ed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flow-label"><b>Inflow</b>Today's reading</div>
+        <div><div class="flow-cfs in"><span data-cfs-in>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-in>NA</span> cfs</div></div>
+      </div>
+      <div class="flow-row">
+        <div class="arrow outflow" aria-label="Outflow"><svg viewBox="0 0 18 26" fill="none" aria-hidden="true"><path d="M9 2 V22 M9 22 L3 16 M9 22 L15 16" stroke="#f08b8b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flow-label"><b>Outflow</b>Released today</div>
+        <div><div class="flow-cfs out"><span data-cfs-out>NA</span><span class="unit">cfs</span></div><div class="flow-yest">Yest avg: <span data-yest-out>NA</span> cfs</div></div>
+      </div>
+    </div>
+
+  </div>
+  <div style="margin-top:14px"><a class="flow-srp-btn" href="https://streamflow.watershedconnection.com/dwr" target="_blank" rel="noopener noreferrer">View full SRP streamflow report</a></div>
 
   <!-- FOOTER SOURCES -->
   <footer>
@@ -350,6 +562,82 @@
 </div>
 
 <script>
+// --- Weather Alerts: auto-scan today + 3-day forecast for wind>15, temp>95, thunderstorms/monsoons ---
+(function(){
+  var bar = document.getElementById('weather-alerts');
+  var list = document.getElementById('wa-list');
+  if(!bar || !list) return;
+
+  var alerts = [];
+  var severe = false; // true -> red (thunderstorm/monsoon), false -> orange
+
+  function scanText(label, text){
+    if(!text) return;
+    var t = text.toLowerCase();
+    // temperature
+    var tempMatch = text.match(/(\d{2,3})\s*°?\s*F?/);
+    // pull all 2-3 digit numbers and look for heat
+    var nums = (text.match(/\b(\d{2,3})\b/g) || []).map(function(n){ return parseInt(n, 10); });
+    var maxTemp = 0;
+    nums.forEach(function(n){ if(n >= 60 && n <= 130 && n > maxTemp) maxTemp = n; });
+    if(maxTemp > 95){
+      alerts.push(label + ': high of ' + maxTemp + '°F — heat advisory range');
+    }
+    // wind gusts / sustained
+    var gustMatch = text.match(/gusts?\s*(?:to|of)?\s*(\d{1,3})/i);
+    if(gustMatch){
+      var g = parseInt(gustMatch[1], 10);
+      if(g > 15) alerts.push(label + ': wind gusts to ' + g + ' mph');
+    } else {
+      // generic "W 20 mph" pattern
+      var windMatch = text.match(/\b([NSEW]{1,3})\s*(\d{1,3})\b/);
+      if(windMatch){
+        var w = parseInt(windMatch[2], 10);
+        if(w > 15) alerts.push(label + ': ' + windMatch[1] + ' wind ' + w + ' mph');
+      }
+    }
+    // storms / monsoon
+    if(/thunder|monsoon|t-?storm/i.test(t)){
+      alerts.push(label + ': thunderstorm/monsoon risk');
+      severe = true;
+    }
+  }
+
+  // Scan the 3-day outlook card rows
+  var outlookCard = document.querySelectorAll('.grid.cols-2 .card')[1];
+  if(outlookCard){
+    outlookCard.querySelectorAll('.row').forEach(function(r){
+      var k = r.querySelector('.k'); var v = r.querySelector('.v');
+      if(k && v) scanText(k.textContent.trim(), v.textContent.trim());
+    });
+  }
+
+  // Scan today's conditions card
+  var todayCard = document.querySelectorAll('.grid.cols-2 .card')[0];
+  if(todayCard){
+    var combined = [];
+    todayCard.querySelectorAll('.kv > div').forEach(function(d){
+      var k = d.querySelector('.k'); var v = d.querySelector('.v');
+      if(k && v) combined.push(k.textContent.trim() + ' ' + v.textContent.trim());
+    });
+    scanText('Today', combined.join(' · '));
+  }
+
+  // de-dupe
+  var seen = {};
+  alerts = alerts.filter(function(a){ if(seen[a]) return false; seen[a] = 1; return true; });
+
+  if(alerts.length === 0){ return; } // keep hidden
+
+  bar.classList.add('on');
+  if(!severe) bar.classList.add('warn');
+  alerts.forEach(function(a){
+    var li = document.createElement('li');
+    li.textContent = a;
+    list.appendChild(li);
+  });
+})();
+
 (function(){
   var btn = document.getElementById('btn-sort-distance');
   var status = document.getElementById('sort-status');
@@ -394,6 +682,165 @@
     }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 });
   });
 })();
+
+// --- Focus mode: subscribe to a lake for the day with hourly chime+banner ---
+(function(){
+  var KEY = 'fishingFocus.v1';
+  var bar = document.getElementById('focus-bar');
+  var fbTitle = document.getElementById('fb-title');
+  var fbSub = document.getElementById('fb-sub');
+  var fbReload = document.getElementById('fb-reload');
+  var fbExit = document.getElementById('fb-exit');
+  if(!bar) return;
+
+  var state = null;
+  var timer = null;
+
+  function load(){
+    try { state = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e){ state = null; }
+    if(state && state.endTs && Date.now() >= state.endTs){ state = null; localStorage.removeItem(KEY); }
+  }
+  function save(){ if(state) localStorage.setItem(KEY, JSON.stringify(state)); else localStorage.removeItem(KEY); }
+
+  function fmtClock(ts){
+    var d = new Date(ts);
+    var h = d.getHours(); var m = d.getMinutes();
+    var ap = h >= 12 ? 'PM' : 'AM';
+    h = h % 12; if(h === 0) h = 12;
+    return h + (m ? ':' + (m<10?'0':'') + m : '') + ' ' + ap;
+  }
+
+  function nextPingTs(){
+    var now = new Date();
+    var next = new Date(now);
+    next.setMinutes(0, 0, 0);
+    next.setHours(now.getHours() + 1);
+    if(state && next.getTime() > state.endTs) return null;
+    return next.getTime();
+  }
+
+  function playChime(){
+    try{
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if(!AC) return;
+      var ctx = new AC();
+      var now = ctx.currentTime;
+      [880, 1175, 1568].forEach(function(freq, i){
+        var o = ctx.createOscillator();
+        var g = ctx.createGain();
+        o.type = 'sine';
+        o.frequency.setValueAtTime(freq, now + i * 0.18);
+        g.gain.setValueAtTime(0.0001, now + i * 0.18);
+        g.gain.exponentialRampToValueAtTime(0.22, now + i * 0.18 + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.18 + 0.35);
+        o.connect(g); g.connect(ctx.destination);
+        o.start(now + i * 0.18);
+        o.stop(now + i * 0.18 + 0.4);
+      });
+      setTimeout(function(){ try{ ctx.close(); }catch(e){} }, 1500);
+    }catch(e){}
+  }
+
+  function render(){
+    if(!state){ bar.classList.remove('on','ping'); return; }
+    bar.classList.add('on');
+    fbTitle.textContent = state.label;
+    var next = nextPingTs();
+    var until = fmtClock(state.endTs);
+    if(next){
+      fbSub.textContent = 'Ends ' + until + ' · next ping ' + fmtClock(next);
+    } else {
+      fbSub.textContent = 'Ends ' + until;
+    }
+  }
+
+  function firePing(){
+    bar.classList.add('ping');
+    playChime();
+    var now = Date.now();
+    fbSub.textContent = fmtClock(now) + ' update · tap Reload for fresh conditions';
+    setTimeout(function(){ bar.classList.remove('ping'); render(); }, 5000);
+  }
+
+  function scheduleNext(){
+    if(timer){ clearTimeout(timer); timer = null; }
+    if(!state) return;
+    if(Date.now() >= state.endTs){ stop(true); return; }
+    var next = nextPingTs();
+    if(!next){
+      timer = setTimeout(function(){ stop(true); }, Math.max(500, state.endTs - Date.now()));
+      return;
+    }
+    var delay = Math.max(500, next - Date.now());
+    timer = setTimeout(function(){
+      if(!state) return;
+      firePing();
+      if(!state.firstPingDone){ state.firstPingDone = true; save(); }
+      scheduleNext();
+    }, delay);
+  }
+
+  function start(lakeKey, label, endHour24){
+    var now = new Date();
+    var end = new Date(now);
+    end.setHours(endHour24, 0, 0, 0);
+    if(end.getTime() <= now.getTime()){
+      // end already passed today — skip
+      alert('That time has already passed today. Pick a later time.');
+      return;
+    }
+    state = { lake: lakeKey, label: label, startTs: now.getTime(), endTs: end.getTime(), firstPingDone: false };
+    save();
+    render();
+    scheduleNext();
+    // quick "you're in" chime
+    playChime();
+  }
+
+  function stop(endedNaturally){
+    state = null; save();
+    if(timer){ clearTimeout(timer); timer = null; }
+    bar.classList.remove('on','ping');
+    if(endedNaturally){
+      // Show a brief end banner
+      fbTitle.textContent = 'Focus mode ended';
+      fbSub.textContent = 'Hope you caught some! Tap a lake to start a new session.';
+      bar.classList.add('on');
+      setTimeout(function(){ bar.classList.remove('on'); }, 6000);
+    }
+  }
+
+  // wire up per-row buttons
+  document.querySelectorAll('.snap-row').forEach(function(row){
+    var btn = row.querySelector('[data-fish]');
+    var chips = row.querySelector('[data-chips]');
+    if(!btn || !chips) return;
+    btn.addEventListener('click', function(){
+      // close any other open chip rows first
+      document.querySelectorAll('[data-chips].open').forEach(function(c){ if(c !== chips) c.classList.remove('open'); });
+      chips.classList.toggle('open');
+    });
+    chips.querySelectorAll('.chip').forEach(function(chip){
+      chip.addEventListener('click', function(){
+        var val = chip.getAttribute('data-end');
+        chips.classList.remove('open');
+        if(val === 'cancel') return;
+        var hr = parseInt(val, 10);
+        var lakeKey = row.getAttribute('data-lake');
+        var label = row.getAttribute('data-label') || lakeKey;
+        start(lakeKey, label, hr);
+      });
+    });
+  });
+
+  fbReload.addEventListener('click', function(){ location.reload(); });
+  fbExit.addEventListener('click', function(){ stop(false); });
+
+  // resume on load
+  load();
+  if(state){ render(); scheduleNext(); }
+})();
 </script>
 </body>
 </html>
+
