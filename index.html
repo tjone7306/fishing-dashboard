@@ -261,6 +261,36 @@
   .ws-spark .delta.down{color:var(--bad)}
   .ws-spark svg{display:block;width:100%;height:40px}
   .ws-foot{color:var(--muted);font-size:.78rem;margin-top:12px;line-height:1.55}
+  /* --- Compact lake rows --- */
+  .grid.cols-2#snap-list{gap:8px}
+  .lake-card.compact{padding:0;overflow:hidden}
+  .lake-card.compact > summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1.35fr) auto minmax(0,1fr) auto 16px;column-gap:14px;row-gap:3px;padding:11px 14px;align-items:center;grid-template-areas:"name pct flow elev caret"}
+  .lake-card.compact > summary::-webkit-details-marker{display:none}
+  .lake-card.compact > summary::marker{content:''}
+  .lake-card.compact > summary:hover{background:rgba(255,255,255,.02)}
+  .lk-name{grid-area:name;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0;font-weight:600;font-size:1rem}
+  .lk-name .dist{color:var(--muted);font-size:.8rem;white-space:nowrap;font-weight:400}
+  .lk-pct{grid-area:pct;text-align:center;font-weight:700;font-variant-numeric:tabular-nums;font-size:1.1rem;line-height:1;min-width:42px}
+  .lk-pct.good{color:var(--good)}.lk-pct.warn{color:var(--warn)}.lk-pct.bad{color:var(--bad)}.lk-pct.na{color:var(--muted)}
+  .lk-flow{grid-area:flow;font-size:.85rem;display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+  .lk-flow .sf-in{color:#7dc6ed;font-weight:600;white-space:nowrap}
+  .lk-flow .sf-out{color:#f08b8b;font-weight:600;white-space:nowrap}
+  .lk-flow .sf-sep{color:var(--border);opacity:.6}
+  .lk-flow .sf-na{color:var(--muted)}
+  .lk-elev{grid-area:elev;text-align:right;font-size:.85rem;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted)}
+  .lk-elev b{color:var(--text);font-weight:600}
+  .lk-elev.na{color:var(--muted)}
+  .lk-caret{grid-area:caret;color:var(--muted);font-size:.85rem;transition:transform .15s;user-select:none}
+  .lake-card.compact[open] .lk-caret{transform:rotate(90deg)}
+  .lk-body{padding:4px 14px 14px;border-top:1px solid rgba(255,255,255,.05)}
+  .lk-body .card-sub{padding-top:10px;margin-bottom:4px}
+  .lk-body .bar{margin:8px 0 4px}
+  @media (max-width:700px){
+    .lake-card.compact > summary{grid-template-columns:1fr auto 16px;grid-template-areas:"name pct caret" "flow elev caret";column-gap:10px;row-gap:4px;padding:10px 12px}
+    .lk-flow{font-size:.82rem}
+    .lk-elev{font-size:.8rem}
+    .lk-pct{text-align:right}
+  }
 </style>
 </head>
 <body>
@@ -295,106 +325,138 @@
   </div>
   <div class="grid cols-2" id="snap-list">
 
-    <div class="card lake-card" data-lake="pleasant" data-label="Lake Pleasant" data-lat="33.8770" data-lon="-112.2733" id="lake-pleasant">
-      <h3><span>Lake Pleasant <span class="pill na">NA</span> <span class="dist" data-dist></span></span><span class="pct na">NA</span></h3>
-      <div class="card-sub">Full pool 1,702 ft · New Waddell Dam · Bass, stripers, whites</div>
-      <div class="bar"><i style="width:0%"></i></div>
-      <div class="row"><span class="k">Elevation</span><span class="v">NA</span></div>
-      <div class="row"><span class="k">Below full</span><span class="v">NA</span></div>
-      <div class="row" data-flow-row="pleasant"><span class="k">Flow</span><span class="v flow-line"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></span></div>
-      <div class="row"><span class="k">Wind</span><span class="v" data-wind="pleasant">—</span></div>
-      <div class="row"><span class="k">Ramps</span><span class="v">Scorpion Bay · 10-Lane</span></div>
-      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=10+Lane+Boat+Ramp+Lake+Pleasant+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
-      <div class="fish-row">
-        <button class="fish-btn" type="button" data-fish>Fish here today</button>
-        <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+    <details class="card lake-card compact" data-lake="pleasant" data-label="Lake Pleasant" data-lat="33.8770" data-lon="-112.2733" id="lake-pleasant">
+      <summary>
+        <span class="lk-name">Lake Pleasant <span class="pill na">NA</span> <span class="dist" data-dist></span></span>
+        <span class="lk-pct na">NA</span>
+        <span class="lk-flow" data-flow-row="pleasant"><span class="sf-in">In <span data-snap-cfs-in class="sf-na">NA</span></span><span class="sf-sep">·</span><span class="sf-out">Out <span data-snap-cfs-out class="sf-na">NA</span></span></span>
+        <span class="lk-elev na">NA</span>
+        <span class="lk-caret" aria-hidden="true">›</span>
+      </summary>
+      <div class="lk-body">
+        <div class="card-sub">Full pool 1,702 ft · New Waddell Dam · Bass, stripers, whites</div>
+        <div class="bar"><i style="width:0%"></i></div>
+        <div class="row"><span class="k">Elevation</span><span class="v">NA</span></div>
+        <div class="row"><span class="k">Below full</span><span class="v">NA</span></div>
+        <div class="row"><span class="k">Wind</span><span class="v" data-wind="pleasant">—</span></div>
+        <div class="row"><span class="k">Ramps</span><span class="v">Scorpion Bay · 10-Lane</span></div>
+        <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=10+Lane+Boat+Ramp+Lake+Pleasant+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
+        <div class="fish-row">
+          <button class="fish-btn" type="button" data-fish>Fish here today</button>
+          <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+        </div>
       </div>
-    </div>
+    </details>
 
-    <div class="card lake-card" data-lake="roosevelt" data-label="Roosevelt" data-lat="33.6700" data-lon="-111.1500" id="lake-roosevelt">
-      <h3><span>Roosevelt <span class="pill low">Low</span> <span class="dist" data-dist></span></span><span class="pct bad">46%</span></h3>
-      <div class="card-sub">Full pool ~2,151 ft · Roosevelt Dam · Largemouth, smallmouth, crappie</div>
-      <div class="bar"><i class="bad" style="width:46%"></i></div>
-      <div class="row"><span class="k">Elevation</span><span class="v">2,099.92 ft</span></div>
-      <div class="row"><span class="k">Below full</span><span class="v">51.08 ft</span></div>
-      <div class="row"><span class="k">Storage</span><span class="v">749,319 AF</span></div>
-      <div class="row" data-flow-row="roosevelt"><span class="k">Flow</span><span class="v flow-line"><span class="sf-in">In: <span data-snap-cfs-in>97</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out>SRP</span> cfs<span class="sf-arrow">↓</span></span></span></div>
-      <div class="row"><span class="k">Wind</span><span class="v" data-wind="roosevelt">—</span></div>
-      <div class="row"><span class="k">Ramps</span><span class="v">Schoolhouse · Cholla</span></div>
-      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Windy+Hill+Boat+Ramp+Roosevelt+Lake+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
-      <div class="fish-row">
-        <button class="fish-btn" type="button" data-fish>Fish here today</button>
-        <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+    <details class="card lake-card compact" data-lake="roosevelt" data-label="Roosevelt" data-lat="33.6700" data-lon="-111.1500" id="lake-roosevelt">
+      <summary>
+        <span class="lk-name">Roosevelt <span class="pill low">Low</span> <span class="dist" data-dist></span></span>
+        <span class="lk-pct bad">46%</span>
+        <span class="lk-flow" data-flow-row="roosevelt"><span class="sf-in">In <span data-snap-cfs-in>97</span></span><span class="sf-sep">·</span><span class="sf-out">Out <span data-snap-cfs-out>SRP</span></span></span>
+        <span class="lk-elev"><b>2,099.92</b> ft · −51.08</span>
+        <span class="lk-caret" aria-hidden="true">›</span>
+      </summary>
+      <div class="lk-body">
+        <div class="card-sub">Full pool ~2,151 ft · Roosevelt Dam · Largemouth, smallmouth, crappie</div>
+        <div class="bar"><i class="bad" style="width:46%"></i></div>
+        <div class="row"><span class="k">Storage</span><span class="v">749,319 AF</span></div>
+        <div class="row"><span class="k">Wind</span><span class="v" data-wind="roosevelt">—</span></div>
+        <div class="row"><span class="k">Ramps</span><span class="v">Schoolhouse · Cholla</span></div>
+        <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Windy+Hill+Boat+Ramp+Roosevelt+Lake+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
+        <div class="fish-row">
+          <button class="fish-btn" type="button" data-fish>Fish here today</button>
+          <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+        </div>
       </div>
-    </div>
+    </details>
 
-    <div class="card lake-card" data-lake="apache" data-label="Apache" data-lat="33.5800" data-lon="-111.2333" id="lake-apache">
-      <h3><span>Apache <span class="pill ok">Near full</span> <span class="dist" data-dist></span></span><span class="pct good">93%</span></h3>
-      <div class="card-sub">Full pool 1,914 ft · Horse Mesa Dam · Largemouth, smallmouth, yellow bass</div>
-      <div class="bar"><i class="good" style="width:93%"></i></div>
-      <div class="row"><span class="k">Elevation</span><span class="v">1,906.99 ft</span></div>
-      <div class="row"><span class="k">Below full</span><span class="v">7.01 ft</span></div>
-      <div class="row"><span class="k">Storage</span><span class="v">226,888 AF</span></div>
-      <div class="row" data-flow-row="apache"><span class="k">Flow</span><span class="v flow-line"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></span></div>
-      <div class="row"><span class="k">Wind</span><span class="v" data-wind="apache">—</span></div>
-      <div class="row"><span class="k">Ramps</span><span class="v">Burnt Corral · Apache Lake Marina</span></div>
-      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Apache+Lake+Boat+Ramp+Roosevelt+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
-      <div class="fish-row">
-        <button class="fish-btn" type="button" data-fish>Fish here today</button>
-        <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+    <details class="card lake-card compact" data-lake="apache" data-label="Apache" data-lat="33.5800" data-lon="-111.2333" id="lake-apache">
+      <summary>
+        <span class="lk-name">Apache <span class="pill ok">Near full</span> <span class="dist" data-dist></span></span>
+        <span class="lk-pct good">93%</span>
+        <span class="lk-flow" data-flow-row="apache"><span class="sf-in">In <span data-snap-cfs-in class="sf-na">NA</span></span><span class="sf-sep">·</span><span class="sf-out">Out <span data-snap-cfs-out class="sf-na">NA</span></span></span>
+        <span class="lk-elev"><b>1,906.99</b> ft · −7.01</span>
+        <span class="lk-caret" aria-hidden="true">›</span>
+      </summary>
+      <div class="lk-body">
+        <div class="card-sub">Full pool 1,914 ft · Horse Mesa Dam · Largemouth, smallmouth, yellow bass</div>
+        <div class="bar"><i class="good" style="width:93%"></i></div>
+        <div class="row"><span class="k">Storage</span><span class="v">226,888 AF</span></div>
+        <div class="row"><span class="k">Wind</span><span class="v" data-wind="apache">—</span></div>
+        <div class="row"><span class="k">Ramps</span><span class="v">Burnt Corral · Apache Lake Marina</span></div>
+        <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Apache+Lake+Boat+Ramp+Roosevelt+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
+        <div class="fish-row">
+          <button class="fish-btn" type="button" data-fish>Fish here today</button>
+          <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+        </div>
       </div>
-    </div>
+    </details>
 
-    <div class="card lake-card" data-lake="canyon" data-label="Canyon" data-lat="33.5400" data-lon="-111.4600" id="lake-canyon">
-      <h3><span>Canyon <span class="pill ok">Near full</span> <span class="dist" data-dist></span></span><span class="pct good">95%</span></h3>
-      <div class="card-sub">Full pool 1,660 ft · Mormon Flat Dam · Walleye, largemouth, stocked rainbow trout</div>
-      <div class="bar"><i class="good" style="width:95%"></i></div>
-      <div class="row"><span class="k">Elevation</span><span class="v">1,657.12 ft</span></div>
-      <div class="row"><span class="k">Below full</span><span class="v">3.38 ft</span></div>
-      <div class="row"><span class="k">Storage</span><span class="v">54,678 AF</span></div>
-      <div class="row" data-flow-row="canyon"><span class="k">Flow</span><span class="v flow-line"><span class="sf-in">In: <span data-snap-cfs-in class="sf-na">NA</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out class="sf-na">NA</span> cfs<span class="sf-arrow">↓</span></span></span></div>
-      <div class="row"><span class="k">Wind</span><span class="v" data-wind="canyon">—</span></div>
-      <div class="row"><span class="k">Ramps</span><span class="v">Palo Verde · Boulder Rec</span></div>
-      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Canyon+Lake+Boat+Ramp+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
-      <div class="fish-row">
-        <button class="fish-btn" type="button" data-fish>Fish here today</button>
-        <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+    <details class="card lake-card compact" data-lake="canyon" data-label="Canyon" data-lat="33.5400" data-lon="-111.4600" id="lake-canyon">
+      <summary>
+        <span class="lk-name">Canyon <span class="pill ok">Near full</span> <span class="dist" data-dist></span></span>
+        <span class="lk-pct good">95%</span>
+        <span class="lk-flow" data-flow-row="canyon"><span class="sf-in">In <span data-snap-cfs-in class="sf-na">NA</span></span><span class="sf-sep">·</span><span class="sf-out">Out <span data-snap-cfs-out class="sf-na">NA</span></span></span>
+        <span class="lk-elev"><b>1,657.12</b> ft · −3.38</span>
+        <span class="lk-caret" aria-hidden="true">›</span>
+      </summary>
+      <div class="lk-body">
+        <div class="card-sub">Full pool 1,660 ft · Mormon Flat Dam · Walleye, largemouth, stocked rainbow trout</div>
+        <div class="bar"><i class="good" style="width:95%"></i></div>
+        <div class="row"><span class="k">Storage</span><span class="v">54,678 AF</span></div>
+        <div class="row"><span class="k">Wind</span><span class="v" data-wind="canyon">—</span></div>
+        <div class="row"><span class="k">Ramps</span><span class="v">Palo Verde · Boulder Rec</span></div>
+        <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Canyon+Lake+Boat+Ramp+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
+        <div class="fish-row">
+          <button class="fish-btn" type="button" data-fish>Fish here today</button>
+          <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+        </div>
       </div>
-    </div>
+    </details>
 
-    <div class="card lake-card" data-lake="saguaro" data-label="Saguaro" data-lat="33.5680" data-lon="-111.5450" id="lake-saguaro">
-      <h3><span>Saguaro <span class="pill ok">Near full</span> <span class="dist" data-dist></span></span><span class="pct good">93%</span></h3>
-      <div class="card-sub">Full pool 1,529 ft · Stewart Mountain Dam · Largemouth, yellow bass, crappie</div>
-      <div class="bar"><i class="good" style="width:93%"></i></div>
-      <div class="row"><span class="k">Elevation</span><span class="v">1,525.28 ft</span></div>
-      <div class="row"><span class="k">Below full</span><span class="v">3.72 ft</span></div>
-      <div class="row"><span class="k">Storage</span><span class="v">65,151 AF</span></div>
-      <div class="row" data-flow-row="saguaro"><span class="k">Flow</span><span class="v flow-line"><span class="sf-in">In: <span data-snap-cfs-in>SRP</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out>676</span> cfs<span class="sf-arrow">↓</span></span></span></div>
-      <div class="row"><span class="k">Wind</span><span class="v" data-wind="saguaro">—</span></div>
-      <div class="row"><span class="k">Ramps</span><span class="v">Saguaro Lake Marina</span></div>
-      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Saguaro+Lake+Boat+Ramp+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
-      <div class="fish-row">
-        <button class="fish-btn" type="button" data-fish>Fish here today</button>
-        <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+    <details class="card lake-card compact" data-lake="saguaro" data-label="Saguaro" data-lat="33.5680" data-lon="-111.5450" id="lake-saguaro">
+      <summary>
+        <span class="lk-name">Saguaro <span class="pill ok">Near full</span> <span class="dist" data-dist></span></span>
+        <span class="lk-pct good">93%</span>
+        <span class="lk-flow" data-flow-row="saguaro"><span class="sf-in">In <span data-snap-cfs-in>SRP</span></span><span class="sf-sep">·</span><span class="sf-out">Out <span data-snap-cfs-out>676</span></span></span>
+        <span class="lk-elev"><b>1,525.28</b> ft · −3.72</span>
+        <span class="lk-caret" aria-hidden="true">›</span>
+      </summary>
+      <div class="lk-body">
+        <div class="card-sub">Full pool 1,529 ft · Stewart Mountain Dam · Largemouth, yellow bass, crappie</div>
+        <div class="bar"><i class="good" style="width:93%"></i></div>
+        <div class="row"><span class="k">Storage</span><span class="v">65,151 AF</span></div>
+        <div class="row"><span class="k">Wind</span><span class="v" data-wind="saguaro">—</span></div>
+        <div class="row"><span class="k">Ramps</span><span class="v">Saguaro Lake Marina</span></div>
+        <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Saguaro+Lake+Boat+Ramp+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
+        <div class="fish-row">
+          <button class="fish-btn" type="button" data-fish>Fish here today</button>
+          <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+        </div>
       </div>
-    </div>
+    </details>
 
-    <div class="card lake-card" data-lake="bartlett" data-label="Bartlett" data-lat="33.8167" data-lon="-111.6333" id="lake-bartlett">
-      <h3><span>Bartlett <span class="pill ok">Good</span> <span class="dist" data-dist></span></span><span class="pct good">69%</span></h3>
-      <div class="card-sub">Full pool 1,798 ft · Bartlett Dam · Largemouth, flathead, sunfish</div>
-      <div class="bar"><i class="good" style="width:69%"></i></div>
-      <div class="row"><span class="k">Elevation</span><span class="v">1,776.01 ft</span></div>
-      <div class="row"><span class="k">Below full</span><span class="v">21.99 ft</span></div>
-      <div class="row"><span class="k">Storage</span><span class="v">123,598 AF</span></div>
-      <div class="row" data-flow-row="bartlett"><span class="k">Flow</span><span class="v flow-line"><span class="sf-in">In: <span data-snap-cfs-in>123</span> cfs<span class="sf-arrow">↑</span></span><span class="sf-sep">|</span><span class="sf-out">Out: <span data-snap-cfs-out>79</span> cfs<span class="sf-arrow">↓</span></span></span></div>
-      <div class="row"><span class="k">Wind</span><span class="v" data-wind="bartlett">—</span></div>
-      <div class="row"><span class="k">Ramps</span><span class="v">Bartlett Marina · Rattlesnake Cove</span></div>
-      <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rattlesnake+Cove+Boat+Ramp+Bartlett+Lake" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
-      <div class="fish-row">
-        <button class="fish-btn" type="button" data-fish>Fish here today</button>
-        <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+    <details class="card lake-card compact" data-lake="bartlett" data-label="Bartlett" data-lat="33.8167" data-lon="-111.6333" id="lake-bartlett">
+      <summary>
+        <span class="lk-name">Bartlett <span class="pill ok">Good</span> <span class="dist" data-dist></span></span>
+        <span class="lk-pct good">69%</span>
+        <span class="lk-flow" data-flow-row="bartlett"><span class="sf-in">In <span data-snap-cfs-in>123</span></span><span class="sf-sep">·</span><span class="sf-out">Out <span data-snap-cfs-out>79</span></span></span>
+        <span class="lk-elev"><b>1,776.01</b> ft · −21.99</span>
+        <span class="lk-caret" aria-hidden="true">›</span>
+      </summary>
+      <div class="lk-body">
+        <div class="card-sub">Full pool 1,798 ft · Bartlett Dam · Largemouth, flathead, sunfish</div>
+        <div class="bar"><i class="good" style="width:69%"></i></div>
+        <div class="row"><span class="k">Storage</span><span class="v">123,598 AF</span></div>
+        <div class="row"><span class="k">Wind</span><span class="v" data-wind="bartlett">—</span></div>
+        <div class="row"><span class="k">Ramps</span><span class="v">Bartlett Marina · Rattlesnake Cove</span></div>
+        <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rattlesnake+Cove+Boat+Ramp+Bartlett+Lake" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
+        <div class="fish-row">
+          <button class="fish-btn" type="button" data-fish>Fish here today</button>
+          <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
+        </div>
       </div>
-    </div>
+    </details>
 
   </div>
   <div class="note"><b>Below full</b> = your boat-graph offset. Enter this number so charted depths match reality. CAP publishes only a 12-month forecast graph for Lake Pleasant — no live daily elevation.</div>
