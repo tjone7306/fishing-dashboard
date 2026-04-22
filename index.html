@@ -145,6 +145,21 @@
   .times li{padding:6px 0;border-top:1px solid rgba(255,255,255,.05);font-size:.92rem}
   .times li:first-child{border-top:0}
   .times li b{color:var(--accent);font-weight:600;margin-right:6px}
+  /* solunar tile grid */
+  .sol-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px;flex-wrap:wrap}
+  .sol-badge{font-size:.72rem;font-weight:700;letter-spacing:.5px;padding:4px 10px;border-radius:20px;white-space:nowrap}
+  .sol-badge.b-peak{background:rgba(255,140,0,.18);color:#ff8c00;border:1px solid rgba(255,140,0,.4)}
+  .sol-badge.b-good{background:rgba(0,212,170,.12);color:#00d4aa;border:1px solid rgba(0,212,170,.3)}
+  .sol-badge.b-fair{background:rgba(255,215,0,.1);color:#ffd700;border:1px solid rgba(255,215,0,.3)}
+  .sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .sol-tile{border-radius:11px;padding:11px 12px;display:flex;flex-direction:column;gap:3px}
+  .sol-tile.major{background:rgba(255,140,0,.1);border:1px solid rgba(255,140,0,.28)}
+  .sol-tile.minor{background:rgba(26,140,255,.07);border:1px solid rgba(26,140,255,.2)}
+  .sol-type{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+  .sol-tile.major .sol-type{color:#ff8c00}
+  .sol-tile.minor .sol-type{color:#1a8cff}
+  .sol-win{font-size:.98rem;font-weight:700;line-height:1.2;color:var(--text)}
+  .sol-dur{font-size:.72rem;color:var(--muted)}
   /* tip */
   .tip{background:rgba(245,180,76,.06);border-left:3px solid var(--warn);padding:10px 12px;border-radius:0 8px 8px 0;margin-top:12px;color:#f5e2b8;font-size:.9rem;line-height:1.5}
   .tip b{color:var(--warn)}
@@ -605,12 +620,33 @@
   </div>
 
   <!-- BEST FISHING TIMES -->
-  <div class="card" style="margin-top:12px">
-    <h3>Best fishing times</h3>
-    <ul class="times">
-      <li><b>Prime</b> 4:49 – 6:49 PM</li>
-      <li><b>Prime</b> 4:49 – 6:49 AM (tomorrow)</li>
-    </ul>
+  <div class="card sol-card" style="margin-top:12px">
+    <div class="sol-header">
+      <h3 style="margin:0">Best fishing times</h3>
+      <span class="sol-badge b-good">✅ GOOD DAY</span>
+    </div>
+    <div class="sol-grid">
+      <div class="sol-tile minor">
+        <div class="sol-type">○ Minor</div>
+        <div class="sol-win">9:43 – 10:43 AM</div>
+        <div class="sol-dur">~1 hr · moonrise</div>
+      </div>
+      <div class="sol-tile major">
+        <div class="sol-type">● Major</div>
+        <div class="sol-win">4:49 – 6:49 PM</div>
+        <div class="sol-dur">~2 hrs · moon overhead</div>
+      </div>
+      <div class="sol-tile minor">
+        <div class="sol-type">○ Minor</div>
+        <div class="sol-win">11:55 PM – 12:55 AM</div>
+        <div class="sol-dur">~1 hr · moonset</div>
+      </div>
+      <div class="sol-tile major">
+        <div class="sol-type">● Major</div>
+        <div class="sol-win">4:49 – 6:49 AM</div>
+        <div class="sol-dur">~2 hrs · moon underfoot</div>
+      </div>
+    </div>
   </div>
 
   <!-- SRP STREAMFLOW LINK -->
