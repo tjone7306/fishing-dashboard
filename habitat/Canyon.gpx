@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="ExpertGPS 8.56 using Garmin GPSMAP 62stc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 https://www.topografix.com/GPX/1/1/gpx.xsd http://www.topografix.com/GPX/gpx_style/0/2 https://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd http://www.topografix.com/GPX/gpx_overlay/0/5 https://www.topografix.com/GPX/gpx_overlay/0/5/gpx_overlay.xsd http://www.topografix.com/GPX/gpx_modified/0/1 https://www.topografix.com/GPX/gpx_modified/0/1/gpx_modified.xsd http://www.topografix.com/GPX/Private/TopoGrafix/0/5 https://www.topografix.com/GPX/Private/TopoGrafix/0/5/topografix.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 https://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 https://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 https://www8.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+<metadata>
+<bounds minlat="33.53252604" minlon="-111.44389889" maxlat="33.56053888" maxlon="-111.41108966"/>
+<extensions>
+<time xmlns="http://www.topografix.com/GPX/gpx_modified/0/1">2025-03-31T15:40:14.691Z</time>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="primaryprogram"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="Project"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="watername"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="watershed"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="watertype"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="date"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="sitename"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="datum"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="targetelevation_ft"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="targetdepth_ft"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="habitattype"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="structuretype"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="structurenumber"/>
+</extensions>
+</metadata>
+<wpt lat="33.53749361" lon="-111.42288473">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>Beaver Landing Point - East End</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Natural</value>
+</Data>
+<Data name="date">
+<value>1/1/2007</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.53824818" lon="-111.42378236">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>Beaver Landing Point - West End</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Natural</value>
+</Data>
+<Data name="date">
+<value>1/1/2007</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.53847222" lon="-111.43203376">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>Mormon Flat - East End</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Natural</value>
+</Data>
+<Data name="date">
+<value>1/1/2007</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.53953390" lon="-111.43535643">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>Mormon Flat - West End</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Natural</value>
+</Data>
+<Data name="date">
+<value>1/1/2007</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.54765727" lon="-111.43369520">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>Teddy Bear Point - North End</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Natural</value>
+</Data>
+<Data name="date">
+<value>1/1/2007</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.54725834" lon="-111.43428568">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>Teddy Bear Point - South End</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Natural</value>
+</Data>
+<Data name="date">
+<value>1/1/2007</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.53823466" lon="-111.43032003">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Christmas trees</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>Alternate Site 5 by Palo Verde boat ramp</value>
+</Data>
+<Data name="structurenumber">
+<value>19</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Natural</value>
+</Data>
+<Data name="date">
+<value>1/21/2023</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.54506660" lon="-111.44193319">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Christmas trees</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>Site 1</value>
+</Data>
+<Data name="structurenumber">
+<value>24</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Natural</value>
+</Data>
+<Data name="date">
+<value>1/21/2023</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.54126087" lon="-111.44179534">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Christmas trees</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>Site 2</value>
+</Data>
+<Data name="structurenumber">
+<value>47</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Natural</value>
+</Data>
+<Data name="date">
+<value>1/21/2023</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.53978318" lon="-111.44389889">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Christmas trees</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>Site 3</value>
+</Data>
+<Data name="structurenumber">
+<value>58</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Natural</value>
+</Data>
+<Data name="date">
+<value>1/21/2023</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.53875475" lon="-111.43634342">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Christmas trees</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>Site 4</value>
+</Data>
+<Data name="structurenumber">
+<value>80</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Natural</value>
+</Data>
+<Data name="date">
+<value>1/21/2023</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.54506660" lon="-111.44193319">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>1</value>
+</Data>
+<Data name="structurenumber">
+<value>48</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Artificial</value>
+</Data>
+<Data name="targetelevation_ft">
+<value>1635-1640</value>
+</Data>
+<Data name="date">
+<value>11/20/2020</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.54126087" lon="-111.44179534">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>2</value>
+</Data>
+<Data name="structurenumber">
+<value>48</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Artificial</value>
+</Data>
+<Data name="targetelevation_ft">
+<value>1635-1640</value>
+</Data>
+<Data name="date">
+<value>11/20/2020</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.53978318" lon="-111.44389889">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>3</value>
+</Data>
+<Data name="structurenumber">
+<value>48</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Artificial</value>
+</Data>
+<Data name="targetelevation_ft">
+<value>1635-1640</value>
+</Data>
+<Data name="date">
+<value>11/20/2020</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.53875475" lon="-111.43634342">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>4</value>
+</Data>
+<Data name="structurenumber">
+<value>48</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Artificial</value>
+</Data>
+<Data name="targetelevation_ft">
+<value>1635-1640</value>
+</Data>
+<Data name="date">
+<value>11/20/2020</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.53252604" lon="-111.42488528">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>5</value>
+</Data>
+<Data name="structurenumber">
+<value>43</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Artificial</value>
+</Data>
+<Data name="targetelevation_ft">
+<value>1635-1640</value>
+</Data>
+<Data name="date">
+<value>11/20/2020</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.55767385" lon="-111.41108966">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>6</value>
+</Data>
+<Data name="structurenumber">
+<value>36</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Artificial</value>
+</Data>
+<Data name="targetelevation_ft">
+<value>1635-1640</value>
+</Data>
+<Data name="date">
+<value>11/20/2020</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.55608394" lon="-111.42254438">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>7</value>
+</Data>
+<Data name="structurenumber">
+<value>36</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Artificial</value>
+</Data>
+<Data name="targetelevation_ft">
+<value>1635-1640</value>
+</Data>
+<Data name="date">
+<value>11/20/2020</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.55339996" lon="-111.41339626">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>8</value>
+</Data>
+<Data name="structurenumber">
+<value>36</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Artificial</value>
+</Data>
+<Data name="targetelevation_ft">
+<value>1635-1640</value>
+</Data>
+<Data name="date">
+<value>11/20/2020</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.56053888" lon="-111.42009898">
+<time>2025-03-31T15:40:57.396Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="primaryprogram">
+<value>R6 Fisheries Program</value>
+</Data>
+<Data name="structuretype">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="Project">
+<value>Enhancement</value>
+</Data>
+<Data name="sitename">
+<value>9</value>
+</Data>
+<Data name="structurenumber">
+<value>24</value>
+</Data>
+<Data name="watershed">
+<value>Salt</value>
+</Data>
+<Data name="habitattype">
+<value>Artificial</value>
+</Data>
+<Data name="targetelevation_ft">
+<value>1635-1640</value>
+</Data>
+<Data name="date">
+<value>11/20/2020</value>
+</Data>
+<Data name="watertype">
+<value>Lake</value>
+</Data>
+<Data name="watername">
+<value>Canyon Lake</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<extensions>
+</extensions>
+</gpx>
