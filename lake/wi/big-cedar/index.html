@@ -340,11 +340,11 @@ function applyHourly(d) {
   const n = periods.length;
 
   const W = 640, H = 230;
-  const padL = 30, padR = 30, padT = 30, padB = 60;
-  const plotW = W - padL - padR;
+  const padT = 30, padB = 60;
+  const plotW = W;              // full-width, edge-to-edge
   const plotH = H - padT - padB;
 
-  const xAt = i => padL + (i / (n - 1)) * plotW;
+  const xAt = i => (i / (n - 1)) * plotW;
   const yAt = t => padT + (1 - (t - minT) / rangeT) * plotH;
 
   const pts = periods.map((p, i) => [xAt(i), yAt(p.temperature)]);
@@ -363,11 +363,18 @@ function applyHourly(d) {
     return (parts.hour || '') + (parts.dayPeriod ? parts.dayPeriod[0].toLowerCase() : '');
   };
 
+  // Anchor helper — keeps labels inside the viewBox at the extremes
+  const xAnchor = x =>
+    x < 30        ? 'start' :
+    x > (W - 30)  ? 'end'   :
+    'middle';
+
   // X-axis labels every 3rd hour
   const xLabels = periods.map((p, i) => {
     if (i % 3 !== 0) return '';
     const dt = new Date(p.startTime);
-    return `<text x="${xAt(i).toFixed(1)}" y="${H - padB + 24}" text-anchor="middle" font-size="15" font-weight="700" fill="#9fc0d8">${fmtHour(dt)}</text>`;
+    const x  = xAt(i);
+    return `<text x="${x.toFixed(1)}" y="${H - padB + 24}" text-anchor="${xAnchor(x)}" font-size="15" font-weight="700" fill="#9fc0d8">${fmtHour(dt)}</text>`;
   }).join('');
 
   const peakPt = pts[peakIdx];
@@ -377,13 +384,13 @@ function applyHourly(d) {
 
   const peakMarker = `
     <circle cx="${peakPt[0].toFixed(1)}" cy="${peakPt[1].toFixed(1)}" r="5" fill="#ff8c00" stroke="#05101d" stroke-width="2"/>
-    <text x="${peakPt[0].toFixed(1)}" y="${peakLabelY.toFixed(1)}" text-anchor="middle" font-size="19" font-weight="800" fill="#ff8c00">${maxT}°</text>`;
+    <text x="${peakPt[0].toFixed(1)}" y="${peakLabelY.toFixed(1)}" text-anchor="${xAnchor(peakPt[0])}" font-size="19" font-weight="800" fill="#ff8c00">${maxT}°</text>`;
   const lowMarker = `
     <circle cx="${lowPt[0].toFixed(1)}" cy="${lowPt[1].toFixed(1)}" r="4" fill="#5eb4e7" stroke="#05101d" stroke-width="2"/>
-    <text x="${lowPt[0].toFixed(1)}" y="${lowLabelY.toFixed(1)}" text-anchor="middle" font-size="16" font-weight="700" fill="#5eb4e7">${minT}°</text>`;
+    <text x="${lowPt[0].toFixed(1)}" y="${lowLabelY.toFixed(1)}" text-anchor="${xAnchor(lowPt[0])}" font-size="16" font-weight="700" fill="#5eb4e7">${minT}°</text>`;
 
   const svg = `
-    <svg class="hour-graph" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+    <svg class="hour-graph" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
       <defs>
         <linearGradient id="tempFill" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stop-color="rgba(255,140,0,.35)"/>
