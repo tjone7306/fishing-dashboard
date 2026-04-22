@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="ExpertGPS 8.56 using Garmin GPSMAP 62stc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 https://www.topografix.com/GPX/1/1/gpx.xsd http://www.topografix.com/GPX/gpx_style/0/2 https://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd http://www.topografix.com/GPX/gpx_overlay/0/5 https://www.topografix.com/GPX/gpx_overlay/0/5/gpx_overlay.xsd http://www.topografix.com/GPX/gpx_modified/0/1 https://www.topografix.com/GPX/gpx_modified/0/1/gpx_modified.xsd http://www.topografix.com/GPX/Private/TopoGrafix/0/5 https://www.topografix.com/GPX/Private/TopoGrafix/0/5/topografix.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 https://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 https://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 https://www8.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+<metadata>
+<bounds minlat="33.81658400" minlon="-111.63588730" maxlat="33.89294780" maxlon="-111.59962080"/>
+<extensions>
+<time xmlns="http://www.topografix.com/GPX/gpx_modified/0/1">2025-04-11T18:20:52.701Z</time>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="Date"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="Site"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="UTM Zone"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="Structure Type"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="Structures Installed"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="Distance to Active Point"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="Bearing"/>
+</extensions>
+</metadata>
+<wpt lat="33.86111370" lon="-111.60068280">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>Site 1</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>Site 1</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.86407250" lon="-111.60275610">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>Site 2</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>Site 2</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.86552350" lon="-111.60420190">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>Site 3</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>Site 3</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.87298870" lon="-111.60832290">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>Site 4</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>Site 4</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.88551630" lon="-111.61267140">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>Site 5</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>Site 5</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.88568110" lon="-111.62782500">
+<ele>542.167</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B22</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B22</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.88622410" lon="-111.62836100">
+<ele>542.255</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B21</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B21</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.88699210" lon="-111.62933800">
+<ele>542.674</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B20</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B20</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.88740110" lon="-111.63016100">
+<ele>541.847</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B19</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B19</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.88789210" lon="-111.63062900">
+<ele>542.593</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B18</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B18</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.88380910" lon="-111.61824300">
+<ele>542.688</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B16</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B16</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.87853810" lon="-111.61165800">
+<ele>541.310</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B14</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B14</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.87293110" lon="-111.60837900">
+<ele>541.192</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B12</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B12</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.86583110" lon="-111.60380600">
+<ele>540.471</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B11</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B11</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.86091810" lon="-111.60107200">
+<ele>540.028</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B10</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B10</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.84721210" lon="-111.63131800">
+<ele>537.301</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B07</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B07</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.82165010" lon="-111.62073100">
+<ele>534.880</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B05</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B05</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.82727410" lon="-111.62324700">
+<ele>534.961</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B03</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B03</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.83612010" lon="-111.63544900">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>B01</name>
+<sym>Pin, Red</sym>
+<type>Waypoint</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>B01</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="Bearing">
+<value>0</value>
+</Data>
+<Data name="Distance to Active Point">
+<value>0</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.81658400" lon="-111.62238960">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>42</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>42</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.83188780" lon="-111.62443500">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>48</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>48</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.83583370" lon="-111.63588730">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>41</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>41</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.84433840" lon="-111.63066490">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>54</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>54</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.84198960" lon="-111.61896370">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>49</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>49</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.84036610" lon="-111.61897360">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>50</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>50</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.84363550" lon="-111.61446840">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>51</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>51</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.86446540" lon="-111.60245490">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>52</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>52</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.85179010" lon="-111.61958570">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>53</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>53</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.83188780" lon="-111.62443500">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>48</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>48</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.84433840" lon="-111.63066490">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>54</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>54</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.84152800" lon="-111.63172510">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>55</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>55</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.82165300" lon="-111.62053530">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>45</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>45</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.82708710" lon="-111.62316810">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>46</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>46</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.82778110" lon="-111.62325960">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>47</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>47</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.84363550" lon="-111.61446840">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>51</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>51</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.85179010" lon="-111.61958570">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>53</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>53</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.81954730" lon="-111.62137370">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>43</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>43</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.82091060" lon="-111.62108100">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>44</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>44</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.82165300" lon="-111.62053530">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>45</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>45</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.82708710" lon="-111.62316810">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>46</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>46</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.83583370" lon="-111.63588730">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>41</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>41</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.84198960" lon="-111.61896370">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>49</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>49</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.84036610" lon="-111.61897360">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>50</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>50</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.84152800" lon="-111.63172510">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>55</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>55</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.86046420" lon="-111.59995120">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>60</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>60</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.86114220" lon="-111.59962080">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>32</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>32</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.86745670" lon="-111.60673570">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>33</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>33</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.87061300" lon="-111.61045580">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>62</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>62</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.87222830" lon="-111.60844540">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>63</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>63</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.88542100" lon="-111.61249690">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>64</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>64</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.88650410" lon="-111.61593270">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>65</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>65</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.88500760" lon="-111.61941480">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>66</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>66</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.88947400" lon="-111.62968830">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>67</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>67</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.89260430" lon="-111.63129030">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>68</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>68</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.89294780" lon="-111.63465620">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>69</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>69</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.86622700" lon="-111.61465180">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>70</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>70</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.86356660" lon="-111.60917310">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>71</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>71</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.86725280" lon="-111.60234480">
+<ele>538.709</ele>
+<time>2025-04-11T18:20:52.670Z</time>
+<name>34</name>
+<sym>Pin, Red</sym>
+<type>City (Small)</type>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+<label_text>34</label_text>
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+</ExtendedData>
+</extensions>
+</wpt>
+<extensions>
+</extensions>
+</gpx>
