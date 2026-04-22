@@ -138,7 +138,7 @@
     #focus-bar{margin:-28px -24px 20px;padding:12px 24px}
   }
   /* hourly temperature graph (replaces cramped tile row) */
-  .hour-graph{width:100%;height:auto;display:block;margin:6px 0 0;max-height:240px}
+  .hour-graph{width:100%;height:auto;display:block;margin:6px 0 0;max-height:320px}
   .hour-summary{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;font-size:.82rem}
   .hour-summary .hp{background:var(--surface-2);border:1px solid var(--border);border-radius:999px;padding:5px 11px;display:inline-flex;align-items:center;gap:5px;color:var(--text);white-space:nowrap}
   .hour-summary .hp b{color:var(--text);font-weight:700;font-variant-numeric:tabular-nums}
@@ -586,7 +586,7 @@
   <!-- HOURLY -->
   <div class="card" style="margin-top:12px">
     <h3>Today's Hourly</h3>
-    <svg class="hour-graph" viewBox="0 0 640 200" role="img" aria-label="Hourly temperature graph for today, 6 AM to 11 PM">
+    <svg class="hour-graph" viewBox="0 0 640 230" role="img" aria-label="Hourly temperature graph for today, 6 AM to 11 PM">
       <defs>
         <linearGradient id="temp-fill" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0" stop-color="#f5b44c" stop-opacity="0.38"/>
@@ -594,33 +594,33 @@
         </linearGradient>
       </defs>
       <!-- gridlines -->
-      <line x1="44" y1="64"  x2="624" y2="64"  stroke="rgba(255,255,255,0.05)" stroke-dasharray="2,3"/>
-      <line x1="44" y1="104" x2="624" y2="104" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2,3"/>
-      <line x1="44" y1="164" x2="624" y2="164" stroke="rgba(255,255,255,0.12)"/>
-      <!-- y-axis -->
-      <text x="38" y="28"  text-anchor="end" fill="#8ea6be" font-size="10">90°</text>
-      <text x="38" y="68"  text-anchor="end" fill="#8ea6be" font-size="10">80°</text>
-      <text x="38" y="108" text-anchor="end" fill="#8ea6be" font-size="10">70°</text>
-      <text x="38" y="148" text-anchor="end" fill="#8ea6be" font-size="10">60°</text>
+      <line x1="56" y1="64"  x2="624" y2="64"  stroke="rgba(255,255,255,0.05)" stroke-dasharray="2,3"/>
+      <line x1="56" y1="104" x2="624" y2="104" stroke="rgba(255,255,255,0.05)" stroke-dasharray="2,3"/>
+      <line x1="56" y1="164" x2="624" y2="164" stroke="rgba(255,255,255,0.14)"/>
+      <!-- y-axis labels (big) -->
+      <text x="50" y="29"  text-anchor="end" fill="#8ea6be" font-size="17" font-weight="700">90°</text>
+      <text x="50" y="69"  text-anchor="end" fill="#8ea6be" font-size="17" font-weight="700">80°</text>
+      <text x="50" y="109" text-anchor="end" fill="#8ea6be" font-size="17" font-weight="700">70°</text>
+      <text x="50" y="149" text-anchor="end" fill="#8ea6be" font-size="17" font-weight="700">60°</text>
       <!-- area fill -->
-      <path d="M44,144 L78,136 L112,116 L146,92 L180,76 L215,68 L249,56 L283,44 L317,44 L351,40 L385,36 L419,44 L453,48 L488,60 L522,76 L556,84 L590,96 L624,104 L624,164 L44,164 Z" fill="url(#temp-fill)"/>
+      <path d="M56,144 L89,136 L122,116 L156,92 L189,76 L222,68 L256,56 L289,44 L322,44 L356,40 L389,36 L422,44 L456,48 L489,60 L522,76 L556,84 L589,96 L624,104 L624,164 L56,164 Z" fill="url(#temp-fill)"/>
       <!-- temp line -->
-      <polyline points="44,144 78,136 112,116 146,92 180,76 215,68 249,56 283,44 317,44 351,40 385,36 419,44 453,48 488,60 522,76 556,84 590,96 624,104"
-                fill="none" stroke="#f5b44c" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+      <polyline points="56,144 89,136 122,116 156,92 189,76 222,68 256,56 289,44 322,44 356,40 389,36 422,44 456,48 489,60 522,76 556,84 589,96 624,104"
+                fill="none" stroke="#f5b44c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
       <!-- peak -->
-      <circle cx="385" cy="36" r="4.2" fill="#f5b44c" stroke="#0f1720" stroke-width="1.5"/>
-      <text x="385" y="24" text-anchor="middle" fill="#f5b44c" font-size="11" font-weight="700">87° · 4 PM</text>
+      <circle cx="389" cy="36" r="5.5" fill="#f5b44c" stroke="#0f1720" stroke-width="2"/>
+      <text x="389" y="21" text-anchor="middle" fill="#f5b44c" font-size="19" font-weight="800">87° · 4 PM</text>
       <!-- low -->
-      <circle cx="44" cy="144" r="3.5" fill="#5eb4e7"/>
-      <text x="54" y="148" text-anchor="start" fill="#5eb4e7" font-size="10" font-weight="600">60°</text>
-      <!-- x-axis -->
-      <text x="44"  y="183" text-anchor="middle" fill="#8ea6be" font-size="10" font-weight="600">6A</text>
-      <text x="146" y="183" text-anchor="middle" fill="#8ea6be" font-size="10" font-weight="600">9A</text>
-      <text x="249" y="183" text-anchor="middle" fill="#8ea6be" font-size="10" font-weight="600">Noon</text>
-      <text x="351" y="183" text-anchor="middle" fill="#8ea6be" font-size="10" font-weight="600">3P</text>
-      <text x="453" y="183" text-anchor="middle" fill="#8ea6be" font-size="10" font-weight="600">6P</text>
-      <text x="556" y="183" text-anchor="middle" fill="#8ea6be" font-size="10" font-weight="600">9P</text>
-      <text x="619" y="183" text-anchor="end"    fill="#8ea6be" font-size="10" font-weight="600">11P</text>
+      <circle cx="56" cy="144" r="4.5" fill="#5eb4e7" stroke="#0f1720" stroke-width="1.5"/>
+      <text x="70" y="149" text-anchor="start" fill="#5eb4e7" font-size="16" font-weight="700">60°</text>
+      <!-- x-axis labels (big) -->
+      <text x="56"  y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">6A</text>
+      <text x="156" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">9A</text>
+      <text x="256" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">Noon</text>
+      <text x="356" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">3P</text>
+      <text x="456" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">6P</text>
+      <text x="556" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">9P</text>
+      <text x="620" y="198" text-anchor="end"    fill="#eaf1f8" font-size="17" font-weight="700">11P</text>
     </svg>
     <div class="hour-summary">
       <span class="hp hi">🌡️ Hi <b>87°</b> <span class="mute">4 PM</span></span>
