@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#0a1420" />
 <title>Phoenix Lakes — Daily Fishing Dashboard</title>
 <meta name="description" content="Daily water levels, weather, moon, solunar, rules, and launch-ramp status for Lake Pleasant, Roosevelt, Apache, Canyon, Saguaro, and Bartlett." />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <style>
   :root{
     --bg:#0a1420;
@@ -291,6 +292,43 @@
     .lk-elev{font-size:.8rem}
     .lk-pct{text-align:right}
   }
+  /* HABITAT MAP — live fish structure overlay */
+  .habitat{margin-top:12px;border-top:1px dashed rgba(255,255,255,.08);padding-top:12px}
+  .habitat-btn{appearance:none;background:rgba(94,180,231,.10);border:1px solid rgba(94,180,231,.30);color:var(--accent);font:inherit;font-size:.85rem;font-weight:600;padding:8px 14px;border-radius:8px;cursor:pointer;width:100%;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .habitat-btn:hover{background:rgba(94,180,231,.16);color:#b4deff}
+  .habitat-btn .pulse{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 rgba(79,194,122,.6);animation:habpulse 2.2s infinite}
+  .habitat-btn .arrow{color:var(--muted);margin-left:auto}
+  @keyframes habpulse{0%{box-shadow:0 0 0 0 rgba(79,194,122,.55)}70%{box-shadow:0 0 0 8px rgba(79,194,122,0)}100%{box-shadow:0 0 0 0 rgba(79,194,122,0)}}
+  .habitat-panel{display:none;margin-top:10px}
+  .habitat-panel.open{display:block}
+  .habitat-legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:8px 0 10px;font-size:.75rem;color:var(--muted);align-items:center}
+  .habitat-legend .chip{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);white-space:nowrap}
+  .habitat-legend .dot{display:inline-block;width:9px;height:9px;border-radius:50%;border:1.5px solid #0a1420}
+  .habitat-legend .dot.sweet{background:#4fc27a}
+  .habitat-legend .dot.mar{background:#f5b44c}
+  .habitat-legend .dot.deep{background:#7dc6ed}
+  .habitat-legend .dot.dry{background:#8ea6be;opacity:.6}
+  .habitat-legend .dot.na{background:#c9deef}
+  .habitat-summary{display:flex;flex-wrap:wrap;gap:6px 10px;margin:6px 0 10px;font-size:.78rem;color:var(--muted)}
+  .habitat-summary b{color:var(--text);font-weight:600}
+  .habitat-summary .sep{color:rgba(255,255,255,.15)}
+  .habitat-map{width:100%;height:360px;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#0a1420}
+  .habitat-map .leaflet-container{background:#0a1420;font-family:inherit}
+  .habitat-map .leaflet-popup-content-wrapper,.habitat-map .leaflet-popup-tip{background:#18293a;color:var(--text);box-shadow:0 6px 20px rgba(0,0,0,.4)}
+  .habitat-map .leaflet-popup-content{margin:10px 12px;font-size:.82rem;line-height:1.45;min-width:160px}
+  .habitat-map .leaflet-popup-content b{color:#fff}
+  .habitat-map .leaflet-popup-content .pkv{display:flex;justify-content:space-between;gap:10px;padding:1px 0}
+  .habitat-map .leaflet-popup-content .pkv span:first-child{color:var(--muted)}
+  .habitat-map .leaflet-popup-close-button{color:var(--muted)}
+  .habitat-map .leaflet-control-attribution{background:rgba(10,20,32,.75);color:#8ea6be}
+  .habitat-map .leaflet-control-attribution a{color:var(--accent)}
+  .habitat-map .leaflet-control-zoom a{background:#18293a;color:var(--text);border-color:var(--border)}
+  .habitat-map .leaflet-control-zoom a:hover{background:#223446}
+  .habitat-meta{margin-top:8px;font-size:.72rem;color:var(--muted);line-height:1.5}
+  .habitat-meta a{color:var(--accent)}
+  .habitat-bestbets{margin:8px 0 0;font-size:.78rem;color:var(--muted);padding:8px 10px;background:rgba(79,194,122,.07);border-left:3px solid var(--good);border-radius:0 6px 6px 0}
+  .habitat-bestbets b{color:var(--good);font-weight:600}
+  @media (max-width:700px){.habitat-map{height:300px}}
 </style>
 </head>
 <body>
@@ -363,6 +401,7 @@
         <div class="row"><span class="k">Wind</span><span class="v" data-wind="roosevelt">—</span></div>
         <div class="row"><span class="k">Ramps</span><span class="v">Schoolhouse · Cholla</span></div>
         <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Windy+Hill+Boat+Ramp+Roosevelt+Lake+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
+        <div class="habitat" data-habitat="roosevelt" data-gpx="habitat/Roosevelt.gpx" data-sites="146" data-surface="2099.79" data-fullpool="2151"><button class="habitat-btn" type="button" data-habitat-btn><span class="pulse" aria-hidden="true"></span><span>Show fish-structure map <span style="color:var(--muted);font-weight:400">· 146 AZGFD sites</span></span><span class="arrow">›</span></button><div class="habitat-panel" data-habitat-panel></div></div>
         <div class="fish-row">
           <button class="fish-btn" type="button" data-fish>Fish here today</button>
           <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
@@ -385,6 +424,7 @@
         <div class="row"><span class="k">Wind</span><span class="v" data-wind="apache">—</span></div>
         <div class="row"><span class="k">Ramps</span><span class="v">Burnt Corral · Apache Lake Marina</span></div>
         <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Apache+Lake+Boat+Ramp+Roosevelt+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
+        <div class="habitat" data-habitat="apache" data-gpx="habitat/Apache.gpx" data-sites="70" data-surface="1906.87" data-fullpool="1914"><button class="habitat-btn" type="button" data-habitat-btn><span class="pulse" aria-hidden="true"></span><span>Show fish-structure map <span style="color:var(--muted);font-weight:400">· 70 AZGFD sites</span></span><span class="arrow">›</span></button><div class="habitat-panel" data-habitat-panel></div></div>
         <div class="fish-row">
           <button class="fish-btn" type="button" data-fish>Fish here today</button>
           <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
@@ -407,6 +447,7 @@
         <div class="row"><span class="k">Wind</span><span class="v" data-wind="canyon">—</span></div>
         <div class="row"><span class="k">Ramps</span><span class="v">Palo Verde · Boulder Rec</span></div>
         <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Canyon+Lake+Boat+Ramp+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
+        <div class="habitat" data-habitat="canyon" data-gpx="habitat/Canyon.gpx" data-sites="20" data-surface="1657.06" data-fullpool="1660"><button class="habitat-btn" type="button" data-habitat-btn><span class="pulse" aria-hidden="true"></span><span>Show fish-structure map <span style="color:var(--muted);font-weight:400">· 20 AZGFD sites</span></span><span class="arrow">›</span></button><div class="habitat-panel" data-habitat-panel></div></div>
         <div class="fish-row">
           <button class="fish-btn" type="button" data-fish>Fish here today</button>
           <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
@@ -429,6 +470,7 @@
         <div class="row"><span class="k">Wind</span><span class="v" data-wind="saguaro">—</span></div>
         <div class="row"><span class="k">Ramps</span><span class="v">Saguaro Lake Marina</span></div>
         <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Saguaro+Lake+Boat+Ramp+AZ" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
+        <div class="habitat" data-habitat="saguaro" data-gpx="habitat/Saguaro.gpx" data-sites="75" data-surface="1525.89" data-fullpool="1529"><button class="habitat-btn" type="button" data-habitat-btn><span class="pulse" aria-hidden="true"></span><span>Show fish-structure map <span style="color:var(--muted);font-weight:400">· 75 AZGFD sites</span></span><span class="arrow">›</span></button><div class="habitat-panel" data-habitat-panel></div></div>
         <div class="fish-row">
           <button class="fish-btn" type="button" data-fish>Fish here today</button>
           <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
@@ -451,6 +493,7 @@
         <div class="row"><span class="k">Wind</span><span class="v" data-wind="bartlett">—</span></div>
         <div class="row"><span class="k">Ramps</span><span class="v">Bartlett Marina · Rattlesnake Cove</span></div>
         <div class="row"><span class="k">Directions</span><span class="v"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rattlesnake+Cove+Boat+Ramp+Bartlett+Lake" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a></span></div>
+        <div class="habitat" data-habitat="bartlett" data-gpx="habitat/Bartlett.gpx" data-sites="58" data-surface="1775.89" data-fullpool="1798"><button class="habitat-btn" type="button" data-habitat-btn><span class="pulse" aria-hidden="true"></span><span>Show fish-structure map <span style="color:var(--muted);font-weight:400">· 58 AZGFD sites</span></span><span class="arrow">›</span></button><div class="habitat-panel" data-habitat-panel></div></div>
         <div class="fish-row">
           <button class="fish-btn" type="button" data-fish>Fish here today</button>
           <div class="time-chips" data-chips><span class="prompt">Ends at:</span><button class="chip" data-end="12">12 PM</button><button class="chip" data-end="14">2 PM</button><button class="chip" data-end="16">4 PM</button><button class="chip" data-end="18">6 PM</button><button class="chip" data-end="20">8 PM</button><button class="chip cancel" data-end="cancel">Cancel</button></div>
@@ -1195,6 +1238,270 @@
       el.textContent = txt;
     });
   }).catch(function(){ /* silent — leave dash */ });
+})();
+
+// --- HABITAT STRUCTURE MAP (AZGFD GPX + live SRP elevation) ---
+// Unique feature: AZGFD gives static coordinates; we combine them with live lake surface
+// elevation to compute current depth over every brush pile, every run.
+(function(){
+  var LEAFLET_JS='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  var LEAFLET_INTEGRITY='sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=';
+  var leafletLoading=null;
+
+  function loadLeaflet(){
+    if (window.L) return Promise.resolve(window.L);
+    if (leafletLoading) return leafletLoading;
+    leafletLoading = new Promise(function(resolve, reject){
+      var s=document.createElement('script');
+      s.src=LEAFLET_JS; s.integrity=LEAFLET_INTEGRITY; s.crossOrigin='';
+      s.onload=function(){resolve(window.L);};
+      s.onerror=reject;
+      document.head.appendChild(s);
+    });
+    return leafletLoading;
+  }
+
+  // Parse a depth/elevation free-text value → {elevMid, depthMid}
+  // Handles:
+  //   "2065-2070" (elev range, >100)  → elevMid=2067.5
+  //   "1500-1505" (elev range)        → elevMid=1502.5
+  //   "20-40"   (depth range, ≤100)   → depthMid=30
+  //   "30'"     (single depth)         → depthMid=30
+  //   "40-45'"  (single depth range)   → depthMid=42.5
+  function parseDepthVal(raw){
+    if(!raw) return {};
+    var s = String(raw).replace(/'|ft|feet/gi,'').trim();
+    if (!s || s==='0') return {};
+    var nums = s.match(/\d+(?:\.\d+)?/g);
+    if(!nums || !nums.length) return {};
+    var a = parseFloat(nums[0]);
+    var b = nums.length>1 ? parseFloat(nums[1]) : a;
+    var mid = (a+b)/2;
+    // Numbers > 100 are true elevations above sea level; small numbers are depth below surface.
+    if (mid > 100) return {elevMid: mid, elevLow: Math.min(a,b), elevHigh: Math.max(a,b), raw: raw};
+    return {depthMid: mid, depthLow: Math.min(a,b), depthHigh: Math.max(a,b), raw: raw};
+  }
+
+  // Given ExtendedData <Data> entries, return a normalized record for any lake schema.
+  function normalizeExtData(wpt){
+    var rec = {};
+    // case-insensitive key match
+    var byKey = {};
+    var datas = wpt.getElementsByTagName('Data');
+    for(var i=0;i<datas.length;i++){
+      var k=(datas[i].getAttribute('name')||'').toLowerCase();
+      var vEl=datas[i].getElementsByTagName('value')[0];
+      byKey[k] = vEl ? (vEl.textContent||'').trim() : '';
+    }
+    rec.structureType = byKey['structure_type'] || byKey['structuretype'] || byKey['structure type'] || '';
+    rec.siteName = byKey['cove_name_location'] || byKey['sitename'] || byKey['site'] || '';
+    rec.depthRaw = byKey['depth_elev'] || byKey['elevation (ft)'] || byKey['elevation'] || '';
+    rec.date = byKey['date'] || '';
+    rec.structuresCount = byKey['structures'] || '';
+    rec.installedBy = byKey['installed_by'] || '';
+    return rec;
+  }
+
+  // Convert <ele> (meters) to feet if present on the waypoint.
+  function readEleFt(wpt){
+    var e = wpt.getElementsByTagName('ele')[0];
+    if(!e || !e.textContent) return null;
+    var m = parseFloat(e.textContent);
+    if (isNaN(m)) return null;
+    return m * 3.28084;
+  }
+
+  // Compute current depth (ft of water over the site) + color band.
+  function computeDepth(rec, eleFt, surface, fullpool){
+    // Preferred: true elevation in feet
+    if (rec.depthParsed && rec.depthParsed.elevMid != null){
+      return {depth: surface - rec.depthParsed.elevMid, source: 'elev'};
+    }
+    // Next: <ele> tag in meters (Bartlett)
+    if (eleFt != null){
+      return {depth: surface - eleFt, source: 'ele'};
+    }
+    // Estimate from depth-at-install: subtract how far lake has dropped from full pool
+    if (rec.depthParsed && rec.depthParsed.depthMid != null){
+      var drop = fullpool - surface;
+      return {depth: rec.depthParsed.depthMid - drop, source: 'estimate'};
+    }
+    return {depth: null, source: 'none'};
+  }
+
+  function bandFor(depth){
+    if (depth == null) return 'na';
+    if (depth < 4)  return 'dry';
+    if (depth < 8)  return 'mar';
+    if (depth <= 25) return 'sweet';
+    if (depth <= 40) return 'mar';
+    return 'deep';
+  }
+
+  var BAND_COLOR = {sweet:'#4fc27a', mar:'#f5b44c', deep:'#7dc6ed', dry:'#8ea6be', na:'#c9deef'};
+  var BAND_LABEL = {sweet:'In sweet spot (8–25 ft)', mar:'Marginal', deep:'Deep', dry:'Dry or <4 ft', na:'Depth unknown'};
+
+  function makeMarker(L, lat, lon, color, opacity){
+    return L.circleMarker([lat,lon], {
+      radius:6,
+      color:'#0a1420', weight:1.5,
+      fillColor:color,
+      fillOpacity: opacity==null?0.9:opacity
+    });
+  }
+
+  function openPanel(hab){
+    var panel = hab.querySelector('[data-habitat-panel]');
+    var btn = hab.querySelector('[data-habitat-btn]');
+    var already = panel.classList.contains('open');
+    if (already){ panel.classList.remove('open'); btn.querySelector('.arrow').textContent='›'; return; }
+    panel.classList.add('open');
+    btn.querySelector('.arrow').textContent='⌄';
+    if (panel.dataset.loaded==='1') return;
+    panel.dataset.loaded='1';
+
+    var lake = hab.dataset.habitat;
+    var gpxUrl = hab.dataset.gpx;
+    var surface = parseFloat(hab.dataset.surface);
+    var fullpool = parseFloat(hab.dataset.fullpool);
+
+    panel.innerHTML = '<div style="padding:12px;color:var(--muted);font-size:.85rem">Loading habitat data…</div>';
+
+    Promise.all([loadLeaflet(), fetch(gpxUrl).then(function(r){
+      if(!r.ok) throw new Error('gpx fetch failed: '+r.status);
+      return r.text();
+    })]).then(function(res){
+      var L = res[0], xmlText = res[1];
+      var xml = new DOMParser().parseFromString(xmlText,'application/xml');
+      var wpts = xml.getElementsByTagName('wpt');
+      var sites = [];
+      var bandCount = {sweet:0, mar:0, deep:0, dry:0, na:0};
+      for (var i=0;i<wpts.length;i++){
+        var w=wpts[i];
+        var lat=parseFloat(w.getAttribute('lat')), lon=parseFloat(w.getAttribute('lon'));
+        if (isNaN(lat) || isNaN(lon)) continue;
+        var rec = normalizeExtData(w);
+        rec.depthParsed = parseDepthVal(rec.depthRaw);
+        var eleFt = readEleFt(w);
+        var dinfo = computeDepth(rec, eleFt, surface, fullpool);
+        rec.depthFt = dinfo.depth;
+        rec.depthSource = dinfo.source;
+        rec.band = bandFor(dinfo.depth);
+        rec.lat=lat; rec.lon=lon;
+        // Get any <name> tag as a fallback siteName
+        if (!rec.siteName){
+          var nEl = w.getElementsByTagName('name')[0];
+          if (nEl && nEl.textContent) rec.siteName = nEl.textContent.trim();
+        }
+        sites.push(rec);
+        bandCount[rec.band]++;
+      }
+
+      // Build UI
+      panel.innerHTML = '';
+
+      // Legend
+      var legend = document.createElement('div');
+      legend.className='habitat-legend';
+      legend.innerHTML =
+        '<span class="chip"><span class="dot sweet"></span>Sweet spot (8–25 ft)</span>'+
+        '<span class="chip"><span class="dot mar"></span>Marginal</span>'+
+        '<span class="chip"><span class="dot deep"></span>Deep (&gt;40 ft)</span>'+
+        '<span class="chip"><span class="dot dry"></span>Dry / very shallow</span>'+
+        '<span class="chip"><span class="dot na"></span>Unknown depth</span>';
+      panel.appendChild(legend);
+
+      // Summary line
+      var sum = document.createElement('div');
+      sum.className='habitat-summary';
+      sum.innerHTML = 'Surface <b>'+surface.toFixed(2)+' ft</b><span class="sep">·</span>'+
+        'Drop from full pool <b>'+(fullpool-surface).toFixed(1)+' ft</b><span class="sep">·</span>'+
+        'Sites: <b>'+sites.length+'</b> total <span class="sep">·</span>'+
+        '<span style="color:#4fc27a;font-weight:600">'+bandCount.sweet+' in sweet spot</span> · '+
+        '<span style="color:#f5b44c">'+bandCount.mar+' marginal</span> · '+
+        '<span style="color:#7dc6ed">'+bandCount.deep+' deep</span> · '+
+        '<span style="color:#8ea6be">'+bandCount.dry+' dry</span>';
+      panel.appendChild(sum);
+
+      // Map
+      var mapDiv = document.createElement('div');
+      mapDiv.className='habitat-map';
+      panel.appendChild(mapDiv);
+
+      // Best-bets blurb
+      var sweetList = sites.filter(function(s){return s.band==='sweet';})
+                          .sort(function(a,b){return Math.abs((a.depthFt||999)-15) - Math.abs((b.depthFt||999)-15);})
+                          .slice(0,5);
+      if (sweetList.length){
+        var bb = document.createElement('div');
+        bb.className='habitat-bestbets';
+        var names = sweetList.map(function(s){
+          var label = s.siteName || ('Site '+(sites.indexOf(s)+1));
+          return '<b>'+label+'</b> ('+s.depthFt.toFixed(1)+' ft, '+(s.structureType||'structure')+')';
+        }).join(' · ');
+        bb.innerHTML = '<b>Today\'s picks</b> (closest to prime 15-ft depth): '+names;
+        panel.appendChild(bb);
+      }
+
+      // Meta/source note
+      var meta = document.createElement('div');
+      meta.className='habitat-meta';
+      meta.innerHTML = 'Waypoints: AZGFD Reservoir Fish Habitat Program · '+
+        'Depth calc: lake surface − site elevation (where available) or depth-at-install adjusted for current drawdown · '+
+        'Color bands for LMB/walleye · '+
+        '<a href="'+gpxUrl+'" download>Download this lake\'s GPX</a>';
+      panel.appendChild(meta);
+
+      // Init Leaflet map
+      var lats = sites.map(function(s){return s.lat;}), lons = sites.map(function(s){return s.lon;});
+      var cLat = lats.length ? (Math.min.apply(null,lats)+Math.max.apply(null,lats))/2 : 33.6;
+      var cLon = lons.length ? (Math.min.apply(null,lons)+Math.max.apply(null,lons))/2 : -111.3;
+
+      var map = L.map(mapDiv, {zoomControl:true, attributionControl:true}).setView([cLat,cLon], 13);
+      // Use Esri's free World Imagery (satellite) — no API key, better for seeing shoreline
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 18,
+        attribution: 'Imagery © Esri · Habitat © AZGFD'
+      }).addTo(map);
+
+      var bounds = L.latLngBounds([]);
+      sites.forEach(function(s, idx){
+        var color = BAND_COLOR[s.band];
+        var opacity = s.band==='dry' ? 0.55 : 0.92;
+        var m = makeMarker(L, s.lat, s.lon, color, opacity).addTo(map);
+        var depthTxt = s.depthFt!=null
+          ? (s.depthFt<0 ? Math.abs(s.depthFt).toFixed(1)+' ft <b style="color:#e96464">above</b> waterline'
+                          : s.depthFt.toFixed(1)+' ft of water')
+          : '—';
+        var sourceBadge = s.depthSource==='estimate' ? ' <span style="color:#f5b44c;font-size:.7rem">(est.)</span>' : '';
+        var popup =
+          '<b>'+(s.siteName || ('Site '+(idx+1)))+'</b><br>'+
+          '<div class="pkv"><span>Structure</span><span>'+(s.structureType||'—')+'</span></div>'+
+          '<div class="pkv"><span>Current depth</span><span>'+depthTxt+sourceBadge+'</span></div>'+
+          (s.depthRaw?'<div class="pkv"><span>At install</span><span>'+s.depthRaw+'</span></div>':'')+
+          (s.structuresCount?'<div class="pkv"><span>Pieces</span><span>'+s.structuresCount+'</span></div>':'')+
+          (s.date?'<div class="pkv"><span>Placed</span><span>'+s.date+'</span></div>':'')+
+          '<div class="pkv"><span>Status</span><span style="color:'+color+'">'+BAND_LABEL[s.band]+'</span></div>'+
+          '<div class="pkv"><span>Coords</span><span style="font-variant-numeric:tabular-nums">'+s.lat.toFixed(5)+', '+s.lon.toFixed(5)+'</span></div>';
+        m.bindPopup(popup);
+        bounds.extend([s.lat,s.lon]);
+      });
+      if (bounds.isValid()) map.fitBounds(bounds.pad(0.15));
+      // Resize map once it's laid out
+      setTimeout(function(){ map.invalidateSize(); }, 50);
+    }).catch(function(err){
+      panel.innerHTML = '<div style="padding:12px;color:#e96464;font-size:.82rem">Couldn\'t load habitat map: '+(err&&err.message?err.message:err)+'</div>';
+    });
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest && e.target.closest('[data-habitat-btn]');
+    if(!btn) return;
+    var hab = btn.closest('[data-habitat]');
+    if(!hab) return;
+    e.preventDefault();
+    openPanel(hab);
+  });
 })();
 </script>
 </body>
