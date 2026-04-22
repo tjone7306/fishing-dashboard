@@ -1,0 +1,2964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="ExpertGPS 8.56 using Garmin GPSMAP 62stc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 https://www.topografix.com/GPX/1/1/gpx.xsd http://www.topografix.com/GPX/gpx_style/0/2 https://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd http://www.topografix.com/GPX/gpx_overlay/0/5 https://www.topografix.com/GPX/gpx_overlay/0/5/gpx_overlay.xsd http://www.topografix.com/GPX/gpx_modified/0/1 https://www.topografix.com/GPX/gpx_modified/0/1/gpx_modified.xsd http://www.topografix.com/GPX/Private/TopoGrafix/0/5 https://www.topografix.com/GPX/Private/TopoGrafix/0/5/topografix.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 https://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 https://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 https://www8.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+<metadata>
+<bounds minlat="33.57000524" minlon="-111.30001081" maxlat="33.63000525" maxlon="-111.21001079"/>
+<extensions>
+<time xmlns="http://www.topografix.com/GPX/gpx_modified/0/1">2024-03-01T15:31:06.019Z</time>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="id"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="lake"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="date"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="coord_system"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="zone"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="easting"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="northing"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="structure_type"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="structures"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="cove_name_location"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="installed_by"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="geometry"/>
+<pro_data_column xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5" list="wpt" name="depth_elev"/>
+</extensions>
+</metadata>
+<wpt lat="33.63000525" lon="-111.21001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>40-45'</value>
+</Data>
+<Data name="structure_type">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB2</value>
+</Data>
+<Data name="coord_system">
+<value>WGS85</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000008258367348CD5BC0410B09185DD0404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1902</value>
+</Data>
+<Data name="structures">
+<value>12</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.63000525" lon="-111.21001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>30'</value>
+</Data>
+<Data name="structure_type">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB4</value>
+</Data>
+<Data name="coord_system">
+<value>WGS87</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000005B9544F641CD5BC0B84082E2C7D0404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1904</value>
+</Data>
+<Data name="structures">
+<value>4</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>15-20'</value>
+</Data>
+<Data name="structure_type">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB6</value>
+</Data>
+<Data name="coord_system">
+<value>WGS89</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000771211FE45CE5BC02810768A55CD404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1906</value>
+</Data>
+<Data name="structures">
+<value>5</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>20-30'</value>
+</Data>
+<Data name="structure_type">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB7</value>
+</Data>
+<Data name="coord_system">
+<value>WGS91</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000001D007157AFCE5BC01CCD91955FCC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1908</value>
+</Data>
+<Data name="structures">
+<value>5</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>15-20'</value>
+</Data>
+<Data name="structure_type">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB8</value>
+</Data>
+<Data name="coord_system">
+<value>WGS92</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000006ADD06B5DFCE5BC0C63368E89FCC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1909</value>
+</Data>
+<Data name="structures">
+<value>5</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.59000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>10-15'</value>
+</Data>
+<Data name="structure_type">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB9</value>
+</Data>
+<Data name="coord_system">
+<value>WGS94</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000D7D9907F66CF5BC0753FA7203FCB404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1911</value>
+</Data>
+<Data name="structures">
+<value>16</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.27001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>20-25'</value>
+</Data>
+<Data name="structure_type">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB10</value>
+</Data>
+<Data name="coord_system">
+<value>WGS96</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000EFE53E390AD15BC0C09481035ACA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1913</value>
+</Data>
+<Data name="structures">
+<value>15</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.57000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>30-40'</value>
+</Data>
+<Data name="structure_type">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB11</value>
+</Data>
+<Data name="coord_system">
+<value>WGS98</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000821DFF0582D05BC0D55DD90583C9404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1915</value>
+</Data>
+<Data name="structures">
+<value>10</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.59000524" lon="-111.30001081">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>30'</value>
+</Data>
+<Data name="structure_type">
+<value>Georgia Cubes</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB12</value>
+</Data>
+<Data name="coord_system">
+<value>WGS99</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E610000083FA96395DD35BC0D044D8F0F4CA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1916</value>
+</Data>
+<Data name="structures">
+<value>10</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.62000524" lon="-111.21001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>10-15'</value>
+</Data>
+<Data name="structure_type">
+<value>Mossbacks</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB1</value>
+</Data>
+<Data name="coord_system">
+<value>WGS84</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E610000032772D211FCD5BC054AC1A84B9CF404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1901</value>
+</Data>
+<Data name="structures">
+<value>28</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.63000525" lon="-111.21001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>12'</value>
+</Data>
+<Data name="structure_type">
+<value>Mossbacks</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB3</value>
+</Data>
+<Data name="coord_system">
+<value>WGS86</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000C72E51BD35CD5BC005DEC9A7C7D0404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1903</value>
+</Data>
+<Data name="structures">
+<value>10</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.61000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>30'</value>
+</Data>
+<Data name="structure_type">
+<value>Mossbacks</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB5</value>
+</Data>
+<Data name="coord_system">
+<value>WGS88</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000004D66BCADF4CD5BC058E2016553CE404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1905</value>
+</Data>
+<Data name="structures">
+<value>30</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>15-20'</value>
+</Data>
+<Data name="structure_type">
+<value>Mossbacks</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB6</value>
+</Data>
+<Data name="coord_system">
+<value>WGS90</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000771211FE45CE5BC02810768A55CD404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1907</value>
+</Data>
+<Data name="structures">
+<value>15</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>15-20'</value>
+</Data>
+<Data name="structure_type">
+<value>Mossbacks</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB8</value>
+</Data>
+<Data name="coord_system">
+<value>WGS93</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000006ADD06B5DFCE5BC0C63368E89FCC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1910</value>
+</Data>
+<Data name="structures">
+<value>15</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.59000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>10-15'</value>
+</Data>
+<Data name="structure_type">
+<value>Mossbacks</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB9</value>
+</Data>
+<Data name="coord_system">
+<value>WGS95</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000D7D9907F66CF5BC0753FA7203FCB404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1912</value>
+</Data>
+<Data name="structures">
+<value>30</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.27001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="depth_elev">
+<value>20-25'</value>
+</Data>
+<Data name="structure_type">
+<value>Mossbacks</value>
+</Data>
+<Data name="cove_name_location">
+<value>AHB10</value>
+</Data>
+<Data name="coord_system">
+<value>WGS97</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000EFE53E390AD15BC0C09481035ACA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2024-01-27</value>
+</Data>
+<Data name="id">
+<value>1914</value>
+</Data>
+<Data name="structures">
+<value>30</value>
+</Data>
+<Data name="installed_by">
+<value>AZGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.61000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3719195</value>
+</Data>
+<Data name="cove_name_location">
+<value>Bronco Ledge Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>479991</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E610000067D9EE79D9CD5BC06E0E7CB19CCE404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-01</value>
+</Data>
+<Data name="id">
+<value>804</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.61000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3719173</value>
+</Data>
+<Data name="cove_name_location">
+<value>Bronco Ledge Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>479984</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000A21C16B4DACD5BC0CBCD812F96CE404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-02</value>
+</Data>
+<Data name="id">
+<value>805</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.61000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3719216</value>
+</Data>
+<Data name="cove_name_location">
+<value>Bronco Ledge Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>480000</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000009763C3E4D7CD5BC0BFF4F6E7A2CE404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-03</value>
+</Data>
+<Data name="id">
+<value>806</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.57000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3714857</value>
+</Data>
+<Data name="cove_name_location">
+<value>Crab Tree Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475960</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000370653839FD05BC04D7853DB97C9404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-04</value>
+</Data>
+<Data name="id">
+<value>807</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3714868</value>
+</Data>
+<Data name="cove_name_location">
+<value>Crab Tree Point Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475970</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E610000038C76FC09DD05BC03458271D9BC9404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-05</value>
+</Data>
+<Data name="id">
+<value>808</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.57000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3714850</value>
+</Data>
+<Data name="cove_name_location">
+<value>Crab Tree Point Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475965</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000739769A09ED05BC00700D8CA95C9404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-06</value>
+</Data>
+<Data name="id">
+<value>809</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3718066</value>
+</Data>
+<Data name="cove_name_location">
+<value>Gila Bay Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>479341</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E610000032C687D94BCE5BC0F0856E9B4ECD404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-07</value>
+</Data>
+<Data name="id">
+<value>810</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3718041</value>
+</Data>
+<Data name="cove_name_location">
+<value>Gila Bay Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>479347</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000E06EA4C74ACE5BC011757A3947CD404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-08</value>
+</Data>
+<Data name="id">
+<value>811</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3718084</value>
+</Data>
+<Data name="cove_name_location">
+<value>Gila Bay Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>479361</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000009F88EA5248CE5BC070DC18F153CD404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-09</value>
+</Data>
+<Data name="id">
+<value>812</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.27001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3715525</value>
+</Data>
+<Data name="cove_name_location">
+<value>Goat Ledge 1 Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475296</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000004FE0E70915D15BC09BB22EC95CCA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-10</value>
+</Data>
+<Data name="id">
+<value>813</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.27001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3715521</value>
+</Data>
+<Data name="cove_name_location">
+<value>Goat Ledge 1 Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475345</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000A6D1E4620CD15BC0B3846BA45BCA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-11</value>
+</Data>
+<Data name="id">
+<value>814</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.27001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3715521</value>
+</Data>
+<Data name="cove_name_location">
+<value>Goat Ledge 1Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475320</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000C8DDD6CC10D15BC03607639F5BCA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-12</value>
+</Data>
+<Data name="id">
+<value>815</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3715497</value>
+</Data>
+<Data name="cove_name_location">
+<value>Goat Ledge 2 Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475493</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000001FBDE13EF2D05BC0C3C0CEA854CA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-13</value>
+</Data>
+<Data name="id">
+<value>816</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3715503</value>
+</Data>
+<Data name="cove_name_location">
+<value>Goat Ledge 2 Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475481</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000124E0B5EF4D05BC0211FF46C56CA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-14</value>
+</Data>
+<Data name="id">
+<value>817</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3715493</value>
+</Data>
+<Data name="cove_name_location">
+<value>Goat Ledge Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475514</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000FD964A89EED05BC0C9552C7E53CA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-15</value>
+</Data>
+<Data name="id">
+<value>818</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3717449</value>
+</Data>
+<Data name="cove_name_location">
+<value>Mazatzal Bay 1 Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>478506</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000408F0711DFCE5BC0B88A6AB697CC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-16</value>
+</Data>
+<Data name="id">
+<value>819</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3717462</value>
+</Data>
+<Data name="cove_name_location">
+<value>Mazatzal Bay 1 Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>478504</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000A021776CDFCE5BC01CA08F8D9BCC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-17</value>
+</Data>
+<Data name="id">
+<value>820</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3717439</value>
+</Data>
+<Data name="cove_name_location">
+<value>Mazatzal Bay 1 Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>478495</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000A5373701E1CE5BC090453FBF94CC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-18</value>
+</Data>
+<Data name="id">
+<value>821</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3717366</value>
+</Data>
+<Data name="cove_name_location">
+<value>Mazatzal Bay 2 Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>478744</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000008C8C6901B5CE5BC0C57421567FCC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-19</value>
+</Data>
+<Data name="id">
+<value>822</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3717356</value>
+</Data>
+<Data name="cove_name_location">
+<value>Mazatzal Bay 2 Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>478718</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000007D42D197B9CE5BC073B0485D7CCC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-20</value>
+</Data>
+<Data name="id">
+<value>823</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3717350</value>
+</Data>
+<Data name="cove_name_location">
+<value>Mazatzal Bay 2 Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>478741</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000C7E93587B5CE5BC0D390A79B7ACC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-21</value>
+</Data>
+<Data name="id">
+<value>824</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.59000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3716295</value>
+</Data>
+<Data name="cove_name_location">
+<value>Verde Point 1 Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>477797</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000003C516DCB5BCF5BC0FCBA1D2B42CB404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-22</value>
+</Data>
+<Data name="id">
+<value>825</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.59000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3716273</value>
+</Data>
+<Data name="cove_name_location">
+<value>Verde Point 1 Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>477769</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000CF5AC0BA60CF5BC0057CC8A53BCB404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-23</value>
+</Data>
+<Data name="id">
+<value>826</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.59000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3716323</value>
+</Data>
+<Data name="cove_name_location">
+<value>Verde Point 1 Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>477780</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000005270C2CE5ECF5BC03F1BB96E4ACB404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-24</value>
+</Data>
+<Data name="id">
+<value>827</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.59000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3716136</value>
+</Data>
+<Data name="cove_name_location">
+<value>Verde Point 2 Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>477616</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000E4260FB07BCF5BC032FE220D13CB404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-25</value>
+</Data>
+<Data name="id">
+<value>828</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.59000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3716141</value>
+</Data>
+<Data name="cove_name_location">
+<value>Verde Point 2 Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>477597</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E610000006DA780B7FCF5BC013831B8414CB404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-26</value>
+</Data>
+<Data name="id">
+<value>829</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.59000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3716140</value>
+</Data>
+<Data name="cove_name_location">
+<value>Verde Point 2 Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>477634</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E610000087FC338378CF5BC06725523F14CB404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-27</value>
+</Data>
+<Data name="id">
+<value>830</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.61000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3719195</value>
+</Data>
+<Data name="cove_name_location">
+<value>Bronco Ledge Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>479991</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000007F5AFBF1CDCD5BC0F271751961CE404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>2006-01-01</value>
+</Data>
+<Data name="id">
+<value>1169</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.61000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3719173</value>
+</Data>
+<Data name="cove_name_location">
+<value>Bronco Ledge Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>479984</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000BA9D222CCFCD5BC08A17D1975ACE404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1170</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.61000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3719216</value>
+</Data>
+<Data name="cove_name_location">
+<value>Bronco Ledge Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>480000</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000AFE4CF5CCCCD5BC02465C54F67CE404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1171</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.57000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3714857</value>
+</Data>
+<Data name="cove_name_location">
+<value>Crab Tree Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475960</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000FC8804F893D05BC060C0FD465CC9404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1172</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.57000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3714868</value>
+</Data>
+<Data name="cove_name_location">
+<value>Crab Tree Point Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475970</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000FD49213592D05BC0828627895FC9404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1173</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.57000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3714850</value>
+</Data>
+<Data name="cove_name_location">
+<value>Crab Tree Point Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475965</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000381A1B1593D05BC06DDB41365AC9404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1174</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3718066</value>
+</Data>
+<Data name="cove_name_location">
+<value>Gila Bay Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>479341</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E610000080E7285140CE5BC0D308AA0413CD404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1175</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3718041</value>
+</Data>
+<Data name="cove_name_location">
+<value>Gila Bay Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>479347</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000002D90453F3FCE5BC00CA51FA20BCD404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1176</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.22001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3718084</value>
+</Data>
+<Data name="cove_name_location">
+<value>Gila Bay Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>479361</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000EDA98BCA3CCE5BC0F985D35918CD404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1177</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.27001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3715525</value>
+</Data>
+<Data name="cove_name_location">
+<value>Goat Ledge 1 Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475296</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000007EA3C27D09D15BC03C74EE3421CA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1178</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.27001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3715521</value>
+</Data>
+<Data name="cove_name_location">
+<value>Goat Ledge 1 Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475345</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000D694BFD600D15BC08AE6BF0F20CA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1179</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.27001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3715521</value>
+</Data>
+<Data name="cove_name_location">
+<value>Goat Ledge 1Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475320</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000F7A0B14005D15BC02B5CE20A20CA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1180</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3715497</value>
+</Data>
+<Data name="cove_name_location">
+<value>Goat Ledge 2 Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475493</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E610000019E027B3E6D05BC064828E1419CA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1181</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3715503</value>
+</Data>
+<Data name="cove_name_location">
+<value>Goat Ledge 2 Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475481</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000004111E6D1E8D05BC0690733D81ACA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1182</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.26001080">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3715493</value>
+</Data>
+<Data name="cove_name_location">
+<value>Goat Ledge Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>475514</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000F7B990FDE2D05BC06B17ECE917CA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1183</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3717449</value>
+</Data>
+<Data name="cove_name_location">
+<value>Mazatzal Bay 1 Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>478506</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000F9F0D187D3CE5BC07E1A7B1F5CCC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1184</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3717462</value>
+</Data>
+<Data name="cove_name_location">
+<value>Mazatzal Bay 1 Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>478504</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E610000022E3ACE3D3CE5BC0FF22CBF65FCC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1185</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3717439</value>
+</Data>
+<Data name="cove_name_location">
+<value>Mazatzal Bay 1 Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>478495</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000005D990178D5CE5BC05B1B112959CC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1186</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3717366</value>
+</Data>
+<Data name="cove_name_location">
+<value>Mazatzal Bay 2 Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>478744</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000000F4E9F78A9CE5BC07257C8BF43CC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1187</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3717356</value>
+</Data>
+<Data name="cove_name_location">
+<value>Mazatzal Bay 2 Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>478718</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000000004070FAECE5BC003A0C4C640CC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1188</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.60000524" lon="-111.23001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3717350</value>
+</Data>
+<Data name="cove_name_location">
+<value>Mazatzal Bay 2 Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>478741</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000004AAB6BFEA9CE5BC09820B8043FCC404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1189</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.59000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3716295</value>
+</Data>
+<Data name="cove_name_location">
+<value>Verde Point 1 Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>477797</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000002A53CC4150CF5BC00377459506CB404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1190</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.59000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3716273</value>
+</Data>
+<Data name="cove_name_location">
+<value>Verde Point 1 Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>477769</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000BD5C1F3155CF5BC07DBEDA0F00CB404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1191</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.59000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3716323</value>
+</Data>
+<Data name="cove_name_location">
+<value>Verde Point 1 Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>477780</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E61000004172214553CF5BC0B75DCBD80ECB404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1192</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3716136</value>
+</Data>
+<Data name="cove_name_location">
+<value>Verde Point 2 Center</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>477616</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000D3286E2670CF5BC056AD7577D7CA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1193</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3716141</value>
+</Data>
+<Data name="cove_name_location">
+<value>Verde Point 2 Left</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>477597</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000F5DBD78173CF5BC038326EEED8CA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1194</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<wpt lat="33.58000524" lon="-111.24001079">
+<time>2024-03-01T15:31:33.508Z</time>
+<extensions>
+<label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/5">
+</label>
+<ExtendedData xmlns="http://www.topografix.com/GPX/Private/TopoGrafix/0/5">
+<Data name="structure_type">
+<value>Picses Pyramid</value>
+</Data>
+<Data name="northing">
+<value>3716140</value>
+</Data>
+<Data name="cove_name_location">
+<value>Verde Point 2 Right</value>
+</Data>
+<Data name="coord_system">
+<value>NAD27</value>
+</Data>
+<Data name="lake">
+<value>Apache Lake</value>
+</Data>
+<Data name="easting">
+<value>477634</value>
+</Data>
+<Data name="zone">
+<value>12</value>
+</Data>
+<Data name="geometry">
+<value>01010000E0E6100000AA9E27F96CCF5BC0C17439A9D8CA404000000000000000000000000000000000</value>
+</Data>
+<Data name="date">
+<value>1905-06-28</value>
+</Data>
+<Data name="id">
+<value>1195</value>
+</Data>
+<Data name="installed_by">
+<value>AGFD</value>
+</Data>
+</ExtendedData>
+</extensions>
+</wpt>
+<extensions>
+</extensions>
+</gpx>
