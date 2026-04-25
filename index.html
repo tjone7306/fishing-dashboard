@@ -82,9 +82,11 @@
   .sort-btn.active{background:rgba(94,180,231,.14);border-color:var(--accent);color:var(--accent)}
   .sort-btn::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;box-shadow:0 0 0 3px rgba(94,180,231,.2)}
   .sort-status{color:var(--muted);font-size:.82rem}
-  /* 3-day outlook — scannable day tiles (replaces cramped SVG chart) */
-  .fcst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}
-  .fcst-tile{background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:12px 8px 11px;text-align:center;display:flex;flex-direction:column;gap:4px;position:relative;overflow:hidden}
+  /* 7-day outlook — scannable day tiles, live from Open-Meteo */
+  .fcst-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:4px}
+  @media (max-width:760px){.fcst-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  @media (max-width:420px){.fcst-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  .fcst-tile{background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:10px 6px 9px;text-align:center;display:flex;flex-direction:column;gap:3px;position:relative;overflow:hidden;min-width:0}
   .fcst-tile.pick{border-color:rgba(79,194,122,.55);background:linear-gradient(180deg,rgba(79,194,122,.10),var(--surface-2))}
   .fcst-tile.pick::before{content:"PICK";position:absolute;top:6px;right:6px;font-size:.6rem;font-weight:800;letter-spacing:.7px;color:var(--good,#4fc27a);background:rgba(79,194,122,.15);border:1px solid rgba(79,194,122,.5);border-radius:10px;padding:2px 6px}
   .fcst-day{font-size:.78rem;font-weight:700;letter-spacing:.8px;color:var(--muted);text-transform:uppercase}
@@ -451,36 +453,13 @@
     </div>
   </div>
 
-  <!-- 3-DAY OUTLOOK -->
+  <!-- 7-DAY OUTLOOK (live from Open-Meteo) -->
   <div class="card" style="margin-top:12px">
-    <h3>3-Day Outlook</h3>
-    <div class="fcst-grid">
-      <div class="fcst-tile pick">
-        <div class="fcst-day">Fri</div>
-        <div class="fcst-ic">☀️</div>
-        <div class="fcst-hi">90°</div>
-        <div class="fcst-lo">Lo 61°</div>
-        <div class="fcst-wind">WSW 5 – 15 · light</div>
-        <div class="fcst-baro"><b>29.68</b> inHg <span class="dn">↓</span></div>
-      </div>
-      <div class="fcst-tile">
-        <div class="fcst-day">Sat</div>
-        <div class="fcst-ic">🌤️</div>
-        <div class="fcst-hi">85°</div>
-        <div class="fcst-lo">Lo 61°</div>
-        <div class="fcst-wind">S 0 – 10 · light</div>
-        <div class="fcst-baro"><span class="na">NA</span> baro trend</div>
-      </div>
-      <div class="fcst-tile">
-        <div class="fcst-day">Sun</div>
-        <div class="fcst-ic">☀️</div>
-        <div class="fcst-hi">79°</div>
-        <div class="fcst-lo">Lo 54°</div>
-        <div class="fcst-wind">SW 5 – 10 · light</div>
-        <div class="fcst-baro"><span class="na">NA</span> baro trend</div>
-      </div>
+    <h3>7-Day Outlook</h3>
+    <div class="fcst-grid" id="fcst-7day">
+      <!-- 7 day tiles populated by JS below -->
     </div>
-    <div class="fcst-pick-line">🎯 <b>Pick: Friday.</b> Warmest of the three with light WSW wind, Waxing Gibbous 58% (transit 7:38 PM) — cleanest solunar + stability combo.</div>
+    <div class="fcst-pick-line" id="fcst-pick-line">🎯 <b>Pick:</b> <span id="fcst-pick-summary">Loading week ahead…</span></div>
   </div>
 
   <!-- LAKES -->
@@ -802,6 +781,18 @@
     </div>
   </div>
   <div class="ws-foot">Live streamflow from USGS NWIS: Salt River near Roosevelt (Roosevelt inflow), Salt River below Stewart Mtn Dam (Saguaro outflow), Verde River above Horseshoe (Horseshoe inflow), Verde River below Bartlett Dam (Bartlett outflow). Middle reservoir releases (Roosevelt→Apache→Canyon→Saguaro, Horseshoe→Bartlett) are SRP-managed and not on public gauges.</div>
+
+  <!-- LIMITLOCK CROSS-PROMO -->
+  <a class="card" href="https://limitlock.pro/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;margin-top:12px;border-color:rgba(231,200,115,.35);background:linear-gradient(135deg,rgba(231,200,115,.08),var(--surface-2))">
+    <div style="width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#0f201d,#14302c);border:1px solid rgba(231,200,115,.4);display:grid;place-items:center;flex-shrink:0">
+      <span style="font-size:24px">🎣</span>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-weight:700;color:var(--text);margin-bottom:2px">Fishing a tournament? <span style="color:#e7c873">Try LimitLock.</span></div>
+      <div style="color:var(--muted);font-size:.85rem;line-height:1.35">Voice-log catches, auto-cull your bag, run live tournaments with your buddies. iOS app from the same crew that built b4u.fish.</div>
+    </div>
+    <div style="color:#e7c873;font-size:1.4rem;flex-shrink:0">→</div>
+  </a>
 
   <!-- BUY AZ FISHING LICENSE -->
   <a class="license-cta" href="https://license.azgfd.com/" target="_blank" rel="noopener noreferrer" aria-label="Buy Arizona fishing license (opens in new tab)">Buy AZ Fishing License</a>
@@ -1212,6 +1203,98 @@
         if(cm) updateCard(cm.lake, cm.dir, cfs);
       });
     });
+})();
+
+// --- 7-Day Outlook (Open-Meteo, no key required) ---
+// Pulls daily forecast for the central Phoenix-lakes area and renders tiles + auto-picks the best fishing day.
+(function(){
+  var grid = document.getElementById('fcst-7day');
+  var pickEl = document.getElementById('fcst-pick-summary');
+  if(!grid) return;
+  // Centroid of the 6 lakes — close enough for a regional outlook
+  var url = 'https://api.open-meteo.com/v1/forecast?latitude=33.68&longitude=-111.65' +
+            '&daily=temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,pressure_msl_max,pressure_msl_min,weather_code,precipitation_probability_max' +
+            '&temperature_unit=fahrenheit&wind_speed_unit=mph' +
+            '&timezone=America%2FPhoenix&forecast_days=7';
+  var dirs = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+  var dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var dayFull  = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function wmoIcon(code){
+    if(code===0) return '☀️';
+    if(code>=1 && code<=3) return '🌤️';
+    if(code===45 || code===48) return '🌫️';
+    if(code>=51 && code<=67) return '🌧️';
+    if(code>=71 && code<=77) return '🌨️';
+    if(code>=80 && code<=82) return '🌧️';
+    if(code>=85 && code<=86) return '🌨️';
+    if(code>=95) return '⛈️';
+    return '🌤️';
+  }
+  function windDir(deg){ return dirs[Math.round(deg/22.5)%16]; }
+  function score(t,w,p){ // simple fishability score: warmth + low wind
+    return (t-65) - Math.max(0,(w-8))*1.5 - (p>=80?5:0);
+  }
+  fetch(url).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+    if(!d || !d.daily) {
+      grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--muted);padding:14px">Forecast temporarily unavailable</div>';
+      pickEl.textContent = 'Will retry on next page load.';
+      return;
+    }
+    var dly = d.daily;
+    var html = '';
+    var bestIdx = 0, bestScore = -999;
+    var dailyData = [];
+    for(var i=0;i<dly.time.length;i++){
+      var date = new Date(dly.time[i]+'T12:00:00');
+      var dayShort = dayNames[date.getDay()];
+      var hi = Math.round(dly.temperature_2m_max[i]);
+      var lo = Math.round(dly.temperature_2m_min[i]);
+      var wMax = Math.round(dly.wind_speed_10m_max[i]);
+      var wDeg = dly.wind_direction_10m_dominant[i];
+      var dir = wMax<2 ? 'Calm' : windDir(wDeg);
+      var pop = dly.precipitation_probability_max[i] || 0;
+      var ic = wmoIcon(dly.weather_code[i]);
+      // baro trend: compare today's max to yesterday's max
+      var baroNow = (dly.pressure_msl_max[i] + dly.pressure_msl_min[i])/2;
+      var baroPrev = i>0 ? (dly.pressure_msl_max[i-1] + dly.pressure_msl_min[i-1])/2 : baroNow;
+      var baroTrend = (baroNow - baroPrev);
+      var trendClass = Math.abs(baroTrend) < 0.7 ? 'st' : (baroTrend > 0 ? 'up' : 'dn');
+      var trendArrow = Math.abs(baroTrend) < 0.7 ? '→' : (baroTrend > 0 ? '↑' : '↓');
+      var baroInHg = (baroNow * 0.02953).toFixed(2);
+      var s = score(hi, wMax, pop);
+      dailyData.push({i:i, hi:hi, lo:lo, wMax:wMax, dir:dir, pop:pop, dayFull:dayFull[date.getDay()], score:s});
+      if(s > bestScore){ bestScore = s; bestIdx = i; }
+      var windText = wMax<2 ? 'Calm' : (dir + ' ' + wMax);
+      var popText = pop>=30 ? ' · 💧'+pop+'%' : '';
+      html += '<div class="fcst-tile" data-i="'+i+'">'+
+              '<div class="fcst-day">'+dayShort+'</div>'+
+              '<div class="fcst-ic">'+ic+'</div>'+
+              '<div class="fcst-hi">'+hi+'°</div>'+
+              '<div class="fcst-lo">Lo '+lo+'°</div>'+
+              '<div class="fcst-wind">'+windText+popText+'</div>'+
+              '<div class="fcst-baro"><b>'+baroInHg+'</b> <span class="'+trendClass+'">'+trendArrow+'</span></div>'+
+              '</div>';
+    }
+    grid.innerHTML = html;
+    // mark pick
+    var pickTile = grid.querySelector('[data-i="'+bestIdx+'"]');
+    if(pickTile) pickTile.classList.add('pick');
+    // pick summary
+    var p = dailyData[bestIdx];
+    var rationale = [];
+    if(p.hi >= 80) rationale.push('warm');
+    else if(p.hi >= 70) rationale.push('mild');
+    else rationale.push('cool');
+    if(p.wMax < 8) rationale.push('light '+p.dir+' wind');
+    else if(p.wMax < 15) rationale.push('moderate '+p.dir+' wind');
+    else rationale.push('breezy '+p.dir+' '+p.wMax+' mph');
+    if(p.pop < 15) rationale.push('dry');
+    var when = (bestIdx===0?'today':(bestIdx===1?'tomorrow':p.dayFull));
+    pickEl.innerHTML = '<b>'+p.dayFull+'</b> ('+when+') &mdash; '+p.hi+'° hi, '+rationale.join(', ')+'.';
+  }).catch(function(){
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--muted);padding:14px">Forecast temporarily unavailable</div>';
+    pickEl.textContent = 'Will retry on next page load.';
+  });
 })();
 
 // --- Per-lake live wind (Open-Meteo, no key required) ---
