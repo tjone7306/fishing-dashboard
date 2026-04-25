@@ -358,6 +358,27 @@
   .habitat-bestbets{margin:8px 0 0;font-size:.78rem;color:var(--muted);padding:8px 10px;background:rgba(79,194,122,.07);border-left:3px solid var(--good);border-radius:0 6px 6px 0}
   .habitat-bestbets b{color:var(--good);font-weight:600}
   @media (max-width:700px){.habitat-map{height:300px}}
+  /* LimitLock cross-promo banner */
+  .ll-banner{margin-top:14px;border:1px solid rgba(231,200,115,.30);border-radius:14px;padding:22px 22px 20px;background:radial-gradient(700px 360px at 12% 18%,rgba(231,200,115,.10),transparent 60%),linear-gradient(180deg,#0f201d 0%,#0b1715 100%);overflow:hidden}
+  .ll-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center}
+  @media (max-width:720px){.ll-grid{grid-template-columns:1fr;gap:20px}}
+  .ll-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+  .ll-icon{width:54px;height:54px;border-radius:12px;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.4)}
+  .ll-eyebrow{display:inline-block;color:#e7c873;font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+  .ll-title{font-size:1.35rem;font-weight:800;line-height:1.2;color:#eef3f1;letter-spacing:-.01em;margin:0}
+  .ll-title .gold{color:#e7c873}
+  .ll-lead{color:#9fb3ad;font-size:.88rem;line-height:1.5;margin:0 0 14px;max-width:520px}
+  .ll-cta{display:inline-flex;align-items:center;gap:10px;background:#000;color:#fff;border:1px solid rgba(255,255,255,.22);padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;transition:transform .12s ease,border-color .12s ease}
+  .ll-cta:hover,.ll-cta:focus{transform:translateY(-1px);border-color:rgba(255,255,255,.5);color:#fff;text-decoration:none}
+  .ll-cta svg{width:22px;height:25px;fill:#fff}
+  .ll-cta .small{font-size:.65rem;opacity:.85;line-height:1;letter-spacing:.3px}
+  .ll-cta .big{font-size:1.05rem;font-weight:800;line-height:1.1;margin-top:1px}
+  .ll-features{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+  .ll-features li{display:flex;align-items:flex-start;gap:10px;padding:7px 10px;background:rgba(15,32,29,.65);border:1px solid rgba(231,200,115,.10);border-radius:9px}
+  .ll-features .fl-ic{flex-shrink:0;width:26px;height:26px;display:grid;place-items:center;background:rgba(231,200,115,.10);border:1px solid rgba(231,200,115,.20);border-radius:7px;font-size:14px}
+  .ll-features li > div{display:flex;flex-direction:column;gap:1px;min-width:0}
+  .ll-features strong{font-size:.82rem;color:#eef3f1;font-weight:700}
+  .ll-features span{font-size:.7rem;color:#9fb3ad;line-height:1.35}
 </style>
 </head>
 <body>
@@ -782,17 +803,34 @@
   </div>
   <div class="ws-foot">Live streamflow from USGS NWIS: Salt River near Roosevelt (Roosevelt inflow), Salt River below Stewart Mtn Dam (Saguaro outflow), Verde River above Horseshoe (Horseshoe inflow), Verde River below Bartlett Dam (Bartlett outflow). Middle reservoir releases (Roosevelt→Apache→Canyon→Saguaro, Horseshoe→Bartlett) are SRP-managed and not on public gauges.</div>
 
-  <!-- LIMITLOCK CROSS-PROMO -->
-  <a class="card" href="https://limitlock.pro/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;margin-top:12px;border-color:rgba(231,200,115,.35);background:linear-gradient(135deg,rgba(231,200,115,.08),var(--surface-2))">
-    <div style="width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#0f201d,#14302c);border:1px solid rgba(231,200,115,.4);display:grid;place-items:center;flex-shrink:0">
-      <span style="font-size:24px">🎣</span>
+  <!-- LIMITLOCK CROSS-PROMO BANNER -->
+  <section class="ll-banner">
+    <div class="ll-grid">
+      <div>
+        <div class="ll-head">
+          <img class="ll-icon" src="icon-192.png" alt="LimitLock app icon" width="54" height="54">
+          <div>
+            <div class="ll-eyebrow">Also from us · iOS</div>
+            <h3 class="ll-title">Fishing a tournament? Try <span class="gold">LimitLock.</span></h3>
+          </div>
+        </div>
+        <p class="ll-lead">The fastest way to manage your tournament bag on the water. Log catches by voice, auto-cull your lightest fish, and run live tournaments with your buddies — every angler's bag ranked in real time.</p>
+        <a class="ll-cta" href="https://apps.apple.com/app/id6761737681" target="_blank" rel="noopener" aria-label="Download LimitLock on the App Store">
+          <svg viewBox="0 0 24 28" aria-hidden="true"><path d="M17.5 14.7c0-2.8 2.3-4.2 2.4-4.3-1.3-1.9-3.4-2.2-4.1-2.2-1.7-.2-3.4 1-4.3 1-.9 0-2.3-1-3.8-.9-1.9 0-3.8 1.1-4.8 2.9-2 3.5-.5 8.7 1.5 11.6 1 1.4 2.2 3 3.7 2.9 1.5-.1 2-.9 3.8-.9 1.8 0 2.3.9 3.8.9 1.6 0 2.6-1.4 3.6-2.9 1.1-1.6 1.6-3.3 1.6-3.4-.1 0-3.1-1.1-3.4-4.7zM14.8 5.8c.8-1 1.3-2.4 1.2-3.8-1.2.1-2.6.8-3.5 1.8-.7.9-1.4 2.3-1.2 3.7 1.3.1 2.7-.7 3.5-1.7z"/></svg>
+          <div>
+            <div class="small">Download on the</div>
+            <div class="big">App Store</div>
+          </div>
+        </a>
+      </div>
+      <ul class="ll-features">
+        <li><span class="fl-ic">🎙️</span><div><strong>Voice logging</strong><span>say "3.52 yellow" — done</span></div></li>
+        <li><span class="fl-ic">⚖️</span><div><strong>Auto-cull</strong><span>boat a bigger fish, app says which to release</span></div></li>
+        <li><span class="fl-ic">🏆</span><div><strong>Live group tournaments</strong><span>invite code, Big-5 leaderboard, activity feed</span></div></li>
+        <li><span class="fl-ic">⌚</span><div><strong>Apple Watch companion</strong><span>log from your wrist, hands stay on the rod</span></div></li>
+      </ul>
     </div>
-    <div style="flex:1;min-width:0">
-      <div style="font-weight:700;color:var(--text);margin-bottom:2px">Fishing a tournament? <span style="color:#e7c873">Try LimitLock.</span></div>
-      <div style="color:var(--muted);font-size:.85rem;line-height:1.35">Voice-log catches, auto-cull your bag, run live tournaments with your buddies. iOS app from the same crew that built b4u.fish.</div>
-    </div>
-    <div style="color:#e7c873;font-size:1.4rem;flex-shrink:0">→</div>
-  </a>
+  </section>
 
   <!-- BUY AZ FISHING LICENSE -->
   <a class="license-cta" href="https://license.azgfd.com/" target="_blank" rel="noopener noreferrer" aria-label="Buy Arizona fishing license (opens in new tab)">Buy AZ Fishing License</a>
