@@ -380,66 +380,80 @@
   .ll-features strong{font-size:.82rem;color:#eef3f1;font-weight:700}
   .ll-features span{font-size:.7rem;color:#9fb3ad;line-height:1.35}
 
-  /* ===== BITE SCORE v2 — 7-day row + best windows ===== */
-  .bs-card{background:linear-gradient(180deg,#162334 0%,#0f1c2b 100%);border:1px solid var(--border);border-radius:14px;padding:16px 14px 14px;margin:6px 0 12px;position:relative;overflow:hidden}
+  /* ===== BITE SCORE v3 — horizontal-bar list (clearly NOT temperatures) ===== */
+  .bs-card{background:linear-gradient(180deg,#142336 0%,#0f1c2b 100%);border:1px solid var(--border);border-radius:14px;padding:16px 14px 14px;margin:6px 0 12px;position:relative;overflow:hidden}
   .bs-card::before{content:"";position:absolute;inset:-1px;border-radius:14px;padding:1px;background:linear-gradient(135deg,rgba(94,180,231,.45),rgba(79,194,122,.25) 40%,rgba(245,180,76,.18) 80%,transparent);-webkit-mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.55}
-  .bs-head{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 11px;gap:10px;flex-wrap:wrap;position:relative;z-index:1}
-  .bs-head h3{margin:0;font-size:.92rem;font-weight:800;color:var(--text);letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
-  .bs-head h3 .bs-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 rgba(79,194,122,.6);animation:bs-pulse 2.4s infinite}
-  @keyframes bs-pulse{0%{box-shadow:0 0 0 0 rgba(79,194,122,.55)}70%{box-shadow:0 0 0 7px rgba(79,194,122,0)}100%{box-shadow:0 0 0 0 rgba(79,194,122,0)}}
-  .bs-head .bs-sub{font-size:.74rem;color:var(--muted);font-weight:500}
-  /* 7-day row */
-  .bs-row{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;position:relative;z-index:1}
-  .bs-day{position:relative;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;padding:9px 6px 9px;display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;min-width:0;overflow:hidden;cursor:default}
-  .bs-day.today{border-color:rgba(94,180,231,.55);background:linear-gradient(180deg,rgba(94,180,231,.08),var(--surface-2))}
-  .bs-day.today::before{content:"TODAY";position:absolute;top:0;right:0;font-size:.55rem;font-weight:800;letter-spacing:.7px;color:#0a1420;background:var(--accent);padding:2px 7px 2px 8px;border-bottom-left-radius:8px}
-  .bs-day-name{font-size:.74rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+  .bs-head{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 12px;gap:10px;flex-wrap:wrap;position:relative;z-index:1}
+  .bs-head h3{margin:0;font-size:1rem;font-weight:800;color:var(--text);letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+  .bs-head h3::before{content:"🎣";font-size:1rem}
+  .bs-head .bs-sub{font-size:.72rem;color:var(--muted);font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+  /* horizontal-bar list */
+  .bs-list{display:grid;gap:5px;position:relative;z-index:1}
+  .bs-day{display:grid;grid-template-columns:60px 1fr auto;column-gap:12px;row-gap:2px;align-items:center;padding:9px 12px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:9px;transition:background .15s}
+  .bs-day:hover{background:rgba(255,255,255,.045)}
+  .bs-day.today{background:linear-gradient(90deg,rgba(94,180,231,.10),rgba(94,180,231,.02) 75%);border-color:rgba(94,180,231,.42);border-left:3px solid var(--accent);padding-left:9px}
+  .bs-day-label{display:flex;flex-direction:column;gap:2px;font-variant-numeric:tabular-nums}
+  .bs-day-name{font-size:.85rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);line-height:1}
   .bs-day.today .bs-day-name{color:var(--accent)}
-  .bs-day-score{font-size:1.7rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;color:var(--text);margin:1px 0 1px}
-  @media (max-width:480px){.bs-day-score{font-size:1.45rem}}
-  .bs-day-score-of{font-size:.6rem;font-weight:700;color:var(--muted);letter-spacing:.4px;margin-top:-3px;text-transform:uppercase}
-  .bs-day.tier-peak  .bs-day-score{color:#9be0b4}
-  .bs-day.tier-good  .bs-day-score{color:#9be0b4}
-  .bs-day.tier-fair  .bs-day-score{color:#f5d18a}
-  .bs-day.tier-tough .bs-day-score{color:#f0b06a}
-  .bs-day.tier-skip  .bs-day-score{color:#f0a3a3}
-  .bs-day-bar{width:80%;height:3px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:2px}
-  .bs-day-bar > i{display:block;height:100%;border-radius:999px;background:var(--accent)}
-  .bs-day.tier-peak .bs-day-bar > i, .bs-day.tier-good .bs-day-bar > i{background:#4fc27a}
-  .bs-day.tier-fair .bs-day-bar > i{background:#f5b44c}
-  .bs-day.tier-tough .bs-day-bar > i{background:#e89020}
-  .bs-day.tier-skip  .bs-day-bar > i{background:#e96464}
-  .bs-day-verdict{font-size:.62rem;font-weight:700;letter-spacing:.3px;color:var(--muted);margin-top:2px;line-height:1.25;min-height:2.2em;display:flex;align-items:center;justify-content:center}
-  .bs-day.tier-peak .bs-day-verdict, .bs-day.tier-good .bs-day-verdict{color:#9be0b4}
-  .bs-day.tier-fair .bs-day-verdict{color:#f5d18a}
-  .bs-day.tier-tough .bs-day-verdict{color:#f0b06a}
-  .bs-day.tier-skip .bs-day-verdict{color:#f0a3a3}
-  .bs-day-window{font-size:.62rem;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1.25;margin-top:1px;min-height:1.4em}
-  /* mobile: scroll horizontally on very narrow screens */
-  @media (max-width:520px){
-    .bs-row{grid-template-columns:repeat(7,minmax(70px,1fr));overflow-x:auto;scrollbar-width:none;padding-bottom:2px;-webkit-overflow-scrolling:touch}
-    .bs-row::-webkit-scrollbar{display:none}
-    .bs-day{padding:8px 4px 8px}
-    .bs-day-score{font-size:1.35rem}
-    .bs-day::before{font-size:.5rem;padding:2px 5px}
+  .bs-day-date{font-size:.6rem;font-weight:600;color:var(--muted);letter-spacing:.3px;line-height:1}
+  .bs-day-tag{display:inline-block;font-size:.52rem;font-weight:800;letter-spacing:.6px;color:#0a1420;background:var(--accent);padding:2px 6px;border-radius:5px;text-transform:uppercase;line-height:1;margin-top:1px;width:fit-content}
+  /* meter row: bar + score number */
+  .bs-meter{display:flex;align-items:center;gap:10px;min-width:0}
+  .bs-track{flex:1;height:18px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.04)}
+  .bs-track::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0,transparent 19.9%,rgba(255,255,255,.08) 19.9%,rgba(255,255,255,.08) 20%);border-radius:999px}
+  .bs-fill{height:100%;border-radius:999px;background:var(--accent);transition:width .6s ease, background .3s ease;position:relative;z-index:1;box-shadow:inset 0 -1px 0 rgba(0,0,0,.15)}
+  .bs-day.tier-peak .bs-fill, .bs-day.tier-good .bs-fill{background:linear-gradient(90deg,#3da566,#4fc27a)}
+  .bs-day.tier-fair .bs-fill{background:linear-gradient(90deg,#d49a3a,#f5b44c)}
+  .bs-day.tier-tough .bs-fill{background:linear-gradient(90deg,#c97818,#e89020)}
+  .bs-day.tier-skip  .bs-fill{background:linear-gradient(90deg,#c75050,#e96464)}
+  .bs-num{font-size:1rem;font-weight:800;font-variant-numeric:tabular-nums;line-height:1;min-width:62px;text-align:right;letter-spacing:-.02em}
+  .bs-num-of{font-size:.62rem;font-weight:700;color:var(--muted);letter-spacing:.4px;margin-left:2px}
+  .bs-day.tier-peak .bs-num, .bs-day.tier-good .bs-num{color:#9be0b4}
+  .bs-day.tier-fair .bs-num{color:#f5d18a}
+  .bs-day.tier-tough .bs-num{color:#f0b06a}
+  .bs-day.tier-skip .bs-num{color:#f0a3a3}
+  /* meta column: verdict + best-window */
+  .bs-meta{display:flex;flex-direction:column;align-items:flex-end;gap:1px;font-variant-numeric:tabular-nums;text-align:right;line-height:1.2}
+  .bs-verd{font-size:.78rem;font-weight:700;letter-spacing:.2px}
+  .bs-day.tier-peak .bs-verd, .bs-day.tier-good .bs-verd{color:#9be0b4}
+  .bs-day.tier-fair .bs-verd{color:#f5d18a}
+  .bs-day.tier-tough .bs-verd{color:#f0b06a}
+  .bs-day.tier-skip .bs-verd{color:#f0a3a3}
+  .bs-best{font-size:.68rem;color:var(--muted);font-weight:600;white-space:nowrap}
+  /* tablet/desktop side-by-side layout */
+  @media (min-width:540px){
+    .bs-day{grid-template-columns:72px 1fr auto auto;gap:14px}
+    .bs-meter{grid-column:2 / 3}
+    .bs-meta{grid-column:3 / 5}
   }
-  /* Today's now-score chip */
-  .bs-now{margin-top:10px;padding:9px 11px;border-radius:9px;background:rgba(94,180,231,.07);border:1px solid rgba(94,180,231,.22);display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:.82rem;color:var(--text);position:relative;z-index:1}
-  .bs-now b{font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
-  .bs-now .bs-now-l{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
-  .bs-now .bs-now-d{font-weight:600;font-size:.72rem;color:var(--muted)}
+  /* mobile cleanup */
+  @media (max-width:540px){
+    .bs-day{grid-template-columns:48px 1fr auto;column-gap:9px;padding:8px 10px}
+    .bs-day-name{font-size:.78rem}
+    .bs-day-date{display:none}
+    .bs-track{height:14px}
+    .bs-num{min-width:54px;font-size:.92rem}
+    .bs-meta{display:none}
+  }
+  /* Now-score chip (clearly labelled) */
+  .bs-now{margin-top:11px;padding:10px 12px;border-radius:9px;background:rgba(94,180,231,.07);border:1px solid rgba(94,180,231,.25);display:flex;align-items:center;gap:11px;flex-wrap:wrap;font-size:.85rem;color:var(--text);position:relative;z-index:1}
+  .bs-now-l{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}
+  .bs-now-bar{flex:1;min-width:120px;height:8px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;position:relative}
+  .bs-now-bar > i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#3da566,#4fc27a);transition:width .6s ease, background .3s ease}
+  .bs-now-num{font-size:1.05rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--accent);min-width:64px;text-align:right}
+  .bs-now-d{font-weight:600;font-size:.74rem;color:var(--muted);flex-basis:100%}
   /* Best windows mini-list */
   .bs-windows{margin-top:12px;border-top:1px solid rgba(255,255,255,.06);padding-top:11px;position:relative;z-index:1}
   .bs-windows-h{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px}
   .bs-windows-h::before{content:"🎯";font-size:.9rem}
-  .bs-win-list{display:grid;gap:7px}
-  .bs-win-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:9px 11px;border-radius:9px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05)}
+  .bs-win-list{display:grid;gap:6px}
+  .bs-win-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:8px 11px;border-radius:9px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05)}
   .bs-win-row.peak{background:linear-gradient(180deg,rgba(79,194,122,.12),rgba(79,194,122,.04));border-color:rgba(79,194,122,.32)}
-  .bs-win-rank{font-size:.66rem;font-weight:800;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;font-variant-numeric:tabular-nums;min-width:28px}
+  .bs-win-rank{font-size:.66rem;font-weight:800;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;min-width:24px}
   .bs-win-row.peak .bs-win-rank{color:#9be0b4}
-  .bs-win-time{font-size:.94rem;font-weight:700;color:var(--text);line-height:1.2;font-variant-numeric:tabular-nums}
-  .bs-win-reason{font-size:.74rem;color:var(--muted);line-height:1.3;margin-top:2px}
-  .bs-win-score{font-size:.92rem;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;text-align:right;line-height:1}
+  .bs-win-time{font-size:.92rem;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;line-height:1.2}
+  .bs-win-reason{font-size:.72rem;color:var(--muted);line-height:1.3;margin-top:1px}
+  .bs-win-score{font-size:.92rem;font-weight:800;font-variant-numeric:tabular-nums;text-align:right;line-height:1}
   .bs-win-score-l{font-size:.6rem;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;text-align:right;display:block;margin-top:2px}
   .bs-win-row.peak .bs-win-score{color:#9be0b4}
   .bs-foot{margin-top:10px;font-size:.7rem;color:var(--muted);line-height:1.5;position:relative;z-index:1}
@@ -469,29 +483,30 @@
     <h1>Phoenix Lakes — Fishing Dashboard</h1>
     <div class="sub">Pleasant · Roosevelt · Apache · Canyon · Saguaro · Bartlett</div>
     <span class="date" id="date-badge">Sunday, April 26, 2026</span>
-    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 4:05 PM MST</b></div>
+    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 4:35 PM MST</b></div>
   </header>
 
 
-  <!-- ===== BITE SCORE v2 — 7-day pro-grade row ===== -->
+  <!-- ===== BITE SCORE v3 — horizontal-bar list (won't be confused with temps) ===== -->
   <div id="bs-card" class="bs-card" role="region" aria-label="Bite Score 7-day forecast">
     <div class="bs-head">
-      <h3><span class="bs-dot"></span><span>Bite Score · 7 days</span></h3>
-      <span class="bs-sub">Pro-grade weighting · Phoenix-area hyperlocal</span>
+      <h3>Bite Score · This week</h3>
+      <span class="bs-sub">0–100 scale · pro-grade weighting</span>
     </div>
-    <div class="bs-row" id="bs-week">
-      <!-- populated by JS from <script id=bs-data> -->
+    <div class="bs-list" id="bs-week">
+      <!-- rows populated by JS -->
     </div>
     <div class="bs-now" id="bs-now">
-      <span class="bs-now-l">Right now</span>
-      <span><b id="bs-now-score">--</b><span class="bs-now-l" style="margin-left:5px">/ 100</span></span>
+      <span class="bs-now-l">Now</span>
+      <div class="bs-now-bar"><i id="bs-now-fill" style="width:0%"></i></div>
+      <span class="bs-now-num"><span id="bs-now-score">--</span><span class="bs-num-of">/100</span></span>
       <span class="bs-now-d" id="bs-now-detail">computing live score…</span>
     </div>
     <div class="bs-windows">
       <div class="bs-windows-h">Best fishing windows today</div>
       <div class="bs-win-list" id="bs-win-list"></div>
     </div>
-    <div class="bs-foot">Pro-grade scoring weighs <b>front timing</b> (25), <b>moon &amp; solunar</b> (20), <b>wind direction + speed</b> (15), <b>cloud cover</b> (15), <b>water-temp species fit</b> (15), and <b>weather stability</b> (10). Targeted at largemouth bass — Phoenix-area's most-caught species. Hyperlocal data only: Salt + Verde reservoirs, exact CFS, KPHX baro/trend, USNO solunar. <b>Free, no ads.</b> Similar predictions exist on Fishbrain BiteTime, BassForecast, Fishidy, and solunar calendar apps.</div>
+    <div class="bs-foot">Pro-grade weights: <b>front timing 25</b>, <b>moon &amp; solunar 20</b>, <b>wind dir + speed 15</b>, <b>cloud cover 15</b>, <b>water-temp species fit 15</b>, <b>weather stability 10</b>. Targeted at largemouth bass — Phoenix's most-caught species. Hyperlocal data only: Salt + Verde reservoirs, exact CFS, KPHX baro/trend, USNO solunar. <b>Free, no ads.</b> Similar predictions exist on Fishbrain BiteTime, BassForecast, Fishidy, and solunar calendar apps.</div>
     <div class="bs-warn" id="bs-warn"></div>
   </div>
 
@@ -1851,14 +1866,13 @@
 })();
 </script>
 <script>
-/* ===== BITE SCORE v2 — pro-grade 7-day with live "now" score ===== */
+/* ===== BITE SCORE v3 — bar-list rendering, same algorithm ===== */
 (function(){
   var dataEl = document.getElementById('bs-data');
   if(!dataEl) return;
   var DATA;
   try { DATA = JSON.parse(dataEl.textContent); } catch(e) { return; }
 
-  // ---- helpers ----
   function hhmmToMin(s){ if(!s||!/^\d{1,2}:\d{2}$/.test(s)) return null; var p=s.split(':'); return parseInt(p[0],10)*60+parseInt(p[1],10); }
   function fmtTime(m){ m=((m%1440)+1440)%1440; var h=Math.floor(m/60), mi=m%60; var ap=h>=12?'PM':'AM'; var hh=h%12||12; return hh+':'+(mi<10?'0':'')+mi+' '+ap; }
   function nowMin(){ var d=new Date(); return d.getHours()*60+d.getMinutes(); }
@@ -1871,86 +1885,80 @@
     if(s>=35) return {tier:'tough', text:'Tough day', emoji:'🟠'};
     return         {tier:'skip', text:'Save the gas', emoji:'🔴'};
   }
+  function dateShort(iso){
+    // "2026-04-26" -> "Apr 26"
+    var p = iso.split('-');
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[parseInt(p[1],10)-1] + ' ' + parseInt(p[2],10);
+  }
 
-  // ---- Render the 7-day row from baked scores ----
+  // ---- 7-day bar list ----
   function renderWeek(){
-    var row = document.getElementById('bs-week');
-    if(!row || !DATA.by_day) return;
-    row.innerHTML = '';
+    var list = document.getElementById('bs-week');
+    if(!list || !DATA.by_day) return;
+    list.innerHTML = '';
     DATA.by_day.forEach(function(d){
-      var el = document.createElement('div');
-      el.className = 'bs-day tier-' + (d.tier || 'fair') + (d.is_today ? ' today' : '');
-      el.title = d.reason || '';
-      el.innerHTML =
-        '<div class="bs-day-name">' + d.label + '</div>' +
-        '<div class="bs-day-score">' + d.score + '</div>' +
-        '<div class="bs-day-bar"><i style="width:' + clamp(d.score,0,100) + '%"></i></div>' +
-        '<div class="bs-day-verdict">' + d.verdict + '</div>' +
-        '<div class="bs-day-window">' + (d.best_window ? d.best_window.replace(/ – /g,'–') : '') + '</div>';
-      row.appendChild(el);
+      var row = document.createElement('div');
+      row.className = 'bs-day tier-' + (d.tier || 'fair') + (d.is_today ? ' today' : '');
+      row.title = d.reason || '';
+      var bestShort = d.best_window ? d.best_window.replace(/ – /g,'–').replace(/:00 /g,' ') : '';
+      var todayTag = d.is_today ? '<span class="bs-day-tag">Today</span>' : '';
+      row.innerHTML =
+        '<div class="bs-day-label">' +
+          '<span class="bs-day-name">' + d.label + '</span>' +
+          '<span class="bs-day-date">' + dateShort(d.date) + '</span>' +
+          todayTag +
+        '</div>' +
+        '<div class="bs-meter">' +
+          '<div class="bs-track"><div class="bs-fill" style="width:' + clamp(d.score,0,100) + '%"></div></div>' +
+          '<div class="bs-num">' + d.score + '<span class="bs-num-of">/100</span></div>' +
+        '</div>' +
+        '<div class="bs-meta">' +
+          '<span class="bs-verd">' + d.verdict + '</span>' +
+          '<span class="bs-best">Best ' + bestShort + '</span>' +
+        '</div>';
+      list.appendChild(row);
     });
   }
 
-  // ---- Live "now" score for today using hourly data ----
-  // Pro-grade compact algorithm, scaled per-hour from the day's baseline.
+  // ---- live "now" score (today only) ----
   function liveNowScore(){
     var today = (DATA.by_day || []).find(function(d){return d.is_today;});
     if(!today) return null;
     var hourly = DATA.today_hourly || [];
-    if(!hourly.length) return today.score;
+    if(!hourly.length) return { score: today.score, why: 'baseline day score' };
 
     var min = nowMin();
     var hourIdx = Math.round(min/60);
     var hx = hourly.reduce(function(best, h){ return (Math.abs(h.h-hourIdx) < Math.abs(best.h-hourIdx)) ? h : best; }, hourly[0]);
 
-    // Start from the day's baseline score, then adjust ±15 based on hour-specific factors:
-    var s = today.score;
-    var adj = 0, why = [];
-
-    // Solunar overlap right now
-    var ut = hhmmToMin(today.moon_upper);
-    var lt = hhmmToMin(today.moon_lower);
-    var sr = hhmmToMin(today.sunrise);
-    var ss = hhmmToMin(today.sunset);
-    var dUT = nearestDelta(min, ut);
-    var dLT = nearestDelta(min, lt);
-    if(dUT <= 60){ adj += 8; why.push('moon overhead window'); }
-    else if(dLT <= 60){ adj += 5; why.push('moon underfoot window'); }
-    if(sr != null && Math.abs(min-sr) <= 90){ adj += 4; why.push('dawn'); }
-    else if(ss != null && Math.abs(min-ss) <= 90){ adj += 4; why.push('dusk'); }
-
-    // Cloud-cover-right-now nudge (overcast now > avg)
-    if(hx.cloud_pct >= 60){ adj += 2; why.push(hx.cloud_pct + '% cloud'); }
-    else if(hx.cloud_pct <= 15){ adj -= 2; }
-
-    // Wind right now
-    if(hx.wind_mph >= 5 && hx.wind_mph <= 15){ adj += 2; }
-    else if(hx.wind_mph > 20){ adj -= 4; why.push('high wind'); }
-
-    // Midday penalty (12-2 PM in summer/spring with sun)
-    if(min >= 720 && min <= 840 && hx.cloud_pct < 40){ adj -= 3; }
-
-    s = clamp(Math.round(s + adj), 0, 100);
+    var s = today.score, why = [];
+    var ut = hhmmToMin(today.moon_upper), lt = hhmmToMin(today.moon_lower);
+    var sr = hhmmToMin(today.sunrise), ss = hhmmToMin(today.sunset);
+    var dUT = nearestDelta(min, ut), dLT = nearestDelta(min, lt);
+    if(dUT <= 60){ s += 8; why.push('moon overhead'); }
+    else if(dLT <= 60){ s += 5; why.push('moon underfoot'); }
+    if(sr != null && Math.abs(min-sr) <= 90){ s += 4; why.push('dawn'); }
+    else if(ss != null && Math.abs(min-ss) <= 90){ s += 4; why.push('dusk'); }
+    if(hx.cloud_pct >= 60){ s += 2; why.push(hx.cloud_pct + '% cloud'); }
+    else if(hx.cloud_pct <= 15){ s -= 2; }
+    if(hx.wind_mph >= 5 && hx.wind_mph <= 15){ s += 2; }
+    else if(hx.wind_mph > 20){ s -= 4; why.push('high wind'); }
+    if(min >= 720 && min <= 840 && hx.cloud_pct < 40){ s -= 3; }
+    s = clamp(Math.round(s), 0, 100);
     return { score: s, why: why.length ? why.join(' · ') : 'baseline day score' };
   }
 
-  // ---- Best windows today (computed from hourly + today's baseline) ----
   function bestWindowsToday(){
     var hourly = DATA.today_hourly || [];
     if(!hourly.length) return [];
     var today = (DATA.by_day || []).find(function(d){return d.is_today;});
     if(!today) return [];
-
-    // Score each hour using a simple per-hour function around the day baseline
-    var ut = hhmmToMin(today.moon_upper);
-    var lt = hhmmToMin(today.moon_lower);
-    var sr = hhmmToMin(today.sunrise);
-    var ss = hhmmToMin(today.sunset);
+    var ut = hhmmToMin(today.moon_upper), lt = hhmmToMin(today.moon_lower);
+    var sr = hhmmToMin(today.sunrise), ss = hhmmToMin(today.sunset);
     var grid = [];
     for(var i=0;i<hourly.length;i++){
-      var h = hourly[i];
-      var min = h.h * 60;
-      var s = today.score, why = '';
+      var h = hourly[i], min = h.h * 60, s = today.score, why = '';
       var dUT = nearestDelta(min, ut), dLT = nearestDelta(min, lt);
       if(dUT <= 60){ s += 8; why = 'moon overhead'; }
       else if(dLT <= 60){ s += 5; why = 'moon underfoot'; }
@@ -1963,8 +1971,6 @@
       if(h.h >= 12 && h.h <= 14 && h.cloud_pct < 40){ s -= 3; }
       grid.push({ h: h.h, s: clamp(Math.round(s), 0, 100), why: why || 'steady' });
     }
-
-    // Find top 3 non-overlapping peaks (≥3 hours apart)
     var sorted = grid.slice().sort(function(a,b){return b.s - a.s;});
     var picks = [];
     for(var i=0;i<sorted.length && picks.length<3;i++){
@@ -1973,31 +1979,37 @@
       picks.push(c);
     }
     picks.sort(function(a,b){return a.h - b.h;});
-
-    // Expand each to a window where score stays within 5 of peak
     return picks.map(function(p){
       var lo = p.h, hi = p.h;
-      for(var k=1;k<=2;k++){
-        var prev = grid.find(function(g){return g.h === p.h-k;});
-        if(prev && prev.s >= p.s - 5) lo = prev.h; else break;
-      }
-      for(var k2=1;k2<=2;k2++){
-        var nx = grid.find(function(g){return g.h === p.h+k2;});
-        if(nx && nx.s >= p.s - 5) hi = nx.h; else break;
-      }
+      for(var k=1;k<=2;k++){ var prev=grid.find(function(g){return g.h === p.h-k;}); if(prev && prev.s >= p.s - 5) lo = prev.h; else break; }
+      for(var k2=1;k2<=2;k2++){ var nx=grid.find(function(g){return g.h === p.h+k2;}); if(nx && nx.s >= p.s - 5) hi = nx.h; else break; }
       return { startMin: lo*60, endMin: (hi+1)*60, score: p.s, reason: p.why };
     });
   }
 
   function renderNow(){
     var n = liveNowScore();
-    var el = document.getElementById('bs-now-score');
-    var dt = document.getElementById('bs-now-detail');
-    if(n && el){
-      el.textContent = n.score;
+    var elScore = document.getElementById('bs-now-score');
+    var elFill  = document.getElementById('bs-now-fill');
+    var elD     = document.getElementById('bs-now-detail');
+    var elNow   = document.getElementById('bs-now');
+    if(n && elScore){
+      elScore.textContent = n.score;
       var t = tierFor(n.score);
       var time = fmtTime(nowMin()).replace(/(AM|PM)/, function(s){return s.toLowerCase();});
-      dt.textContent = t.emoji + ' ' + t.text + ' · ' + time + ' · ' + n.why;
+      elD.textContent = t.emoji + ' ' + t.text + ' · ' + time + ' · ' + n.why;
+      if(elFill){
+        elFill.style.width = n.score + '%';
+        // tier color
+        var grad = {
+          peak:'linear-gradient(90deg,#3da566,#4fc27a)',
+          good:'linear-gradient(90deg,#3da566,#4fc27a)',
+          fair:'linear-gradient(90deg,#d49a3a,#f5b44c)',
+          tough:'linear-gradient(90deg,#c97818,#e89020)',
+          skip:'linear-gradient(90deg,#c75050,#e96464)'
+        };
+        elFill.style.background = grad[t.tier];
+      }
     }
   }
 
@@ -2020,8 +2032,7 @@
           '<div class="bs-win-reason">' + w.reason + '</div>' +
         '</div>' +
         '<div>' +
-          '<div class="bs-win-score">' + w.score + '</div>' +
-          '<span class="bs-win-score-l">/100</span>' +
+          '<div class="bs-win-score">' + w.score + '<span class="bs-win-score-l" style="display:inline;margin-left:2px">/100</span></div>' +
         '</div>';
       list.appendChild(row);
     });
@@ -2031,8 +2042,6 @@
     renderWeek();
     renderNow();
     renderWindows();
-
-    // Stale-data warning
     try {
       var gen = new Date(DATA.generated).getTime();
       var hours = (Date.now() - gen) / 3600000;
