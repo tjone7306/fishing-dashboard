@@ -430,12 +430,21 @@
     <h1>Phoenix Lakes — Fishing Dashboard</h1>
     <div class="sub">Pleasant · Roosevelt · Apache · Canyon · Saguaro · Bartlett</div>
     <span class="date" id="date-badge">Sunday, April 26, 2026</span>
-    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 5:05 PM MST</b></div>
+    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 5:20 PM MST</b></div>
   </header>
 
 
-  <!-- BEST FISHING TIMES (top priority — the single most useful thing on the page) -->
-  <div class="card sol-card" style="margin-top:4px">
+  <!-- 7-DAY OUTLOOK (live from Open-Meteo) -->
+  <div class="card" style="margin-top:4px">
+    <h3>7-Day Outlook</h3>
+    <div class="fcst-grid" id="fcst-7day">
+      <!-- 7 day tiles populated by JS below -->
+    </div>
+    <div class="fcst-pick-line" id="fcst-pick-line">🎯 <b>Pick:</b> <span id="fcst-pick-summary">Loading week ahead…</span></div>
+  </div>
+
+  <!-- BEST FISHING TIMES (today's solunar windows) -->
+  <div class="card sol-card" style="margin-top:12px">
     <div class="sol-header">
       <h3 style="margin:0">Best fishing times</h3>
       <span class="sol-badge b-good">✅ GOOD DAY</span>
@@ -501,15 +510,6 @@
       <span class="hp">💨 <b>WSW 10</b> <span class="mute">peak PM</span></span>
       <span class="hp">💧 <b>0%</b> <span class="mute">sunny</span></span>
     </div>
-  </div>
-
-  <!-- 7-DAY OUTLOOK (live from Open-Meteo) -->
-  <div class="card" style="margin-top:12px">
-    <h3>7-Day Outlook</h3>
-    <div class="fcst-grid" id="fcst-7day">
-      <!-- 7 day tiles populated by JS below -->
-    </div>
-    <div class="fcst-pick-line" id="fcst-pick-line">🎯 <b>Pick:</b> <span id="fcst-pick-summary">Loading week ahead…</span></div>
   </div>
 
   <!-- LAKES -->
