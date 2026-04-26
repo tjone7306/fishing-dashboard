@@ -380,41 +380,8 @@
   .ll-features strong{font-size:.82rem;color:#eef3f1;font-weight:700}
   .ll-features span{font-size:.7rem;color:#9fb3ad;line-height:1.35}
 
-  /* ===== BITE SCORE v4 — circular meter inside 7-Day Outlook tiles ===== */
-  /* small Now+windows card at top */
-  .bs-now-card{background:linear-gradient(180deg,#142336 0%,#0f1c2b 100%);border:1px solid var(--border);border-radius:14px;padding:14px 14px 12px;margin:6px 0 12px;position:relative;overflow:hidden}
-  .bs-now-card::before{content:"";position:absolute;inset:-1px;border-radius:14px;padding:1px;background:linear-gradient(135deg,rgba(94,180,231,.45),rgba(79,194,122,.25) 40%,rgba(245,180,76,.18) 80%,transparent);-webkit-mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.55}
-  .bs-now-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 10px;position:relative;z-index:1}
-  .bs-now-head h3{margin:0;font-size:.94rem;font-weight:800;color:var(--text);letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
-  .bs-now-head h3::before{content:"🎣";font-size:1rem}
-  .bs-now-head .bs-sub{font-size:.7rem;color:var(--muted);font-weight:600;letter-spacing:.6px;text-transform:uppercase}
-  .bs-now{display:flex;align-items:center;gap:11px;flex-wrap:wrap;font-size:.85rem;color:var(--text);position:relative;z-index:1;padding:10px 12px;background:rgba(94,180,231,.07);border:1px solid rgba(94,180,231,.25);border-radius:9px}
-  .bs-now-l{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}
-  .bs-now-bar{flex:1;min-width:120px;height:8px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden}
-  .bs-now-bar > i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#3da566,#4fc27a);transition:width .6s ease,background .3s ease}
-  .bs-now-num{font-size:1.05rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--accent);min-width:64px;text-align:right;letter-spacing:-.02em}
-  .bs-now-num small{font-size:.62rem;font-weight:700;color:var(--muted);letter-spacing:.4px;margin-left:2px}
-  .bs-now-d{font-weight:600;font-size:.74rem;color:var(--muted);flex-basis:100%}
-  /* best fishing windows today list */
-  .bs-windows{margin-top:10px;border-top:1px solid rgba(255,255,255,.06);padding-top:10px;position:relative;z-index:1}
-  .bs-windows-h{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-bottom:7px;display:flex;align-items:center;gap:6px}
-  .bs-windows-h::before{content:"🎯";font-size:.9rem}
-  .bs-win-list{display:grid;gap:5px}
-  .bs-win-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:7px 11px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05)}
-  .bs-win-row.peak{background:linear-gradient(180deg,rgba(79,194,122,.12),rgba(79,194,122,.04));border-color:rgba(79,194,122,.32)}
-  .bs-win-rank{font-size:.66rem;font-weight:800;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;min-width:24px}
-  .bs-win-row.peak .bs-win-rank{color:#9be0b4}
-  .bs-win-time{font-size:.92rem;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;line-height:1.2}
-  .bs-win-reason{font-size:.7rem;color:var(--muted);line-height:1.3;margin-top:1px}
-  .bs-win-score{font-size:.92rem;font-weight:800;font-variant-numeric:tabular-nums;text-align:right;line-height:1}
-  .bs-win-row.peak .bs-win-score{color:#9be0b4}
-  .bs-foot{margin-top:10px;font-size:.66rem;color:var(--muted);line-height:1.5;position:relative;z-index:1}
-  .bs-foot b{color:var(--text);font-weight:600}
-  .bs-warn{display:none;margin-top:8px;padding:7px 10px;background:rgba(245,180,76,.07);border-left:3px solid var(--warn);border-radius:0 7px 7px 0;font-size:.74rem;color:#f0d090;line-height:1.4;position:relative;z-index:1}
-  .bs-warn.show{display:block}
-
-  /* circular meter that lives inside each fcst-tile (the existing 7-Day Outlook) */
-  .fcst-tile{padding-bottom:8px}
+  /* ===== BITE SCORE v5 — circular meter inside 7-Day Outlook tiles only ===== */
+  .fcst-tile{padding-bottom:8px;position:relative}
   .fcst-tile .fcst-bs{margin-top:6px;padding-top:7px;border-top:1px dashed rgba(255,255,255,.07);display:flex;flex-direction:column;align-items:center;gap:2px}
   .fcst-tile .bs-ring{position:relative;width:46px;height:46px;display:inline-block}
   .fcst-tile .bs-ring svg{width:100%;height:100%;display:block}
@@ -423,22 +390,18 @@
   .fcst-tile .bs-ring-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.92rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--text);letter-spacing:-.04em;line-height:1}
   .fcst-tile .bs-ring-of{font-size:.55rem;font-weight:700;color:var(--muted);letter-spacing:.3px;margin-top:1px;text-transform:uppercase}
   .fcst-tile .bs-ring-verd{font-size:.62rem;font-weight:700;letter-spacing:.2px;line-height:1.15;color:var(--muted);margin-top:1px;text-align:center}
-  /* tier coloring on the ring + verdict */
   .fcst-tile.bs-peak  .bs-ring-fill, .fcst-tile.bs-good .bs-ring-fill{stroke:#4fc27a}
-  .fcst-tile.bs-peak  .bs-ring-num, .fcst-tile.bs-good .bs-ring-num{color:#9be0b4}
+  .fcst-tile.bs-peak  .bs-ring-num,  .fcst-tile.bs-good .bs-ring-num {color:#9be0b4}
   .fcst-tile.bs-peak  .bs-ring-verd, .fcst-tile.bs-good .bs-ring-verd{color:#9be0b4}
   .fcst-tile.bs-fair  .bs-ring-fill{stroke:#f5b44c}
-  .fcst-tile.bs-fair  .bs-ring-num{color:#f5d18a}
+  .fcst-tile.bs-fair  .bs-ring-num {color:#f5d18a}
   .fcst-tile.bs-fair  .bs-ring-verd{color:#f5d18a}
   .fcst-tile.bs-tough .bs-ring-fill{stroke:#e89020}
-  .fcst-tile.bs-tough .bs-ring-num{color:#f0b06a}
+  .fcst-tile.bs-tough .bs-ring-num {color:#f0b06a}
   .fcst-tile.bs-tough .bs-ring-verd{color:#f0b06a}
   .fcst-tile.bs-skip  .bs-ring-fill{stroke:#e96464}
-  .fcst-tile.bs-skip  .bs-ring-num{color:#f0a3a3}
+  .fcst-tile.bs-skip  .bs-ring-num {color:#f0a3a3}
   .fcst-tile.bs-skip  .bs-ring-verd{color:#f0a3a3}
-  /* PICK gets the bite-score-driven highlight (already styled) */
-  .fcst-tile.pick::before{content:"BEST";color:var(--good,#4fc27a)}
-  /* compact today badge for the today tile */
   .fcst-tile.is-today::after{content:"TODAY";position:absolute;top:6px;left:6px;font-size:.55rem;font-weight:800;letter-spacing:.6px;color:#0a1420;background:var(--accent);padding:2px 6px;border-radius:5px;text-transform:uppercase;line-height:1}
   @media (max-width:540px){
     .fcst-tile .bs-ring{width:40px;height:40px}
@@ -467,31 +430,11 @@
     <h1>Phoenix Lakes — Fishing Dashboard</h1>
     <div class="sub">Pleasant · Roosevelt · Apache · Canyon · Saguaro · Bartlett</div>
     <span class="date" id="date-badge">Sunday, April 26, 2026</span>
-    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 4:50 PM MST</b></div>
+    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 5:05 PM MST</b></div>
   </header>
 
 
-  <!-- ===== BITE SCORE v4 — compact "now" card; meters live inside 7-Day Outlook ===== -->
-  <div id="bs-card" class="bs-now-card" role="region" aria-label="Bite Score now and best windows">
-    <div class="bs-now-head">
-      <h3>Bite Score now</h3>
-      <span class="bs-sub">0–100 · See ring on each day in 7-day outlook</span>
-    </div>
-    <div class="bs-now" id="bs-now">
-      <span class="bs-now-l">Now</span>
-      <div class="bs-now-bar"><i id="bs-now-fill" style="width:0%"></i></div>
-      <span class="bs-now-num"><span id="bs-now-score">--</span><small>/100</small></span>
-      <span class="bs-now-d" id="bs-now-detail">computing live score…</span>
-    </div>
-    <div class="bs-windows">
-      <div class="bs-windows-h">Best fishing windows today</div>
-      <div class="bs-win-list" id="bs-win-list"></div>
-    </div>
-    <div class="bs-foot">Score 0–100, pro-grade weighting: <b>front timing 25</b>, <b>moon &amp; solunar 20</b>, <b>wind dir + speed 15</b>, <b>cloud cover 15</b>, <b>water-temp species fit 15</b>, <b>weather stability 10</b>. Targeted at largemouth bass. Hyperlocal Phoenix data only — Salt + Verde reservoirs, exact CFS, KPHX baro/trend, USNO solunar. Free, no ads.</div>
-    <div class="bs-warn" id="bs-warn"></div>
-  </div>
-
-  <!-- Solunar windows (detail, supports the Bite Score above) -->
+  <!-- BEST FISHING TIMES (top priority — the single most useful thing on the page) -->
   <div class="card sol-card" style="margin-top:4px">
     <div class="sol-header">
       <h3 style="margin:0">Best fishing times</h3>
@@ -1847,24 +1790,19 @@
 })();
 </script>
 <script>
-/* ===== BITE SCORE v4 — Now card + circular meters inside 7-Day Outlook ===== */
+/* ===== BITE SCORE v5 — circular meter only (in each 7-Day Outlook tile) ===== */
 (function(){
   var dataEl = document.getElementById('bs-data');
   if(!dataEl) return;
   var DATA;
   try { DATA = JSON.parse(dataEl.textContent); } catch(e) { return; }
-
-  function hhmmToMin(s){ if(!s||!/^\d{1,2}:\d{2}$/.test(s)) return null; var p=s.split(':'); return parseInt(p[0],10)*60+parseInt(p[1],10); }
-  function fmtTime(m){ m=((m%1440)+1440)%1440; var h=Math.floor(m/60), mi=m%60; var ap=h>=12?'PM':'AM'; var hh=h%12||12; return hh+':'+(mi<10?'0':'')+mi+' '+ap; }
-  function nowMin(){ var d=new Date(); return d.getHours()*60+d.getMinutes(); }
-  function nearestDelta(t,ref){ if(ref==null) return 9999; var d1=Math.abs(t-ref), d2=1440-d1; return Math.min(d1,d2); }
   function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v));}
   function tierFor(s){
-    if(s>=85) return {tier:'peak', text:'Drop everything', emoji:'🟢'};
-    if(s>=70) return {tier:'good', text:'Solid bite', emoji:'🟢'};
-    if(s>=55) return {tier:'fair', text:'Workable', emoji:'🟡'};
-    if(s>=35) return {tier:'tough', text:'Tough day', emoji:'🟠'};
-    return         {tier:'skip', text:'Save the gas', emoji:'🔴'};
+    if(s>=85) return 'peak';
+    if(s>=70) return 'good';
+    if(s>=55) return 'fair';
+    if(s>=35) return 'tough';
+    return 'skip';
   }
   function shortVerdict(s){
     if(s>=85) return 'Drop everything';
@@ -1874,131 +1812,17 @@
     return 'Save the gas';
   }
 
-  // ============================================================
-  // PART A: live "now" score + best windows today (small card at top)
-  // ============================================================
-  function liveNowScore(){
-    var today = (DATA.by_day || []).find(function(d){return d.is_today;});
-    if(!today) return null;
-    var hourly = DATA.today_hourly || [];
-    if(!hourly.length) return { score: today.score, why: 'baseline day score' };
-    var min = nowMin();
-    var hourIdx = Math.round(min/60);
-    var hx = hourly.reduce(function(best,h){ return (Math.abs(h.h-hourIdx) < Math.abs(best.h-hourIdx)) ? h : best; }, hourly[0]);
-    var s = today.score, why = [];
-    var ut = hhmmToMin(today.moon_upper), lt = hhmmToMin(today.moon_lower);
-    var sr = hhmmToMin(today.sunrise), ss = hhmmToMin(today.sunset);
-    var dUT = nearestDelta(min, ut), dLT = nearestDelta(min, lt);
-    if(dUT <= 60){ s += 8; why.push('moon overhead'); }
-    else if(dLT <= 60){ s += 5; why.push('moon underfoot'); }
-    if(sr != null && Math.abs(min-sr) <= 90){ s += 4; why.push('dawn'); }
-    else if(ss != null && Math.abs(min-ss) <= 90){ s += 4; why.push('dusk'); }
-    if(hx.cloud_pct >= 60){ s += 2; why.push(hx.cloud_pct + '% cloud'); }
-    else if(hx.cloud_pct <= 15){ s -= 2; }
-    if(hx.wind_mph >= 5 && hx.wind_mph <= 15){ s += 2; }
-    else if(hx.wind_mph > 20){ s -= 4; why.push('high wind'); }
-    if(min >= 720 && min <= 840 && hx.cloud_pct < 40){ s -= 3; }
-    s = clamp(Math.round(s), 0, 100);
-    return { score: s, why: why.length ? why.join(' · ') : 'baseline day score' };
-  }
-
-  function bestWindowsToday(){
-    var hourly = DATA.today_hourly || [];
-    if(!hourly.length) return [];
-    var today = (DATA.by_day || []).find(function(d){return d.is_today;});
-    if(!today) return [];
-    var ut = hhmmToMin(today.moon_upper), lt = hhmmToMin(today.moon_lower);
-    var sr = hhmmToMin(today.sunrise), ss = hhmmToMin(today.sunset);
-    var grid = [];
-    for(var i=0;i<hourly.length;i++){
-      var h = hourly[i], min = h.h*60, s = today.score, why = '';
-      var dUT = nearestDelta(min, ut), dLT = nearestDelta(min, lt);
-      if(dUT <= 60){ s += 8; why = 'moon overhead'; }
-      else if(dLT <= 60){ s += 5; why = 'moon underfoot'; }
-      if(sr != null && Math.abs(min-sr) <= 90){ s += 4; why = (why? why+' + dawn' : 'dawn'); }
-      else if(ss != null && Math.abs(min-ss) <= 90){ s += 4; why = (why? why+' + dusk' : 'dusk'); }
-      if(h.cloud_pct >= 60){ s += 2; }
-      else if(h.cloud_pct <= 15){ s -= 2; }
-      if(h.wind_mph >= 5 && h.wind_mph <= 15){ s += 2; }
-      else if(h.wind_mph > 20){ s -= 4; }
-      if(h.h >= 12 && h.h <= 14 && h.cloud_pct < 40){ s -= 3; }
-      grid.push({ h: h.h, s: clamp(Math.round(s),0,100), why: why || 'steady' });
-    }
-    var sorted = grid.slice().sort(function(a,b){return b.s - a.s;});
-    var picks = [];
-    for(var i=0;i<sorted.length && picks.length<3;i++){
-      var c = sorted[i];
-      if(picks.some(function(p){ return Math.abs(p.h - c.h) < 3; })) continue;
-      picks.push(c);
-    }
-    picks.sort(function(a,b){return a.h - b.h;});
-    return picks.map(function(p){
-      var lo = p.h, hi = p.h;
-      for(var k=1;k<=2;k++){ var prev=grid.find(function(g){return g.h === p.h-k;}); if(prev && prev.s >= p.s - 5) lo = prev.h; else break; }
-      for(var k2=1;k2<=2;k2++){ var nx=grid.find(function(g){return g.h === p.h+k2;}); if(nx && nx.s >= p.s - 5) hi = nx.h; else break; }
-      return { startMin: lo*60, endMin: (hi+1)*60, score: p.s, reason: p.why };
-    });
-  }
-
-  function renderNow(){
-    var n = liveNowScore();
-    var elScore = document.getElementById('bs-now-score');
-    var elFill  = document.getElementById('bs-now-fill');
-    var elD     = document.getElementById('bs-now-detail');
-    if(!n || !elScore) return;
-    elScore.textContent = n.score;
-    var t = tierFor(n.score);
-    var time = fmtTime(nowMin()).replace(/(AM|PM)/, function(s){return s.toLowerCase();});
-    elD.textContent = t.emoji + ' ' + t.text + ' · ' + time + ' · ' + n.why;
-    if(elFill){
-      elFill.style.width = n.score + '%';
-      var grad = {peak:'linear-gradient(90deg,#3da566,#4fc27a)',good:'linear-gradient(90deg,#3da566,#4fc27a)',fair:'linear-gradient(90deg,#d49a3a,#f5b44c)',tough:'linear-gradient(90deg,#c97818,#e89020)',skip:'linear-gradient(90deg,#c75050,#e96464)'};
-      elFill.style.background = grad[t.tier];
-    }
-  }
-
-  function renderWindows(){
-    var list = document.getElementById('bs-win-list');
-    if(!list) return;
-    var wins = bestWindowsToday();
-    list.innerHTML = '';
-    if(!wins.length){
-      list.innerHTML = '<div class="bs-win-row"><span class="bs-win-rank">—</span><div class="bs-win-time">No hourly data available</div><div></div></div>';
-      return;
-    }
-    wins.forEach(function(w, idx){
-      var row = document.createElement('div');
-      row.className = 'bs-win-row' + (idx===0 ? ' peak' : '');
-      row.innerHTML =
-        '<span class="bs-win-rank">#' + (idx+1) + '</span>' +
-        '<div>' +
-          '<div class="bs-win-time">' + fmtTime(w.startMin) + ' – ' + fmtTime(w.endMin) + '</div>' +
-          '<div class="bs-win-reason">' + w.reason + '</div>' +
-        '</div>' +
-        '<div>' +
-          '<div class="bs-win-score">' + w.score + '<span style="font-size:.6rem;font-weight:700;color:var(--muted);margin-left:2px">/100</span></div>' +
-        '</div>';
-      list.appendChild(row);
-    });
-  }
-
-  // ============================================================
-  // PART B: Decorate each .fcst-tile with a circular meter ring.
-  //         Override the existing "PICK" highlight to use bite score.
-  // ============================================================
   function decorateOutlookTiles(){
     var grid = document.getElementById('fcst-7day');
     if(!grid) return false;
     var tiles = grid.querySelectorAll('.fcst-tile');
     if(tiles.length === 0) return false;
 
-    // Match by index — Open-Meteo daily array starts today, same as DATA.by_day
-    var bestIdx = -1, bestScore = -1;
     var byDay = DATA.by_day || [];
+    var bestIdx = -1, bestScore = -1;
 
     tiles.forEach(function(tile){
-      // skip if already decorated
-      if(tile.querySelector('.fcst-bs')) return;
+      if(tile.querySelector('.fcst-bs')) return; // already decorated
       var i = parseInt(tile.getAttribute('data-i'), 10);
       if(isNaN(i) || i >= byDay.length) return;
       var d = byDay[i];
@@ -2006,15 +1830,14 @@
       var s = d.score;
       if(s > bestScore){ bestScore = s; bestIdx = i; }
 
-      var t = tierFor(s);
-      tile.classList.add('bs-' + t.tier);
+      var tier = tierFor(s);
+      tile.classList.add('bs-' + tier);
       if(d.is_today) tile.classList.add('is-today');
 
-      // Hide the daily baro (less informative than the bite score, redundant with our pressure factor)
+      // Hide the daily baro (the bite score already encodes pressure trend)
       var baro = tile.querySelector('.fcst-baro');
       if(baro) baro.style.display = 'none';
 
-      // Inject ring + verdict label
       var bs = document.createElement('div');
       bs.className = 'fcst-bs';
       bs.title = (d.reason || '') + (d.best_window ? ' · best ' + d.best_window : '');
@@ -2031,34 +1854,30 @@
       tile.appendChild(bs);
     });
 
-    // Override the existing weather-driven "pick" to be bite-score-driven
+    // Override the existing weather-driven "pick" with a bite-score-driven one
     grid.querySelectorAll('.fcst-tile.pick').forEach(function(t){ t.classList.remove('pick'); });
     if(bestIdx >= 0){
       var pickTile = grid.querySelector('[data-i="' + bestIdx + '"]');
       if(pickTile) pickTile.classList.add('pick');
-      // Update the pick summary line
       var pickEl = document.getElementById('fcst-pick-summary');
       if(pickEl){
         var d = byDay[bestIdx];
         var when = d.is_today ? 'today' : (bestIdx===1 ? 'tomorrow' : d.label);
-        pickEl.innerHTML = '<b>' + d.label + '</b> (' + when + ') — Bite Score <b>' + d.score + '/100</b> · ' + d.reason;
+        pickEl.innerHTML = '<b>' + d.label + '</b> (' + when + ') — Bite Score <b>' + d.score + '/100</b> · ' + (d.reason || '');
       }
     }
     return true;
   }
 
-  // The 7-Day Outlook tiles are populated by another async fetch.
-  // Watch for them to appear, then decorate. Re-decorate on any future re-render.
   function watchOutlook(){
     var grid = document.getElementById('fcst-7day');
     if(!grid) return;
-    if(decorateOutlookTiles()) return; // already there
+    if(decorateOutlookTiles()) return;
     var tries = 0;
     var iv = setInterval(function(){
       tries++;
       if(decorateOutlookTiles() || tries > 30) clearInterval(iv);
     }, 500);
-    // also via MutationObserver in case fetch resolves later
     try {
       var obs = new MutationObserver(function(){
         if(decorateOutlookTiles()){ obs.disconnect(); clearInterval(iv); }
@@ -2067,27 +1886,11 @@
     } catch(e){}
   }
 
-  function renderAll(){
-    renderNow();
-    renderWindows();
-    watchOutlook();
-    try {
-      var gen = new Date(DATA.generated).getTime();
-      var hours = (Date.now() - gen) / 3600000;
-      var warn = document.getElementById('bs-warn');
-      if (hours > 12 && warn) {
-        warn.classList.add('show');
-        warn.textContent = 'Underlying data is ' + Math.round(hours) + 'h old — score may be stale until next refresh.';
-      }
-    } catch(e){}
-  }
-
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', renderAll);
+    document.addEventListener('DOMContentLoaded', watchOutlook);
   } else {
-    renderAll();
+    watchOutlook();
   }
-  setInterval(function(){ renderNow(); }, 60 * 1000);
 })();
 </script>
 </body>
