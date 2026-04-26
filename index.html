@@ -380,61 +380,71 @@
   .ll-features strong{font-size:.82rem;color:#eef3f1;font-weight:700}
   .ll-features span{font-size:.7rem;color:#9fb3ad;line-height:1.35}
 
-  /* ===== BITE SCORE — hero card with circular ring ===== */
-  .bs-card{background:linear-gradient(180deg,#162334 0%,#0f1c2b 100%);border:1px solid var(--border);border-radius:14px;padding:18px 16px 16px;margin:6px 0 12px;position:relative;overflow:hidden}
+  /* ===== BITE SCORE v2 — 7-day row + best windows ===== */
+  .bs-card{background:linear-gradient(180deg,#162334 0%,#0f1c2b 100%);border:1px solid var(--border);border-radius:14px;padding:16px 14px 14px;margin:6px 0 12px;position:relative;overflow:hidden}
   .bs-card::before{content:"";position:absolute;inset:-1px;border-radius:14px;padding:1px;background:linear-gradient(135deg,rgba(94,180,231,.45),rgba(79,194,122,.25) 40%,rgba(245,180,76,.18) 80%,transparent);-webkit-mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.55}
-  .bs-grid{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;position:relative;z-index:1}
-  @media (max-width:520px){.bs-grid{grid-template-columns:auto 1fr;gap:14px}}
-  .bs-ring{position:relative;width:128px;height:128px;flex-shrink:0}
-  @media (max-width:520px){.bs-ring{width:104px;height:104px}}
-  .bs-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
-  .bs-ring .bs-track{fill:none;stroke:rgba(255,255,255,.08);stroke-width:10}
-  .bs-ring .bs-fill{fill:none;stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .6s ease,stroke .3s ease}
-  .bs-ring .bs-num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
-  .bs-ring .bs-num b{font-size:2.4rem;font-weight:800;line-height:1;color:var(--text)}
-  @media (max-width:520px){.bs-ring .bs-num b{font-size:2rem}}
-  .bs-ring .bs-num span{font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);font-weight:700;margin-top:3px}
-  /* tier colors on the ring + headline */
-  .bs-card.tier-peak  .bs-fill{stroke:#4fc27a}
-  .bs-card.tier-good  .bs-fill{stroke:#4fc27a}
-  .bs-card.tier-fair  .bs-fill{stroke:#f5b44c}
-  .bs-card.tier-tough .bs-fill{stroke:#e89020}
-  .bs-card.tier-skip  .bs-fill{stroke:#e96464}
-  .bs-headline{display:flex;flex-direction:column;gap:5px;min-width:0}
-  .bs-eyebrow{font-size:.66rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-  .bs-eyebrow .bs-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 rgba(79,194,122,.6);animation:bs-pulse 2.4s infinite}
+  .bs-head{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 11px;gap:10px;flex-wrap:wrap;position:relative;z-index:1}
+  .bs-head h3{margin:0;font-size:.92rem;font-weight:800;color:var(--text);letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+  .bs-head h3 .bs-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 rgba(79,194,122,.6);animation:bs-pulse 2.4s infinite}
   @keyframes bs-pulse{0%{box-shadow:0 0 0 0 rgba(79,194,122,.55)}70%{box-shadow:0 0 0 7px rgba(79,194,122,0)}100%{box-shadow:0 0 0 0 rgba(79,194,122,0)}}
-  .bs-card.tier-tough .bs-dot,.bs-card.tier-skip .bs-dot{background:#e96464;box-shadow:0 0 0 0 rgba(233,100,100,.55);animation-name:bs-pulse-bad}
-  @keyframes bs-pulse-bad{0%{box-shadow:0 0 0 0 rgba(233,100,100,.55)}70%{box-shadow:0 0 0 7px rgba(233,100,100,0)}100%{box-shadow:0 0 0 0 rgba(233,100,100,0)}}
-  .bs-verdict{font-size:1.18rem;font-weight:800;line-height:1.2;color:var(--text);letter-spacing:-.01em}
-  @media (max-width:520px){.bs-verdict{font-size:1.05rem}}
-  .bs-card.tier-peak .bs-verdict, .bs-card.tier-good .bs-verdict{color:#9be0b4}
-  .bs-card.tier-fair .bs-verdict{color:#f5d18a}
-  .bs-card.tier-tough .bs-verdict{color:#f0b06a}
-  .bs-card.tier-skip .bs-verdict{color:#f0a3a3}
-  .bs-window{font-size:.86rem;color:var(--text);line-height:1.4}
-  .bs-window b{font-weight:700;color:var(--accent)}
-  .bs-factors{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
-  .bs-chip{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:999px;font-size:.7rem;font-weight:600;border:1px solid rgba(255,255,255,.08);background:var(--surface-2);color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
-  .bs-chip.pos{color:#9be0b4;border-color:rgba(79,194,122,.3);background:rgba(79,194,122,.08)}
-  .bs-chip.neg{color:#f0a3a3;border-color:rgba(233,100,100,.3);background:rgba(233,100,100,.08)}
+  .bs-head .bs-sub{font-size:.74rem;color:var(--muted);font-weight:500}
+  /* 7-day row */
+  .bs-row{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;position:relative;z-index:1}
+  .bs-day{position:relative;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;padding:9px 6px 9px;display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;min-width:0;overflow:hidden;cursor:default}
+  .bs-day.today{border-color:rgba(94,180,231,.55);background:linear-gradient(180deg,rgba(94,180,231,.08),var(--surface-2))}
+  .bs-day.today::before{content:"TODAY";position:absolute;top:0;right:0;font-size:.55rem;font-weight:800;letter-spacing:.7px;color:#0a1420;background:var(--accent);padding:2px 7px 2px 8px;border-bottom-left-radius:8px}
+  .bs-day-name{font-size:.74rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+  .bs-day.today .bs-day-name{color:var(--accent)}
+  .bs-day-score{font-size:1.7rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;color:var(--text);margin:1px 0 1px}
+  @media (max-width:480px){.bs-day-score{font-size:1.45rem}}
+  .bs-day-score-of{font-size:.6rem;font-weight:700;color:var(--muted);letter-spacing:.4px;margin-top:-3px;text-transform:uppercase}
+  .bs-day.tier-peak  .bs-day-score{color:#9be0b4}
+  .bs-day.tier-good  .bs-day-score{color:#9be0b4}
+  .bs-day.tier-fair  .bs-day-score{color:#f5d18a}
+  .bs-day.tier-tough .bs-day-score{color:#f0b06a}
+  .bs-day.tier-skip  .bs-day-score{color:#f0a3a3}
+  .bs-day-bar{width:80%;height:3px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:2px}
+  .bs-day-bar > i{display:block;height:100%;border-radius:999px;background:var(--accent)}
+  .bs-day.tier-peak .bs-day-bar > i, .bs-day.tier-good .bs-day-bar > i{background:#4fc27a}
+  .bs-day.tier-fair .bs-day-bar > i{background:#f5b44c}
+  .bs-day.tier-tough .bs-day-bar > i{background:#e89020}
+  .bs-day.tier-skip  .bs-day-bar > i{background:#e96464}
+  .bs-day-verdict{font-size:.62rem;font-weight:700;letter-spacing:.3px;color:var(--muted);margin-top:2px;line-height:1.25;min-height:2.2em;display:flex;align-items:center;justify-content:center}
+  .bs-day.tier-peak .bs-day-verdict, .bs-day.tier-good .bs-day-verdict{color:#9be0b4}
+  .bs-day.tier-fair .bs-day-verdict{color:#f5d18a}
+  .bs-day.tier-tough .bs-day-verdict{color:#f0b06a}
+  .bs-day.tier-skip .bs-day-verdict{color:#f0a3a3}
+  .bs-day-window{font-size:.62rem;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1.25;margin-top:1px;min-height:1.4em}
+  /* mobile: scroll horizontally on very narrow screens */
+  @media (max-width:520px){
+    .bs-row{grid-template-columns:repeat(7,minmax(70px,1fr));overflow-x:auto;scrollbar-width:none;padding-bottom:2px;-webkit-overflow-scrolling:touch}
+    .bs-row::-webkit-scrollbar{display:none}
+    .bs-day{padding:8px 4px 8px}
+    .bs-day-score{font-size:1.35rem}
+    .bs-day::before{font-size:.5rem;padding:2px 5px}
+  }
+  /* Today's now-score chip */
+  .bs-now{margin-top:10px;padding:9px 11px;border-radius:9px;background:rgba(94,180,231,.07);border:1px solid rgba(94,180,231,.22);display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:.82rem;color:var(--text);position:relative;z-index:1}
+  .bs-now b{font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+  .bs-now .bs-now-l{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+  .bs-now .bs-now-d{font-weight:600;font-size:.72rem;color:var(--muted)}
   /* Best windows mini-list */
-  .bs-windows{margin-top:14px;border-top:1px solid rgba(255,255,255,.06);padding-top:12px}
+  .bs-windows{margin-top:12px;border-top:1px solid rgba(255,255,255,.06);padding-top:11px;position:relative;z-index:1}
   .bs-windows-h{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px}
   .bs-windows-h::before{content:"🎯";font-size:.9rem}
   .bs-win-list{display:grid;gap:7px}
   .bs-win-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:9px 11px;border-radius:9px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05)}
   .bs-win-row.peak{background:linear-gradient(180deg,rgba(79,194,122,.12),rgba(79,194,122,.04));border-color:rgba(79,194,122,.32)}
-  .bs-win-rank{font-size:.66rem;font-weight:800;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;font-variant-numeric:tabular-nums;min-width:34px}
+  .bs-win-rank{font-size:.66rem;font-weight:800;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;font-variant-numeric:tabular-nums;min-width:28px}
   .bs-win-row.peak .bs-win-rank{color:#9be0b4}
   .bs-win-time{font-size:.94rem;font-weight:700;color:var(--text);line-height:1.2;font-variant-numeric:tabular-nums}
   .bs-win-reason{font-size:.74rem;color:var(--muted);line-height:1.3;margin-top:2px}
   .bs-win-score{font-size:.92rem;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;text-align:right;line-height:1}
   .bs-win-score-l{font-size:.6rem;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;text-align:right;display:block;margin-top:2px}
   .bs-win-row.peak .bs-win-score{color:#9be0b4}
-  .bs-foot{margin-top:10px;font-size:.72rem;color:var(--muted);line-height:1.5}
+  .bs-foot{margin-top:10px;font-size:.7rem;color:var(--muted);line-height:1.5;position:relative;z-index:1}
   .bs-foot b{color:var(--text);font-weight:600}
-  .bs-warn{display:none;margin-top:8px;padding:7px 10px;background:rgba(245,180,76,.07);border-left:3px solid var(--warn);border-radius:0 7px 7px 0;font-size:.76rem;color:#f0d090;line-height:1.4}
+  .bs-warn{display:none;margin-top:8px;padding:7px 10px;background:rgba(245,180,76,.07);border-left:3px solid var(--warn);border-radius:0 7px 7px 0;font-size:.76rem;color:#f0d090;line-height:1.4;position:relative;z-index:1}
   .bs-warn.show{display:block}
 </style>
 </head>
@@ -459,32 +469,29 @@
     <h1>Phoenix Lakes — Fishing Dashboard</h1>
     <div class="sub">Pleasant · Roosevelt · Apache · Canyon · Saguaro · Bartlett</div>
     <span class="date" id="date-badge">Sunday, April 26, 2026</span>
-    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 12:18 PM MST</b></div>
+    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 4:05 PM MST</b></div>
   </header>
 
 
-  <!-- ===== BITE SCORE (live, computed in-browser) ===== -->
-  <div id="bs-card" class="bs-card tier-fair" role="region" aria-label="Bite Score">
-    <div class="bs-grid">
-      <div class="bs-ring" aria-live="polite">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <circle class="bs-track" cx="60" cy="60" r="52"/>
-          <circle class="bs-fill" id="bs-fill" cx="60" cy="60" r="52" stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
-        </svg>
-        <div class="bs-num"><b id="bs-num">--</b><span id="bs-num-of">/ 100</span></div>
-      </div>
-      <div class="bs-headline">
-        <div class="bs-eyebrow"><span class="bs-dot"></span><span>Bite Score · live now</span></div>
-        <div class="bs-verdict" id="bs-verdict">Computing…</div>
-        <div class="bs-window" id="bs-window">Best window today: <b>—</b></div>
-        <div class="bs-factors" id="bs-factors"><span class="bs-chip">loading factors…</span></div>
-      </div>
+  <!-- ===== BITE SCORE v2 — 7-day pro-grade row ===== -->
+  <div id="bs-card" class="bs-card" role="region" aria-label="Bite Score 7-day forecast">
+    <div class="bs-head">
+      <h3><span class="bs-dot"></span><span>Bite Score · 7 days</span></h3>
+      <span class="bs-sub">Pro-grade weighting · Phoenix-area hyperlocal</span>
+    </div>
+    <div class="bs-row" id="bs-week">
+      <!-- populated by JS from <script id=bs-data> -->
+    </div>
+    <div class="bs-now" id="bs-now">
+      <span class="bs-now-l">Right now</span>
+      <span><b id="bs-now-score">--</b><span class="bs-now-l" style="margin-left:5px">/ 100</span></span>
+      <span class="bs-now-d" id="bs-now-detail">computing live score…</span>
     </div>
     <div class="bs-windows">
       <div class="bs-windows-h">Best fishing windows today</div>
-      <div class="bs-win-list" id="bs-win-list"><div class="bs-win-row"><span class="bs-win-rank">—</span><div><div class="bs-win-time">Loading…</div></div><div></div></div></div>
+      <div class="bs-win-list" id="bs-win-list"></div>
     </div>
-    <div class="bs-foot">Score: 30 solunar · 25 baro · 20 cloud · 15 wind · 10 temp. Hyperlocal Phoenix data — Salt + Verde reservoirs, exact CFS, KPHX baro, USNO solunar. <b>Free, no ads.</b> Similar predictions exist on Fishbrain BiteTime, BassForecast, Fishidy, and solunar calendar apps — this just runs on your local watershed data.</div>
+    <div class="bs-foot">Pro-grade scoring weighs <b>front timing</b> (25), <b>moon &amp; solunar</b> (20), <b>wind direction + speed</b> (15), <b>cloud cover</b> (15), <b>water-temp species fit</b> (15), and <b>weather stability</b> (10). Targeted at largemouth bass — Phoenix-area's most-caught species. Hyperlocal data only: Salt + Verde reservoirs, exact CFS, KPHX baro/trend, USNO solunar. <b>Free, no ads.</b> Similar predictions exist on Fishbrain BiteTime, BassForecast, Fishidy, and solunar calendar apps.</div>
     <div class="bs-warn" id="bs-warn"></div>
   </div>
 
@@ -935,40 +942,127 @@
 
 <script id="bs-data" type="application/json">
 {
-  "generated": "2026-04-26T12:07:00-07:00",
-  "sun":     { "rise": "05:45", "set": "19:07" },
-  "moon": {
-    "rise":          "14:41",
-    "set":           "03:04",
-    "upper_transit": "21:10",
-    "lower_transit": "09:10",
-    "phase":         "Waxing Gibbous",
-    "illum_pct":     77
+  "generated":  "2026-04-26T15:55:00-07:00",
+  "version":    2,
+  "today_date": "2026-04-26",
+  "baro_now": {
+    "now_inhg":      29.79,
+    "trend_6h_inhg": -0.05,
+    "trend_24h_inhg": 0.07,
+    "trend_label":   "falling-moderate"
   },
-  "baro": {
-    "now_inhg":      29.84,
-    "trend_6h_inhg": 0.00,
-    "trend_label":   "stable"
-  },
-  "wx_hourly": [
-    { "h":  6, "temp": 60, "wind_mph":  3, "cloud_pct": 10, "short": "Clear" },
-    { "h":  7, "temp": 62, "wind_mph":  4, "cloud_pct": 10, "short": "Sunny" },
-    { "h":  8, "temp": 65, "wind_mph":  5, "cloud_pct": 10, "short": "Sunny" },
-    { "h":  9, "temp": 68, "wind_mph":  6, "cloud_pct": 10, "short": "Sunny" },
-    { "h": 10, "temp": 71, "wind_mph":  8, "cloud_pct": 10, "short": "Sunny" },
-    { "h": 11, "temp": 73, "wind_mph":  9, "cloud_pct": 10, "short": "Sunny" },
-    { "h": 12, "temp": 74, "wind_mph": 10, "cloud_pct": 10, "short": "Sunny" },
-    { "h": 13, "temp": 76, "wind_mph": 10, "cloud_pct": 10, "short": "Sunny" },
-    { "h": 14, "temp": 76, "wind_mph": 10, "cloud_pct": 10, "short": "Sunny" },
-    { "h": 15, "temp": 76, "wind_mph": 10, "cloud_pct": 10, "short": "Sunny" },
-    { "h": 16, "temp": 77, "wind_mph": 10, "cloud_pct": 10, "short": "Sunny" },
-    { "h": 17, "temp": 76, "wind_mph": 10, "cloud_pct": 10, "short": "Sunny" },
-    { "h": 18, "temp": 75, "wind_mph": 10, "cloud_pct": 15, "short": "Mostly Clear" },
-    { "h": 19, "temp": 73, "wind_mph": 10, "cloud_pct": 15, "short": "Mostly Clear" },
-    { "h": 20, "temp": 70, "wind_mph":  5, "cloud_pct": 15, "short": "Mostly Clear" },
-    { "h": 21, "temp": 68, "wind_mph":  5, "cloud_pct": 10, "short": "Clear" },
-    { "h": 22, "temp": 67, "wind_mph":  5, "cloud_pct": 10, "short": "Clear" },
-    { "h": 23, "temp": 65, "wind_mph":  5, "cloud_pct": 10, "short": "Clear" }
+  "today_hourly": [
+    { "h":  6, "temp": 60, "wind_mph":  3,  "wind_dir": "WSW", "cloud_pct": 30 },
+    { "h":  7, "temp": 62, "wind_mph":  4,  "wind_dir": "WSW", "cloud_pct": 25 },
+    { "h":  8, "temp": 65, "wind_mph":  5,  "wind_dir": "WSW", "cloud_pct": 20 },
+    { "h":  9, "temp": 68, "wind_mph":  6,  "wind_dir": "WSW", "cloud_pct": 20 },
+    { "h": 10, "temp": 71, "wind_mph":  8,  "wind_dir": "WSW", "cloud_pct": 25 },
+    { "h": 11, "temp": 73, "wind_mph":  9,  "wind_dir": "WSW", "cloud_pct": 30 },
+    { "h": 12, "temp": 74, "wind_mph": 10,  "wind_dir": "WSW", "cloud_pct": 40 },
+    { "h": 13, "temp": 76, "wind_mph": 10,  "wind_dir": "WSW", "cloud_pct": 50 },
+    { "h": 14, "temp": 76, "wind_mph": 10,  "wind_dir": "WSW", "cloud_pct": 60 },
+    { "h": 15, "temp": 76, "wind_mph": 11,  "wind_dir": "WSW", "cloud_pct": 65 },
+    { "h": 16, "temp": 77, "wind_mph": 12,  "wind_dir": "WSW", "cloud_pct": 60 },
+    { "h": 17, "temp": 76, "wind_mph": 11,  "wind_dir": "WSW", "cloud_pct": 50 },
+    { "h": 18, "temp": 75, "wind_mph": 10,  "wind_dir": "WSW", "cloud_pct": 40 },
+    { "h": 19, "temp": 73, "wind_mph":  8,  "wind_dir": "W",   "cloud_pct": 30 },
+    { "h": 20, "temp": 70, "wind_mph":  6,  "wind_dir": "W",   "cloud_pct": 20 },
+    { "h": 21, "temp": 68, "wind_mph":  5,  "wind_dir": "W",   "cloud_pct": 15 },
+    { "h": 22, "temp": 67, "wind_mph":  4,  "wind_dir": "W",   "cloud_pct": 10 },
+    { "h": 23, "temp": 65, "wind_mph":  4,  "wind_dir": "W",   "cloud_pct": 10 }
+  ],
+  "by_day": [
+    { "date":"2026-04-26", "label":"Sun", "is_today":true,
+      "high_f":78, "low_f":54, "wind_dir":"WSW", "wind_mph":10,
+      "cloud_pct_avg":40, "narrative":"Sunny then partly cloudy",
+      "moon_phase":"Waxing Gibbous", "moon_illum_pct":77,
+      "moon_upper":"21:10", "moon_lower":"09:10",
+      "moonrise":"14:41", "moonset":"03:04",
+      "sunrise":"05:45", "sunset":"19:07",
+      "press_label":"falling-moderate", "press_context":"falling, no front yet",
+      "front_phase":"stable",
+      "score":76, "tier":"good", "verdict":"Solid bite",
+      "best_window":"7:00 PM – 10:00 PM",
+      "reason":"Falling pressure + dusk overhead transit"
+    },
+    { "date":"2026-04-27", "label":"Mon", "is_today":false,
+      "high_f":81, "low_f":55, "wind_dir":"S", "wind_mph":3,
+      "cloud_pct_avg":10, "narrative":"Sunny",
+      "moon_phase":"Waxing Gibbous", "moon_illum_pct":85,
+      "moon_upper":"21:53", "moon_lower":"09:53",
+      "moonrise":"15:41", "moonset":"03:31",
+      "sunrise":"05:44", "sunset":"19:08",
+      "press_label":"stable", "press_context":"stable atmospheric pattern",
+      "front_phase":"stable",
+      "score":64, "tier":"fair", "verdict":"Workable",
+      "best_window":"6:30 AM – 8:30 AM",
+      "reason":"Dawn lower transit · light south wind"
+    },
+    { "date":"2026-04-28", "label":"Tue", "is_today":false,
+      "high_f":86, "low_f":61, "wind_dir":"S", "wind_mph":3,
+      "cloud_pct_avg":10, "narrative":"Sunny",
+      "moon_phase":"Waxing Gibbous", "moon_illum_pct":92,
+      "moon_upper":"22:35", "moon_lower":"10:35",
+      "moonrise":"16:39", "moonset":"03:56",
+      "sunrise":"05:43", "sunset":"19:09",
+      "press_label":"stable→falling", "press_context":"front in 24-48h (pre-front signal)",
+      "front_phase":"pre-front-edge",
+      "score":67, "tier":"fair", "verdict":"Workable",
+      "best_window":"9:30 AM – 11:30 AM",
+      "reason":"Lower transit + pre-front pressure drift"
+    },
+    { "date":"2026-04-29", "label":"Wed", "is_today":false,
+      "high_f":89, "low_f":67, "wind_dir":"SSE", "wind_mph":3,
+      "cloud_pct_avg":50, "narrative":"Partly Sunny → slight chance rain showers",
+      "moon_phase":"Waxing Gibbous", "moon_illum_pct":96,
+      "moon_upper":"23:17", "moon_lower":"11:17",
+      "moonrise":"17:38", "moonset":"04:22",
+      "sunrise":"05:42", "sunset":"19:10",
+      "press_label":"falling", "press_context":"PRE-FRONT — best day of week",
+      "front_phase":"pre-front",
+      "score":78, "tier":"good", "verdict":"Solid bite",
+      "best_window":"10:30 AM – 1:00 PM",
+      "reason":"Pre-front falling pressure + lower transit + 96% moon"
+    },
+    { "date":"2026-04-30", "label":"Thu", "is_today":false,
+      "high_f":84, "low_f":59, "wind_dir":"SSE", "wind_mph":3,
+      "cloud_pct_avg":80, "narrative":"Showers and thunderstorms",
+      "moon_phase":"Waxing Gibbous", "moon_illum_pct":99,
+      "moon_upper":null, "moon_lower":"11:17",
+      "moonrise":"18:37", "moonset":"04:49",
+      "sunrise":"05:41", "sunset":"19:10",
+      "press_label":"falling-fast", "press_context":"Front passing — bite during storms not after",
+      "front_phase":"front-day",
+      "score":70, "tier":"good", "verdict":"Solid bite",
+      "best_window":"10:30 AM – 12:30 PM",
+      "reason":"Front passage — bite right before storms hit"
+    },
+    { "date":"2026-05-01", "label":"Fri", "is_today":false,
+      "high_f":87, "low_f":63, "wind_dir":"SSW", "wind_mph":3,
+      "cloud_pct_avg":15, "narrative":"Sunny",
+      "moon_phase":"Full Moon", "moon_illum_pct":100,
+      "moon_upper":"00:00", "moon_lower":"12:00",
+      "moonrise":"19:36", "moonset":"05:18",
+      "sunrise":"05:40", "sunset":"19:11",
+      "press_label":"rising-fast", "press_context":"POST-FRONT — pressure spiking",
+      "front_phase":"post-front",
+      "score":49, "tier":"tough", "verdict":"Tough day",
+      "best_window":"11:30 AM – 12:30 PM",
+      "reason":"Post-front lockjaw — try Full Moon night fishing instead"
+    },
+    { "date":"2026-05-02", "label":"Sat", "is_today":false,
+      "high_f":94, "low_f":69, "wind_dir":"SE", "wind_mph":7,
+      "cloud_pct_avg":15, "narrative":"Sunny, hot",
+      "moon_phase":"Waning Gibbous", "moon_illum_pct":99,
+      "moon_upper":"00:46", "moon_lower":"12:46",
+      "moonrise":"20:36", "moonset":"05:51",
+      "sunrise":"05:39", "sunset":"19:12",
+      "press_label":"rising-slow", "press_context":"recovering from front, hot",
+      "front_phase":"post-front-recovery",
+      "score":56, "tier":"fair", "verdict":"Workable",
+      "best_window":"5:30 AM – 7:30 AM",
+      "reason":"Beat the heat — fish before 8 AM"
+    }
   ]
 }
 </script>
@@ -1757,10 +1851,10 @@
 })();
 </script>
 <script>
-/* ===== BITE SCORE — pure client-side computation ===== */
+/* ===== BITE SCORE v2 — pro-grade 7-day with live "now" score ===== */
 (function(){
   var dataEl = document.getElementById('bs-data');
-  if (!dataEl) return;
+  if(!dataEl) return;
   var DATA;
   try { DATA = JSON.parse(dataEl.textContent); } catch(e) { return; }
 
@@ -1768,238 +1862,190 @@
   function hhmmToMin(s){ if(!s||!/^\d{1,2}:\d{2}$/.test(s)) return null; var p=s.split(':'); return parseInt(p[0],10)*60+parseInt(p[1],10); }
   function fmtTime(m){ m=((m%1440)+1440)%1440; var h=Math.floor(m/60), mi=m%60; var ap=h>=12?'PM':'AM'; var hh=h%12||12; return hh+':'+(mi<10?'0':'')+mi+' '+ap; }
   function nowMin(){ var d=new Date(); return d.getHours()*60+d.getMinutes(); }
-  function nearestDelta(t, ref){ var d1=Math.abs(t-ref), d2=1440-d1; return Math.min(d1,d2); }
+  function nearestDelta(t,ref){ if(ref==null) return 9999; var d1=Math.abs(t-ref), d2=1440-d1; return Math.min(d1,d2); }
   function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v));}
-
-  var sunRise = hhmmToMin(DATA.sun && DATA.sun.rise);
-  var sunSet  = hhmmToMin(DATA.sun && DATA.sun.set);
-  var moonUp  = hhmmToMin(DATA.moon && DATA.moon.upper_transit);
-  var moonLo  = hhmmToMin(DATA.moon && DATA.moon.lower_transit);
-  var moonPhase = (DATA.moon && DATA.moon.phase) || '';
-  var moonIllum = (DATA.moon && DATA.moon.illum_pct) || 0;
-  var baro = DATA.baro || {};
-  var hourly = DATA.wx_hourly || [];
-
-  // Get hour record (clamps to nearest available)
-  function hxAt(h){
-    if(!hourly.length) return null;
-    var best = hourly[0], bestD = Math.abs(hourly[0].h - h);
-    for(var i=1;i<hourly.length;i++){ var d=Math.abs(hourly[i].h-h); if(d<bestD){best=hourly[i];bestD=d;} }
-    return best;
+  function tierFor(s){
+    if(s>=85) return {tier:'peak', text:'Drop everything', emoji:'🟢'};
+    if(s>=70) return {tier:'good', text:'Solid bite', emoji:'🟢'};
+    if(s>=55) return {tier:'fair', text:'Workable', emoji:'🟡'};
+    if(s>=35) return {tier:'tough', text:'Tough day', emoji:'🟠'};
+    return         {tier:'skip', text:'Save the gas', emoji:'🔴'};
   }
 
-  // ---- score factor functions ----
-  // Each returns {pts, cap, label, why}
-  function fSolunar(min){
-    var pts = 8, why = 'baseline';
-    if(moonUp != null){
-      var dU = nearestDelta(min, moonUp);
-      if(dU <= 60){ pts = 30; why = 'moon overhead (major)'; }
-      else if(dU <= 90){ pts = 15; why = 'near overhead edge'; }
-    }
-    if(moonLo != null && pts < 22){
-      var dL = nearestDelta(min, moonLo);
-      if(dL <= 60){ pts = 22; why = 'moon underfoot (minor)'; }
-      else if(dL <= 90 && pts < 15){ pts = 15; why = 'near underfoot edge'; }
-    }
-    // peak phase bonus
-    var bonus = 0;
-    if(/Full|New/i.test(moonPhase)) bonus = 3;
-    return { pts: pts + bonus, cap: 33, label: 'solunar', why: why + (bonus?' · '+moonPhase+' bonus':'') };
+  // ---- Render the 7-day row from baked scores ----
+  function renderWeek(){
+    var row = document.getElementById('bs-week');
+    if(!row || !DATA.by_day) return;
+    row.innerHTML = '';
+    DATA.by_day.forEach(function(d){
+      var el = document.createElement('div');
+      el.className = 'bs-day tier-' + (d.tier || 'fair') + (d.is_today ? ' today' : '');
+      el.title = d.reason || '';
+      el.innerHTML =
+        '<div class="bs-day-name">' + d.label + '</div>' +
+        '<div class="bs-day-score">' + d.score + '</div>' +
+        '<div class="bs-day-bar"><i style="width:' + clamp(d.score,0,100) + '%"></i></div>' +
+        '<div class="bs-day-verdict">' + d.verdict + '</div>' +
+        '<div class="bs-day-window">' + (d.best_window ? d.best_window.replace(/ – /g,'–') : '') + '</div>';
+      row.appendChild(el);
+    });
   }
 
-  function fPressure(){
-    var trend = (typeof baro.trend_6h_inhg === 'number') ? baro.trend_6h_inhg : null;
-    var pts = 12, why = 'stable';
-    if(trend != null){
-      if(trend <= -0.05){ pts = 25; why = 'falling fast'; }
-      else if(trend <  -0.01){ pts = 18; why = 'falling slightly'; }
-      else if(trend <=  0.01){ pts = 12; why = 'stable'; }
-      else if(trend <=  0.05){ pts = 8;  why = 'rising slightly'; }
-      else                  { pts = 3;  why = 'rising fast'; }
-    }
-    var inhg = baro.now_inhg;
-    var bonus = 0;
-    if(typeof inhg === 'number' && inhg >= 29.70 && inhg <= 30.10) bonus = 2;
-    return { pts: pts + bonus, cap: 27, label: 'baro', why: why + (bonus?' · sweet spot':'') };
+  // ---- Live "now" score for today using hourly data ----
+  // Pro-grade compact algorithm, scaled per-hour from the day's baseline.
+  function liveNowScore(){
+    var today = (DATA.by_day || []).find(function(d){return d.is_today;});
+    if(!today) return null;
+    var hourly = DATA.today_hourly || [];
+    if(!hourly.length) return today.score;
+
+    var min = nowMin();
+    var hourIdx = Math.round(min/60);
+    var hx = hourly.reduce(function(best, h){ return (Math.abs(h.h-hourIdx) < Math.abs(best.h-hourIdx)) ? h : best; }, hourly[0]);
+
+    // Start from the day's baseline score, then adjust ±15 based on hour-specific factors:
+    var s = today.score;
+    var adj = 0, why = [];
+
+    // Solunar overlap right now
+    var ut = hhmmToMin(today.moon_upper);
+    var lt = hhmmToMin(today.moon_lower);
+    var sr = hhmmToMin(today.sunrise);
+    var ss = hhmmToMin(today.sunset);
+    var dUT = nearestDelta(min, ut);
+    var dLT = nearestDelta(min, lt);
+    if(dUT <= 60){ adj += 8; why.push('moon overhead window'); }
+    else if(dLT <= 60){ adj += 5; why.push('moon underfoot window'); }
+    if(sr != null && Math.abs(min-sr) <= 90){ adj += 4; why.push('dawn'); }
+    else if(ss != null && Math.abs(min-ss) <= 90){ adj += 4; why.push('dusk'); }
+
+    // Cloud-cover-right-now nudge (overcast now > avg)
+    if(hx.cloud_pct >= 60){ adj += 2; why.push(hx.cloud_pct + '% cloud'); }
+    else if(hx.cloud_pct <= 15){ adj -= 2; }
+
+    // Wind right now
+    if(hx.wind_mph >= 5 && hx.wind_mph <= 15){ adj += 2; }
+    else if(hx.wind_mph > 20){ adj -= 4; why.push('high wind'); }
+
+    // Midday penalty (12-2 PM in summer/spring with sun)
+    if(min >= 720 && min <= 840 && hx.cloud_pct < 40){ adj -= 3; }
+
+    s = clamp(Math.round(s + adj), 0, 100);
+    return { score: s, why: why.length ? why.join(' · ') : 'baseline day score' };
   }
 
-  function fCloud(min, hx){
-    var c = (hx && typeof hx.cloud_pct === 'number') ? hx.cloud_pct : 10;
-    var pts, why;
-    if(c >= 60){ pts = 20; why = 'overcast'; }
-    else if(c >= 30){ pts = 14; why = 'partly cloudy'; }
-    else { pts = 8; why = 'clear sky'; }
-    var bonus = 0;
-    if(sunRise != null && Math.abs(min - sunRise) <= 90){ bonus = 5; why = 'dawn'; }
-    else if(sunSet != null && Math.abs(min - sunSet) <= 90){ bonus = 5; why = 'dusk'; }
-    return { pts: pts + bonus, cap: 25, label: 'cloud/light', why: why };
-  }
-
-  function fWind(hx){
-    var w = (hx && typeof hx.wind_mph === 'number') ? hx.wind_mph : null;
-    var pts, why;
-    if(w == null){ pts = 9; why = 'wind unknown'; }
-    else if(w >= 5 && w <= 12){ pts = 15; why = w + ' mph (perfect chop)'; }
-    else if(w < 5){ pts = 9; why = w + ' mph (glassy)'; }
-    else if(w <= 20){ pts = 10; why = w + ' mph (chop)'; }
-    else { pts = 3; why = w + ' mph (gale)'; }
-    return { pts: pts, cap: 15, label: 'wind', why: why };
-  }
-
-  function fTemp(hx){
-    var t = (hx && typeof hx.temp === 'number') ? hx.temp : null;
-    var pts, why;
-    if(t == null){ pts = 7; why = 'temp unknown'; }
-    else if(t >= 65 && t <= 78){ pts = 10; why = t + '°F (prime)'; }
-    else if((t >= 50 && t < 65) || (t > 78 && t <= 88)){ pts = 7; why = t + '°F (workable)'; }
-    else if(t < 40 || t > 95){ pts = 2; why = t + '°F (extreme)'; }
-    else { pts = 5; why = t + '°F'; }
-    // spring/fall bonus (today is April → spring)
-    var m = new Date().getMonth() + 1;
-    var bonus = 0;
-    if((m >= 3 && m <= 5) || (m >= 9 && m <= 11)){ bonus = 2; why += ' · spring/fall bonus'; }
-    return { pts: pts + bonus, cap: 12, label: 'temp/season', why: why };
-  }
-
-  // ---- Compute total score for a given clock-minute ----
-  function scoreAt(min){
-    var hx = hxAt(Math.round(min/60));
-    var f1 = fSolunar(min);
-    var f2 = fPressure();
-    var f3 = fCloud(min, hx);
-    var f4 = fWind(hx);
-    var f5 = fTemp(hx);
-    var raw = f1.pts + f2.pts + f3.pts + f4.pts + f5.pts;
-    // cap at 100
-    var total = clamp(Math.round(raw), 0, 100);
-    return { total: total, parts: [f1,f2,f3,f4,f5] };
-  }
-
-  // ---- Verdict mapping ----
-  function verdictFor(s){
-    if(s >= 85) return { tier:'peak',  text:'Drop everything and go',           emoji:'🟢' };
-    if(s >= 70) return { tier:'good',  text:'Solid bite expected',              emoji:'🟢' };
-    if(s >= 55) return { tier:'fair',  text:'Workable — pick the right window', emoji:'🟡' };
-    if(s >= 35) return { tier:'tough', text:'Tough day — try dawn/dusk only',   emoji:'🟠' };
-    return                  { tier:'skip',  text:'Save the gas money',                emoji:'🔴' };
-  }
-
-  // ---- Best windows today: 30-min buckets, find top non-overlapping peaks ----
+  // ---- Best windows today (computed from hourly + today's baseline) ----
   function bestWindowsToday(){
+    var hourly = DATA.today_hourly || [];
+    if(!hourly.length) return [];
+    var today = (DATA.by_day || []).find(function(d){return d.is_today;});
+    if(!today) return [];
+
+    // Score each hour using a simple per-hour function around the day baseline
+    var ut = hhmmToMin(today.moon_upper);
+    var lt = hhmmToMin(today.moon_lower);
+    var sr = hhmmToMin(today.sunrise);
+    var ss = hhmmToMin(today.sunset);
     var grid = [];
-    for(var m = 0; m < 1440; m += 30) grid.push({ m: m, s: scoreAt(m).total });
-    // contiguous blocks of length >= 2 (so >= 1 hour) where score >= 60th percentile
-    // find top 3 local maxima at least 90 min apart
+    for(var i=0;i<hourly.length;i++){
+      var h = hourly[i];
+      var min = h.h * 60;
+      var s = today.score, why = '';
+      var dUT = nearestDelta(min, ut), dLT = nearestDelta(min, lt);
+      if(dUT <= 60){ s += 8; why = 'moon overhead'; }
+      else if(dLT <= 60){ s += 5; why = 'moon underfoot'; }
+      if(sr != null && Math.abs(min-sr) <= 90){ s += 4; why = (why? why+' + dawn' : 'dawn'); }
+      else if(ss != null && Math.abs(min-ss) <= 90){ s += 4; why = (why? why+' + dusk' : 'dusk'); }
+      if(h.cloud_pct >= 60){ s += 2; }
+      else if(h.cloud_pct <= 15){ s -= 2; }
+      if(h.wind_mph >= 5 && h.wind_mph <= 15){ s += 2; }
+      else if(h.wind_mph > 20){ s -= 4; }
+      if(h.h >= 12 && h.h <= 14 && h.cloud_pct < 40){ s -= 3; }
+      grid.push({ h: h.h, s: clamp(Math.round(s), 0, 100), why: why || 'steady' });
+    }
+
+    // Find top 3 non-overlapping peaks (≥3 hours apart)
     var sorted = grid.slice().sort(function(a,b){return b.s - a.s;});
     var picks = [];
     for(var i=0;i<sorted.length && picks.length<3;i++){
       var c = sorted[i];
-      if(picks.some(function(p){ return Math.abs(p.m - c.m) < 120; })) continue;
+      if(picks.some(function(p){ return Math.abs(p.h - c.h) < 3; })) continue;
       picks.push(c);
     }
-    picks.sort(function(a,b){return a.m - b.m;});
-    // expand each pick into a 1.5–2 hr window centered on it where score remains within 8 of peak
+    picks.sort(function(a,b){return a.h - b.h;});
+
+    // Expand each to a window where score stays within 5 of peak
     return picks.map(function(p){
-      var lo = p.m, hi = p.m;
-      for(var k = 30; k <= 90; k += 30){
-        if (scoreAt(p.m - k).total >= p.s - 8) lo = p.m - k; else break;
+      var lo = p.h, hi = p.h;
+      for(var k=1;k<=2;k++){
+        var prev = grid.find(function(g){return g.h === p.h-k;});
+        if(prev && prev.s >= p.s - 5) lo = prev.h; else break;
       }
-      for(var k2 = 30; k2 <= 90; k2 += 30){
-        if (scoreAt(p.m + k2).total >= p.s - 8) hi = p.m + k2; else break;
+      for(var k2=1;k2<=2;k2++){
+        var nx = grid.find(function(g){return g.h === p.h+k2;});
+        if(nx && nx.s >= p.s - 5) hi = nx.h; else break;
       }
-      // pick the dominant reason
-      var parts = scoreAt(p.m).parts;
-      parts.sort(function(a,b){return b.pts - a.pts;});
-      var top = parts[0];
-      return { start: lo, end: hi+30, score: p.s, reason: top.why };
+      return { startMin: lo*60, endMin: (hi+1)*60, score: p.s, reason: p.why };
     });
   }
 
-  // ---- Render ----
-  function render(){
-    var min = nowMin();
-    var s = scoreAt(min);
-    var v = verdictFor(s.total);
-
-    // tier class
-    var card = document.getElementById('bs-card');
-    if(card){
-      card.className = 'bs-card tier-' + v.tier;
+  function renderNow(){
+    var n = liveNowScore();
+    var el = document.getElementById('bs-now-score');
+    var dt = document.getElementById('bs-now-detail');
+    if(n && el){
+      el.textContent = n.score;
+      var t = tierFor(n.score);
+      var time = fmtTime(nowMin()).replace(/(AM|PM)/, function(s){return s.toLowerCase();});
+      dt.textContent = t.emoji + ' ' + t.text + ' · ' + time + ' · ' + n.why;
     }
-    document.getElementById('bs-num').textContent = s.total;
-    document.getElementById('bs-verdict').textContent = v.emoji + ' ' + v.text;
+  }
 
-    // ring stroke
-    var fill = document.getElementById('bs-fill');
-    if(fill){
-      var C = 2 * Math.PI * 52;
-      fill.setAttribute('stroke-dashoffset', C * (1 - s.total/100));
-    }
-
-    // dominant factor breakdown — top + and lowest -
-    var parts = s.parts.slice().sort(function(a,b){ return b.pts - a.pts; });
-    var top = parts[0];
-    var bot = parts[parts.length - 1];
-    var fbox = document.getElementById('bs-factors');
-    fbox.innerHTML = '';
-    parts.forEach(function(p, idx){
-      var sign = (p.pts >= (p.cap*0.6)) ? 'pos' : (p.pts <= (p.cap*0.35)) ? 'neg' : '';
-      var ch = document.createElement('span');
-      ch.className = 'bs-chip ' + sign;
-      ch.textContent = (sign==='pos'?'+':sign==='neg'?'−':'•') + p.pts + ' ' + p.label;
-      ch.title = p.why;
-      fbox.appendChild(ch);
-    });
-
-    // best window subtitle: highest-scoring window today
-    var wins = bestWindowsToday();
-    if(wins.length){
-      var top1 = wins[0];
-      document.getElementById('bs-window').innerHTML =
-        'Best window today: <b>' + fmtTime(top1.start) + '–' + fmtTime(top1.end) + '</b> · ' + top1.reason;
-    }
-
-    // best windows mini-list
+  function renderWindows(){
     var list = document.getElementById('bs-win-list');
+    if(!list) return;
+    var wins = bestWindowsToday();
     list.innerHTML = '';
+    if(!wins.length){
+      list.innerHTML = '<div class="bs-win-row"><span class="bs-win-rank">—</span><div class="bs-win-time">No hourly data available</div><div></div></div>';
+      return;
+    }
     wins.forEach(function(w, idx){
       var row = document.createElement('div');
       row.className = 'bs-win-row' + (idx===0 ? ' peak' : '');
-      var rank = document.createElement('span');
-      rank.className = 'bs-win-rank';
-      rank.textContent = '#' + (idx+1);
-      var mid = document.createElement('div');
-      var time = document.createElement('div');
-      time.className = 'bs-win-time';
-      time.textContent = fmtTime(w.start) + ' – ' + fmtTime(w.end);
-      var reason = document.createElement('div');
-      reason.className = 'bs-win-reason';
-      reason.textContent = w.reason;
-      mid.appendChild(time); mid.appendChild(reason);
-      var score = document.createElement('div');
-      var n = document.createElement('div'); n.className = 'bs-win-score'; n.textContent = w.score;
-      var l = document.createElement('span'); l.className = 'bs-win-score-l'; l.textContent = '/100';
-      score.appendChild(n); score.appendChild(l);
-      row.appendChild(rank); row.appendChild(mid); row.appendChild(score);
+      row.innerHTML =
+        '<span class="bs-win-rank">#' + (idx+1) + '</span>' +
+        '<div>' +
+          '<div class="bs-win-time">' + fmtTime(w.startMin) + ' – ' + fmtTime(w.endMin) + '</div>' +
+          '<div class="bs-win-reason">' + w.reason + '</div>' +
+        '</div>' +
+        '<div>' +
+          '<div class="bs-win-score">' + w.score + '</div>' +
+          '<span class="bs-win-score-l">/100</span>' +
+        '</div>';
       list.appendChild(row);
     });
+  }
 
-    // Stale-data warning if generated > 12h ago
+  function renderAll(){
+    renderWeek();
+    renderNow();
+    renderWindows();
+
+    // Stale-data warning
     try {
       var gen = new Date(DATA.generated).getTime();
       var hours = (Date.now() - gen) / 3600000;
       var warn = document.getElementById('bs-warn');
-      if (hours > 12) {
+      if (hours > 12 && warn) {
         warn.classList.add('show');
         warn.textContent = 'Underlying data is ' + Math.round(hours) + 'h old — score may be stale until next refresh.';
       }
     } catch(e){}
   }
 
-  render();
-  // Recompute every 60 seconds so the score advances with the clock
-  setInterval(render, 60 * 1000);
+  renderAll();
+  setInterval(function(){ renderNow(); }, 60 * 1000);
 })();
 </script>
 </body>
