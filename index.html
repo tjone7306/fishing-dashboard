@@ -380,32 +380,38 @@
   .ll-features strong{font-size:.82rem;color:#eef3f1;font-weight:700}
   .ll-features span{font-size:.7rem;color:#9fb3ad;line-height:1.35}
 
-  /* ===== BITE SCORE v5 — circular meter inside 7-Day Outlook tiles only ===== */
+  /* ===== BITE SCORE v8 — cartoon fuel gauge inside 7-Day Outlook tiles ===== */
   .fcst-tile{padding-bottom:8px;position:relative}
-  .fcst-tile .fcst-bs{margin-top:6px;padding-top:7px;border-top:1px dashed rgba(255,255,255,.07);display:flex;flex-direction:column;align-items:center;gap:2px}
-  .fcst-tile .bs-ring{position:relative;width:46px;height:46px;display:inline-block}
-  .fcst-tile .bs-ring svg{width:100%;height:100%;display:block}
-  .fcst-tile .bs-ring-track{fill:none;stroke:rgba(255,255,255,.07);stroke-width:3.4}
-  .fcst-tile .bs-ring-fill{fill:none;stroke:#4fc27a;stroke-width:3.4;stroke-linecap:round;transition:stroke-dasharray .6s ease,stroke .3s ease}
-  .fcst-tile .bs-ring-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.92rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--text);letter-spacing:-.04em;line-height:1}
-  .fcst-tile .bs-ring-of{font-size:.55rem;font-weight:700;color:var(--muted);letter-spacing:.3px;margin-top:1px;text-transform:uppercase}
-  .fcst-tile .bs-ring-verd{font-size:.62rem;font-weight:700;letter-spacing:.2px;line-height:1.15;color:var(--muted);margin-top:1px;text-align:center}
-  .fcst-tile.bs-peak  .bs-ring-fill, .fcst-tile.bs-good .bs-ring-fill{stroke:#4fc27a}
-  .fcst-tile.bs-peak  .bs-ring-num,  .fcst-tile.bs-good .bs-ring-num {color:#9be0b4}
-  .fcst-tile.bs-peak  .bs-ring-verd, .fcst-tile.bs-good .bs-ring-verd{color:#9be0b4}
-  .fcst-tile.bs-fair  .bs-ring-fill{stroke:#f5b44c}
-  .fcst-tile.bs-fair  .bs-ring-num {color:#f5d18a}
-  .fcst-tile.bs-fair  .bs-ring-verd{color:#f5d18a}
-  .fcst-tile.bs-tough .bs-ring-fill{stroke:#e89020}
-  .fcst-tile.bs-tough .bs-ring-num {color:#f0b06a}
-  .fcst-tile.bs-tough .bs-ring-verd{color:#f0b06a}
-  .fcst-tile.bs-skip  .bs-ring-fill{stroke:#e96464}
-  .fcst-tile.bs-skip  .bs-ring-num {color:#f0a3a3}
-  .fcst-tile.bs-skip  .bs-ring-verd{color:#f0a3a3}
-  .fcst-tile.is-today::after{content:"TODAY";position:absolute;top:6px;left:6px;font-size:.55rem;font-weight:800;letter-spacing:.6px;color:#0a1420;background:var(--accent);padding:2px 6px;border-radius:5px;text-transform:uppercase;line-height:1}
+  .fcst-tile .fcst-bs{margin-top:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.07);display:flex;flex-direction:column;align-items:center;gap:1px}
+  .fcst-tile .bs-gauge{width:100%;max-width:96px;display:block;margin:0 auto;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
+  .fcst-tile .bs-gauge-arc-bg{fill:none;stroke:rgba(0,0,0,.45);stroke-width:9.5;stroke-linecap:round}
+  .fcst-tile .bs-gauge-arc{fill:none;stroke-width:7.5}
+  .fcst-tile .bs-gauge-arc.bs-arc-r{stroke:#e96464;stroke-linecap:round}
+  .fcst-tile .bs-gauge-arc.bs-arc-y{stroke:#f5b44c}
+  .fcst-tile .bs-gauge-arc.bs-arc-g{stroke:#4fc27a;stroke-linecap:round}
+  .fcst-tile .bs-gauge-tick{stroke:rgba(255,255,255,.45);stroke-width:1}
+  .fcst-tile .bs-gauge-needle{fill:#f3f6fa;stroke:#0a1420;stroke-width:.6;stroke-linejoin:round;transition:transform .6s cubic-bezier(.34,1.56,.64,1)}
+  .fcst-tile .bs-gauge-hub-outer{fill:#fff;stroke:#0a1420;stroke-width:.6}
+  .fcst-tile .bs-gauge-hub-inner{fill:#0a1420}
+  .fcst-tile .bs-gauge-label{font-size:5.4px;font-weight:800;fill:rgba(255,255,255,.55);letter-spacing:.4px;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+  .fcst-tile .bs-gauge-label.l-l{text-anchor:start}
+  .fcst-tile .bs-gauge-label.l-c{text-anchor:middle}
+  .fcst-tile .bs-gauge-label.l-r{text-anchor:end}
+  .fcst-tile .bs-gauge-label.active{fill:#fff;font-size:5.6px}
+  /* Score readout below the gauge */
+  .fcst-tile .bs-score-tag{font-size:.5rem;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin-top:1px;line-height:1}
+  .fcst-tile .bs-score-num{font-size:1.05rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.04em;line-height:1.05;color:var(--text)}
+  .fcst-tile .bs-score-num small{font-size:.55rem;color:var(--muted);font-weight:700;margin-left:1px;letter-spacing:.4px}
+  /* Tier coloring on the score number */
+  .fcst-tile.bs-peak  .bs-score-num, .fcst-tile.bs-good  .bs-score-num{color:#9be0b4}
+  .fcst-tile.bs-fair  .bs-score-num{color:#f5d18a}
+  .fcst-tile.bs-tough .bs-score-num{color:#f0b06a}
+  .fcst-tile.bs-skip  .bs-score-num{color:#f0a3a3}
+  /* PICK badge moves to bottom-right since the top-left has TODAY */
+  .fcst-tile.is-today::after{content:"TODAY";position:absolute;top:6px;left:6px;font-size:.55rem;font-weight:800;letter-spacing:.6px;color:#0a1420;background:var(--accent);padding:2px 6px;border-radius:5px;text-transform:uppercase;line-height:1;z-index:2}
   @media (max-width:540px){
-    .fcst-tile .bs-ring{width:40px;height:40px}
-    .fcst-tile .bs-ring-num{font-size:.82rem}
+    .fcst-tile .bs-gauge{max-width:84px}
+    .fcst-tile .bs-score-num{font-size:.95rem}
   }
 </style>
 </head>
@@ -439,7 +445,7 @@
     <h1>Phoenix Lakes — Fishing Dashboard</h1>
     <div class="sub">Pleasant · Roosevelt · Apache · Canyon · Saguaro · Bartlett</div>
     <span class="date" id="date-badge">Sunday, April 26, 2026</span>
-    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 5:30 PM MST</b></div>
+    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 5:55 PM MST</b></div>
   </header>
 
   <!-- BEST FISHING TIMES (today's solunar windows) -->
@@ -1789,7 +1795,7 @@
 })();
 </script>
 <script>
-/* ===== BITE SCORE v5 — circular meter only (in each 7-Day Outlook tile) ===== */
+/* ===== BITE SCORE v8 — fuel-gauge meter (inside each 7-Day Outlook tile) ===== */
 (function(){
   var dataEl = document.getElementById('bs-data');
   if(!dataEl) return;
@@ -1803,12 +1809,43 @@
     if(s>=35) return 'tough';
     return 'skip';
   }
-  function shortVerdict(s){
-    if(s>=85) return 'Drop everything';
-    if(s>=70) return 'Solid bite';
-    if(s>=55) return 'Workable';
-    if(s>=35) return 'Tough day';
-    return 'Save the gas';
+  // Which zone label is "active" given the score (visual emphasis)
+  function activeLabel(s){
+    if(s < 40) return 'tough';
+    if(s < 65) return 'work';
+    return 'solid';
+  }
+
+  function gaugeSvg(score){
+    var s = clamp(score, 0, 100);
+    // Needle rotates from -90 (left, score=0) to +90 (right, score=100)
+    var angle = (-90 + s * 1.8).toFixed(1);
+    var act = activeLabel(s);
+    return '' +
+      '<svg class="bs-gauge" viewBox="0 0 100 65" aria-hidden="true">' +
+        // Background track (dark groove behind the colored arcs)
+        '<path d="M 8 52 A 42 42 0 0 1 92 52" class="bs-gauge-arc-bg"/>' +
+        // Red zone: 0% -> 40% (left to ~108deg)
+        '<path d="M 8 52 A 42 42 0 0 1 37 12" class="bs-gauge-arc bs-arc-r"/>' +
+        // Yellow zone: 40% -> 65%
+        '<path d="M 37 12 A 42 42 0 0 1 69 15" class="bs-gauge-arc bs-arc-y"/>' +
+        // Green zone: 65% -> 100%
+        '<path d="M 69 15 A 42 42 0 0 1 92 52" class="bs-gauge-arc bs-arc-g"/>' +
+        // Tick marks at zone boundaries
+        '<line x1="37" y1="12" x2="34.4" y2="15" class="bs-gauge-tick"/>' +
+        '<line x1="69" y1="15" x2="71.6" y2="17.8" class="bs-gauge-tick"/>' +
+        // Needle (rotates around hub)
+        '<g style="transform-origin:50px 52px;transform:rotate(' + angle + 'deg)">' +
+          '<polygon points="48.2,52 50,11 51.8,52" class="bs-gauge-needle"/>' +
+        '</g>' +
+        // Hub (center cap)
+        '<circle cx="50" cy="52" r="4.4" class="bs-gauge-hub-outer"/>' +
+        '<circle cx="50" cy="52" r="1.6" class="bs-gauge-hub-inner"/>' +
+        // Tier labels under the arc
+        '<text x="9"  y="62" class="bs-gauge-label l-l' + (act==='tough'?' active':'') + '">TOUGH</text>' +
+        '<text x="50" y="62" class="bs-gauge-label l-c' + (act==='work'?' active':'')  + '">WORK</text>' +
+        '<text x="91" y="62" class="bs-gauge-label l-r' + (act==='solid'?' active':'') + '">SOLID</text>' +
+      '</svg>';
   }
 
   function decorateOutlookTiles(){
@@ -1821,7 +1858,7 @@
     var bestIdx = -1, bestScore = -1;
 
     tiles.forEach(function(tile){
-      if(tile.querySelector('.fcst-bs')) return; // already decorated
+      if(tile.querySelector('.fcst-bs')) return;
       var i = parseInt(tile.getAttribute('data-i'), 10);
       if(isNaN(i) || i >= byDay.length) return;
       var d = byDay[i];
@@ -1829,11 +1866,10 @@
       var s = d.score;
       if(s > bestScore){ bestScore = s; bestIdx = i; }
 
-      var tier = tierFor(s);
-      tile.classList.add('bs-' + tier);
+      tile.classList.add('bs-' + tierFor(s));
       if(d.is_today) tile.classList.add('is-today');
 
-      // Hide the daily baro (the bite score already encodes pressure trend)
+      // Hide the daily baro line — bite score already encodes pressure trend
       var baro = tile.querySelector('.fcst-baro');
       if(baro) baro.style.display = 'none';
 
@@ -1841,19 +1877,13 @@
       bs.className = 'fcst-bs';
       bs.title = (d.reason || '') + (d.best_window ? ' · best ' + d.best_window : '');
       bs.innerHTML =
-        '<div class="bs-ring">' +
-          '<svg viewBox="0 0 40 40" aria-hidden="true">' +
-            '<circle class="bs-ring-track" cx="20" cy="20" r="16"/>' +
-            '<circle class="bs-ring-fill" cx="20" cy="20" r="16" pathLength="100" stroke-dasharray="' + clamp(s,0,100) + ' 100" transform="rotate(-90 20 20)"/>' +
-          '</svg>' +
-          '<span class="bs-ring-num">' + s + '</span>' +
-        '</div>' +
-        '<span class="bs-ring-of">/100</span>' +
-        '<span class="bs-ring-verd">' + shortVerdict(s) + '</span>';
+        gaugeSvg(s) +
+        '<div class="bs-score-tag">Bite Score</div>' +
+        '<div class="bs-score-num">' + s + '<small>/100</small></div>';
       tile.appendChild(bs);
     });
 
-    // Override the existing weather-driven "pick" with a bite-score-driven one
+    // PICK = highest bite score
     grid.querySelectorAll('.fcst-tile.pick').forEach(function(t){ t.classList.remove('pick'); });
     if(bestIdx >= 0){
       var pickTile = grid.querySelector('[data-i="' + bestIdx + '"]');
