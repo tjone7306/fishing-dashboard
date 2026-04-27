@@ -420,9 +420,18 @@
   }
 
   /* ===== v10: live radar card + tap-to-expand hourly detail ===== */
-  .radar-card{margin-top:12px}
-  .radar-card h3{margin:0 0 8px;font-size:1.05rem;font-weight:600;display:flex;align-items:center;gap:8px}
-  .radar-card h3::before{content:"📡";font-size:.95rem}
+  .radar-card{margin-top:12px;padding:0;overflow:hidden}
+  .radar-card > .radar-summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:14px 16px;color:var(--text);user-select:none;-webkit-tap-highlight-color:transparent}
+  .radar-card > .radar-summary::-webkit-details-marker{display:none}
+  .radar-summary .radar-title{font-size:1.05rem;font-weight:700;display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+  .radar-summary .radar-icon{font-size:1.1rem;line-height:1}
+  .radar-summary .radar-hint{color:var(--muted);font-size:.74rem;font-weight:600;letter-spacing:.3px}
+  .radar-summary .radar-caret{color:var(--muted);font-size:1rem;transition:transform .15s;line-height:1}
+  .radar-card[open] > .radar-summary .radar-caret{transform:rotate(90deg)}
+  .radar-card[open] > .radar-summary .radar-hint{display:none}
+  .radar-card > .radar-sub,.radar-card > .radar-map,.radar-card > .radar-controls{margin-left:16px;margin-right:16px}
+  .radar-card > .radar-sub{margin-top:0}
+  .radar-card > .radar-controls{margin-bottom:14px}
   .radar-sub{color:var(--muted);font-size:.78rem;margin:0 0 10px;line-height:1.4}
   .radar-map{width:100%;height:340px;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#0a1420;position:relative}
   .radar-map .leaflet-container{background:#0a1420;font-family:inherit}
@@ -486,22 +495,26 @@
     <div class="fcst-pick-line" id="fcst-pick-line">🎯 <b>Pick:</b> <span id="fcst-pick-summary">Loading week ahead…</span></div>
   </div>
 
-  <!-- ===== v10: LIVE RADAR (RainViewer + Leaflet) ===== -->
-  <div class="card radar-card">
-    <h3>Live Radar</h3>
-    <p class="radar-sub">Animated rain, every 10&nbsp;min · past 2 hours + 30&nbsp;min forecast. Pinch/zoom to your area.</p>
+  <!-- ===== v11: LIVE RADAR — collapsed by default, opens on tap ===== -->
+  <details class="card radar-card" id="radar-card">
+    <summary class="radar-summary">
+      <span class="radar-title"><span class="radar-icon">📡</span>Live Radar</span>
+      <span class="radar-hint">tap to open</span>
+      <span class="radar-caret" aria-hidden="true">›</span>
+    </summary>
+    <p class="radar-sub">Animated rain, every 10&nbsp;min · past hour + 30&nbsp;min forecast. Pinch/zoom to your area.</p>
     <div id="radar-map" class="radar-map" role="img" aria-label="Phoenix-area weather radar"></div>
     <div class="radar-controls">
       <button id="radar-play" class="radar-btn active" type="button" aria-label="Play/pause radar animation">⏸ Pause</button>
       <span id="radar-time" class="radar-time"><span class="now">Now</span></span>
     </div>
-  </div>
+  </details>
 
   <header>
     <h1>Phoenix Lakes — Fishing Dashboard</h1>
     <div class="sub">Pleasant · Roosevelt · Apache · Canyon · Saguaro · Bartlett</div>
     <span class="date" id="date-badge">Sunday, April 26, 2026</span>
-    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 7:50 PM MST</b></div>
+    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 8:25 PM MST</b></div>
   </header>
 
   <!-- BEST FISHING TIMES (today's solunar windows) -->
@@ -1981,33 +1994,97 @@
 })();
 </script>
 <script>
-/* ===== v10: live radar map (RainViewer + Leaflet) ===== */
+/* ===== v11: live radar map — lazy-init on details open ===== */
 (function(){
-  if (typeof L === 'undefined') {
-    // Leaflet not yet loaded by the existing habitat code path. Wait briefly.
+  var card = document.getElementById('radar-card');
+  if (!card) return;
+
+  var inited = false;
+  var leafletMap = null;
+  var frames = [];
+  var layers = {};
+  var idx = 0;
+  var playing = true;
+  var timer = null;
+
+  card.addEventListener('toggle', function(){
+    if (!card.open) {
+      // Pause any animation when closed to save battery
+      if (timer) { clearInterval(timer); timer = null; playing = false; }
+      var btn = document.getElementById('radar-play');
+      if (btn) { btn.textContent = '\u25B6 Play'; btn.classList.remove('active'); }
+      return;
+    }
+    if (!inited) initWhenLeafletReady();
+    else if (leafletMap) {
+      // re-fix sizing in case the container resized while hidden
+      setTimeout(function(){ leafletMap.invalidateSize(); }, 50);
+      // resume animation if user re-opens
+      if (frames.length && !timer) play();
+    }
+  });
+
+  function initWhenLeafletReady(){
+    if (typeof L !== 'undefined') return start();
     var tries = 0;
     var iv = setInterval(function(){
       if (typeof L !== 'undefined') { clearInterval(iv); start(); }
       else if (++tries > 40) clearInterval(iv);
     }, 250);
-  } else { start(); }
+  }
+
+  function fmtT(t){
+    var d = new Date(t*1000);
+    var h = d.getHours(), m = d.getMinutes();
+    var ap = h>=12?'PM':'AM'; var hh = h%12||12;
+    return hh+':'+(m<10?'0':'')+m+' '+ap;
+  }
+  function tagLabel(f){
+    if (f.isFuture) return '<span class="fut">+'+f.minOffset+' min</span>';
+    if (f.minOffset === 0) return '<span class="now">Now ('+fmtT(f.time)+')</span>';
+    return '<span class="past">\u2212'+(-f.minOffset)+' min ('+fmtT(f.time)+')</span>';
+  }
+  function showFrame(i){
+    var f = frames[i]; if (!f) return;
+    if (!layers[i]) {
+      layers[i] = L.tileLayer(
+        'https://tilecache.rainviewer.com/v2' + f.path + '/256/{z}/{x}/{y}/2/1_1.png',
+        { opacity: 0, attribution: '', maxZoom: 18, tileSize: 256 }
+      ).addTo(leafletMap);
+    }
+    Object.keys(layers).forEach(function(k){ if (+k !== i) layers[k].setOpacity(0); });
+    layers[i].setOpacity(0.7);
+    var label = document.getElementById('radar-time');
+    if (label) label.innerHTML = tagLabel(f);
+  }
+  function nextFrame(){ idx = (idx + 1) % frames.length; showFrame(idx); }
+  function play(){
+    playing = true;
+    var btn = document.getElementById('radar-play');
+    if (btn) { btn.textContent = '\u23F8 Pause'; btn.classList.add('active'); }
+    if (timer) clearInterval(timer);
+    timer = setInterval(nextFrame, 600);
+  }
+  function pause(){
+    playing = false;
+    var btn = document.getElementById('radar-play');
+    if (btn) { btn.textContent = '\u25B6 Play'; btn.classList.remove('active'); }
+    if (timer) { clearInterval(timer); timer = null; }
+  }
 
   function start(){
+    inited = true;
     var el = document.getElementById('radar-map');
     if (!el) return;
 
-    // Centroid of Phoenix lakes
-    var map = L.map(el, { zoomControl: true, attributionControl: true, scrollWheelZoom: false })
+    leafletMap = L.map(el, { zoomControl: true, attributionControl: true, scrollWheelZoom: false })
       .setView([33.65, -111.7], 8);
 
-    // Dark base tiles to match the dashboard
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap, &copy; CartoDB · radar &copy; <a href="https://rainviewer.com/" target="_blank">RainViewer</a>',
-      subdomains: 'abcd',
-      maxZoom: 18
-    }).addTo(map);
+      subdomains: 'abcd', maxZoom: 18
+    }).addTo(leafletMap);
 
-    // Lake markers (small, low-key)
     var lakes = [
       ['Pleasant',   33.8770, -112.2733],
       ['Roosevelt',  33.6700, -111.1500],
@@ -2018,69 +2095,20 @@
     ];
     lakes.forEach(function(l){
       L.circleMarker([l[1], l[2]], { radius: 4, color: '#5eb4e7', fillColor: '#5eb4e7', fillOpacity: .8, weight: 1.5 })
-        .bindTooltip(l[0], { direction: 'right', offset: [6,0], className: 'radar-lk-tip' })
-        .addTo(map);
+        .bindTooltip(l[0], { direction: 'right', offset: [6,0] })
+        .addTo(leafletMap);
     });
 
-    // RainViewer overlay (animated)
-    var frames = [];     // {time, path, isFuture}
-    var layers = {};     // tile layer cache by index
-    var idx = 0;
-    var playing = true;
-    var timer = null;
-    var label = document.getElementById('radar-time');
     var btn = document.getElementById('radar-play');
-
-    function fmtT(t){
-      var d = new Date(t*1000);
-      var h = d.getHours(), m = d.getMinutes();
-      var ap = h>=12?'PM':'AM'; var hh = h%12||12;
-      return hh+':'+(m<10?'0':'')+m+' '+ap;
-    }
-    function tagLabel(f){
-      if (f.isFuture) return '<span class="fut">+'+f.minOffset+' min</span>';
-      if (f.minOffset === 0) return '<span class="now">Now ('+fmtT(f.time)+')</span>';
-      return '<span class="past">−'+(-f.minOffset)+' min ('+fmtT(f.time)+')</span>';
-    }
-    function showFrame(i){
-      var f = frames[i]; if (!f) return;
-      if (!layers[i]) {
-        layers[i] = L.tileLayer(
-          'https://tilecache.rainviewer.com/v2' + f.path + '/256/{z}/{x}/{y}/2/1_1.png',
-          { opacity: 0, attribution: '', maxZoom: 18, tileSize: 256 }
-        ).addTo(map);
-      }
-      // fade out all, fade in this one
-      Object.keys(layers).forEach(function(k){ if (+k !== i) layers[k].setOpacity(0); });
-      layers[i].setOpacity(0.7);
-      if (label) label.innerHTML = tagLabel(f);
-    }
-    function nextFrame(){
-      idx = (idx + 1) % frames.length;
-      showFrame(idx);
-    }
-    function play(){
-      playing = true;
-      btn.textContent = '⏸ Pause';
-      btn.classList.add('active');
-      if (timer) clearInterval(timer);
-      timer = setInterval(nextFrame, 600);
-    }
-    function pause(){
-      playing = false;
-      btn.textContent = '▶ Play';
-      btn.classList.remove('active');
-      if (timer) clearInterval(timer);
-    }
     btn && btn.addEventListener('click', function(){ playing ? pause() : play(); });
 
-    // Fetch RainViewer frame index
     fetch('https://api.rainviewer.com/public/weather-maps.json')
       .then(function(r){ return r.ok ? r.json() : null; })
       .then(function(d){
         if (!d || !d.radar) return;
-        var nowTime = d.radar.nowcast && d.radar.nowcast.length ? d.radar.nowcast[0].time : (d.radar.past[d.radar.past.length-1] && d.radar.past[d.radar.past.length-1].time);
-        // Past frames (last 6 = ~60 min)
+        var nowTime = d.radar.nowcast && d.radar.nowcast.length
+          ? d.radar.nowcast[0].time
+          : (d.radar.past[d.radar.past.length-1] && d.radar.past[d.radar.past.length-1].time);
         var past = (d.radar.past || []).slice(-6).map(function(f){
           return { time: f.time, path: f.path, isFuture: false, minOffset: Math.round((f.time - nowTime)/60) };
         });
@@ -2088,19 +2116,22 @@
           return { time: f.time, path: f.path, isFuture: true, minOffset: Math.round((f.time - nowTime)/60) };
         });
         frames = past.concat(future);
-        // start at the "now" frame (last past, offset 0)
         idx = past.length - 1;
         showFrame(idx);
         play();
       })
       .catch(function(){
+        var label = document.getElementById('radar-time');
         if (label) label.textContent = 'Radar unavailable';
+        var btn = document.getElementById('radar-play');
         if (btn) btn.disabled = true;
       });
 
-    // resize map when its container becomes visible (e.g. after device orientation flip)
-    setTimeout(function(){ map.invalidateSize(); }, 250);
-    window.addEventListener('resize', function(){ map.invalidateSize(); });
+    // Critical: Leaflet doesn't size correctly when initialized inside a hidden details element.
+    // Force a recalc once it's visible.
+    setTimeout(function(){ if (leafletMap) leafletMap.invalidateSize(); }, 100);
+    setTimeout(function(){ if (leafletMap) leafletMap.invalidateSize(); }, 500);
+    window.addEventListener('resize', function(){ if (leafletMap) leafletMap.invalidateSize(); });
   }
 })();
 </script>
