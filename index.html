@@ -160,20 +160,25 @@
   .times li:first-child{border-top:0}
   .times li b{color:var(--accent);font-weight:600;margin-right:6px}
   /* solunar tile grid */
-  .sol-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px;flex-wrap:wrap}
-  .sol-badge{font-size:.72rem;font-weight:700;letter-spacing:.5px;padding:4px 10px;border-radius:20px;white-space:nowrap}
+  .sol-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:10px;flex-wrap:wrap}
+  .sol-badge{font-size:.66rem;font-weight:700;letter-spacing:.5px;padding:3px 8px;border-radius:20px;white-space:nowrap}
   .sol-badge.b-peak{background:rgba(255,140,0,.18);color:#ff8c00;border:1px solid rgba(255,140,0,.4)}
   .sol-badge.b-good{background:rgba(0,212,170,.12);color:#00d4aa;border:1px solid rgba(0,212,170,.3)}
   .sol-badge.b-fair{background:rgba(255,215,0,.1);color:#ffd700;border:1px solid rgba(255,215,0,.3)}
-  .sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .sol-tile{border-radius:11px;padding:11px 12px;display:flex;flex-direction:column;gap:3px}
+  /* Compact 4-in-a-row layout — was 2x2 with lots of wasted space */
+  .sol-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+  .sol-tile{border-radius:8px;padding:6px 7px;display:flex;flex-direction:column;gap:1px;min-width:0}
   .sol-tile.major{background:rgba(255,140,0,.1);border:1px solid rgba(255,140,0,.28)}
   .sol-tile.minor{background:rgba(26,140,255,.07);border:1px solid rgba(26,140,255,.2)}
-  .sol-type{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+  .sol-type{font-size:.58rem;font-weight:800;text-transform:uppercase;letter-spacing:.6px;line-height:1.1}
   .sol-tile.major .sol-type{color:#ff8c00}
   .sol-tile.minor .sol-type{color:#1a8cff}
-  .sol-win{font-size:.98rem;font-weight:700;line-height:1.2;color:var(--text)}
-  .sol-dur{font-size:.72rem;color:var(--muted)}
+  .sol-win{font-size:.78rem;font-weight:700;line-height:1.15;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sol-dur{font-size:.6rem;color:var(--muted);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  @media (max-width:520px){
+    .sol-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+    .sol-win{font-size:.82rem}
+  }
   /* tip */
   .tip{background:rgba(245,180,76,.06);border-left:3px solid var(--warn);padding:10px 12px;border-radius:0 8px 8px 0;margin-top:12px;color:#f5e2b8;font-size:.9rem;line-height:1.5}
   .tip b{color:var(--warn)}
@@ -445,7 +450,7 @@
     <h1>Phoenix Lakes — Fishing Dashboard</h1>
     <div class="sub">Pleasant · Roosevelt · Apache · Canyon · Saguaro · Bartlett</div>
     <span class="date" id="date-badge">Sunday, April 26, 2026</span>
-    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 5:55 PM MST</b></div>
+    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 6:15 PM MST</b></div>
   </header>
 
   <!-- BEST FISHING TIMES (today's solunar windows) -->
@@ -458,22 +463,22 @@
       <div class="sol-tile major">
         <div class="sol-type">● Major</div>
         <div class="sol-win">8:10 AM – 10:10 AM</div>
-        <div class="sol-dur">~2 hrs · moon underfoot</div>
+        <div class="sol-dur">moon underfoot</div>
       </div>
       <div class="sol-tile minor">
         <div class="sol-type">○ Minor</div>
         <div class="sol-win">1:41 PM – 3:41 PM</div>
-        <div class="sol-dur">~2 hrs · moonrise</div>
+        <div class="sol-dur">moonrise</div>
       </div>
       <div class="sol-tile major">
         <div class="sol-type">● Major</div>
         <div class="sol-win">8:10 PM – 10:10 PM</div>
-        <div class="sol-dur">~2 hrs · moon overhead</div>
+        <div class="sol-dur">moon overhead</div>
       </div>
       <div class="sol-tile minor">
         <div class="sol-type">○ Minor</div>
         <div class="sol-win">2:04 AM – 4:04 AM</div>
-        <div class="sol-dur">~2 hrs · moonset</div>
+        <div class="sol-dur">moonset</div>
       </div>
     </div>
   </div>
