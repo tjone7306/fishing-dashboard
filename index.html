@@ -88,7 +88,7 @@
   @media (max-width:420px){.fcst-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
   .fcst-tile{background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:10px 6px 9px;text-align:center;display:flex;flex-direction:column;gap:3px;position:relative;overflow:hidden;min-width:0}
   .fcst-tile.pick{border-color:rgba(79,194,122,.55);background:linear-gradient(180deg,rgba(79,194,122,.10),var(--surface-2))}
-  .fcst-tile.pick::before{content:"PICK";position:absolute;top:6px;right:6px;font-size:.6rem;font-weight:800;letter-spacing:.7px;color:var(--good,#4fc27a);background:rgba(79,194,122,.15);border:1px solid rgba(79,194,122,.5);border-radius:10px;padding:2px 6px}
+  /* v10: text removed; the green frame on .fcst-tile.pick speaks for itself */ .fcst-tile.pick::before{content:none}
   .fcst-day{font-size:.78rem;font-weight:700;letter-spacing:.8px;color:var(--muted);text-transform:uppercase}
   .fcst-ic{font-size:1.7rem;line-height:1;margin:2px 0 1px}
   .fcst-hi{font-size:1.4rem;font-weight:800;line-height:1.1;color:var(--text);font-variant-numeric:tabular-nums}
@@ -102,7 +102,7 @@
     .fcst-tile{padding:10px 4px 9px}
     .fcst-ic{font-size:1.5rem}
     .fcst-hi{font-size:1.25rem}
-    .fcst-tile.pick::before{font-size:.55rem;padding:2px 5px}
+    /* v10: pick text hidden */
   }
   .dist{display:inline-block;color:var(--accent);font-size:.78rem;font-weight:500;margin-left:4px}
   /* flow inline */
@@ -418,6 +418,45 @@
     .fcst-tile .bs-gauge{max-width:84px}
     .fcst-tile .bs-score-num{font-size:.95rem}
   }
+
+  /* ===== v10: live radar card + tap-to-expand hourly detail ===== */
+  .radar-card{margin-top:12px}
+  .radar-card h3{margin:0 0 8px;font-size:1.05rem;font-weight:600;display:flex;align-items:center;gap:8px}
+  .radar-card h3::before{content:"📡";font-size:.95rem}
+  .radar-sub{color:var(--muted);font-size:.78rem;margin:0 0 10px;line-height:1.4}
+  .radar-map{width:100%;height:340px;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#0a1420;position:relative}
+  .radar-map .leaflet-container{background:#0a1420;font-family:inherit}
+  .radar-map .leaflet-control-attribution{background:rgba(10,20,32,.75);color:#8ea6be;font-size:.62rem}
+  .radar-map .leaflet-control-attribution a{color:var(--accent)}
+  .radar-map .leaflet-control-zoom a{background:#18293a;color:var(--text);border-color:var(--border)}
+  .radar-map .leaflet-control-zoom a:hover{background:#223446}
+  .radar-controls{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+  .radar-btn{appearance:none;background:var(--surface-2);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font:inherit;font-size:.82rem;cursor:pointer;display:inline-flex;align-items:center;gap:5px;min-height:32px}
+  .radar-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .radar-btn.active{background:rgba(94,180,231,.14);border-color:var(--accent);color:var(--accent)}
+  .radar-time{color:var(--muted);font-size:.74rem;font-variant-numeric:tabular-nums}
+  .radar-time .now{color:var(--good);font-weight:700}
+  .radar-time .past{color:var(--muted)}
+  .radar-time .fut{color:var(--accent)}
+  @media (max-width:540px){.radar-map{height:260px}}
+
+  /* tap-to-expand hourly detail panel under the 7-day grid */
+  .fcst-tile{cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .fcst-tile.expanded{box-shadow:0 0 0 2px rgba(94,180,231,.6) inset;border-color:rgba(94,180,231,.6)}
+  .fcst-detail{display:none;margin-top:10px;padding:14px 12px 12px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(94,180,231,.35);position:relative}
+  .fcst-detail.show{display:block;animation:fdfade .25s ease}
+  @keyframes fdfade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+  .fcst-detail-h{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px;gap:8px;flex-wrap:wrap}
+  .fcst-detail-h .fd-title{font-size:.95rem;font-weight:800;color:var(--text);letter-spacing:-.01em}
+  .fcst-detail-h .fd-sub{color:var(--muted);font-size:.74rem}
+  .fcst-detail-close{appearance:none;background:transparent;border:none;color:var(--muted);font-size:1rem;cursor:pointer;padding:2px 6px;line-height:1}
+  .fcst-detail-close:hover{color:var(--text)}
+  .fd-graph{margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,255,255,.06)}
+  .fd-graph:first-of-type{margin-top:6px;padding-top:0;border-top:0}
+  .fd-graph-label{font-size:.7rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .fd-graph-label .v{color:var(--text);font-size:.78rem;font-weight:700;letter-spacing:0;text-transform:none;font-variant-numeric:tabular-nums}
+  .fd-graph svg{display:block;width:100%;height:80px;margin-top:2px}
+  @media (max-width:540px){.fd-graph svg{height:64px}}
 </style>
 </head>
 <body>
@@ -443,14 +482,26 @@
     <div class="fcst-grid" id="fcst-7day">
       <!-- 7 day tiles populated by JS below -->
     </div>
+    <div id="fcst-detail" class="fcst-detail" aria-live="polite"></div>
     <div class="fcst-pick-line" id="fcst-pick-line">🎯 <b>Pick:</b> <span id="fcst-pick-summary">Loading week ahead…</span></div>
+  </div>
+
+  <!-- ===== v10: LIVE RADAR (RainViewer + Leaflet) ===== -->
+  <div class="card radar-card">
+    <h3>Live Radar</h3>
+    <p class="radar-sub">Animated rain, every 10&nbsp;min · past 2 hours + 30&nbsp;min forecast. Pinch/zoom to your area.</p>
+    <div id="radar-map" class="radar-map" role="img" aria-label="Phoenix-area weather radar"></div>
+    <div class="radar-controls">
+      <button id="radar-play" class="radar-btn active" type="button" aria-label="Play/pause radar animation">⏸ Pause</button>
+      <span id="radar-time" class="radar-time"><span class="now">Now</span></span>
+    </div>
   </div>
 
   <header>
     <h1>Phoenix Lakes — Fishing Dashboard</h1>
     <div class="sub">Pleasant · Roosevelt · Apache · Canyon · Saguaro · Bartlett</div>
     <span class="date" id="date-badge">Sunday, April 26, 2026</span>
-    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 7:07 PM MST</b></div>
+    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 7:50 PM MST</b></div>
   </header>
 
   <!-- BEST FISHING TIMES (today's solunar windows) -->
@@ -1417,6 +1468,7 @@
   // Centroid of the 6 lakes — close enough for a regional outlook
   var url = 'https://api.open-meteo.com/v1/forecast?latitude=33.68&longitude=-111.65' +
             '&daily=temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,pressure_msl_max,pressure_msl_min,weather_code,precipitation_probability_max' +
+            '&hourly=temperature_2m,wind_speed_10m,wind_direction_10m,precipitation_probability,precipitation' +
             '&temperature_unit=fahrenheit&wind_speed_unit=mph' +
             '&timezone=America%2FPhoenix&forecast_days=7';
   var dirs = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
@@ -1438,6 +1490,7 @@
     return (t-65) - Math.max(0,(w-8))*1.5 - (p>=80?5:0);
   }
   fetch(url).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+    if (d) { window.__fcst7day = d; document.dispatchEvent(new CustomEvent('fcst7day-ready', {detail:d})); }
     if(!d || !d.daily) {
       grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--muted);padding:14px">Forecast temporarily unavailable</div>';
       pickEl.textContent = 'Will retry on next page load.';
@@ -1924,6 +1977,311 @@
     document.addEventListener('DOMContentLoaded', watchOutlook);
   } else {
     watchOutlook();
+  }
+})();
+</script>
+<script>
+/* ===== v10: live radar map (RainViewer + Leaflet) ===== */
+(function(){
+  if (typeof L === 'undefined') {
+    // Leaflet not yet loaded by the existing habitat code path. Wait briefly.
+    var tries = 0;
+    var iv = setInterval(function(){
+      if (typeof L !== 'undefined') { clearInterval(iv); start(); }
+      else if (++tries > 40) clearInterval(iv);
+    }, 250);
+  } else { start(); }
+
+  function start(){
+    var el = document.getElementById('radar-map');
+    if (!el) return;
+
+    // Centroid of Phoenix lakes
+    var map = L.map(el, { zoomControl: true, attributionControl: true, scrollWheelZoom: false })
+      .setView([33.65, -111.7], 8);
+
+    // Dark base tiles to match the dashboard
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap, &copy; CartoDB · radar &copy; <a href="https://rainviewer.com/" target="_blank">RainViewer</a>',
+      subdomains: 'abcd',
+      maxZoom: 18
+    }).addTo(map);
+
+    // Lake markers (small, low-key)
+    var lakes = [
+      ['Pleasant',   33.8770, -112.2733],
+      ['Roosevelt',  33.6700, -111.1500],
+      ['Apache',     33.5800, -111.2333],
+      ['Canyon',     33.5400, -111.4600],
+      ['Saguaro',    33.5680, -111.5450],
+      ['Bartlett',   33.8167, -111.6333]
+    ];
+    lakes.forEach(function(l){
+      L.circleMarker([l[1], l[2]], { radius: 4, color: '#5eb4e7', fillColor: '#5eb4e7', fillOpacity: .8, weight: 1.5 })
+        .bindTooltip(l[0], { direction: 'right', offset: [6,0], className: 'radar-lk-tip' })
+        .addTo(map);
+    });
+
+    // RainViewer overlay (animated)
+    var frames = [];     // {time, path, isFuture}
+    var layers = {};     // tile layer cache by index
+    var idx = 0;
+    var playing = true;
+    var timer = null;
+    var label = document.getElementById('radar-time');
+    var btn = document.getElementById('radar-play');
+
+    function fmtT(t){
+      var d = new Date(t*1000);
+      var h = d.getHours(), m = d.getMinutes();
+      var ap = h>=12?'PM':'AM'; var hh = h%12||12;
+      return hh+':'+(m<10?'0':'')+m+' '+ap;
+    }
+    function tagLabel(f){
+      if (f.isFuture) return '<span class="fut">+'+f.minOffset+' min</span>';
+      if (f.minOffset === 0) return '<span class="now">Now ('+fmtT(f.time)+')</span>';
+      return '<span class="past">−'+(-f.minOffset)+' min ('+fmtT(f.time)+')</span>';
+    }
+    function showFrame(i){
+      var f = frames[i]; if (!f) return;
+      if (!layers[i]) {
+        layers[i] = L.tileLayer(
+          'https://tilecache.rainviewer.com/v2' + f.path + '/256/{z}/{x}/{y}/2/1_1.png',
+          { opacity: 0, attribution: '', maxZoom: 18, tileSize: 256 }
+        ).addTo(map);
+      }
+      // fade out all, fade in this one
+      Object.keys(layers).forEach(function(k){ if (+k !== i) layers[k].setOpacity(0); });
+      layers[i].setOpacity(0.7);
+      if (label) label.innerHTML = tagLabel(f);
+    }
+    function nextFrame(){
+      idx = (idx + 1) % frames.length;
+      showFrame(idx);
+    }
+    function play(){
+      playing = true;
+      btn.textContent = '⏸ Pause';
+      btn.classList.add('active');
+      if (timer) clearInterval(timer);
+      timer = setInterval(nextFrame, 600);
+    }
+    function pause(){
+      playing = false;
+      btn.textContent = '▶ Play';
+      btn.classList.remove('active');
+      if (timer) clearInterval(timer);
+    }
+    btn && btn.addEventListener('click', function(){ playing ? pause() : play(); });
+
+    // Fetch RainViewer frame index
+    fetch('https://api.rainviewer.com/public/weather-maps.json')
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(d){
+        if (!d || !d.radar) return;
+        var nowTime = d.radar.nowcast && d.radar.nowcast.length ? d.radar.nowcast[0].time : (d.radar.past[d.radar.past.length-1] && d.radar.past[d.radar.past.length-1].time);
+        // Past frames (last 6 = ~60 min)
+        var past = (d.radar.past || []).slice(-6).map(function(f){
+          return { time: f.time, path: f.path, isFuture: false, minOffset: Math.round((f.time - nowTime)/60) };
+        });
+        var future = (d.radar.nowcast || []).slice(0, 3).map(function(f){
+          return { time: f.time, path: f.path, isFuture: true, minOffset: Math.round((f.time - nowTime)/60) };
+        });
+        frames = past.concat(future);
+        // start at the "now" frame (last past, offset 0)
+        idx = past.length - 1;
+        showFrame(idx);
+        play();
+      })
+      .catch(function(){
+        if (label) label.textContent = 'Radar unavailable';
+        if (btn) btn.disabled = true;
+      });
+
+    // resize map when its container becomes visible (e.g. after device orientation flip)
+    setTimeout(function(){ map.invalidateSize(); }, 250);
+    window.addEventListener('resize', function(){ map.invalidateSize(); });
+  }
+})();
+</script>
+
+<script>
+/* ===== v10: tap-to-expand 7-day tile with temp / wind / rain mini graphs ===== */
+(function(){
+  var grid = document.getElementById('fcst-7day');
+  var detail = document.getElementById('fcst-detail');
+  if (!grid || !detail) return;
+
+  var DATA = null;
+  document.addEventListener('fcst7day-ready', function(e){ DATA = e.detail; bindTiles(); });
+  if (window.__fcst7day) { DATA = window.__fcst7day; bindTiles(); }
+  // also retry once tiles are decorated
+  setTimeout(bindTiles, 1500);
+  setTimeout(bindTiles, 4000);
+
+  var dayFull = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  function bindTiles(){
+    var tiles = grid.querySelectorAll('.fcst-tile');
+    if (!tiles.length || !DATA) return;
+    tiles.forEach(function(tile){
+      if (tile.__fdBound) return;
+      tile.__fdBound = true;
+      tile.setAttribute('role','button');
+      tile.setAttribute('tabindex','0');
+      tile.addEventListener('click', function(ev){
+        // ignore clicks on inner controls (the gauge SVG isn't interactive but be safe)
+        var i = parseInt(tile.getAttribute('data-i'), 10);
+        if (isNaN(i)) return;
+        toggle(i, tile);
+      });
+      tile.addEventListener('keydown', function(ev){
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          var i = parseInt(tile.getAttribute('data-i'), 10);
+          if (!isNaN(i)) toggle(i, tile);
+        }
+      });
+    });
+  }
+
+  function toggle(i, tile){
+    var was = tile.classList.contains('expanded');
+    grid.querySelectorAll('.fcst-tile.expanded').forEach(function(t){ t.classList.remove('expanded'); });
+    if (was) { detail.classList.remove('show'); detail.innerHTML = ''; return; }
+    tile.classList.add('expanded');
+    render(i);
+    detail.classList.add('show');
+    // smooth scroll into view on mobile
+    setTimeout(function(){ detail.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 50);
+  }
+
+  function fmtTime(d){
+    var h = d.getHours(); var ap = h>=12?'PM':'AM'; return (h%12||12) + ' ' + ap;
+  }
+  function fmtDate(d){
+    var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[d.getMonth()] + ' ' + d.getDate();
+  }
+
+  function render(dayIdx){
+    if (!DATA || !DATA.hourly || !DATA.hourly.time) {
+      detail.innerHTML = '<div class="fcst-detail-h"><div class="fd-title">Hourly data unavailable</div><button class="fcst-detail-close" aria-label="Close">×</button></div>';
+      bindClose();
+      return;
+    }
+    var d0 = new Date(DATA.daily.time[dayIdx] + 'T00:00:00');
+    var dayStr = dayFull[d0.getDay()] + ' · ' + fmtDate(d0);
+    // slice 24h starting at this day's midnight
+    var allTimes = DATA.hourly.time;
+    var startIdx = -1;
+    for (var k=0;k<allTimes.length;k++){
+      if (allTimes[k].slice(0,10) === DATA.daily.time[dayIdx]) { startIdx = k; break; }
+    }
+    if (startIdx === -1) startIdx = dayIdx * 24;
+    var hours = [];
+    for (var j=0;j<24;j++){
+      var idx = startIdx + j;
+      if (idx >= allTimes.length) break;
+      hours.push({
+        t:    new Date(allTimes[idx]),
+        temp: DATA.hourly.temperature_2m[idx],
+        wind: DATA.hourly.wind_speed_10m[idx],
+        windDir: DATA.hourly.wind_direction_10m[idx],
+        rainPct: DATA.hourly.precipitation_probability[idx],
+        rainAmt: DATA.hourly.precipitation[idx]
+      });
+    }
+    if (!hours.length) {
+      detail.innerHTML = '<div class="fcst-detail-h"><div class="fd-title">'+dayStr+'</div><button class="fcst-detail-close" aria-label="Close">×</button></div><div class="fd-sub">No hourly forecast for this day yet.</div>';
+      bindClose();
+      return;
+    }
+
+    // Hi/Lo and peak rain
+    var temps = hours.map(function(h){return h.temp;});
+    var winds = hours.map(function(h){return h.wind;});
+    var rains = hours.map(function(h){return h.rainPct||0;});
+    var hi = Math.max.apply(null, temps), lo = Math.min.apply(null, temps);
+    var hiH = hours[temps.indexOf(hi)].t, loH = hours[temps.indexOf(lo)].t;
+    var maxRain = Math.max.apply(null, rains);
+    var peakWind = Math.max.apply(null, winds);
+    var peakWindH = hours[winds.indexOf(peakWind)].t;
+
+    // build SVG graphs
+    var svgTemp  = lineGraph(hours, temps, '#f5b44c', lo - 2, hi + 2, '°');
+    var svgWind  = lineGraph(hours, winds, '#7dc6ed', 0, Math.max(20, peakWind + 4), ' mph');
+    var svgRain  = barGraph(hours, rains, '#5eb4e7', 0, 100, '%');
+
+    detail.innerHTML =
+      '<div class="fcst-detail-h">' +
+        '<div><div class="fd-title">'+dayStr+'</div><div class="fd-sub">Hi '+Math.round(hi)+'° at '+fmtTime(hiH)+' · Lo '+Math.round(lo)+'° at '+fmtTime(loH)+'</div></div>' +
+        '<button class="fcst-detail-close" type="button" aria-label="Close">×</button>' +
+      '</div>' +
+      '<div class="fd-graph"><div class="fd-graph-label"><span>🌡️ Temperature</span><span class="v">Hi '+Math.round(hi)+'° / Lo '+Math.round(lo)+'°</span></div>'+svgTemp+'</div>' +
+      '<div class="fd-graph"><div class="fd-graph-label"><span>💨 Wind</span><span class="v">peak '+Math.round(peakWind)+' mph at '+fmtTime(peakWindH)+'</span></div>'+svgWind+'</div>' +
+      '<div class="fd-graph"><div class="fd-graph-label"><span>💧 Rain probability</span><span class="v">'+(maxRain>0 ? 'max '+maxRain+'%' : 'dry day')+'</span></div>'+svgRain+'</div>';
+    bindClose();
+  }
+  function bindClose(){
+    var b = detail.querySelector('.fcst-detail-close');
+    if (b) b.addEventListener('click', function(){
+      grid.querySelectorAll('.fcst-tile.expanded').forEach(function(t){ t.classList.remove('expanded'); });
+      detail.classList.remove('show'); detail.innerHTML = '';
+    });
+  }
+
+  // Build a polyline SVG with x-axis hour labels at 0/6/12/18.
+  function lineGraph(hours, vals, color, vMin, vMax, suffix){
+    var W = 600, H = 80, padL = 22, padR = 8, padT = 6, padB = 18;
+    var n = hours.length;
+    var pts = [];
+    for (var i=0;i<n;i++){
+      var x = padL + (i/(n-1)) * (W - padL - padR);
+      var y = padT + (1 - (vals[i] - vMin) / (vMax - vMin)) * (H - padT - padB);
+      pts.push(x.toFixed(1)+','+y.toFixed(1));
+    }
+    var path = 'M ' + pts.join(' L ');
+    var fill = 'M ' + pts[0].split(',')[0] + ',' + (H - padB) + ' L ' + pts.join(' L ') + ' L ' + pts[pts.length-1].split(',')[0] + ',' + (H - padB) + ' Z';
+    // x-axis labels
+    var xlabels = '';
+    [0, 6, 12, 18].forEach(function(h){
+      if (h >= n) return;
+      var x = padL + (h/(n-1)) * (W - padL - padR);
+      var lbl = h===0 ? '12a' : (h===12 ? '12p' : (h<12 ? h+'a' : (h-12)+'p'));
+      xlabels += '<text x="'+x.toFixed(1)+'" y="'+(H-3)+'" fill="rgba(255,255,255,.45)" font-size="9" text-anchor="middle">'+lbl+'</text>';
+    });
+    // axis y range hint
+    var ymax = '<text x="'+(padL-3)+'" y="'+(padT+8)+'" fill="rgba(255,255,255,.35)" font-size="9" text-anchor="end">'+Math.round(vMax)+suffix+'</text>';
+    var ymin = '<text x="'+(padL-3)+'" y="'+(H-padB+1)+'" fill="rgba(255,255,255,.35)" font-size="9" text-anchor="end">'+Math.round(vMin)+suffix+'</text>';
+    return '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none">' +
+      '<path d="'+fill+'" fill="'+color+'" fill-opacity=".18"/>' +
+      '<path d="'+path+'" fill="none" stroke="'+color+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>' +
+      ymax + ymin + xlabels +
+      '</svg>';
+  }
+  function barGraph(hours, vals, color, vMin, vMax, suffix){
+    var W = 600, H = 80, padL = 22, padR = 8, padT = 6, padB = 18;
+    var n = hours.length;
+    var bars = '';
+    var bw = (W - padL - padR) / n;
+    for (var i=0;i<n;i++){
+      var v = vals[i] || 0;
+      var x = padL + i*bw;
+      var h = (v / vMax) * (H - padT - padB);
+      var y = (H - padB) - h;
+      bars += '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+(bw-1).toFixed(1)+'" height="'+h.toFixed(1)+'" fill="'+color+'" fill-opacity="'+(0.25 + (v/100)*0.6).toFixed(2)+'" rx="1.5"/>';
+    }
+    var xlabels = '';
+    [0, 6, 12, 18].forEach(function(h){
+      if (h >= n) return;
+      var x = padL + (h+0.5)*bw;
+      var lbl = h===0 ? '12a' : (h===12 ? '12p' : (h<12 ? h+'a' : (h-12)+'p'));
+      xlabels += '<text x="'+x.toFixed(1)+'" y="'+(H-3)+'" fill="rgba(255,255,255,.45)" font-size="9" text-anchor="middle">'+lbl+'</text>';
+    });
+    var ymax = '<text x="'+(padL-3)+'" y="'+(padT+8)+'" fill="rgba(255,255,255,.35)" font-size="9" text-anchor="end">100%</text>';
+    var ymin = '<text x="'+(padL-3)+'" y="'+(H-padB+1)+'" fill="rgba(255,255,255,.35)" font-size="9" text-anchor="end">0%</text>';
+    return '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none">' + bars + ymax + ymin + xlabels + '</svg>';
   }
 })();
 </script>
