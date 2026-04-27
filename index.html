@@ -466,6 +466,46 @@
   .fd-graph-label .v{color:var(--text);font-size:.78rem;font-weight:700;letter-spacing:0;text-transform:none;font-variant-numeric:tabular-nums}
   .fd-graph svg{display:block;width:100%;height:80px;margin-top:2px}
   @media (max-width:540px){.fd-graph svg{height:64px}}
+
+  /* ===== v12: Moon Calendar ===== */
+  .moon-card{margin-top:12px;padding:0;overflow:hidden}
+  .moon-card > .moon-summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:14px 16px;color:var(--text);user-select:none;-webkit-tap-highlight-color:transparent}
+  .moon-card > .moon-summary::-webkit-details-marker{display:none}
+  .moon-summary .moon-title{font-size:1.05rem;font-weight:700;display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+  .moon-summary .moon-icon{font-size:1.15rem;line-height:1}
+  .moon-summary .moon-hint{color:var(--muted);font-size:.74rem;font-weight:600;letter-spacing:.3px}
+  .moon-summary .moon-caret{color:var(--muted);font-size:1rem;transition:transform .15s;line-height:1}
+  .moon-card[open] > .moon-summary .moon-caret{transform:rotate(90deg)}
+  .moon-card[open] > .moon-summary .moon-hint{display:none}
+  .moon-card > .moon-sub,.moon-card > .moon-events,.moon-card > .moon-grid-wrap,.moon-card > .moon-foot{margin-left:16px;margin-right:16px}
+  .moon-card > .moon-sub{margin-top:0;color:var(--muted);font-size:.78rem;line-height:1.4}
+  .moon-events{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+  .moon-event{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;font-size:.74rem;font-weight:700;background:var(--surface-2);border:1px solid var(--border);color:var(--text);font-variant-numeric:tabular-nums}
+  .moon-event.full{background:rgba(245,180,76,.10);border-color:rgba(245,180,76,.45);color:#f5d18a}
+  .moon-event.new{background:rgba(94,180,231,.08);border-color:rgba(94,180,231,.4);color:#a3d2ee}
+  .moon-event .me-d{color:var(--muted);font-weight:600;font-size:.7rem;letter-spacing:.3px}
+  .moon-grid-wrap{margin-top:6px}
+  .moon-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-size:.66rem;color:var(--muted);text-align:center;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding-bottom:4px}
+  .moon-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .mc-cell{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:7px 2px 6px;border-radius:8px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);min-height:64px}
+  .mc-cell.empty{background:transparent;border-color:transparent}
+  .mc-cell.next-mo{opacity:.45}
+  .mc-day{font-size:.72rem;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1}
+  .mc-emoji{font-size:1.35rem;line-height:1;margin-top:1px}
+  .mc-illum{font-size:.6rem;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.2px;line-height:1}
+  .mc-cell.today{background:rgba(94,180,231,.10);border-color:rgba(94,180,231,.45)}
+  .mc-cell.today .mc-day{color:var(--accent)}
+  .mc-cell.full{background:rgba(245,180,76,.10);border-color:rgba(245,180,76,.45)}
+  .mc-cell.full .mc-day{color:#f5d18a}
+  .mc-cell.new{background:rgba(40,60,90,.4);border-color:rgba(94,180,231,.32)}
+  .mc-cell.new .mc-day{color:#a3d2ee}
+  .moon-foot{margin-top:8px;margin-bottom:14px;font-size:.66rem;color:var(--muted);line-height:1.5}
+  @media (max-width:540px){
+    .mc-cell{min-height:56px;padding:6px 1px}
+    .mc-emoji{font-size:1.15rem}
+    .mc-day{font-size:.66rem}
+    .mc-illum{font-size:.55rem}
+  }
 </style>
 </head>
 <body>
@@ -510,11 +550,27 @@
     </div>
   </details>
 
+  <!-- ===== v12: MOON CALENDAR — collapsed by default, opens on tap ===== -->
+  <details class="card moon-card" id="moon-card">
+    <summary class="moon-summary">
+      <span class="moon-title"><span class="moon-icon" id="moon-now-icon">🌖</span>Moon Calendar</span>
+      <span class="moon-hint" id="moon-now-hint">tap to open · 30-day phases</span>
+      <span class="moon-caret" aria-hidden="true">›</span>
+    </summary>
+    <p class="moon-sub">Phase + illumination for every day this month. Full Moon and New Moon are highlighted — these are typically the strongest feeding triggers (and the 3 days before either).</p>
+    <div class="moon-events" id="moon-events"></div>
+    <div class="moon-grid-wrap">
+      <div class="moon-dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+      <div class="moon-grid" id="moon-grid"></div>
+    </div>
+    <p class="moon-foot">Phases computed astronomically (synodic period 29.53d). Full Moon and New Moon dates are accurate to within a few hours.</p>
+  </details>
+
   <header>
     <h1>Phoenix Lakes — Fishing Dashboard</h1>
     <div class="sub">Pleasant · Roosevelt · Apache · Canyon · Saguaro · Bartlett</div>
     <span class="date" id="date-badge">Sunday, April 26, 2026</span>
-    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 8:25 PM MST</b></div>
+    <div class="updated">Last updated <b>Sunday, April 26, 2026 at 8:55 PM MST</b></div>
   </header>
 
   <!-- BEST FISHING TIMES (today's solunar windows) -->
@@ -1994,10 +2050,27 @@
 })();
 </script>
 <script>
-/* ===== v11: live radar map — lazy-init on details open ===== */
+/* ===== v12: live radar map — proper Leaflet loader (fixed) ===== */
 (function(){
   var card = document.getElementById('radar-card');
   if (!card) return;
+
+  // Same Leaflet build + integrity hash that the habitat code uses
+  var LEAFLET_JS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  var LEAFLET_INTEGRITY = 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=';
+  var leafletLoading = null;
+  function loadLeaflet(){
+    if (window.L) return Promise.resolve(window.L);
+    if (leafletLoading) return leafletLoading;
+    leafletLoading = new Promise(function(resolve, reject){
+      var s = document.createElement('script');
+      s.src = LEAFLET_JS; s.integrity = LEAFLET_INTEGRITY; s.crossOrigin = '';
+      s.onload = function(){ resolve(window.L); };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+    return leafletLoading;
+  }
 
   var inited = false;
   var leafletMap = null;
@@ -2009,29 +2082,23 @@
 
   card.addEventListener('toggle', function(){
     if (!card.open) {
-      // Pause any animation when closed to save battery
       if (timer) { clearInterval(timer); timer = null; playing = false; }
       var btn = document.getElementById('radar-play');
-      if (btn) { btn.textContent = '\u25B6 Play'; btn.classList.remove('active'); }
+      if (btn) { btn.textContent = '▶ Play'; btn.classList.remove('active'); }
       return;
     }
-    if (!inited) initWhenLeafletReady();
-    else if (leafletMap) {
-      // re-fix sizing in case the container resized while hidden
+    if (!inited) {
+      var label = document.getElementById('radar-time');
+      if (label) label.textContent = 'Loading…';
+      loadLeaflet().then(start).catch(function(err){
+        if (label) label.textContent = 'Map library blocked. Check network.';
+        console && console.warn && console.warn('Leaflet load failed', err);
+      });
+    } else if (leafletMap) {
       setTimeout(function(){ leafletMap.invalidateSize(); }, 50);
-      // resume animation if user re-opens
       if (frames.length && !timer) play();
     }
   });
-
-  function initWhenLeafletReady(){
-    if (typeof L !== 'undefined') return start();
-    var tries = 0;
-    var iv = setInterval(function(){
-      if (typeof L !== 'undefined') { clearInterval(iv); start(); }
-      else if (++tries > 40) clearInterval(iv);
-    }, 250);
-  }
 
   function fmtT(t){
     var d = new Date(t*1000);
@@ -2042,7 +2109,7 @@
   function tagLabel(f){
     if (f.isFuture) return '<span class="fut">+'+f.minOffset+' min</span>';
     if (f.minOffset === 0) return '<span class="now">Now ('+fmtT(f.time)+')</span>';
-    return '<span class="past">\u2212'+(-f.minOffset)+' min ('+fmtT(f.time)+')</span>';
+    return '<span class="past">−'+(-f.minOffset)+' min ('+fmtT(f.time)+')</span>';
   }
   function showFrame(i){
     var f = frames[i]; if (!f) return;
@@ -2061,14 +2128,14 @@
   function play(){
     playing = true;
     var btn = document.getElementById('radar-play');
-    if (btn) { btn.textContent = '\u23F8 Pause'; btn.classList.add('active'); }
+    if (btn) { btn.textContent = '⏸ Pause'; btn.classList.add('active'); }
     if (timer) clearInterval(timer);
     timer = setInterval(nextFrame, 600);
   }
   function pause(){
     playing = false;
     var btn = document.getElementById('radar-play');
-    if (btn) { btn.textContent = '\u25B6 Play'; btn.classList.remove('active'); }
+    if (btn) { btn.textContent = '▶ Play'; btn.classList.remove('active'); }
     if (timer) { clearInterval(timer); timer = null; }
   }
 
@@ -2127,8 +2194,6 @@
         if (btn) btn.disabled = true;
       });
 
-    // Critical: Leaflet doesn't size correctly when initialized inside a hidden details element.
-    // Force a recalc once it's visible.
     setTimeout(function(){ if (leafletMap) leafletMap.invalidateSize(); }, 100);
     setTimeout(function(){ if (leafletMap) leafletMap.invalidateSize(); }, 500);
     window.addEventListener('resize', function(){ if (leafletMap) leafletMap.invalidateSize(); });
@@ -2314,6 +2379,183 @@
     var ymin = '<text x="'+(padL-3)+'" y="'+(H-padB+1)+'" fill="rgba(255,255,255,.35)" font-size="9" text-anchor="end">0%</text>';
     return '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none">' + bars + ymax + ymin + xlabels + '</svg>';
   }
+})();
+</script>
+<script>
+/* ===== v12: Moon Calendar (astronomical phase calc) ===== */
+(function(){
+  // Reference new moon: 2000 Jan 6, 18:14 UTC = JD 2451550.1
+  // Synodic month: 29.530588853 days
+  var SYNODIC = 29.530588853;
+  var REF_NEW = new Date(Date.UTC(2000,0,6,18,14,0));
+
+  function moonAge(date){ // returns days since the most recent new moon (0..29.53)
+    var diff = (date - REF_NEW) / 86400000; // days
+    var age = diff % SYNODIC;
+    if (age < 0) age += SYNODIC;
+    return age;
+  }
+  function illumPct(age){
+    // illuminated fraction = (1 - cos(2pi * age/SYNODIC)) / 2
+    var frac = (1 - Math.cos(2*Math.PI * age / SYNODIC)) / 2;
+    return Math.round(frac * 100);
+  }
+  // Map age (in days) → emoji
+  function emojiFor(age){
+    var t = age / SYNODIC; // 0..1 fraction of cycle
+    if (t < 1/16)        return '🌑';                  // new
+    if (t < 3/16)        return '🌒';                  // waxing crescent
+    if (t < 5/16)        return '🌓';                  // first quarter
+    if (t < 7/16)        return '🌔';                  // waxing gibbous
+    if (t < 9/16)        return '🌕';                  // full
+    if (t < 11/16)       return '🌖';                  // waning gibbous
+    if (t < 13/16)       return '🌗';                  // last quarter
+    if (t < 15/16)       return '🌘';                  // waning crescent
+    return '🌑';
+  }
+  function phaseName(age){
+    var t = age / SYNODIC;
+    if (t < 1/16)  return 'New Moon';
+    if (t < 3/16)  return 'Waxing Crescent';
+    if (t < 5/16)  return 'First Quarter';
+    if (t < 7/16)  return 'Waxing Gibbous';
+    if (t < 9/16)  return 'Full Moon';
+    if (t < 11/16) return 'Waning Gibbous';
+    if (t < 13/16) return 'Last Quarter';
+    if (t < 15/16) return 'Waning Crescent';
+    return 'New Moon';
+  }
+  function isFull(age){ var t = age/SYNODIC; return t >= 7/16 && t < 9/16; }
+  function isNew(age){ var t = age/SYNODIC; return t < 1/16 || t >= 15/16; }
+
+  // Find the dates within a window when the moon is closest to FULL or NEW
+  function findKeyEvents(year, monthIdx){
+    // Scan day by day; mark the day whose noon-MST age is closest to full (~14.77d) or new (~0/29.53d) within window
+    var month_start = new Date(year, monthIdx, 1);
+    var month_end = new Date(year, monthIdx+1, 0); // last day of month
+    var events = [];
+    var lastWasFull = null, lastWasNew = null;
+    // We'll detect transitions where age crosses key values
+    for (var d = 1; d <= month_end.getDate(); d++) {
+      var date = new Date(year, monthIdx, d, 12, 0, 0); // noon local
+      var age = moonAge(date);
+      var dayBefore = new Date(year, monthIdx, d-1, 12, 0, 0);
+      var ageBefore = moonAge(dayBefore);
+      // Check Full Moon: age crossing 14.765
+      if (ageBefore < SYNODIC/2 && age >= SYNODIC/2) {
+        events.push({ kind: 'full', date: date });
+      }
+      // Check New Moon: age wrapping around (very small now, was very large)
+      if (ageBefore > SYNODIC * 0.9 && age < SYNODIC * 0.1) {
+        events.push({ kind: 'new', date: date });
+      }
+    }
+    return events;
+  }
+
+  function fmtMonthDate(d){
+    var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var dow=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    return dow[d.getDay()] + ' ' + months[d.getMonth()] + ' ' + d.getDate();
+  }
+
+  function render(){
+    var card = document.getElementById('moon-card');
+    if (!card) return;
+    var grid = document.getElementById('moon-grid');
+    var events = document.getElementById('moon-events');
+    var icon = document.getElementById('moon-now-icon');
+    var hint = document.getElementById('moon-now-hint');
+    if (!grid || !events) return;
+
+    var today = new Date();
+    var year = today.getFullYear();
+    var monthIdx = today.getMonth();
+
+    // Today's phase shown in the summary (so users see something at a glance)
+    var nowAge = moonAge(today);
+    if (icon) icon.textContent = emojiFor(nowAge);
+    if (hint) hint.textContent = 'today: ' + phaseName(nowAge) + ' · ' + illumPct(nowAge) + '%';
+
+    // Key events for this month
+    var keyEvents = findKeyEvents(year, monthIdx);
+    // also pick up next month's first events to have a continuous lookahead
+    var next = findKeyEvents(year + (monthIdx===11?1:0), (monthIdx+1)%12);
+    var allEvents = keyEvents.concat(next).filter(function(e){
+      // keep events between today-3 and today+45
+      var diff = (e.date - today)/86400000;
+      return diff >= -3 && diff <= 45;
+    });
+    events.innerHTML = '';
+    if (allEvents.length === 0) {
+      events.innerHTML = '<span class="moon-event">No major moon events nearby</span>';
+    } else {
+      allEvents.forEach(function(e){
+        var span = document.createElement('span');
+        span.className = 'moon-event ' + e.kind;
+        var label = e.kind === 'full' ? '🌕 Full Moon' : '🌑 New Moon';
+        span.innerHTML = label + ' <span class="me-d">' + fmtMonthDate(e.date) + '</span>';
+        events.appendChild(span);
+      });
+    }
+
+    // Build the calendar grid for the current month (+ a few days into next month if month ends mid-week)
+    grid.innerHTML = '';
+    var first = new Date(year, monthIdx, 1);
+    var firstDow = first.getDay(); // 0..6
+    // empty cells before the 1st
+    for (var i=0; i<firstDow; i++) {
+      var empty = document.createElement('div');
+      empty.className = 'mc-cell empty';
+      grid.appendChild(empty);
+    }
+    var lastDay = new Date(year, monthIdx+1, 0).getDate();
+    for (var d=1; d<=lastDay; d++) {
+      var date = new Date(year, monthIdx, d, 12, 0, 0);
+      var age = moonAge(date);
+      var pct = illumPct(age);
+      var isToday = d === today.getDate();
+      var classes = ['mc-cell'];
+      if (isToday) classes.push('today');
+      if (isFull(age)) classes.push('full');
+      else if (isNew(age)) classes.push('new');
+      var cell = document.createElement('div');
+      cell.className = classes.join(' ');
+      cell.title = date.toDateString() + ' · ' + phaseName(age) + ' · ' + pct + '% illuminated';
+      cell.innerHTML =
+        '<span class="mc-day">' + d + '</span>' +
+        '<span class="mc-emoji" aria-hidden="true">' + emojiFor(age) + '</span>' +
+        '<span class="mc-illum">' + pct + '%</span>';
+      grid.appendChild(cell);
+    }
+    // pad the last week so the grid stays rectangular (7 cells wide)
+    var totalCells = firstDow + lastDay;
+    var pad = (7 - (totalCells % 7)) % 7;
+    for (var p=0; p<pad; p++) {
+      var nd = new Date(year, monthIdx+1, p+1, 12, 0, 0);
+      var nage = moonAge(nd);
+      var npct = illumPct(nage);
+      var cell2 = document.createElement('div');
+      var cls = ['mc-cell','next-mo'];
+      if (isFull(nage)) cls.push('full');
+      else if (isNew(nage)) cls.push('new');
+      cell2.className = cls.join(' ');
+      cell2.title = nd.toDateString() + ' · ' + phaseName(nage) + ' · ' + npct + '% illuminated';
+      cell2.innerHTML =
+        '<span class="mc-day">' + (p+1) + '</span>' +
+        '<span class="mc-emoji" aria-hidden="true">' + emojiFor(nage) + '</span>' +
+        '<span class="mc-illum">' + npct + '%</span>';
+      grid.appendChild(cell2);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', render);
+  } else {
+    render();
+  }
+  // Re-render on midnight rollover (rare but trivially correct)
+  setInterval(render, 60 * 60 * 1000);
 })();
 </script>
 </body>
