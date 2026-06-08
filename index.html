@@ -315,6 +315,13 @@
   .lk-elev{grid-area:elev;text-align:right;font-size:.85rem;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted)}
   .lk-elev b{color:var(--text);font-weight:600}
   .lk-elev.na{color:var(--muted)}
+
+  .lk-asof{font-size:.66rem;color:var(--muted);background:rgba(255,255,255,.04);padding:1.5px 7px;border-radius:999px;white-space:nowrap;font-weight:500;letter-spacing:.2px;line-height:1.4;display:inline-flex;align-items:center;gap:4px}
+  .lk-asof::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.7}
+  .lk-asof.fresh{color:#7fd3a3;background:rgba(79,194,122,.10)}
+  .lk-asof.ok{color:var(--muted);background:rgba(255,255,255,.05)}
+  .lk-asof.warn{color:var(--warn);background:rgba(245,180,76,.12)}
+  .lk-asof.bad{color:var(--bad);background:rgba(233,100,100,.14)}
   .lk-caret{grid-area:caret;color:var(--muted);font-size:.85rem;transition:transform .15s;user-select:none}
   .lake-card.compact[open] .lk-caret{transform:rotate(90deg)}
   .lk-body{padding:4px 14px 14px;border-top:1px solid rgba(255,255,255,.05)}
@@ -631,7 +638,7 @@
 
     <details class="card lake-card compact" data-lake="pleasant" data-label="Lake Pleasant" data-lat="33.8770" data-lon="-112.2733" id="lake-pleasant">
       <summary>
-        <span class="lk-name">Lake Pleasant <span class="pill warn">Below avg</span> <span class="dist" data-dist></span></span>
+        <span class="lk-name">Lake Pleasant <span class="pill warn">Below avg</span> <span class="lk-asof fresh" data-asof-source="cap">live 7:01 AM</span><span class="dist" data-dist></span></span>
         <span class="lk-pct warn">66%</span>
         <span class="lk-flow" data-flow-row="pleasant"><span class="sf-in">In <span data-snap-cfs-in>727</span></span><span class="sf-sep">·</span><span class="sf-out">Out <span data-snap-cfs-out>0</span></span></span>
         <span class="lk-elev"><b>1,669.70</b> ft · −32.30</span>
@@ -654,7 +661,7 @@
 
     <details class="card lake-card compact" data-lake="roosevelt" data-label="Roosevelt" data-lat="33.6700" data-lon="-111.1500" id="lake-roosevelt">
       <summary>
-        <span class="lk-name">Roosevelt <span class="pill bad">Low</span> <span class="dist" data-dist></span></span>
+        <span class="lk-name">Roosevelt <span class="pill bad">Low</span> <span class="lk-asof ok" data-asof-source="srp">data 6/7 · 1d old</span><span class="dist" data-dist></span></span>
         <span class="lk-pct bad">41%</span>
         <span class="lk-flow" data-flow-row="roosevelt"><span class="sf-in">In <span data-snap-cfs-in>55</span></span><span class="sf-sep">·</span><span class="sf-out">Out <span data-snap-cfs-out>SRP</span></span></span>
         <span class="lk-elev"><b>2,094.62</b> ft · −56.38</span>
@@ -677,7 +684,7 @@
 
     <details class="card lake-card compact" data-lake="apache" data-label="Apache" data-lat="33.5800" data-lon="-111.2333" id="lake-apache">
       <summary>
-        <span class="lk-name">Apache <span class="pill ok">Near full</span> <span class="dist" data-dist></span></span>
+        <span class="lk-name">Apache <span class="pill ok">Near full</span> <span class="lk-asof ok" data-asof-source="srp">data 6/7 · 1d old</span><span class="dist" data-dist></span></span>
         <span class="lk-pct good">92%</span>
         <span class="lk-flow" data-flow-row="apache"><span class="sf-in">In <span data-snap-cfs-in>SRP</span></span><span class="sf-sep">·</span><span class="sf-out">Out <span data-snap-cfs-out>SRP</span></span></span>
         <span class="lk-elev"><b>1,906.59</b> ft · −7.41</span>
@@ -700,7 +707,7 @@
 
     <details class="card lake-card compact" data-lake="canyon" data-label="Canyon" data-lat="33.5400" data-lon="-111.4600" id="lake-canyon">
       <summary>
-        <span class="lk-name">Canyon <span class="pill ok">Near full</span> <span class="dist" data-dist></span></span>
+        <span class="lk-name">Canyon <span class="pill ok">Near full</span> <span class="lk-asof ok" data-asof-source="srp">data 6/7 · 1d old</span><span class="dist" data-dist></span></span>
         <span class="lk-pct good">97%</span>
         <span class="lk-flow" data-flow-row="canyon"><span class="sf-in">In <span data-snap-cfs-in>SRP</span></span><span class="sf-sep">·</span><span class="sf-out">Out <span data-snap-cfs-out>SRP</span></span></span>
         <span class="lk-elev"><b>1,658.40</b> ft · −2.10</span>
@@ -723,7 +730,7 @@
 
     <details class="card lake-card compact" data-lake="saguaro" data-label="Saguaro" data-lat="33.5680" data-lon="-111.5450" id="lake-saguaro">
       <summary>
-        <span class="lk-name">Saguaro <span class="pill ok">Near full</span> <span class="dist" data-dist></span></span>
+        <span class="lk-name">Saguaro <span class="pill ok">Near full</span> <span class="lk-asof ok" data-asof-source="srp">data 6/7 · 1d old</span><span class="dist" data-dist></span></span>
         <span class="lk-pct good">94%</span>
         <span class="lk-flow" data-flow-row="saguaro"><span class="sf-in">In <span data-snap-cfs-in>SRP</span></span><span class="sf-sep">·</span><span class="sf-out">Out <span data-snap-cfs-out>570</span></span></span>
         <span class="lk-elev"><b>1,525.78</b> ft · −3.22</span>
@@ -746,7 +753,7 @@
 
     <details class="card lake-card compact" data-lake="bartlett" data-label="Bartlett" data-lat="33.8167" data-lon="-111.6333" id="lake-bartlett">
       <summary>
-        <span class="lk-name">Bartlett <span class="pill warn">Below avg</span> <span class="dist" data-dist></span></span>
+        <span class="lk-name">Bartlett <span class="pill warn">Below avg</span> <span class="lk-asof ok" data-asof-source="srp">data 6/7 · 1d old</span><span class="dist" data-dist></span></span>
         <span class="lk-pct warn">66%</span>
         <span class="lk-flow" data-flow-row="bartlett"><span class="sf-in">In <span data-snap-cfs-in class="sf-na">NA</span></span><span class="sf-sep">·</span><span class="sf-out">Out <span data-snap-cfs-out>151</span></span></span>
         <span class="lk-elev"><b>1,773.47</b> ft · −24.53</span>
