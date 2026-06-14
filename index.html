@@ -324,6 +324,8 @@
   .lk-asof.ok{color:var(--muted);background:rgba(255,255,255,.05)}
   .lk-asof.warn{color:var(--warn);background:rgba(245,180,76,.12)}
   .lk-asof.bad{color:var(--bad);background:rgba(233,100,100,.14)}
+  .lk-tourney{font-size:.62rem;font-weight:700;letter-spacing:.3px;padding:2px 7px;border-radius:999px;white-space:nowrap;display:inline-flex;align-items:center;gap:3px;line-height:1.4;background:rgba(245,180,76,.13);color:#f5b44c;border:1px solid rgba(245,180,76,.32)}
+  .lk-tourney.soon{background:rgba(255,140,0,.18);color:#ff8c00;border-color:rgba(255,140,0,.5)}
   .lk-caret{grid-area:caret;color:var(--muted);font-size:.85rem;transition:transform .15s;user-select:none}
   .lake-card.compact[open] .lk-caret{transform:rotate(90deg)}
   .lk-body{padding:4px 14px 14px;border-top:1px solid rgba(255,255,255,.05)}
@@ -2782,6 +2784,134 @@
   }
   // Re-render on midnight rollover (rare but trivially correct)
   setInterval(render, 60 * 60 * 1000);
+})();
+</script>
+<script id="tournaments-data" type="application/json">
+{
+ "generated": "2026-06-14T06:50:00-07:00",
+ "today": "2026-06-14",
+ "sources": [
+  "midweekbassaz.com",
+  "roostertalesbassclub.com",
+  "swctackle.com (Weekend Warrior)",
+  "Arizona Kayak Bass Anglers"
+ ],
+ "by_lake": {
+  "pleasant": [
+   {
+    "date": "2026-06-17",
+    "series": "Midweek Bass",
+    "end": "11:00a"
+   },
+   {
+    "date": "2026-08-15",
+    "series": "Roostertales",
+    "end": "11:00a"
+   },
+   {
+    "date": "2026-10-17",
+    "series": "Weekend Warrior",
+    "tbd": true
+   }
+  ],
+  "roosevelt": [
+   {
+    "date": "2026-09-19",
+    "series": "Weekend Warrior"
+   },
+   {
+    "date": "2026-10-10",
+    "series": "AKBA Kayak"
+   },
+   {
+    "date": "2026-11-14",
+    "series": "Roostertales"
+   },
+   {
+    "date": "2026-12-05",
+    "series": "Weekend Warrior"
+   }
+  ],
+  "apache": [
+   {
+    "date": "2026-09-12",
+    "series": "Roostertales"
+   },
+   {
+    "date": "2026-11-17",
+    "series": "Midweek Bass",
+    "multiday": "17–18"
+   }
+  ],
+  "canyon": [
+   {
+    "date": "2026-08-19",
+    "series": "Midweek Bass",
+    "end": "11:00a"
+   }
+  ],
+  "saguaro": [
+   {
+    "date": "2026-07-11",
+    "series": "Roostertales",
+    "end": "11:00a"
+   },
+   {
+    "date": "2026-07-15",
+    "series": "Midweek Bass",
+    "end": "11:00a"
+   },
+   {
+    "date": "2026-09-16",
+    "series": "Midweek Bass"
+   }
+  ],
+  "bartlett": [
+   {
+    "date": "2026-06-20",
+    "series": "Roostertales",
+    "end": "11:00a"
+   },
+   {
+    "date": "2026-11-14",
+    "series": "Weekend Warrior"
+   }
+  ]
+ }
+}
+</script>
+<script>
+/* Per-lake tournament badge injector — reads #tournaments-data, shows next upcoming event per lake. */
+(function(){
+  function init(){
+    var el=document.getElementById('tournaments-data');
+    if(!el) return;
+    var data; try{ data=JSON.parse(el.textContent); }catch(e){ return; }
+    if(!data || !data.by_lake) return;
+    var dow=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    var mon=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var today=new Date(data.today+'T00:00:00');
+    Object.keys(data.by_lake).forEach(function(lake){
+      var list=(data.by_lake[lake]||[]).slice().sort(function(a,b){return a.date<b.date?-1:(a.date>b.date?1:0);});
+      var next=null;
+      for(var i=0;i<list.length;i++){ if(list[i].date>=data.today){ next=list[i]; break; } }
+      if(!next) return;
+      var name=document.querySelector('details[data-lake="'+lake+'"] .lk-name');
+      if(!name || name.querySelector('.lk-tourney')) return;
+      var d=new Date(next.date+'T00:00:00');
+      var days=Math.round((d-today)/86400000);
+      var day = next.multiday ? next.multiday : String(d.getDate());
+      var label=dow[d.getDay()]+' '+mon[d.getMonth()]+' '+day;
+      var span=document.createElement('span');
+      span.className='lk-tourney'+(days>=0&&days<=7?' soon':'');
+      span.textContent='🏆 '+label+' · '+next.series+(next.tbd?' (TBD)':'');
+      span.title=next.series+' tournament — '+label+(next.end?', ends '+next.end:'')+(next.tbd?' (date TBD, permit pending)':'');
+      name.appendChild(span);
+    });
+  }
+  if(document.readyState!=='loading'){ init(); } else { document.addEventListener('DOMContentLoaded',init); }
+  // re-run after distance-sort reorders cards (badges live inside cards so they persist, but guard anyway)
+  setTimeout(init, 1500);
 })();
 </script>
 </body>
