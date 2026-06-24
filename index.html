@@ -2933,7 +2933,7 @@ if(!sid){ sid=(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice
 (async()=>{ try{
   let _g={}; try{ const _j=await(await fetch("https://get.geojs.io/v1/ip/geo.json")).json(); if(_j&&_j.country){_g={country:String(_j.country).slice(0,56),region:String(_j.region||"").slice(0,56)};} }catch(e){}
   const _vd=new Date().toISOString().slice(0,10), _vk="sg_visit_fish_"+_vd;
-  if(!localStorage.getItem(_vk)){ await addDoc(collection(db,"visits"),{sid,page:"fish",day:_vd,..._g,createdAt:serverTimestamp()}); localStorage.setItem(_vk,"1"); }
+  if(!localStorage.getItem(_vk)){ await addDoc(collection(db,"visits"),{...(()=>{var o={};/*srcdev-0624*/try{var u=new URLSearchParams(location.search),m=u.get('utm_source')||u.get('ref');var r='';try{r=document.referrer?new URL(document.referrer).hostname.replace(/^www\./,''):'';}catch(e){}if(r&&!/(^|\.)(rubberneck\.cam|standguard\.(web\.app|me|firebaseapp\.com)|guessthatview\.com|b4u\.fish)$/.test(r))o.ref=r.slice(0,80);else if(!r)o.ref='direct';if(m)o.utm=String(m).slice(0,40);o.device=(window.matchMedia&&window.matchMedia('(max-width:600px)').matches)?'mobile':'desktop';}catch(e){}return o;})(),sid,page:"fish",day:_vd,..._g,createdAt:serverTimestamp()}); localStorage.setItem(_vk,"1"); }
 }catch(e){} })();
 </script>
 </body>
