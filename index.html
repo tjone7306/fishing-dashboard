@@ -2908,5 +2908,20 @@
   setTimeout(init, 1500);
 })();
 </script>
+
+<!-- b4u-fish visit beacon (analytics -> ops page - added 2026-06-24) -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+const app = initializeApp({ apiKey:"AIzaSyCGvWZ-X_gcLQ8sDZBektQXw3YCwxZ5hkk", authDomain:"standguard.firebaseapp.com", projectId:"standguard", storageBucket:"standguard.firebasestorage.app", messagingSenderId:"115266769224", appId:"1:115266769224:web:999aa200fe2e839046e37d" });
+const db = getFirestore(app);
+let sid = localStorage.getItem("sg_sid");
+if(!sid){ sid=(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)); localStorage.setItem("sg_sid",sid); }
+(async()=>{ try{
+  let _g={}; try{ const _j=await(await fetch("https://get.geojs.io/v1/ip/geo.json")).json(); if(_j&&_j.country){_g={country:String(_j.country).slice(0,56),region:String(_j.region||"").slice(0,56)};} }catch(e){}
+  const _vd=new Date().toISOString().slice(0,10), _vk="sg_visit_fish_"+_vd;
+  if(!localStorage.getItem(_vk)){ await addDoc(collection(db,"visits"),{sid,page:"fish",day:_vd,..._g,createdAt:serverTimestamp()}); localStorage.setItem(_vk,"1"); }
+}catch(e){} })();
+</script>
 </body>
 </html>
