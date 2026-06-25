@@ -2611,9 +2611,14 @@
         if (btn) btn.disabled = true;
       });
 
-    setTimeout(function(){ if (leafletMap) leafletMap.invalidateSize(); }, 100);
-    setTimeout(function(){ if (leafletMap) leafletMap.invalidateSize(); }, 500);
-    window.addEventListener('resize', function(){ if (leafletMap) leafletMap.invalidateSize(); });
+    function fixSize(){ if (leafletMap) leafletMap.invalidateSize(true); }
+    // ResizeObserver is the robust fix for a map inside a collapsible panel:
+    // it fires the moment the panel expands from 0 height (esp. on mobile), so tiles load.
+    if (window.ResizeObserver) { try { new ResizeObserver(fixSize).observe(el); } catch(e){} }
+    requestAnimationFrame(fixSize);
+    [60,200,500,1000,1800].forEach(function(ms){ setTimeout(fixSize, ms); });
+    window.addEventListener('resize', fixSize);
+    window.addEventListener('orientationchange', function(){ setTimeout(fixSize, 250); });
   }
 })();
 </script>
