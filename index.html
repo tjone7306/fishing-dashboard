@@ -416,6 +416,10 @@
   /* ===== BITE SCORE v8 — cartoon fuel gauge inside 7-Day Outlook tiles ===== */
   .fcst-tile{padding-bottom:8px;position:relative}
   .fcst-tile .fcst-bs{margin-top:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.07);display:flex;flex-direction:column;align-items:center;gap:1px}
+  .fcst-tile .bs-eyebrow{font-size:.56rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+  .fcst-tile .bs-num2{font-size:1.95rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+  .fcst-tile .bs-tag2{font-size:.6rem;font-weight:700;letter-spacing:.7px;text-transform:uppercase;margin-top:1px}
+  @media(max-width:420px){.fcst-tile .bs-num2{font-size:1.6rem}}
   .fcst-tile .bs-gauge{width:100%;max-width:96px;display:block;margin:0 auto;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
   .fcst-tile .bs-gauge-arc-bg{fill:none;stroke:rgba(0,0,0,.45);stroke-width:9.5;stroke-linecap:round}
   .fcst-tile .bs-gauge-arc{fill:none;stroke-width:7.5}
@@ -567,9 +571,9 @@
   </div>
 
 <style>
-  .hx-hero{background:radial-gradient(circle 30px at 82% 22%,#f5efd6 0%,#f5efd6 68%,rgba(245,239,214,0) 72%),radial-gradient(circle 84px at 82% 22%,rgba(255,244,216,.32) 0%,rgba(255,244,216,0) 70%),radial-gradient(135% 78% at 46% 103%,rgba(255,214,130,.5) 0%,rgba(224,122,68,.10) 40%,rgba(224,122,68,0) 68%),linear-gradient(180deg,#181b3a 0%,#2c2b56 26%,#5d3f63 46%,#9c5560 62%,#c8633f 76%,#ef9a44 89%,#f4b65c 100%);position:relative;width:100%;min-height:444px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.09);font-family:'Oswald',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#eaf1f8;margin:4px 0 6px}
+  .hx-hero{background:radial-gradient(circle 30px at 82% 22%,#f5efd6 0%,#f5efd6 68%,rgba(245,239,214,0) 72%),radial-gradient(circle 84px at 82% 22%,rgba(255,244,216,.32) 0%,rgba(255,244,216,0) 70%),radial-gradient(135% 78% at 46% 103%,rgba(255,214,130,.5) 0%,rgba(224,122,68,.10) 40%,rgba(224,122,68,0) 68%),linear-gradient(180deg,#181b3a 0%,#2c2b56 26%,#5d3f63 46%,#9c5560 62%,#c8633f 76%,#ef9a44 89%,#f4b65c 100%);position:relative;width:100%;min-height:404px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.09);font-family:'Oswald',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#eaf1f8;margin:4px 0 6px}
   .hx-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,18,.72),rgba(7,11,18,.28) 46%,rgba(7,11,18,.04) 70%),linear-gradient(180deg,rgba(7,11,18,.40),rgba(7,11,18,0) 30%,rgba(7,11,18,.16) 60%,rgba(7,11,18,.86) 100%)}
-  .hx-layer{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:444px;padding:20px 22px 18px;gap:14px}
+  .hx-layer{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:404px;padding:20px 22px 18px;gap:14px}
   .hx-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
   .hx-brand{display:flex;align-items:center;gap:10px}
   .hx-mark{width:36px;height:36px;border-radius:11px;background:rgba(245,180,76,.18);border:1px solid rgba(245,180,76,.45);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
@@ -657,15 +661,6 @@
         <span class="hx-chip"><span class="ic">☁️</span>Sky <b id="hero-sky">19%</b></span>
         <span class="hx-chip"><span class="ic">📊</span><b id="hero-baro">29.79″</b>&nbsp;<span id="hero-baro-tr" style="color:#9fb6cc;font-weight:400">rising</span></span>
         <span class="hx-chip"><span class="ic" id="hero-moon-ic">🌔</span><span id="hero-moon">Gibbous 85%</span></span>
-      </div>
-      <div class="hx-lakes">
-        <span class="lab">Lakes</span>
-        <div class="hx-lk"><div class="n">Pleasant</div><div class="tr"><i id="hero-lk-pleasant" style="width:65%;background:#f5b44c"></i></div></div>
-        <div class="hx-lk"><div class="n">Roosevelt</div><div class="tr"><i id="hero-lk-roosevelt" style="width:40%;background:#e2655f"></i></div></div>
-        <div class="hx-lk"><div class="n">Apache</div><div class="tr"><i id="hero-lk-apache" style="width:93%;background:#4fc27a"></i></div></div>
-        <div class="hx-lk"><div class="n">Canyon</div><div class="tr"><i id="hero-lk-canyon" style="width:95%;background:#4fc27a"></i></div></div>
-        <div class="hx-lk"><div class="n">Saguaro</div><div class="tr"><i id="hero-lk-saguaro" style="width:94%;background:#4fc27a"></i></div></div>
-        <div class="hx-lk"><div class="n">Bartlett</div><div class="tr"><i id="hero-lk-bartlett" style="width:69%;background:#f5b44c"></i></div></div>
       </div>
     </div>
   </div>
@@ -808,7 +803,6 @@
       <text x="556" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">9P</text>
       <text x="620" y="198" text-anchor="end"    fill="#eaf1f8" font-size="17" font-weight="700">11P</text>
     </svg>
-    <div class="hour-summary"><span class="hp hi">🌡️ Hi <b>109°</b> <span class="mute">3 PM</span></span><span class="hp lo">🌅 Lo <b>85°</b> <span class="mute">6 AM</span></span><span class="hp">💨 <b>WSW 10</b> <span class="mute">breezy</span></span><span class="hp">💧 <b>19% sky</b> <span class="mute">mostly sunny</span></span></div>
   </div>
 
   <!-- LAKES -->
@@ -1169,38 +1163,6 @@
 })();
 </script>
 
-  <div class="ws-spark-grid">
-    <div class="ws-spark">
-      <div class="top"><span class="name">Roosevelt</span><span class="pct bad">45%</span></div>
-      <div class="delta down">−0.8 pts over 30d</div>
-      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#e96464" stroke-width="1.8" points="0,14 8,15 16,16 24,16 32,17 40,17 48,18 56,19 64,20 72,21 80,22 88,22 96,22 104,23 112,23 120,24"/></svg>
-    </div>
-    <div class="ws-spark">
-      <div class="top"><span class="name">Apache</span><span class="pct good">93%</span></div>
-      <div class="delta up">+2.3 pts over 30d</div>
-      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#4fc27a" stroke-width="1.8" points="0,18 8,17 16,15 24,14 32,12 40,10 48,9 56,8 64,7 72,7 80,6 88,5 96,5 104,5 112,4 120,4"/></svg>
-    </div>
-    <div class="ws-spark">
-      <div class="top"><span class="name">Canyon</span><span class="pct good">95%</span></div>
-      <div class="delta up">+1.4 pts over 30d</div>
-      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#4fc27a" stroke-width="1.8" points="0,12 8,11 16,10 24,10 32,9 40,8 48,7 56,6 64,5 72,5 80,4 88,4 96,3 104,3 112,3 120,3"/></svg>
-    </div>
-    <div class="ws-spark">
-      <div class="top"><span class="name">Saguaro</span><span class="pct good">93%</span></div>
-      <div class="delta up">+0.7 pts over 30d</div>
-      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#4fc27a" stroke-width="1.8" points="0,10 8,9 16,9 24,8 32,7 40,7 48,6 56,6 64,5 72,5 80,5 88,4 96,4 104,4 112,3 120,3"/></svg>
-    </div>
-    <div class="ws-spark">
-      <div class="top"><span class="name">Horseshoe</span><span class="pct bad">53%</span></div>
-      <div class="delta up">+3.8 pts over 30d</div>
-      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#f5b44c" stroke-width="1.8" points="0,26 8,25 16,24 24,22 32,21 40,20 48,18 56,17 64,15 72,14 80,12 88,11 96,10 104,9 112,8 120,7"/></svg>
-    </div>
-    <div class="ws-spark">
-      <div class="top"><span class="name">Bartlett</span><span class="pct warn">68%</span></div>
-      <div class="delta up">+3.6 pts over 30d</div>
-      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><polyline fill="none" stroke="#4fc27a" stroke-width="1.8" points="0,22 8,21 16,20 24,18 32,17 40,15 48,14 56,13 64,11 72,10 80,9 88,8 96,7 104,7 112,6 120,5"/></svg>
-    </div>
-  </div>
   <div class="ws-foot">Live streamflow from USGS NWIS: Salt River near Roosevelt (Roosevelt inflow), Salt River below Stewart Mtn Dam (Saguaro outflow), Verde River above Horseshoe (Horseshoe inflow), Verde River below Bartlett Dam (Bartlett outflow). Middle reservoir releases (Roosevelt→Apache→Canyon→Saguaro, Horseshoe→Bartlett) are SRP-managed and not on public gauges.</div>
 
   <!-- LIMITLOCK CROSS-PROMO BANNER -->
@@ -2450,10 +2412,13 @@
       var bs = document.createElement('div');
       bs.className = 'fcst-bs';
       bs.title = (d.reason || '') + (d.best_window ? ' · best ' + d.best_window : '');
+      var _tier=tierFor(s),
+          _col={peak:'#4fc27a',good:'#4fc27a',fair:'#f5b44c',tough:'#f0913f',skip:'#e96464'}[_tier]||'#f5b44c',
+          _lbl={peak:'PEAK',good:'GOOD',fair:'FAIR',tough:'TOUGH',skip:'SKIP'}[_tier]||_tier.toUpperCase();
       bs.innerHTML =
-        gaugeSvg(s) +
-        '<div class="bs-score-tag">Bite Score</div>' +
-        '<div class="bs-score-num">' + s + '<small>/100</small></div>';
+        '<div class="bs-eyebrow">Bite</div>' +
+        '<div class="bs-num2" style="color:'+_col+'">' + s + '</div>' +
+        '<div class="bs-tag2" style="color:'+_col+'">' + _lbl + '</div>';
       tile.appendChild(bs);
     });
 
@@ -2922,7 +2887,7 @@
     // Today's phase shown in the summary (so users see something at a glance)
     var nowAge = moonAge(today);
     if (icon) icon.textContent = emojiFor(nowAge);
-    if (hint) hint.textContent = 'today: ' + phaseName(nowAge) + ' · ' + illumPct(nowAge) + '%';
+    if (hint) hint.textContent = '30-day phases · tap to open';
 
     // Key events for this month
     var keyEvents = findKeyEvents(year, monthIdx);
