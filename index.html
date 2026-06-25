@@ -2533,7 +2533,7 @@
     if (!layers[i]) {
       layers[i] = L.tileLayer(
         'https://tilecache.rainviewer.com' + f.path + '/256/{z}/{x}/{y}/2/1_1.png',
-        { opacity: 0, attribution: '', maxZoom: 18, tileSize: 256 }
+        { opacity: 0, attribution: '', maxZoom: 18, maxNativeZoom: 7, tileSize: 256 }
       ).addTo(leafletMap);
     }
     Object.keys(layers).forEach(function(k){ if (+k !== i) layers[k].setOpacity(0); });
@@ -2562,7 +2562,7 @@
     if (!el) return;
 
     leafletMap = L.map(el, { zoomControl: true, attributionControl: true, scrollWheelZoom: false })
-      .setView([33.65, -111.7], 8);
+      .setView([33.65, -111.7], 7);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap, &copy; CartoDB · radar &copy; <a href="https://rainviewer.com/" target="_blank">RainViewer</a>',
