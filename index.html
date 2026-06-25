@@ -590,6 +590,13 @@
   .hx-pill .ic{font-size:17px}
   .hx-pill .t{font-size:15px;color:#ffe7ad}
   .hx-pill b{font-weight:600;color:#fff}
+  .hx-windows{display:grid;grid-template-columns:1fr 1fr;gap:7px;max-width:392px}
+  .hx-win{display:flex;flex-direction:column;gap:1px;padding:7px 11px;border-radius:10px;background:rgba(8,13,21,.5);border:1px solid rgba(255,255,255,.12)}
+  .hx-win.best{background:rgba(245,180,76,.16);border-color:rgba(245,180,76,.55);animation:hxpulse 2.8s infinite}
+  .hx-win .wt{font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#9fb6cc}
+  .hx-win.best .wt{color:#ffc56b}
+  .hx-win .wr{font-size:13.5px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums}
+  .hx-win .wl{font-size:10px;color:#9fb4c8;text-transform:capitalize}
   .hx-why{font-size:12.5px;color:#dbe6f1;margin-top:9px;text-shadow:0 1px 6px rgba(0,0,0,.7)}
   .hx-gauge{position:relative;width:150px;height:150px;flex-shrink:0}
   .hx-gauge svg{display:block;width:100%;height:100%}
@@ -634,9 +641,12 @@
       <div style="max-width:400px">
         <div class="hx-kick">Tonight's bite</div>
         <div class="hx-hl"><span id="hero-hl1">Tough by day —</span><br><span id="hero-hl2">dusk window opens</span></div>
-        <div class="hx-pill">
-          <span class="ic" id="hero-window-ic">🌅</span>
-          <span class="t"><b>Prime window</b> &nbsp;<span id="hero-window">7:58 PM – 10:58 PM</span></span>
+        <div class="hx-kick" style="margin-top:13px;margin-bottom:5px">Best bite windows</div>
+        <div class="hx-windows" id="hero-windows">
+          <div class="hx-win"><span class="wt">○ Minor</span><span class="wr">3:22 – 5:22 PM</span><span class="wl">moonrise</span></div>
+          <div class="hx-win best"><span class="wt">● Major</span><span class="wr">8:28 – 10:28 PM</span><span class="wl">overhead</span></div>
+          <div class="hx-win"><span class="wt">○ Minor</span><span class="wr">12:54 – 2:54 AM</span><span class="wl">moonset</span></div>
+          <div class="hx-win"><span class="wt">● Major</span><span class="wr">8:28 – 10:28 AM</span><span class="wl">underfoot</span></div>
         </div>
         <div class="hx-why" id="hero-why">Stable pressure + dusk overhead transit</div>
       </div>
@@ -697,8 +707,11 @@
       var a=to24(m[1],m[2],m[3]),b=to24(m[4],m[5],m[6]);if(b<a)b+=1440;var c=(a+b)/2;
       function f(x){x=((Math.round(x)%1440)+1440)%1440;var h=Math.floor(x/60),mm=x%60,ap=h<12?'AM':'PM',h12=h%12||12;return h12+':'+(mm<10?'0'+mm:mm)+' '+ap;}
       return f(c-60)+' \u2013 '+f(c+60);}
-    set('hero-window',repad60(t.best_window));
-    set('hero-window-ic',(when==='dawn'?'🌄':'🌅'));
+    var primeWin=repad60(t.best_window);
+    function win60c(hm){if(!hm)return'NA';var pp=hm.split(':');var c=(+pp[0])*60+(+pp[1]);function f(x){x=((Math.round(x)%1440)+1440)%1440;var h=Math.floor(x/60),mm=x%60,ap=h<12?'AM':'PM',h12=h%12||12;return h12+':'+(mm<10?'0'+mm:mm)+' '+ap;}return f(c-60)+' \u2013 '+f(c+60);}
+    var WINS=[{m:false,l:'moonrise',c:t.moonrise},{m:true,l:'overhead',c:t.moon_upper},{m:false,l:'moonset',c:t.moonset},{m:true,l:'underfoot',c:t.moon_lower}];
+    var wc=document.getElementById('hero-windows');
+    if(wc){wc.innerHTML=WINS.map(function(w){var win=win60c(w.c);var best=(win===primeWin)?' best':'';return '<div class="hx-win'+best+'"><span class="wt">'+(w.m?'● Major':'○ Minor')+'</span><span class="wr">'+win+'</span><span class="wl">'+w.l+'</span></div>';}).join('');}
     set('hero-why',t.reason||'');
     set('hero-hi',(t.high_f!=null?t.high_f+'°':'NA'));
     set('hero-lo',(t.low_f!=null?t.low_f+'°':'NA'));
@@ -747,19 +760,6 @@
   </details>
 
 
-  <!-- BEST FISHING TIMES (today's solunar windows) -->
-  <div class="card sol-card" style="margin-top:12px">
-    <div class="sol-header">
-      <h3 style="margin:0">Best fishing times</h3>
-      <span class="sol-badge b-tough">🎣 TOUGH</span>
-    </div>
-        <div class="sol-grid">
-      <div class="sol-tile minor"><div class="sol-type">○ Minor</div><div class="sol-win">3:22 PM – 5:22 PM</div><div class="sol-dur">moonrise</div></div>
-      <div class="sol-tile major"><div class="sol-type">● Major</div><div class="sol-win">8:28 PM – 10:28 PM</div><div class="sol-dur">moon overhead</div></div>
-      <div class="sol-tile minor"><div class="sol-type">○ Minor</div><div class="sol-win">12:54 AM – 2:54 AM</div><div class="sol-dur">moonset</div></div>
-      <div class="sol-tile major"><div class="sol-type">● Major</div><div class="sol-win">8:28 AM – 10:28 AM</div><div class="sol-dur">moon underfoot</div></div>
-    </div>
-    </div>
   <!-- ===== v12: MOON CALENDAR — collapsed by default, opens on tap ===== -->
   <details class="card moon-card" id="moon-card">
     <summary class="moon-summary">
