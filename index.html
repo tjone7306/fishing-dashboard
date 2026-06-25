@@ -692,7 +692,12 @@
     var HL={peak:['It’s on','drop everything'],good:['Solid bite','get out there'],fair:['Workable day','pick your window'],tough:['Tough by day',when+' window opens'],skip:['Slow bite','save the gas']};
     var hl=HL[t.tier]||HL.fair;
     set('hero-hl1',hl[0]+' —'); set('hero-hl2',hl[1]);
-    set('hero-window',t.best_window||'NA');
+    function repad60(w){var m=/(\d{1,2}):(\d{2})\s*(AM|PM)[\s\S]*?(\d{1,2}):(\d{2})\s*(AM|PM)/i.exec(w||'');if(!m)return w||'NA';
+      function to24(h,mm,ap){h=(+h)%12;if(/pm/i.test(ap))h+=12;return h*60+(+mm);}
+      var a=to24(m[1],m[2],m[3]),b=to24(m[4],m[5],m[6]);if(b<a)b+=1440;var c=(a+b)/2;
+      function f(x){x=((Math.round(x)%1440)+1440)%1440;var h=Math.floor(x/60),mm=x%60,ap=h<12?'AM':'PM',h12=h%12||12;return h12+':'+(mm<10?'0'+mm:mm)+' '+ap;}
+      return f(c-60)+' \u2013 '+f(c+60);}
+    set('hero-window',repad60(t.best_window));
     set('hero-window-ic',(when==='dawn'?'🌄':'🌅'));
     set('hero-why',t.reason||'');
     set('hero-hi',(t.high_f!=null?t.high_f+'°':'NA'));
