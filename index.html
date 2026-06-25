@@ -240,8 +240,8 @@
   .ws-summary .stat .delta.down{color:var(--bad)}
   @media(max-width:640px){ .ws-summary{grid-template-columns:repeat(2,1fr)} }
   .ws-scheme{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 16px;margin-bottom:12px;overflow:hidden}
-  .ws-scheme h3{margin:0 0 14px;font-size:1rem;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-  .ws-scheme .legend{font-size:.72rem;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .ws-scheme h3{margin:0 0 14px;font-size:1.15rem;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+  .ws-scheme .legend{font-size:.84rem;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
   .ws-scheme .legend span{display:inline-flex;align-items:center;gap:4px}
   .ws-scheme .legend i{width:12px;height:3px;border-radius:2px;display:inline-block}
   .ws-scheme .legend .i-in{background:var(--in)}
@@ -250,16 +250,16 @@
   svg.scheme{display:block;width:100%;height:auto}
   svg.scheme text{fill:var(--text);font-family:inherit}
   svg.scheme .reservoir-rim{fill:var(--surface-2);stroke:var(--border);stroke-width:1.2}
-  svg.scheme .reservoir-label{font-size:13px;font-weight:600;text-anchor:middle}
-  svg.scheme .reservoir-pct{font-size:18px;font-weight:700;text-anchor:middle;font-variant-numeric:tabular-nums;paint-order:stroke;stroke:#0b1722;stroke-width:2.8px;stroke-linejoin:round}
-  svg.scheme .reservoir-sub{font-size:10px;fill:var(--muted);text-anchor:middle}
+  svg.scheme .reservoir-label{font-size:16.5px;font-weight:700;text-anchor:middle}
+  svg.scheme .reservoir-pct{font-size:23px;font-weight:700;text-anchor:middle;font-variant-numeric:tabular-nums;paint-order:stroke;stroke:#0b1722;stroke-width:3.4px;stroke-linejoin:round}
+  svg.scheme .reservoir-sub{font-size:13.5px;fill:#b7c6d6;text-anchor:middle}
   svg.scheme .flow-in{stroke:var(--in);fill:none;stroke-linecap:round}
   svg.scheme .flow-out{stroke:var(--out);fill:none;stroke-linecap:round}
-  svg.scheme .flow-label-in{font-size:10px;fill:var(--in);font-weight:600;font-variant-numeric:tabular-nums}
-  svg.scheme .flow-label-out{font-size:10px;fill:var(--out);font-weight:600;font-variant-numeric:tabular-nums}
+  svg.scheme .flow-label-in{font-size:15px;fill:var(--in);font-weight:700;font-variant-numeric:tabular-nums}
+  svg.scheme .flow-label-out{font-size:15px;fill:var(--out);font-weight:700;font-variant-numeric:tabular-nums}
   svg.scheme .snow{fill:var(--snow)}
-  svg.scheme .snow-label{font-size:11px;fill:var(--snow);font-weight:600;text-anchor:middle}
-  svg.scheme .branch-label{font-size:10px;fill:var(--muted);text-transform:uppercase;letter-spacing:1.4px;text-anchor:middle;font-weight:600}
+  svg.scheme .snow-label{font-size:14px;fill:var(--snow);font-weight:600;text-anchor:middle}
+  svg.scheme .branch-label{font-size:13px;fill:#9fb4c8;text-transform:uppercase;letter-spacing:1.2px;text-anchor:middle;font-weight:700}
   @keyframes ws-flow{to{stroke-dashoffset:-24}}
   svg.scheme .flow-in,svg.scheme .flow-out{stroke-dasharray:6 4;animation:ws-flow 1.6s linear infinite}
   svg.scheme .flow-out{animation-duration:1.3s}
