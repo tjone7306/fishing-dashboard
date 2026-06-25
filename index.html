@@ -2532,7 +2532,7 @@
     var f = frames[i]; if (!f) return;
     if (!layers[i]) {
       layers[i] = L.tileLayer(
-        'https://tilecache.rainviewer.com/v2' + f.path + '/256/{z}/{x}/{y}/2/1_1.png',
+        'https://tilecache.rainviewer.com' + f.path + '/256/{z}/{x}/{y}/2/1_1.png',
         { opacity: 0, attribution: '', maxZoom: 18, tileSize: 256 }
       ).addTo(leafletMap);
     }
