@@ -573,7 +573,7 @@
   </div>
 
 <style>
-  .hx-hero{background:radial-gradient(circle 30px at 82% 22%,#f5efd6 0%,#f5efd6 68%,rgba(245,239,214,0) 72%),radial-gradient(circle 84px at 82% 22%,rgba(255,244,216,.32) 0%,rgba(255,244,216,0) 70%),radial-gradient(135% 78% at 46% 103%,rgba(255,214,130,.5) 0%,rgba(224,122,68,.10) 40%,rgba(224,122,68,0) 68%),linear-gradient(180deg,#181b3a 0%,#2c2b56 26%,#5d3f63 46%,#9c5560 62%,#c8633f 76%,#ef9a44 89%,#f4b65c 100%);position:relative;width:100%;min-height:404px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.09);font-family:'Oswald',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#eaf1f8;margin:4px 0 6px}
+  .hx-hero{background:radial-gradient(circle 30px at 82% 22%,#f5efd6 0%,#f5efd6 68%,rgba(245,239,214,0) 72%),radial-gradient(circle 84px at 82% 22%,rgba(255,244,216,.32) 0%,rgba(255,244,216,0) 70%),radial-gradient(135% 78% at 46% 103%,rgba(255,214,130,.5) 0%,rgba(224,122,68,.10) 40%,rgba(224,122,68,0) 68%),linear-gradient(180deg,#181b3a 0%,#2c2b56 26%,#5d3f63 46%,#9c5560 62%,#c8633f 76%,#ef9a44 89%,#f4b65c 100%);position:relative;width:100%;min-height:404px;border-radius:18px;overflow:hidden;border:1.5px solid #52657b;font-family:'Oswald',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#eaf1f8;margin:4px 0 6px}
   .hx-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,18,.72),rgba(7,11,18,.28) 46%,rgba(7,11,18,.04) 70%),linear-gradient(180deg,rgba(7,11,18,.40),rgba(7,11,18,0) 30%,rgba(7,11,18,.16) 60%,rgba(7,11,18,.86) 100%)}
   .hx-layer{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:404px;padding:20px 22px 18px;gap:14px}
   .hx-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
@@ -745,38 +745,6 @@
     <div id="fcst-detail" class="fcst-detail" aria-live="polite"></div>
     <div class="fcst-pick-line" id="fcst-pick-line">🎯 <b>Pick:</b> <span id="fcst-pick-summary">Loading week ahead…</span></div>
   </div>
-
-  <!-- ===== v11: LIVE RADAR — collapsed by default, opens on tap ===== -->
-  <details class="card radar-card" id="radar-card">
-    <summary class="radar-summary">
-      <span class="radar-title"><span class="radar-icon">📡</span>Live Radar</span>
-      <span class="radar-hint">tap to open</span>
-      <span class="radar-caret" aria-hidden="true">›</span>
-    </summary>
-    <p class="radar-sub">Animated rain, every 10&nbsp;min · past hour + 30&nbsp;min forecast. Pinch/zoom to your area.</p>
-    <div id="radar-map" class="radar-map" role="img" aria-label="Phoenix-area weather radar"></div>
-    <div class="radar-controls">
-      <button id="radar-play" class="radar-btn active" type="button" aria-label="Play/pause radar animation">⏸ Pause</button>
-      <span id="radar-time" class="radar-time"><span class="now">Now</span></span>
-    </div>
-  </details>
-
-
-  <!-- ===== v12: MOON CALENDAR — collapsed by default, opens on tap ===== -->
-  <details class="card moon-card" id="moon-card">
-    <summary class="moon-summary">
-      <span class="moon-title"><span class="moon-icon" id="moon-now-icon">🌖</span>Moon Calendar</span>
-      <span class="moon-hint" id="moon-now-hint">tap to open · 30-day phases</span>
-      <span class="moon-caret" aria-hidden="true">›</span>
-    </summary>
-    <p class="moon-sub">Phase + illumination for every day this month. Full Moon and New Moon are highlighted — these are typically the strongest feeding triggers (and the 3 days before either).</p>
-    <div class="moon-events" id="moon-events"></div>
-    <div class="moon-grid-wrap">
-      <div class="moon-dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
-      <div class="moon-grid" id="moon-grid"></div>
-    </div>
-    <p class="moon-foot">Phases computed astronomically (synodic period 29.53d). Full Moon and New Moon dates are accurate to within a few hours.</p>
-  </details>
 
   <!-- TODAY'S HOURLY (temperature curve) -->
   <div class="card" style="margin-top:12px">
@@ -993,6 +961,38 @@
 
   <!-- SRP STREAMFLOW LINK -->
   <div style="margin-top:20px"><a class="flow-srp-btn" href="https://streamflow.watershedconnection.com/dwr" target="_blank" rel="noopener noreferrer">View full SRP streamflow report</a></div>
+
+  <!-- ===== v11: LIVE RADAR — collapsed by default, opens on tap ===== -->
+  <details class="card radar-card" id="radar-card">
+    <summary class="radar-summary">
+      <span class="radar-title"><span class="radar-icon">📡</span>Live Radar</span>
+      <span class="radar-hint">tap to open</span>
+      <span class="radar-caret" aria-hidden="true">›</span>
+    </summary>
+    <p class="radar-sub">Animated rain, every 10&nbsp;min · past hour + 30&nbsp;min forecast. Pinch/zoom to your area.</p>
+    <div id="radar-map" class="radar-map" role="img" aria-label="Phoenix-area weather radar"></div>
+    <div class="radar-controls">
+      <button id="radar-play" class="radar-btn active" type="button" aria-label="Play/pause radar animation">⏸ Pause</button>
+      <span id="radar-time" class="radar-time"><span class="now">Now</span></span>
+    </div>
+  </details>
+
+
+  <!-- ===== v12: MOON CALENDAR — collapsed by default, opens on tap ===== -->
+  <details class="card moon-card" id="moon-card">
+    <summary class="moon-summary">
+      <span class="moon-title"><span class="moon-icon" id="moon-now-icon">🌖</span>Moon Calendar</span>
+      <span class="moon-hint" id="moon-now-hint">tap to open · 30-day phases</span>
+      <span class="moon-caret" aria-hidden="true">›</span>
+    </summary>
+    <p class="moon-sub">Phase + illumination for every day this month. Full Moon and New Moon are highlighted — these are typically the strongest feeding triggers (and the 3 days before either).</p>
+    <div class="moon-events" id="moon-events"></div>
+    <div class="moon-grid-wrap">
+      <div class="moon-dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+      <div class="moon-grid" id="moon-grid"></div>
+    </div>
+    <p class="moon-foot">Phases computed astronomically (synodic period 29.53d). Full Moon and New Moon dates are accurate to within a few hours.</p>
+  </details>
 
   <!-- WATERSHED SYSTEM -->
   <details class="card radar-card" id="ws-card" style="margin-top:12px">
