@@ -1,0 +1,15 @@
+{
+  "name": "B4U.FISH — Phoenix Lakes Fishing Dashboard",
+  "short_name": "B4U.FISH",
+  "description": "Live water levels, weather, moon & solunar bite windows, radar, and tournaments for Phoenix-area lakes.",
+  "start_url": "./?src=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a141d",
+  "theme_color": "#0a1420",
+  "icons": [
+    { "src": "icon-b4u-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-b4u-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
