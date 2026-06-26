@@ -634,6 +634,17 @@
   .hx-lk .n{font-size:10.5px;letter-spacing:.4px;color:#cdd9e6;text-transform:uppercase;text-shadow:0 1px 4px rgba(0,0,0,.8)}
   .hx-lk .tr{height:5px;border-radius:99px;background:rgba(255,255,255,.2);margin-top:4px;overflow:hidden}
   .hx-lk .tr i{display:block;height:100%;border-radius:99px;width:0;transition:width .9s ease-out}
+  .hx-band{display:flex;align-items:center;gap:14px;background:rgba(8,13,21,.30);border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:11px 13px}
+  .hx-band .hx-gauge{width:120px;height:120px}
+  .hx-band .hx-num{font-size:40px}
+  .hx-band .hx-chips{flex:1;display:flex;gap:7px;flex-wrap:wrap;margin:0}
+  .hx-week .wkrow{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+  .hx-day{background:rgba(8,13,21,.45);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:6px 0 7px;text-align:center;display:flex;flex-direction:column;gap:1px}
+  .hx-day.best{background:rgba(245,180,76,.16);border-color:rgba(245,180,76,.5)}
+  .hx-day .d{font-size:9.5px;letter-spacing:.4px;color:#9fb6cc;text-transform:uppercase}
+  .hx-day.best .d{color:#ffc56b}
+  .hx-day .s{font-size:16px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums;line-height:1.05}
+  .hx-day .t{font-size:9px;color:#cdd8e4;font-variant-numeric:tabular-nums}
   @keyframes hxpulse{0%,100%{box-shadow:0 0 0 0 rgba(245,180,76,.5)}50%{box-shadow:0 0 22px 3px rgba(245,180,76,.32)}}
   @media(max-width:780px){.hx-hero,.hx-layer{min-height:0}.hx-layer{justify-content:flex-start;gap:16px}.hx-mid{row-gap:20px}.hx-gauge{width:138px;height:138px}}
   @media(max-width:600px){.hx-hero,.hx-layer{min-height:0}.hx-layer{padding:16px 16px 14px}.hx-hl{font-size:31px}.hx-gauge{width:120px;height:120px}.hx-num{font-size:40px}.hx-lakes{flex-wrap:wrap;gap:9px 8px}.hx-lk{flex:0 0 28%}}
@@ -656,19 +667,23 @@
       </div>
     </div>
 
-    <div class="hx-mid">
-      <div style="max-width:400px">
-        <div class="hx-kick">Tonight's bite</div>
-        <div class="hx-hl"><span id="hero-hl1">Tough by day —</span><br><span id="hero-hl2">dusk window opens</span></div>
-        <div class="hx-kick" style="margin-top:13px;margin-bottom:5px">Best bite windows</div>
-        <div class="hx-windows" id="hero-windows">
-          <div class="hx-win"><span class="wt">○ Minor</span><span class="wr">3:22 – 5:22 PM</span><span class="wl">moonrise</span></div>
-          <div class="hx-win best"><span class="wt">● Major</span><span class="wr">8:28 – 10:28 PM</span><span class="wl">overhead</span></div>
-          <div class="hx-win"><span class="wt">○ Minor</span><span class="wr">12:54 – 2:54 AM</span><span class="wl">moonset</span></div>
-          <div class="hx-win"><span class="wt">● Major</span><span class="wr">8:28 – 10:28 AM</span><span class="wl">underfoot</span></div>
-        </div>
-        <div class="hx-why" id="hero-why">Stable pressure + dusk overhead transit</div>
+    <div style="max-width:430px">
+      <div class="hx-kick">Tonight's bite</div>
+      <div class="hx-hl"><span id="hero-hl1">Workable day —</span><br><span id="hero-hl2">pick your window</span></div>
+    </div>
+
+    <div>
+      <div class="hx-kick" style="margin-bottom:5px">Best bite windows</div>
+      <div class="hx-windows" id="hero-windows">
+        <div class="hx-win"><span class="wt">○ Minor</span><span class="wr">3:22 – 5:22 PM</span><span class="wl">moonrise</span></div>
+        <div class="hx-win best"><span class="wt">● Major</span><span class="wr">8:28 – 10:28 PM</span><span class="wl">overhead</span></div>
+        <div class="hx-win"><span class="wt">○ Minor</span><span class="wr">12:54 – 2:54 AM</span><span class="wl">moonset</span></div>
+        <div class="hx-win"><span class="wt">● Major</span><span class="wr">8:28 – 10:28 AM</span><span class="wl">underfoot</span></div>
       </div>
+      <div class="hx-why" id="hero-why">Falling pressure + dusk overhead transit</div>
+    </div>
+
+    <div class="hx-band">
       <div class="hx-gauge">
         <svg viewBox="0 0 160 160" width="100%" height="100%" aria-hidden="true">
           <circle cx="80" cy="80" r="70" fill="none" stroke="rgba(6,11,18,.5)" stroke-width="11"/>
@@ -676,20 +691,30 @@
         </svg>
         <div class="ctr">
           <div class="hx-gl">Score</div>
-          <div class="hx-num" id="hero-score">50</div>
-          <div class="hx-tier" id="hero-tier">Tough day</div>
+          <div class="hx-num" id="hero-score">68</div>
+          <div class="hx-tier" id="hero-tier">Workable</div>
         </div>
+      </div>
+      <div class="hx-chips">
+        <span class="hx-chip"><span class="ic">🌡️</span>Hi <b id="hero-hi">109°</b></span>
+        <span class="hx-chip"><span class="ic">🌙</span>Lo <b id="hero-lo">93°</b></span>
+        <span class="hx-chip"><span class="ic">💨</span><b id="hero-wind">WSW 10</b></span>
+        <span class="hx-chip"><span class="ic">☁️</span>Sky <b id="hero-sky">31%</b></span>
+        <span class="hx-chip"><span class="ic">📊</span><b id="hero-baro">29.65″</b>&nbsp;<span id="hero-baro-tr" style="color:#9fb6cc;font-weight:400">falling fast</span></span>
+        <span class="hx-chip"><span class="ic" id="hero-moon-ic">🌔</span><span id="hero-moon">Gibbous 85%</span></span>
       </div>
     </div>
 
-    <div>
-      <div class="hx-chips">
-        <span class="hx-chip"><span class="ic">🌡️</span>Hi <b id="hero-hi">109°</b></span>
-        <span class="hx-chip"><span class="ic">🌙</span>Lo <b id="hero-lo">85°</b></span>
-        <span class="hx-chip"><span class="ic">💨</span><b id="hero-wind">WSW 10</b></span>
-        <span class="hx-chip"><span class="ic">☁️</span>Sky <b id="hero-sky">19%</b></span>
-        <span class="hx-chip"><span class="ic">📊</span><b id="hero-baro">29.79″</b>&nbsp;<span id="hero-baro-tr" style="color:#9fb6cc;font-weight:400">rising</span></span>
-        <span class="hx-chip"><span class="ic" id="hero-moon-ic">🌔</span><span id="hero-moon">Gibbous 85%</span></span>
+    <div class="hx-week" id="hero-week">
+      <div class="hx-kick" style="margin-bottom:6px">7-day outlook</div>
+      <div class="wkrow" id="hero-week-row">
+        <div class="hx-day best"><span class="d">Thu</span><span class="s">68</span><span class="t">109°</span></div>
+        <div class="hx-day"><span class="d">Fri</span><span class="s">55</span><span class="t">109°</span></div>
+        <div class="hx-day"><span class="d">Sat</span><span class="s">55</span><span class="t">105°</span></div>
+        <div class="hx-day"><span class="d">Sun</span><span class="s">65</span><span class="t">101°</span></div>
+        <div class="hx-day"><span class="d">Mon</span><span class="s">55</span><span class="t">102°</span></div>
+        <div class="hx-day"><span class="d">Tue</span><span class="s">56</span><span class="t">102°</span></div>
+        <div class="hx-day"><span class="d">Wed</span><span class="s">52</span><span class="t">103°</span></div>
       </div>
     </div>
   </div>
@@ -747,6 +772,18 @@
       var v=parseInt(p.textContent,10); var cls=p.className.replace('lk-pct','').trim().split(' ')[0];
       bar.style.width=(isNaN(v)?0:v)+'%'; bar.style.background=CMAP[cls]||'#f5b44c';
     });
+    var wk=document.getElementById('hero-week-row');
+    if(wk&&by.length){
+      var dd=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      var best=-1,bi=-1,k;
+      for(k=0;k<by.length&&k<7;k++){ if((+by[k].score||0)>best){best=+by[k].score;bi=k;} }
+      var cells='';
+      for(k=0;k<by.length&&k<7;k++){ var dy=by[k];
+        var lab=dy.label||dd[(new Date(dy.date+'T00:00:00')).getDay()];
+        cells+='<div class="hx-day'+(k===bi?' best':'')+'"><span class="d">'+lab+'</span><span class="s">'+(dy.score!=null?dy.score:'NA')+'</span><span class="t">'+(dy.high_f!=null?dy.high_f+'\u00b0':'NA')+'</span></div>';
+      }
+      wk.innerHTML=cells;
+    }
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run); else run();
 })();
