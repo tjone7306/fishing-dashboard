@@ -5,6 +5,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#0a1420" />
+<link rel="icon" type="image/png" sizes="192x192" href="icon-b4u-192.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon-b4u.png" />
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="B4U.FISH" />
 <title>Phoenix Lakes — Daily Fishing Dashboard</title>
 <meta name="description" content="Daily water levels, weather, moon, solunar, rules, and launch-ramp status for Lake Pleasant, Roosevelt, Apache, Canyon, Saguaro, and Bartlett." />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -582,7 +589,7 @@
   .hx-layer{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:404px;padding:20px 22px 18px;gap:14px}
   .hx-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
   .hx-brand{display:flex;align-items:center;gap:10px}
-  .hx-mark{width:36px;height:36px;border-radius:11px;background:rgba(245,180,76,.18);border:1px solid rgba(245,180,76,.45);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .hx-mark{width:42px;height:42px;border-radius:11px;object-fit:cover;flex-shrink:0;border:1px solid rgba(255,255,255,.14);box-shadow:0 1px 5px rgba(0,0,0,.35)}
   .hx-hero h1.hx-nm{font-size:21px;font-weight:600;letter-spacing:.5px;color:#fff;line-height:1;margin:0;text-shadow:0 1px 10px rgba(0,0,0,.5)}
   .hx-sub{font-size:11px;letter-spacing:2.4px;color:#f5b44c;text-transform:uppercase;margin-top:4px}
   .hx-hero .date{display:block;text-align:right;background:none;border:0;padding:0;letter-spacing:0;font-size:13.5px;color:#eef4fa;text-shadow:0 1px 8px rgba(0,0,0,.6)}
@@ -631,7 +638,7 @@
   <div class="hx-layer">
     <div class="hx-top">
       <div class="hx-brand">
-        <span class="hx-mark">🎣</span>
+        <img class="hx-mark" src="icon-b4u-192.png" alt="B4U.FISH logo" width="42" height="42" />
         <div>
           <h1 class="hx-nm">Phoenix Lakes</h1>
           <div class="hx-sub">Fishing dashboard</div>
@@ -3157,5 +3164,6 @@ if(!sid){ sid=(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice
   if(!localStorage.getItem(_vk)){ await addDoc(collection(db,"visits"),{...(()=>{var o={};/*srcdev-0624*/try{var u=new URLSearchParams(location.search),m=u.get('utm_source')||u.get('ref');var r='';try{r=document.referrer?new URL(document.referrer).hostname.replace(/^www\./,''):'';}catch(e){}if(r&&!/(^|\.)(rubberneck\.cam|standguard\.(web\.app|me|firebaseapp\.com)|guessthatview\.com|b4u\.fish)$/.test(r))o.ref=r.slice(0,80);else if(!r)o.ref='direct';if(m)o.utm=String(m).slice(0,40);o.device=(window.matchMedia&&window.matchMedia('(max-width:600px)').matches)?'mobile':'desktop';}catch(e){}return o;})(),sid,page:"fish",day:_vd,..._g,createdAt:serverTimestamp()}); localStorage.setItem(_vk,"1"); }
 }catch(e){} })();
 </script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
 </body>
 </html>
