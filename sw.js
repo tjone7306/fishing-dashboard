@@ -1,6 +1,12 @@
-const CACHE = 'b4u-fish-v1';
+const CACHE = 'b4u-fish-v2';
 self.addEventListener('install', function(e){ self.skipWaiting(); });
-self.addEventListener('activate', function(e){ e.waitUntil(self.clients.claim()); });
+self.addEventListener('activate', function(e){
+  e.waitUntil(
+    caches.keys().then(function(keys){
+      return Promise.all(keys.filter(function(k){ return k !== CACHE; }).map(function(k){ return caches.delete(k); }));
+    }).then(function(){ return self.clients.claim(); })
+  );
+});
 self.addEventListener('fetch', function(e){
   var req = e.request;
   if (req.method !== 'GET') return;
@@ -13,8 +19,12 @@ self.addEventListener('fetch', function(e){
     return;
   }
   if (new URL(req.url).origin === self.location.origin) {
+    // stale-while-revalidate for static assets so updated icons refresh on next load
     e.respondWith(
-      caches.match(req).then(function(m){ return m || fetch(req).then(function(r){ var c = r.clone(); caches.open(CACHE).then(function(ca){ ca.put(req, c); }); return r; }); })
+      caches.match(req).then(function(m){
+        var fetchP = fetch(req).then(function(r){ var c = r.clone(); caches.open(CACHE).then(function(ca){ ca.put(req, c); }); return r; }).catch(function(){ return m; });
+        return m || fetchP;
+      })
     );
   }
 });
