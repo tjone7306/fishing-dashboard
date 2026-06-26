@@ -645,6 +645,8 @@
   .hx-day.best .d{color:#ffc56b}
   .hx-day .s{font-size:16px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums;line-height:1.05}
   .hx-day .t{font-size:9px;color:#cdd8e4;font-variant-numeric:tabular-nums}
+  .hx-graphwrap{background:rgba(8,13,21,.30);border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:8px 10px 4px}
+  .hx-graphwrap .hour-graph{max-height:210px}
   @keyframes hxpulse{0%,100%{box-shadow:0 0 0 0 rgba(245,180,76,.5)}50%{box-shadow:0 0 22px 3px rgba(245,180,76,.32)}}
   @media(max-width:780px){.hx-hero,.hx-layer{min-height:0}.hx-layer{justify-content:flex-start;gap:16px}.hx-mid{row-gap:20px}.hx-gauge{width:138px;height:138px}}
   @media(max-width:600px){.hx-hero,.hx-layer{min-height:0}.hx-layer{padding:16px 16px 14px}.hx-hl{font-size:31px}.hx-gauge{width:120px;height:120px}.hx-num{font-size:40px}.hx-lakes{flex-wrap:wrap;gap:9px 8px}.hx-lk{flex:0 0 28%}}
@@ -705,16 +707,38 @@
       </div>
     </div>
 
-    <div class="hx-week" id="hero-week">
-      <div class="hx-kick" style="margin-bottom:6px">7-day outlook</div>
-      <div class="wkrow" id="hero-week-row">
-        <div class="hx-day best"><span class="d">Thu</span><span class="s">68</span><span class="t">109°</span></div>
-        <div class="hx-day"><span class="d">Fri</span><span class="s">55</span><span class="t">109°</span></div>
-        <div class="hx-day"><span class="d">Sat</span><span class="s">55</span><span class="t">105°</span></div>
-        <div class="hx-day"><span class="d">Sun</span><span class="s">65</span><span class="t">101°</span></div>
-        <div class="hx-day"><span class="d">Mon</span><span class="s">55</span><span class="t">102°</span></div>
-        <div class="hx-day"><span class="d">Tue</span><span class="s">56</span><span class="t">102°</span></div>
-        <div class="hx-day"><span class="d">Wed</span><span class="s">52</span><span class="t">103°</span></div>
+    <div id="hero-hourly">
+      <div class="hx-kick" style="margin-bottom:6px">Today's hourly</div>
+      <div class="hx-graphwrap">
+        <svg class="hour-graph" viewBox="0 0 640 230" role="img" aria-label="Hourly temperature graph for today, 6 AM to 11 PM">
+      <defs>
+        <linearGradient id="temp-fill" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#f5b44c" stop-opacity="0.38"/>
+          <stop offset="1" stop-color="#f5b44c" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <line x1="56" y1="60.2" x2="624" y2="60.2" stroke="rgba(255,255,255,0.09)" stroke-dasharray="2,3"/>
+      <line x1="56" y1="97.3" x2="624" y2="97.3" stroke="rgba(255,255,255,0.09)" stroke-dasharray="2,3"/>
+      <line x1="56" y1="126.9" x2="624" y2="126.9" stroke="rgba(255,255,255,0.09)" stroke-dasharray="2,3"/>
+      <line x1="56" y1="164" x2="624" y2="164" stroke="rgba(255,255,255,0.14)"/>
+      <text x="50" y="65.2" text-anchor="end" fill="#aebfcf" font-size="17" font-weight="700">108°</text>
+      <text x="50" y="102.3" text-anchor="end" fill="#aebfcf" font-size="17" font-weight="700">98°</text>
+      <text x="50" y="131.9" text-anchor="end" fill="#aebfcf" font-size="17" font-weight="700">90°</text>
+      <text x="50" y="169.0" text-anchor="end" fill="#aebfcf" font-size="17" font-weight="700">80°</text>
+      <path d="M56.0,115.8 L89.4,104.7 L122.8,93.6 L156.2,86.2 L189.6,86.2 L223.0,78.7 L256.4,71.3 L289.8,67.6 L323.2,71.3 L356.6,60.2 L390.0,60.2 L423.4,56.5 L456.8,63.9 L490.2,71.3 L523.6,78.7 L557.0,89.9 L590.4,97.3 L623.8,104.7 L623.8,164.0 L56.0,164.0 Z" fill="url(#temp-fill)"/>
+      <polyline points="56.0,115.8 89.4,104.7 122.8,93.6 156.2,86.2 189.6,86.2 223.0,78.7 256.4,71.3 289.8,67.6 323.2,71.3 356.6,60.2 390.0,60.2 423.4,56.5 456.8,63.9 490.2,71.3 523.6,78.7 557.0,89.9 590.4,97.3 623.8,104.7" fill="none" stroke="#f5b44c" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="423.4" cy="56.5" r="6" fill="#ffffff" stroke="#f5b44c" stroke-width="2.5"/>
+      <text x="423.4" y="47.5" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="800" paint-order="stroke" stroke="#0f1720" stroke-width="3.5" stroke-linejoin="round">109° · 5 PM</text>
+      <circle cx="56.0" cy="115.8" r="5" fill="#5eb4e7" stroke="#0f1720" stroke-width="2"/>
+      <text x="70.0" y="104.3" text-anchor="start" fill="#7cc5ef" font-size="16" font-weight="800" paint-order="stroke" stroke="#0f1720" stroke-width="3" stroke-linejoin="round">Lo 93°</text>
+      <text x="56"  y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">6A</text>
+      <text x="156" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">9A</text>
+      <text x="256" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">Noon</text>
+      <text x="356" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">3P</text>
+      <text x="456" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">6P</text>
+      <text x="556" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">9P</text>
+      <text x="620" y="198" text-anchor="end"    fill="#eaf1f8" font-size="17" font-weight="700">11P</text>
+    </svg>
       </div>
     </div>
   </div>
@@ -772,18 +796,6 @@
       var v=parseInt(p.textContent,10); var cls=p.className.replace('lk-pct','').trim().split(' ')[0];
       bar.style.width=(isNaN(v)?0:v)+'%'; bar.style.background=CMAP[cls]||'#f5b44c';
     });
-    var wk=document.getElementById('hero-week-row');
-    if(wk&&by.length){
-      var dd=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-      var best=-1,bi=-1,k;
-      for(k=0;k<by.length&&k<7;k++){ if((+by[k].score||0)>best){best=+by[k].score;bi=k;} }
-      var cells='';
-      for(k=0;k<by.length&&k<7;k++){ var dy=by[k];
-        var lab=dy.label||dd[(new Date(dy.date+'T00:00:00')).getDay()];
-        cells+='<div class="hx-day'+(k===bi?' best':'')+'"><span class="d">'+lab+'</span><span class="s">'+(dy.score!=null?dy.score:'NA')+'</span><span class="t">'+(dy.high_f!=null?dy.high_f+'\u00b0':'NA')+'</span></div>';
-      }
-      wk.innerHTML=cells;
-    }
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run); else run();
 })();
@@ -798,40 +810,6 @@
     </div>
     <div id="fcst-detail" class="fcst-detail" aria-live="polite"></div>
     <div class="fcst-pick-line" id="fcst-pick-line">🎯 <b>Pick:</b> <span id="fcst-pick-summary">Loading week ahead…</span></div>
-  </div>
-
-  <!-- TODAY'S HOURLY (temperature curve) -->
-  <div class="card" style="margin-top:12px">
-    <h3>Today's Hourly</h3>
-    <svg class="hour-graph" viewBox="0 0 640 230" role="img" aria-label="Hourly temperature graph for today, 6 AM to 11 PM">
-      <defs>
-        <linearGradient id="temp-fill" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stop-color="#f5b44c" stop-opacity="0.38"/>
-          <stop offset="1" stop-color="#f5b44c" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <line x1="56" y1="60.2" x2="624" y2="60.2" stroke="rgba(255,255,255,0.09)" stroke-dasharray="2,3"/>
-      <line x1="56" y1="97.3" x2="624" y2="97.3" stroke="rgba(255,255,255,0.09)" stroke-dasharray="2,3"/>
-      <line x1="56" y1="126.9" x2="624" y2="126.9" stroke="rgba(255,255,255,0.09)" stroke-dasharray="2,3"/>
-      <line x1="56" y1="164" x2="624" y2="164" stroke="rgba(255,255,255,0.14)"/>
-      <text x="50" y="65.2" text-anchor="end" fill="#aebfcf" font-size="17" font-weight="700">108°</text>
-      <text x="50" y="102.3" text-anchor="end" fill="#aebfcf" font-size="17" font-weight="700">98°</text>
-      <text x="50" y="131.9" text-anchor="end" fill="#aebfcf" font-size="17" font-weight="700">90°</text>
-      <text x="50" y="169.0" text-anchor="end" fill="#aebfcf" font-size="17" font-weight="700">80°</text>
-      <path d="M56.0,115.8 L89.4,104.7 L122.8,93.6 L156.2,86.2 L189.6,86.2 L223.0,78.7 L256.4,71.3 L289.8,67.6 L323.2,71.3 L356.6,60.2 L390.0,60.2 L423.4,56.5 L456.8,63.9 L490.2,71.3 L523.6,78.7 L557.0,89.9 L590.4,97.3 L623.8,104.7 L623.8,164.0 L56.0,164.0 Z" fill="url(#temp-fill)"/>
-      <polyline points="56.0,115.8 89.4,104.7 122.8,93.6 156.2,86.2 189.6,86.2 223.0,78.7 256.4,71.3 289.8,67.6 323.2,71.3 356.6,60.2 390.0,60.2 423.4,56.5 456.8,63.9 490.2,71.3 523.6,78.7 557.0,89.9 590.4,97.3 623.8,104.7" fill="none" stroke="#f5b44c" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/>
-      <circle cx="423.4" cy="56.5" r="6" fill="#ffffff" stroke="#f5b44c" stroke-width="2.5"/>
-      <text x="423.4" y="47.5" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="800" paint-order="stroke" stroke="#0f1720" stroke-width="3.5" stroke-linejoin="round">109° · 5 PM</text>
-      <circle cx="56.0" cy="115.8" r="5" fill="#5eb4e7" stroke="#0f1720" stroke-width="2"/>
-      <text x="70.0" y="104.3" text-anchor="start" fill="#7cc5ef" font-size="16" font-weight="800" paint-order="stroke" stroke="#0f1720" stroke-width="3" stroke-linejoin="round">Lo 93°</text>
-      <text x="56"  y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">6A</text>
-      <text x="156" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">9A</text>
-      <text x="256" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">Noon</text>
-      <text x="356" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">3P</text>
-      <text x="456" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">6P</text>
-      <text x="556" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">9P</text>
-      <text x="620" y="198" text-anchor="end"    fill="#eaf1f8" font-size="17" font-weight="700">11P</text>
-    </svg>
   </div>
 
   <script>
