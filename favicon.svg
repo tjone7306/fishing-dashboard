@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#26183f"/>
+      <stop offset="0.5" stop-color="#9c4a2e"/>
+      <stop offset="1" stop-color="#f0a83e"/>
+    </linearGradient>
+    <linearGradient id="four" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd766"/>
+      <stop offset="1" stop-color="#ef8a2e"/>
+    </linearGradient>
+    <clipPath id="r"><rect x="0" y="0" width="64" height="64" rx="14"/></clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect x="0" y="0" width="64" height="64" fill="url(#sky)"/>
+    <circle cx="32" cy="30" r="20" fill="#ffce72" opacity="0.30"/>
+    <path d="M0 52 L14 42 L24 49 L38 39 L52 49 L64 42 L64 64 L0 64 Z" fill="#1c1430" opacity="0.92"/>
+    <text x="7.4" y="40" text-anchor="start" font-family="Anton" font-size="34" fill="#f4ecd6" paint-order="stroke" stroke="#1a1024" stroke-width="2.5">B<tspan fill="url(#four)">4</tspan>U</text>
+  </g>
+</svg>
