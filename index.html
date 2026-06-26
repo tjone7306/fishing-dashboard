@@ -454,6 +454,7 @@
 
   /* ===== v10: live radar card + tap-to-expand hourly detail ===== */
   .radar-card{margin-top:12px;padding:0;overflow:hidden}
+  .ws-cbody{padding:2px 16px 16px}
   .radar-card > .radar-summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:14px 16px;color:var(--text);user-select:none;-webkit-tap-highlight-color:transparent}
   .radar-card > .radar-summary::-webkit-details-marker{display:none}
   .radar-summary .radar-title{font-size:1.05rem;font-weight:700;display:flex;align-items:center;gap:8px;flex:1;min-width:0}
@@ -994,7 +995,13 @@
   <div style="margin-top:20px"><a class="flow-srp-btn" href="https://streamflow.watershedconnection.com/dwr" target="_blank" rel="noopener noreferrer">View full SRP streamflow report</a></div>
 
   <!-- WATERSHED SYSTEM -->
-  <h2>Salt, Verde &amp; CAP Watersheds</h2>
+  <details class="card radar-card" id="ws-card" style="margin-top:12px">
+    <summary class="radar-summary">
+      <span class="radar-title"><span class="radar-icon">💧</span>Salt, Verde &amp; CAP Watersheds</span>
+      <span class="radar-hint">system storage &amp; flow · tap to open</span>
+      <span class="radar-caret" aria-hidden="true">›</span>
+    </summary>
+    <div class="ws-cbody">
   <div class="ws-summary">
     <div class="stat">
       <div class="k">System storage</div>
@@ -1170,6 +1177,8 @@
 </script>
 
   <div class="ws-foot">Live streamflow from USGS NWIS: Salt River near Roosevelt (Roosevelt inflow), Salt River below Stewart Mtn Dam (Saguaro outflow), Verde River above Horseshoe (Horseshoe inflow), Verde River below Bartlett Dam (Bartlett outflow). Middle reservoir releases (Roosevelt→Apache→Canyon→Saguaro, Horseshoe→Bartlett) are SRP-managed and not on public gauges.</div>
+  </div>
+  </details>
 
   <!-- LIMITLOCK CROSS-PROMO BANNER -->
   <section class="ll-banner">
