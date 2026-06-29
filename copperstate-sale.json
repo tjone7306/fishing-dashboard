@@ -1,1 +1,11 @@
-{"active": false, "percent": null, "headline": null, "holiday": null, "end": null, "url": "https://copperstatetackle.com", "updated": "2026-06-29"}
+{
+  "active": true,
+  "manual": true,
+  "percent": 20,
+  "headline": "Fourth of July Sale",
+  "holiday": "Fourth of July",
+  "end": "2026-07-06",
+  "url": "https://copperstatetackle.com",
+  "updated": "2026-06-29",
+  "_note": "Confirmed from their homepage hero banner image: '4TH OF JULY SALE 20% OFF, June 29 - July 6'. manual=true so lake-report-v2 leaves it alone until after end, then auto-detection resumes."
+}
