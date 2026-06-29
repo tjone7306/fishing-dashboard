@@ -1,9 +1,11 @@
 {
   "active": true,
+  "manual": true,
   "percent": 20,
   "headline": "Fourth of July Sale",
   "holiday": "Fourth of July",
   "end": "2026-07-07",
   "url": "https://copperstatetackle.com",
-  "updated": "2026-06-29"
+  "updated": "2026-06-29",
+  "_note": "manual=true means the lake-report-v2 task leaves this file alone (set by hand). Remove manual or set false to hand control back to auto-detection."
 }
