@@ -71,7 +71,9 @@
         'transition:transform .15s ease,box-shadow .15s ease;cursor:pointer;}' +
       '.card:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.40),0 3px 8px rgba(0,0,0,.22);}' +
       '.card:focus-visible{outline:3px solid #0a1420;outline-offset:2px;}' +
-      '.emoji{font-size:26px;line-height:1;filter:drop-shadow(0 1px 1px rgba(0,0,0,.25));}' +
+      '.logo{display:flex;align-items:center;justify-content:center;width:42px;height:42px;' +
+        'flex:0 0 42px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.28);}' +
+      '.logo img{width:36px;height:36px;object-fit:contain;display:block;}' +
       '.txt{display:flex;flex-direction:column;line-height:1.15;}' +
       '.brand{font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.78;}' +
       '.deal{font-weight:600;font-size:16px;letter-spacing:.01em;}' +
@@ -81,13 +83,13 @@
         'font-size:13px;line-height:20px;text-align:center;padding:0;' +
         'transition:background .15s ease;}' +
       '.x:hover{background:rgba(0,0,0,.22);}' +
-      '@media (max-width:480px){.deal{font-size:15px;}.emoji{font-size:23px;}}' +
+      '@media (max-width:480px){.deal{font-size:15px;}.logo{width:38px;height:38px;flex-basis:38px;}.logo img{width:32px;height:32px;}}' +
       '@media (prefers-reduced-motion:reduce){.wrap{animation:none;}}' +
       '</style>' +
       '<div class="wrap">' +
         '<a class="card" href="' + shopUrl + '" target="_blank" rel="noopener noreferrer" ' +
             'aria-label="Copperstate Tackle ' + headline + ' — shop the sale">' +
-          '<span class="emoji" aria-hidden="true">🎣</span>' +
+          '<span class="logo"><img src="https://b4u.fish/cst-logo.png" alt="Copperstate Tackle" /></span>' +
           '<span class="txt">' +
             '<span class="brand">Copperstate Tackle</span>' +
             '<span class="deal">' + headline + '</span>' +
