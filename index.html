@@ -116,6 +116,15 @@
   .fcst-baro .up{color:#4fc27a}.fcst-baro .dn{color:#f08b8b}.fcst-baro .st{color:#8ea6be}
   .fcst-pick-line{margin-top:10px;padding:9px 12px;background:rgba(79,194,122,.08);border:1px solid rgba(79,194,122,.3);border-radius:10px;font-size:.86rem;line-height:1.4;color:#c8e8d5}
   .fcst-pick-line b{color:var(--good,#4fc27a);font-weight:700}
+  .bs-how-toggle{margin-left:8px;background:none;border:none;color:var(--good,#4fc27a);font:inherit;font-size:.8rem;font-weight:600;cursor:pointer;padding:0;text-decoration:underline;white-space:nowrap}
+  .bs-how-toggle:hover,.bs-how-toggle:focus{color:#7fe0a6}
+  .bs-how{margin-top:8px;padding:10px 12px;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;font-size:.82rem;line-height:1.45;color:var(--text)}
+  .bs-how h4{margin:0 0 7px;font-size:.8rem;color:var(--muted);font-weight:600;letter-spacing:.2px}
+  .bs-how .bsf{display:flex;gap:9px;padding:3px 0}
+  .bs-how .bsf .w{flex:0 0 26px;text-align:right;color:var(--good,#4fc27a);font-weight:700;font-variant-numeric:tabular-nums}
+  .bs-how .bsf .t{color:var(--muted)}
+  .bs-how .bsf .t b{color:var(--text);font-weight:600}
+  .bs-how .tot{margin-top:7px;padding-top:7px;border-top:1px solid var(--border);color:var(--muted);font-size:.78rem}
   @media (max-width:420px){
     .fcst-tile{padding:10px 4px 9px}
     .fcst-ic{font-size:1.5rem}
@@ -831,7 +840,18 @@
       <!-- 7 day tiles populated by JS below -->
     </div>
     <div id="fcst-detail" class="fcst-detail" aria-live="polite"></div>
-    <div class="fcst-pick-line" id="fcst-pick-line">🎯 <b>Pick:</b> <span id="fcst-pick-summary">Loading week ahead…</span></div>
+    <div class="fcst-pick-line" id="fcst-pick-line">🎯 <b>Pick:</b> <span id="fcst-pick-summary">Loading week ahead…</span><button type="button" class="bs-how-toggle" id="bs-how-toggle" aria-expanded="false" aria-controls="bs-how">how it’s scored ›</button></div>
+    <div class="bs-how" id="bs-how" hidden>
+      <h4>How the Bite Score works — 100 points across 6 factors</h4>
+      <div class="bsf"><span class="w">25</span><span class="t"><b>Barometric pressure &amp; front</b> — the biggest lever. A falling barometer ahead of a front fires the bite; a rising one shuts it down.</span></div>
+      <div class="bsf"><span class="w">20</span><span class="t"><b>Moon &amp; solunar</b> — phase (new and full are strongest) plus whether the moon overhead/underfoot lands in fishable hours.</span></div>
+      <div class="bsf"><span class="w">15</span><span class="t"><b>Wind</b> — a light SW/S breeze (6–15 mph) is ideal; dead calm or a hard north wind costs points.</span></div>
+      <div class="bsf"><span class="w">15</span><span class="t"><b>Cloud cover</b> — overcast and low dawn/dusk light beat bright bluebird skies.</span></div>
+      <div class="bsf"><span class="w">15</span><span class="t"><b>Water temp</b> — how close the surface sits to the bass comfort zone (≈65–78°F).</span></div>
+      <div class="bsf"><span class="w">10</span><span class="t"><b>Stability</b> — a bonus for settled conditions; a recent front or big temperature swing drops it.</span></div>
+      <div class="tot">85+ Drop everything · 70+ Solid bite · 55+ Workable · 35+ Tough day · under 35 Save the gas.</div>
+    </div>
+    <script>(function(){var b=document.getElementById("bs-how-toggle"),p=document.getElementById("bs-how");if(!b||!p)return;b.addEventListener("click",function(){var open=p.hasAttribute("hidden");if(open){p.removeAttribute("hidden");}else{p.setAttribute("hidden","");}b.setAttribute("aria-expanded",open?"true":"false");b.innerHTML=open?"hide ˅":"how it’s scored ›";});})();</script>
   </div>
 
   <script>
