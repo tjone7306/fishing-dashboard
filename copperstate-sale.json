@@ -1,10 +1,9 @@
 {
-  "active": false,
-  "percent": null,
-  "headline": null,
-  "holiday": null,
-  "end": null,
+  "active": true,
+  "percent": 20,
+  "headline": "Fourth of July Sale",
+  "holiday": "Fourth of July",
+  "end": "2026-07-07",
   "url": "https://copperstatetackle.com",
-  "updated": "2026-06-29",
-  "_note": "Auto-maintained by the lake-report-v2 scheduled task. Set active=true with percent (e.g. 20), an optional headline/holiday (e.g. 'Fourth of July Sale'), and end (YYYY-MM-DD, Phoenix local) when copperstatetackle.com advertises a store-wide percent-off sale. The cst-sale-bubble.js widget shows the badge only while active=true and today<=end."
+  "updated": "2026-06-29"
 }
