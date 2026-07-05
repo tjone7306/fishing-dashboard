@@ -160,7 +160,7 @@ def gen(key, ring, lv, outpath):
     placed=[]  # (x0,x1,y) of placed label boxes
     def place(x,y,label,prefer=None):
         """pick side + y offset avoiding edge clipping and collisions"""
-        w=7.6*len(label)
+        w=8.4*len(label)
         opts=[]
         base = prefer or (("end") if x<ctr[0] else ("start"))
         order=[base, "start" if base=="end" else "end"]
@@ -212,7 +212,7 @@ def gen(key, ring, lv, outpath):
         x,y=snap(lat,lon); marks.append((label,x,y))
         body.append(f'<line x1="{x-40:.0f}" y1="{y:.0f}" x2="{x+40:.0f}" y2="{y:.0f}" stroke="{C["accent"]}" stroke-width="2" stroke-dasharray="7 6" stroke-opacity="0.9" filter="url(#glow)"/>')
         body.append(f'<text x="{x+52:.0f}" y="{y+4:.0f}" fill="{C["accent"]}" font-size="10.5" letter-spacing="1.2">{label}</text>')
-    meth = "CAP LIVE ACREAGE" if lv.get("acres") else "MODELED FROM STORAGE"
+    meth = "CAP LIVE DATA" if lv.get("acres") else "STORAGE MODEL"
     LY=CH-LEG_H+10
     svg=f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 {CH}" font-family="Helvetica,Arial,sans-serif">
 <defs>
@@ -236,7 +236,7 @@ def gen(key, ring, lv, outpath):
  <text x="742" y="100" fill="{C["warn"]}" font-size="10.5" letter-spacing="1.2" text-anchor="middle">−{lv["below"]} FT BELOW FULL ({cfg["full_elev"]} FT)</text>
 </g>
 <g font-size="10.5" letter-spacing="1.1">
- <rect x="56" y="{LY}" width="788" height="{LEG_H-46}" rx="10" fill="{C["card"]}" stroke="#ffffff" stroke-opacity="0.08"/>
+ <rect x="56" y="{LY}" width="788" height="{LEG_H-62}" rx="10" fill="{C["card"]}" stroke="#ffffff" stroke-opacity="0.08"/>
  <circle cx="80" cy="{LY+26}" r="5" fill="{C["text"]}" stroke="{C["accent"]}" stroke-width="1.6"/><text x="96" y="{LY+30}" fill="{C["muted"]}">BOAT RAMP / MARINA</text>
  <circle cx="80" cy="{LY+52}" r="4.5" fill="{C["good"]}"/><text x="96" y="{LY+56}" fill="{C["muted"]}">SOLID = PRIMARY ZONE</text>
  <circle cx="80" cy="{LY+78}" r="4.5" fill="none" stroke="{C["good"]}"/><text x="96" y="{LY+82}" fill="{C["muted"]}">RING = STRUCTURE / SCHOOLING</text>
