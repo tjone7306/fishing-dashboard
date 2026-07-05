@@ -228,7 +228,7 @@ def gen(key, ring, lv, outpath):
 <text x="56" y="64" fill="{C["text"]}" font-size="30" letter-spacing="6" font-weight="300">{cfg["title"]}</text>
 <text x="56" y="88" fill="{C["muted"]}" font-size="11.5" letter-spacing="3">STRUCTURE &amp; SEASONAL MAP · {cfg["county"]}</text>
 <line x1="56" y1="102" x2="248" y2="102" stroke="{C["accent"]}" stroke-width="2"/>
-<text x="56" y="122" fill="{C["muted"]}" font-size="10" letter-spacing="1.5" opacity="0.85">SHORELINE: OPENSTREETMAP · SPECIES PER B4U.FISH LAKE GUIDE · ZONES GENERALIZED</text>
+<text x="56" y="122" fill="{C["muted"]}" font-size="10" letter-spacing="1.5" opacity="0.85">SHORELINE: OPENSTREETMAP · ZONES: GENERAL SEASONAL AREAS PER AZGFD SPECIES LISTS</text>
 <g>
  <rect x="640" y="30" width="204" height="86" rx="10" fill="{C["card"]}" stroke="{C["accent"]}" stroke-opacity="0.35"/>
  <text x="742" y="52" fill="{C["muted"]}" font-size="10" letter-spacing="2" text-anchor="middle">WATER LEVEL TODAY</text>
@@ -236,16 +236,16 @@ def gen(key, ring, lv, outpath):
  <text x="742" y="100" fill="{C["warn"]}" font-size="10.5" letter-spacing="1.2" text-anchor="middle">−{lv["below"]} FT BELOW FULL ({cfg["full_elev"]} FT)</text>
 </g>
 <g font-size="10.5" letter-spacing="1.1">
- <rect x="56" y="{LY}" width="788" height="{LEG_H-30}" rx="10" fill="{C["card"]}" stroke="#ffffff" stroke-opacity="0.08"/>
+ <rect x="56" y="{LY}" width="788" height="{LEG_H-46}" rx="10" fill="{C["card"]}" stroke="#ffffff" stroke-opacity="0.08"/>
  <circle cx="80" cy="{LY+26}" r="5" fill="{C["text"]}" stroke="{C["accent"]}" stroke-width="1.6"/><text x="96" y="{LY+30}" fill="{C["muted"]}">BOAT RAMP / MARINA</text>
  <circle cx="80" cy="{LY+52}" r="4.5" fill="{C["good"]}"/><text x="96" y="{LY+56}" fill="{C["muted"]}">SOLID = PRIMARY ZONE</text>
  <circle cx="80" cy="{LY+78}" r="4.5" fill="none" stroke="{C["good"]}"/><text x="96" y="{LY+82}" fill="{C["muted"]}">RING = STRUCTURE / SCHOOLING</text>
  <line x1="330" y1="{LY+22}" x2="350" y2="{LY+22}" stroke="{C["accent"]}" stroke-opacity="0.9" stroke-width="2"/><text x="360" y="{LY+26}" fill="{C["muted"]}">CURRENT WATERLINE · {lv["pct"]}%</text>
  <line x1="330" y1="{LY+48}" x2="350" y2="{LY+48}" stroke="{C["muted"]}" stroke-opacity="0.5" stroke-dasharray="5 4"/><text x="360" y="{LY+52}" fill="{C["muted"]}">FULL POOL {cfg["full_elev"]} FT</text>
  <rect x="330" y="{LY+68}" width="20" height="9" fill="{C["bank"]}"/><text x="360" y="{LY+78}" fill="{C["muted"]}">EXPOSED BANK</text>
- <text x="620" y="{LY+26}" fill="{C["muted"]}">DEPTH CONTOURS = RELATIVE</text>
- <text x="620" y="{LY+52}" fill="{C["muted"]}">WATERLINE: {meth}</text>
- <text x="620" y="{LY+78}" fill="{C["muted"]}">LOCAL BANKS VARY</text>
+ <text x="600" y="{LY+26}" fill="{C["muted"]}">DEPTH CONTOURS = RELATIVE</text>
+ <text x="600" y="{LY+52}" fill="{C["muted"]}">WATERLINE: {meth}</text>
+ <text x="600" y="{LY+78}" fill="{C["muted"]}">LOCAL BANKS VARY</text>
 </g>
 <text x="844" y="{CH-14}" fill="{C["muted"]}" font-size="10" letter-spacing="1.5" text-anchor="end" opacity="0.8">STYLIZED — NOT FOR NAVIGATION · b4u.fish</text>
 <g transform="translate(862,158)" stroke="{C["muted"]}" fill="{C["muted"]}"><line x1="0" y1="14" x2="0" y2="-14" stroke-width="1.2"/><path d="M 0,-14 l 5,9 h -10 z" stroke="none"/><text x="0" y="-20" font-size="10" text-anchor="middle" stroke="none">N</text></g>

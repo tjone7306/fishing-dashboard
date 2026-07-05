@@ -2851,6 +2851,15 @@
   <span style="margin:0 4px">·</span>
   <a href="/lake/az/" style="color:var(--accent);text-decoration:none;white-space:nowrap">All Arizona lakes</a>
 </footer>
+<script id="lake-nav">(function(){
+  var pages={pleasant:'lake-pleasant',roosevelt:'roosevelt',apache:'apache',canyon:'canyon',saguaro:'saguaro',bartlett:'bartlett',alamo:'alamo'};
+  document.querySelectorAll('details[data-lake]>summary').forEach(function(s){
+    var k=s.parentElement.getAttribute('data-lake');
+    if(!pages[k])return;
+    s.style.cursor='pointer';
+    s.addEventListener('click',function(e){e.preventDefault();location.href='/lake/az/'+pages[k]+'/';});
+  });
+})();</script>
 <!-- b4u-fish visit beacon (analytics -> ops page - added 2026-06-24) -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
