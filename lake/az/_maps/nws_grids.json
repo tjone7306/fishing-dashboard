@@ -1,0 +1,44 @@
+{
+ "pleasant": {
+  "office": "PSR",
+  "gx": 154,
+  "gy": 77,
+  "city": "Peoria"
+ },
+ "roosevelt": {
+  "office": "PSR",
+  "gx": 194,
+  "gy": 63,
+  "city": "Roosevelt"
+ },
+ "apache": {
+  "office": "PSR",
+  "gx": 188,
+  "gy": 60,
+  "city": "Roosevelt"
+ },
+ "canyon": {
+  "office": "PSR",
+  "gx": 183,
+  "gy": 59,
+  "city": "Apache Junction"
+ },
+ "saguaro": {
+  "office": "PSR",
+  "gx": 180,
+  "gy": 61,
+  "city": "Apache Junction"
+ },
+ "bartlett": {
+  "office": "PSR",
+  "gx": 177,
+  "gy": 73,
+  "city": "Rio Verde"
+ },
+ "alamo": {
+  "office": "PSR",
+  "gx": 108,
+  "gy": 100,
+  "city": "Alamo Lake"
+ }
+}
