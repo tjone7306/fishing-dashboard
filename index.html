@@ -765,7 +765,7 @@
       <circle class="hg-dot hg-hi" cx="423.4" cy="42.8" r="7" stroke-width="2.5"/>
       <text class="hg-lbl hg-hi-t" x="423.4" y="31.8" font-size="25">111° · 5 PM</text>
       <circle class="hg-dot hg-lo" cx="89.4" cy="121.0" r="6.5" stroke-width="2"/>
-      <text class="hg-lbl hg-lo-t" x="104.4" y="108.0" font-size="21">Lo 87°</text>
+      <text class="hg-lbl hg-lo-t" x="89.4" y="148.0" text-anchor="middle" font-size="21">Lo 87°</text>
       <text x="56"  y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">6A</text>
       <text x="156" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">9A</text>
       <text x="256" y="198" text-anchor="middle" fill="#eaf1f8" font-size="17" font-weight="700">Noon</text>
@@ -888,6 +888,9 @@
       // label below the dot so it never collides with the High callout above the curve
       var ly=Math.min(y+19,157);
       var tx=Math.max(40,Math.min(x,604));
+      var loT=svg.querySelector('.hg-lo-t');
+      if(loT){var lx=+loT.getAttribute('x'),lyy=+loT.getAttribute('y');
+        if(Math.abs(tx-lx)<85&&Math.abs(ly-lyy)<20){ly=Math.min(lyy+20,168);}}
       g.appendChild(el('text',{x:tx.toFixed(1),y:ly.toFixed(1),'text-anchor':'middle',fill:'#eaf1f8','font-size':14,'font-weight':800,'paint-order':'stroke',stroke:'#0f1720','stroke-width':3,'stroke-linejoin':'round'},Math.round(t)+'\u00b0 now'));
       svg.appendChild(g);
     }
