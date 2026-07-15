@@ -1408,7 +1408,99 @@
   <!-- BUY AZ FISHING LICENSE -->
   <a class="license-cta" href="https://license.azgfd.com/" target="_blank" rel="noopener noreferrer" aria-label="Buy Arizona fishing license (opens in new tab)">Buy AZ Fishing License</a>
 
-  <!-- FOOTER SOURCES -->
+  <!-- ============ B4U.fish · Call-the-Line CTA (self-contained, namespaced) ============ -->
+<style>
+.clc{
+  --clc-accent:#5eb4e7; --clc-good:#4fc27a;
+  width:100%; max-width:960px; margin:26px auto; box-sizing:border-box;
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(94,180,231,.16), transparent 55%),
+    linear-gradient(160deg,#13202e,#18293a);
+  border:1px solid rgba(255,255,255,.08); border-radius:22px;
+  padding:30px 30px 26px; position:relative; overflow:hidden;
+  box-shadow:0 24px 60px -28px rgba(0,0,0,.9);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:#eaf1f8;
+}
+.clc *{box-sizing:border-box}
+.clc::before{content:"";position:absolute;left:-10%;right:-10%;bottom:-60px;height:140px;
+  background:radial-gradient(60% 100% at 50% 0%, rgba(94,180,231,.10), transparent 70%);pointer-events:none}
+.clc-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;position:relative;z-index:1}
+.clc-eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--clc-accent);
+  font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.clc-dot{width:7px;height:7px;border-radius:50%;background:var(--clc-good);animation:clc-live 2.4s infinite}
+@keyframes clc-live{0%{box-shadow:0 0 0 0 rgba(79,194,122,.55)}70%{box-shadow:0 0 0 8px rgba(79,194,122,0)}100%{box-shadow:0 0 0 0 rgba(79,194,122,0)}}
+.clc-hero{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;
+  font-size:clamp(1.9rem,4.6vw,2.9rem);line-height:1.02;margin:0 0 14px;letter-spacing:.01em;color:#eaf1f8}
+.clc-spark{color:var(--clc-accent)}
+.clc-lede{color:#8ea6be;font-size:1.02rem;line-height:1.5;margin:0 0 18px;max-width:34ch}
+.clc-chips{display:flex;flex-wrap:wrap;gap:8px}
+.clc-chip{font-size:.8rem;color:#eaf1f8;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);padding:6px 11px;border-radius:999px;white-space:nowrap}
+.clc-chip b{color:var(--clc-accent);font-weight:600}
+.clc-card{background:linear-gradient(180deg,rgba(94,180,231,.08),rgba(255,255,255,.02));
+  border:1px solid rgba(94,180,231,.28);border-radius:18px;padding:22px 20px;text-align:center}
+.clc-phone{position:relative;width:64px;height:64px;margin:2px auto 12px}
+.clc-ring{position:absolute;inset:0;border-radius:50%;border:2px solid var(--clc-accent);opacity:0;animation:clc-ring 2.6s infinite}
+.clc-ring.two{animation-delay:.9s}
+@keyframes clc-ring{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.9);opacity:0}}
+.clc-glyph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:var(--clc-accent);border-radius:50%;font-size:1.7rem;box-shadow:0 10px 26px -8px rgba(94,180,231,.7)}
+.clc-waves{display:flex;gap:3px;justify-content:center;align-items:flex-end;height:16px;margin-bottom:8px}
+.clc-waves i{width:3px;background:var(--clc-accent);border-radius:2px;opacity:.85;animation:clc-eq 1.1s ease-in-out infinite}
+.clc-waves i:nth-child(1){height:6px;animation-delay:0s}.clc-waves i:nth-child(2){height:14px;animation-delay:.15s}
+.clc-waves i:nth-child(3){height:9px;animation-delay:.3s}.clc-waves i:nth-child(4){height:16px;animation-delay:.45s}
+.clc-waves i:nth-child(5){height:7px;animation-delay:.6s}.clc-waves i:nth-child(6){height:12px;animation-delay:.75s}
+@keyframes clc-eq{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+.clc-num{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.9rem;letter-spacing:.02em;color:#eaf1f8;margin:2px 0 4px}
+.clc-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;margin-top:12px;
+  background:var(--clc-accent);color:#06131f;font-weight:700;text-decoration:none;font-size:1.02rem;
+  padding:13px 22px;border-radius:12px;width:100%;box-shadow:0 12px 30px -10px rgba(94,180,231,.65);
+  transition:transform .12s ease,box-shadow .12s ease}
+.clc-btn:hover{transform:translateY(-2px);box-shadow:0 18px 38px -12px rgba(94,180,231,.8)}
+.clc-fine{color:#8ea6be;font-size:.78rem;margin-top:11px}
+.clc-preview{margin-top:24px;padding-top:22px;border-top:1px dashed rgba(255,255,255,.08);position:relative;z-index:1}
+.clc-plabel{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#8ea6be;margin-bottom:12px}
+.clc-bubbles{display:flex;flex-direction:column;gap:10px;max-width:640px}
+.clc-b{padding:11px 15px;border-radius:14px;font-size:.95rem;line-height:1.45;max-width:82%}
+.clc-b.you{align-self:flex-end;background:rgba(94,180,231,.16);border:1px solid rgba(94,180,231,.3);border-bottom-right-radius:5px}
+.clc-b.line{align-self:flex-start;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);border-bottom-left-radius:5px}
+.clc-who{display:block;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#8ea6be;margin-bottom:3px}
+.clc-b.line .clc-who{color:var(--clc-accent)}
+@media(max-width:720px){.clc-grid{grid-template-columns:1fr;gap:22px}.clc-lede{max-width:none}.clc-hero{font-size:2rem}}
+</style>
+<section class="clc" aria-label="Call the Arizona Fishing Report Line">
+  <div class="clc-grid">
+    <div>
+      <div class="clc-eyebrow"><span class="clc-dot"></span> Arizona Fishing Report Line · Live</div>
+      <h2 class="clc-hero">Eyes on the road.<br><span class="clc-spark">Mind on the fish.</span></h2>
+      <p class="clc-lede">Truck's pointed at the lake and you can't be fumbling with a screen? Call the line and get today's report — hands-free, straight to the point.</p>
+      <div class="clc-chips">
+        <span class="clc-chip"><b>·</b> Lake levels</span>
+        <span class="clc-chip"><b>·</b> Weather &amp; storms</span>
+        <span class="clc-chip"><b>·</b> Bite windows</span>
+        <span class="clc-chip"><b>·</b> Tournaments</span>
+      </div>
+    </div>
+    <div class="clc-card">
+      <div class="clc-phone"><span class="clc-ring"></span><span class="clc-ring two"></span><span class="clc-glyph">📞</span></div>
+      <div class="clc-waves"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="clc-num">(480) 800-0406</div>
+      <a class="clc-btn" href="tel:+14808000406">📞 Tap to Call the Line</a>
+      <div class="clc-fine">Free to call · Ask about any Phoenix-area lake</div>
+    </div>
+  </div>
+  <div class="clc-preview">
+    <div class="clc-plabel">Sounds like this</div>
+    <div class="clc-bubbles">
+      <div class="clc-b you"><span class="clc-who">You</span>Heading to Saguaro in the morning — how's it looking?</div>
+      <div class="clc-b line"><span class="clc-who">The Line</span>Solid bite. Best window's around 5:45 to 8, but pressure's falling ahead of the storms, so they'll chew early too. Lake's near full — easy launch at the marina.</div>
+    </div>
+  </div>
+</section>
+<!-- ============ END Call-the-Line CTA ============ -->
+
+    <!-- FOOTER SOURCES -->
   <footer>
     <div style="margin-bottom:8px"><b style="color:var(--text)">Data sources</b></div>
     <a href="https://streamflow.watershedconnection.com/dwr" target="_blank" rel="noopener noreferrer">SRP / DWR reservoirs</a> ·
