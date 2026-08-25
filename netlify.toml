@@ -19,3 +19,9 @@
   [headers.values]
     Cache-Control = "public, max-age=300, must-revalidate"
     Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/lakes.json"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Access-Control-Allow-Origin = "*"
