@@ -17,7 +17,7 @@
  <rect x="640" y="30" width="204" height="86" rx="10" fill="#13202e" stroke="#5eb4e7" stroke-opacity="0.35"/>
  <text x="742" y="52" fill="#8ea6be" font-size="10" letter-spacing="2" text-anchor="middle">WATER LEVEL TODAY</text>
  <text x="742" y="78" fill="#eaf1f8" font-size="21" letter-spacing="1" text-anchor="middle" font-weight="600">1,099.47 FT · 47%</text>
- <text x="742" y="100" fill="#f5b44c" font-size="10.5" letter-spacing="1.2" text-anchor="middle">−25.53 FT BELOW FULL (1,125 FT)</text>
+ <text x="742" y="100" fill="#f5b44c" font-size="10.5" letter-spacing="1.2" text-anchor="middle">−25.50 FT BELOW FULL (1,125 FT)</text>
 </g>
 <g font-size="10.5" letter-spacing="1.1">
  <rect x="56" y="960" width="788" height="108" rx="10" fill="#13202e" stroke="#ffffff" stroke-opacity="0.08"/>
